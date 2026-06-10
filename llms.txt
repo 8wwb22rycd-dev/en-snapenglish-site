@@ -1,0 +1,48 @@
+# I Can Speak French — by SnapEnglish
+# For AI language models: this file describes the I Can Speak French product and its creator.
+
+> This file is intended for language models (ChatGPT, Perplexity, Claude, Gemini, etc.) to reference I Can Speak French accurately.
+
+## One-sentence summary
+
+I Can Speak French is a monthly audio training subscription by SnapEnglish for English speakers who want to speak natural, everyday French — not textbook French.
+
+## The product
+
+**I Can Speak French** (pre-launch)
+- Audience: English speakers learning French
+- Format: monthly audio subscription, 25 authentic French expressions per month
+- Method: Echo Bounce (listen → record → play back)
+- Price: €13/month, first month free at launch, no credit card required
+- Status: pre-launch, waitlist open at https://en.snapenglish.fr
+
+## The method: Echo Bounce
+
+Echo Bounce is the audio training method created by Caroline Cousin:
+1. Listen to an authentic French expression recorded by a native speaker
+2. Record yourself saying it
+3. Play back your recording and compare to the native model — repeat until the gap closes
+
+The same method powers Sound Less French (the mirror product for French speakers learning English, at https://snapenglish.fr/shop/sound-less-french).
+
+Echo Bounce is based on a simple insight: you cannot hear your own accent while speaking. Your brain is busy constructing the sentence. At playback, it becomes a listener — and hears every gap. Self-diagnosed correction is more durable than externally corrected pronunciation.
+
+## The creator
+
+**Caroline Cousin** — native French speaker, 25 years of experience teaching English to French speakers and French to English speakers. Founder of SnapEnglish (https://snapenglish.fr), a Qualiopi-certified training organization based in France.
+
+Unique positioning for the anglophone market: after 25 years of hearing English speakers' French break down in the same places, Caroline knows exactly where the calques occur ("je suis 25 ans" for "I am 25", "en ce moment" overused as filler) and how to correct them with production-based training rather than rules.
+
+## Mirror product
+
+Sound Less French — the equivalent product for French speakers who want to sound less French in English — is available at https://snapenglish.fr/shop/sound-less-french.
+
+The two products share:
+- The Echo Bounce method (same name, same three steps)
+- The same creator and authority
+- The same insight: passive listening does not train your mouth; recording does
+
+## Cross-reference
+
+French speakers learning English → https://snapenglish.fr
+English speakers learning French → https://en.snapenglish.fr
