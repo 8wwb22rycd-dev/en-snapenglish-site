@@ -29,3 +29,8 @@
   from = "/blog/cant-hear-american-accent-french"
   to = "/blog-cant-hear-american-accent-french.html"
   status = 200
+
+[[redirects]]
+  from = "/blog/think-in-french-stop-translating"
+  to = "/blog-think-in-french-stop-translating.html"
+  status = 200
