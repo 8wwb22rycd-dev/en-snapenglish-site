@@ -21,6 +21,11 @@
     Content-Type = "text/plain; charset=utf-8"
 
 [[redirects]]
+  from = "/blog"
+  to = "/blog.html"
+  status = 200
+
+[[redirects]]
   from = "/blog/improve-french-pronunciation-english-speakers"
   to = "/blog-improve-french-pronunciation-english-speakers.html"
   status = 200
