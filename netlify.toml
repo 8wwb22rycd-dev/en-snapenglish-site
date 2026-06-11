@@ -24,3 +24,8 @@
   from = "/blog/improve-french-pronunciation-english-speakers"
   to = "/blog-improve-french-pronunciation-english-speakers.html"
   status = 200
+
+[[redirects]]
+  from = "/blog/cant-hear-american-accent-french"
+  to = "/blog-cant-hear-american-accent-french.html"
+  status = 200
