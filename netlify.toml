@@ -34,3 +34,8 @@
   from = "/blog/think-in-french-stop-translating"
   to = "/blog-think-in-french-stop-translating.html"
   status = 200
+
+[[redirects]]
+  from = "/blog/french-phrases-locals-actually-use"
+  to = "/blog-french-phrases-locals-actually-use.html"
+  status = 200
