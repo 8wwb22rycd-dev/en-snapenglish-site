@@ -160,6 +160,136 @@
     .hero-sub { font-size: 1.05rem; opacity: 0.7; max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7; }
     .hero-divider { width: 3rem; height: 2px; background: var(--gold); margin: 0 auto 3rem; }
 
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+      text-align: left;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .hero-image {
+      position: relative;
+    }
+    .hero-image img {
+      display: block;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 8px;
+      box-shadow: 0 16px 50px rgba(27, 42, 74, 0.18);
+      object-fit: cover;
+      aspect-ratio: 4 / 5;
+      margin-left: auto;
+    }
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      border: 1px solid rgba(184, 151, 90, 0.25);
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    .lifestyle {
+      max-width: 880px;
+      margin: 4rem auto 0;
+      padding: 3rem var(--gutter) 0;
+    }
+    .lifestyle-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+    .lifestyle-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      font-weight: 400;
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.75rem;
+    }
+    .lifestyle-subtitle {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      font-size: 1rem;
+      opacity: 0.75;
+      line-height: 1.7;
+    }
+    .lifestyle-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .lifestyle-card {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      background: var(--warm);
+      box-shadow: 0 4px 20px rgba(27, 42, 74, 0.10);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .lifestyle-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(27, 42, 74, 0.18);
+    }
+    .lifestyle-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .lifestyle-card:hover img {
+      transform: scale(1.04);
+    }
+    .lifestyle-card-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 1.5rem;
+      background: linear-gradient(to top, rgba(27, 42, 74, 0.78) 0%, rgba(27, 42, 74, 0.0) 55%);
+      color: var(--cream);
+      text-align: left;
+    }
+    .lifestyle-card-key {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin: 0 0 0.3rem;
+      font-style: italic;
+      letter-spacing: 0.01em;
+    }
+    .lifestyle-card-line {
+      font-size: 0.88rem;
+      margin: 0;
+      opacity: 0.95;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .hero-split { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
+      .hero-image img { margin: 0 auto; max-width: 320px; }
+      .hero-image::before { display: none; }
+      .lifestyle-grid { grid-template-columns: 1fr; }
+      .lifestyle-card { aspect-ratio: 3 / 4; }
+    }
+
     /* WAITLIST FORM */
     .waitlist { background: var(--navy); border-radius: 6px; padding: 2rem; margin: 0 auto 4rem; max-width: 520px; text-align: center; }
     .waitlist-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
@@ -258,16 +388,78 @@
 
 <main>
   <div class="hero">
-    <p class="hero-eyebrow">I Can Speak French · Pre-launch</p>
-    <h1 class="hero-title">Speak <em>natural</em> French.<br>Not textbook French.</h1>
-    <p class="hero-sub">Monthly audio training for English speakers — 25 authentic French expressions per month, trained with the Echo Bounce method until they come out naturally.</p>
-    <div class="hero-signature">
-    <img src="/images/caroline-cousin.webp" alt="Caroline Cousin — native French teacher, founder of SnapEnglish" width="130" height="130" />
-    <p class="hero-signature-text"><strong>Caroline Cousin</strong> · native French teacher · <span class="accent">25 years experience</span></p>
+  <div class="hero-split">
+    <div class="hero-content">
+      <p class="hero-eyebrow">I Can Speak French · Pre-launch</p>
+      <h1 class="hero-title">Speak <em>natural</em> French.<br>Not textbook French.</h1>
+      <p class="hero-sub">Monthly audio training for English speakers — 25 authentic French expressions per month, trained with the Echo Bounce method until they come out naturally.</p>
+      <div class="hero-signature">
+        <img src="/images/caroline-cousin.webp" alt="Caroline Cousin — native French teacher, founder of SnapEnglish" width="130" height="130" />
+        <p class="hero-signature-text"><strong>Caroline Cousin</strong> · native French teacher · <span class="accent">25 years experience</span></p>
+      </div>
+    </div>
+    <div class="hero-image">
+      <picture>
+        <source srcset="/images/lifestyle/lifestyle-paris-balcon.webp" type="image/webp" />
+        <img src="/images/lifestyle/lifestyle-paris-balcon.jpg" alt="Balcon parisien, petit-déjeuner avec croissant, café, journal, vue sur les toits" loading="eager" width="1000" height="1333" />
+      </picture>
+    </div>
   </div>
 
   <div class="hero-divider"></div>
   </div>
+
+  <section class="lifestyle" aria-label="Tous les visages du français">
+    <p class="lifestyle-eyebrow">L'art de vivre</p>
+    <h2 class="lifestyle-title">Tous les visages du français</h2>
+    <p class="lifestyle-subtitle">Une langue, mille façons de la vivre. Voici le français qu'on ne vous apprend pas dans les manuels — celui qui se goûte, se partage, se vit.</p>
+
+    <div class="lifestyle-grid">
+      <div class="lifestyle-card">
+        <picture>
+          <source srcset="/images/lifestyle/lifestyle-cours-mirabeau.webp" type="image/webp" />
+          <img src="/images/lifestyle/lifestyle-cours-mirabeau.jpg" alt="Terrasse du Cours Mirabeau à Aix-en-Provence, verre de rosé, olives, journal" loading="lazy" width="1000" height="1333" />
+        </picture>
+        <div class="lifestyle-card-text">
+          <p class="lifestyle-card-key">Douceur de vivre</p>
+          <p class="lifestyle-card-line">L'apéro sous les platanes, comme à Aix.</p>
+        </div>
+      </div>
+
+      <div class="lifestyle-card">
+        <picture>
+          <source srcset="/images/lifestyle/lifestyle-terrasse-aix.webp" type="image/webp" />
+          <img src="/images/lifestyle/lifestyle-terrasse-aix.jpg" alt="Terrasse à Aix-en-Provence, plusieurs personnes discutent au soleil" loading="lazy" width="1000" height="1333" />
+        </picture>
+        <div class="lifestyle-card-text">
+          <p class="lifestyle-card-key">Convivialité</p>
+          <p class="lifestyle-card-line">L'art de la conversation, en vrai.</p>
+        </div>
+      </div>
+
+      <div class="lifestyle-card">
+        <picture>
+          <source srcset="/images/lifestyle/lifestyle-marche-aix.webp" type="image/webp" />
+          <img src="/images/lifestyle/lifestyle-marche-aix.jpg" alt="Une Française qui fait son marché à Aix-en-Provence avec un panier" loading="lazy" width="1000" height="1333" />
+        </picture>
+        <div class="lifestyle-card-text">
+          <p class="lifestyle-card-key">Authenticité</p>
+          <p class="lifestyle-card-line">Le marché du matin, comme une locale.</p>
+        </div>
+      </div>
+
+      <div class="lifestyle-card">
+        <picture>
+          <source srcset="/images/lifestyle/lifestyle-parisienne-eiffel.webp" type="image/webp" />
+          <img src="/images/lifestyle/lifestyle-parisienne-eiffel.jpg" alt="Parisienne chic avec foulard, sac cuir, lunettes noires, marchant à Paris avec la Tour Eiffel en arrière-plan" loading="lazy" width="1000" height="1333" />
+        </picture>
+        <div class="lifestyle-card-text">
+          <p class="lifestyle-card-key">Élégance</p>
+          <p class="lifestyle-card-line">Paris, naturellement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div class="section" style="padding-bottom:0;">
     <div id="waitlist" class="waitlist">
