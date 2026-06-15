@@ -188,6 +188,19 @@
     footer a { color: var(--gold); text-decoration: none; font-size: 0.82rem; }
 
     @media (max-width: 600px) { .waitlist-form { flex-direction: column; } .waitlist-form input[type="email"] { min-width: unset; } }
+  
+    @media (max-width: 768px) {
+      .nav-lang { display: none; }
+      .nav-right { gap: 0.7rem; }
+      .nav-cta { padding: 0.4rem 0.7rem; font-size: 0.72rem; }
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 5rem var(--gutter) 2rem; }
+      .waitlist { padding: 1.5rem 1.25rem; }
+      .waitlist h2 { font-size: 1.2rem; }
+      .waitlist-form input[type="email"] { flex: 1 1 100%; min-width: 0; }
+    }
   </style>
 </head>
 
