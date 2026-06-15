@@ -50,3 +50,18 @@
   from = "/blog/french-phrases-locals-actually-use"
   to = "/blog-french-phrases-locals-actually-use.html"
   status = 200
+
+[[redirects]]
+  from = "/blog/30-calques-english-speakers-french"
+  to = "/blog-30-calques-english-speakers-french.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/how-to-sound-less-foreign-french"
+  to = "/blog-how-to-sound-less-foreign-french.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/french-small-talk-after-bonjour"
+  to = "/blog-french-small-talk-after-bonjour.html"
+  status = 200
