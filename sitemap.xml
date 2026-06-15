@@ -43,4 +43,25 @@
     <priority>0.8</priority>
   </url>
 
+
+  <url>
+    <loc>https://en.snapenglish.fr/blog/30-calques-english-speakers-french</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://en.snapenglish.fr/blog/how-to-sound-less-foreign-french</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://en.snapenglish.fr/blog/french-small-talk-after-bonjour</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
