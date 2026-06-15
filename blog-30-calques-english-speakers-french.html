@@ -168,7 +168,21 @@
     footer p { font-size: 0.8rem; opacity: 0.4; }
     footer a { color: var(--gold); text-decoration: none; }
 
-    @media (max-width: 600px) { .article-wrap { padding-top: 5.5rem; } }
+    .article-hero {
+      margin: 0 auto 2.5rem;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(27, 42, 74, 0.10);
+      max-width: 480px;
+    }
+    .article-hero img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+        @media (max-width: 600px) { .article-wrap { padding-top: 5.5rem; } }
   
     @media (max-width: 768px) {
       .nav-lang { display: none; }
@@ -205,6 +219,13 @@
       <p class="article-subtitle">Every English-to-French translation trap you fall into — and how to dodge them</p>
       <div class="article-divider"></div>
     </header>
+
+    <figure class="article-hero">
+      <picture>
+        <source srcset="/images/article-hero.webp" type="image/webp" />
+        <img src="/images/article-hero.jpg" alt="Terrasse du Cours Mirabeau à Aix-en-Provence, verre de rosé, olives, journal" loading="lazy" width="1000" height="1333" />
+      </picture>
+    </figure>
 
     <div class="article-body">
 

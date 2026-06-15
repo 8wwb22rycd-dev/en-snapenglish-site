@@ -205,6 +205,21 @@
       .nav-right { gap: 0.7rem; }
       .nav-cta { padding: 0.4rem 0.7rem; font-size: 0.72rem; }
     }
+    .article-hero {
+      margin: 0 auto 2.5rem;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(27, 42, 74, 0.10);
+      max-width: 480px;
+    }
+    .article-hero img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
   </style>
 </head>
 
@@ -236,6 +251,13 @@
       <p class="article-subtitle">What French people really say — vs. what you were taught to say</p>
       <div class="article-divider"></div>
     </header>
+
+    <figure class="article-hero">
+      <picture>
+        <source srcset="/images/article-hero.webp" type="image/webp" />
+        <img src="/images/article-hero.jpg" alt="Terrasse du Cours Mirabeau à Aix-en-Provence, verre de rosé, olives, journal" loading="lazy" width="1000" height="1333" />
+      </picture>
+    </figure>
 
     <div class="article-body">
 
