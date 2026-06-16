@@ -133,6 +133,37 @@
       margin-bottom: 1.5rem;
     }
 
+    .author-medallion {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin: 0.5rem 0 1.5rem;
+      padding: 0.5rem 0;
+    }
+    .author-medallion img {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--gold);
+      flex-shrink: 0;
+    }
+    .author-medallion-text { line-height: 1.3; }
+    .author-medallion-name {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 0;
+    }
+    .author-medallion-line {
+      font-size: 0.78rem;
+      color: var(--charcoal);
+      opacity: 0.7;
+      margin: 0;
+    }
+    .author-medallion-line em { color: var(--gold); font-style: italic; }
+
     .article-divider { width: 3rem; height: 2px; background: var(--gold); margin: 0 0 2.5rem; }
 
     .article-hero { margin: 0 auto 2.5rem; border-radius: 6px; overflow: hidden; box-shadow: 0 8px 30px rgba(27, 42, 74, 0.10); max-width: 480px; }
@@ -402,6 +433,13 @@
   <main>
     <article>
       <header>
+        <figure class="article-hero">
+          <picture>
+            <source srcset="/images/article-hero.webp" type="image/webp" />
+            <img src="/images/article-hero.jpg" alt="Terrasse du Cours Mirabeau à Aix-en-Provence, verre de rosé, olives, journal" loading="eager" width="1000" height="1333" />
+          </picture>
+        </figure>
+
         <p class="article-mark">Bouche-à-oreille</p>
         <div class="article-meta">
           <span>Method</span>
@@ -409,15 +447,17 @@
           <span>~20 min</span>
         </div>
         <h1 class="article-title">Mois 01 — <em>Bonjour, baguette, voisins</em></h1>
+
+        <div class="author-medallion">
+          <img src="/images/caroline-cousin.webp" alt="Caroline Cousin — native French teacher" width="64" height="64" />
+          <div class="author-medallion-text">
+            <p class="author-medallion-name">Caroline Cousin</p>
+            <p class="author-medallion-line">Native French teacher · <em>25 years experience</em></p>
+          </div>
+        </div>
+
         <p class="article-subtitle">25 authentic French expressions for everyday life in France — the ones French people actually say, not the ones your textbook taught you. Trained with the Echo Bounce method until they come out naturally.</p>
         <div class="article-divider"></div>
-
-        <figure class="article-hero">
-          <picture>
-            <source srcset="/images/article-hero.webp" type="image/webp" />
-            <img src="/images/article-hero.jpg" alt="Terrasse du Cours Mirabeau à Aix-en-Provence, verre de rosé, olives, journal" loading="eager" width="1000" height="1333" />
-          </picture>
-        </figure>
       </header>
 
       <div class="article-body">
