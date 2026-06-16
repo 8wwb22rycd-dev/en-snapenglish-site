@@ -2,90 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mois 01 — Bonjour, baguette, voisins | I Can Speak French</title>
-  <meta name="description" content="25 authentic French expressions for everyday life in France, organized by real-life situation. A preview of the I Can Speak French method, by Bouche-à-oreille." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Mois 01 — Bonjour, baguette, voisins | I Can Speak French" />
-  <meta property="og:description" content="25 authentic French expressions for everyday life in France. Trained with the Echo Bounce method." />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://en.snapenglish.fr/mois-01" />
-  <meta property="og:image" content="https://en.snapenglish.fr/images/article-hero.webp" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Course Schema for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "Mois 01 — Bonjour, baguette, voisins",
-    "description": "25 authentic French expressions for everyday life in France, trained with the Echo Bounce method (listen → record → play back).",
-    "provider": {
-      "@type": "Organization",
-      "name": "SnapEnglish",
-      "url": "https://en.snapenglish.fr"
-    },
-    "instructor": {
-      "@type": "Person",
-      "name": "Caroline Cousin",
-      "url": "https://en.snapenglish.fr"
-    },
-    "inLanguage": ["fr", "en"],
-    "isAccessibleForFree": true,
-    "hasCourseInstance": {
-      "@type": "CourseInstance",
-      "courseMode": "online",
-      "courseWorkload": "PT20M"
-    }
-  }
-  </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mois 01 — Bonjour, Baguette, Voisins | I Can Speak French</title>
+  <meta name="description" content="Get your first month of Bouche-à-oreille: 25 authentic French expressions recorded by a native teacher — listen, record yourself, compare with Echo Bounce." />
+  <link rel="canonical" href="https://en.snapenglish.fr/mois-01" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --cream: #F7F4EF;
-      --white: #FDFCFA;
-      --sand: #E8DCC5;
-      --warm: #D9C7A7;
+      --sand: #D8CFC0;
       --navy: #1B2A4A;
-      --charcoal: #2C2C2C;
       --gold: #B8975A;
+      --charcoal: #2C2C2C;
+      --white: #FDFCFA;
       --font-display: 'Playfair Display', Georgia, serif;
       --font-body: 'DM Sans', system-ui, sans-serif;
-      --max: 720px;
-      --gutter: 2rem;
+      --max: 640px;
+      --gutter: 1.25rem;
+      --warm: #F7F4EF;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--charcoal); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    body {
-      font-family: var(--font-body);
-      background: var(--cream);
-      color: var(--charcoal);
-      line-height: 1.7;
-      font-size: 17px;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: var(--navy); }
-
-    /* ===== NAV ===== */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 1.1rem var(--gutter);
-      display: flex; align-items: center; justify-content: space-between;
-      background: rgba(247,244,239,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(180,160,120,0.12);
-    }
+    /* Navigation */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.1rem var(--gutter); display: flex; align-items: center; justify-content: space-between; background: rgba(247,244,239,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(180,160,120,0.12); }
+    nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.08); }
     .nav-brand { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--navy); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; }
+    .nav-brand svg { flex-shrink: 0; }
+    .nav-brand-text { display: flex; flex-direction: column; line-height: 1.05; }
+    .nav-brand-mark { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 0.72rem; color: var(--gold); letter-spacing: 0.04em; opacity: 0.9; margin-top: 0.15rem; }
     .nav-right { display: flex; align-items: center; gap: 1.5rem; }
     .nav-lang { font-size: 0.75rem; font-weight: 500; color: var(--charcoal); opacity: 0.5; }
     .nav-lang a { color: var(--gold); text-decoration: none; opacity: 1; }
@@ -93,657 +41,190 @@
     .nav-cta:hover { opacity: 0.85; }
     .nav-blog { font-size: 0.82rem; font-weight: 500; color: var(--navy); text-decoration: none; opacity: 0.65; transition: opacity 0.2s; }
     .nav-blog:hover { opacity: 1; }
+    @media (max-width: 768px) { .nav-lang { display: none; } .nav-right { gap: 0.7rem; } .nav-cta { padding: 0.4rem 0.7rem; font-size: 0.72rem; } }
 
-    /* Bouche-à-oreille brand mark */
-    .nav-brand-text { display: flex; flex-direction: column; line-height: 1.05; }
-    .nav-brand-mark { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 0.72rem; color: var(--gold); letter-spacing: 0.04em; opacity: 0.9; margin-top: 0.15rem; }
+    /* Layout */
+    .page-wrap { max-width: var(--max); margin: 0 auto; padding: 7rem var(--gutter) 4rem; }
 
-    @media (max-width: 768px) {
-      .nav-lang { display: none; }
-      .nav-right { gap: 0.7rem; }
-      .nav-cta { padding: 0.4rem 0.7rem; font-size: 0.72rem; }
-    }
+    /* Header */
+    .page-mark { font-family: var(--font-display); font-style: italic; color: var(--gold); font-size: 0.88rem; letter-spacing: 0.04em; margin: 0 0 0.6rem; opacity: 0.9; }
+    .page-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+    h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 400; color: var(--navy); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.75rem; }
+    p { margin-bottom: 1.1rem; line-height: 1.8; }
 
-    /* ===== MAIN ===== */
-    main { padding: 6.5rem var(--gutter) 4rem; max-width: 760px; margin: 0 auto; }
+    .page-intro { color: var(--navy); opacity: 0.75; max-width: 520px; margin-bottom: 2rem; line-height: 1.8; }
 
-    .article-mark { font-family: var(--font-display); font-style: italic; color: var(--gold); font-size: 0.88rem; letter-spacing: 0.04em; margin: 0 0 0.6rem; opacity: 0.9; }
+    .divider { width: 3rem; height: 2px; background: var(--gold); margin: 1.5rem 0 2.5rem; }
 
-    .article-meta {
-      display: flex; gap: 1.25rem; flex-wrap: wrap;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 1.25rem;
-    }
-    .article-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
+    /* Section titles */
+    .topic { margin-bottom: 2.5rem; }
+    .topic h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; color: var(--navy); margin-bottom: 0.35rem; line-height: 1.3; }
+    .topic h2 span { color: var(--gold); font-weight: 400; font-style: italic; font-size: 0.9rem; }
+    .topic-sub { font-size: 0.88rem; color: var(--navy); opacity: 0.6; margin-bottom: 1rem; }
 
-    .article-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4.5vw, 2.8rem);
-      font-weight: 400;
-      color: var(--navy);
-      line-height: 1.15;
-      letter-spacing: -0.015em;
-      margin-bottom: 1.25rem;
-    }
-    .article-title em { font-style: italic; color: var(--gold); }
+    /* Expression list */
+    .expr-list { list-style: none; padding: 0; }
+    .expr-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid rgba(180,160,120,0.12); }
+    .expr-item:last-child { border-bottom: none; }
+    .expr-num { font-size: 0.72rem; font-weight: 600; color: var(--gold); min-width: 1.8rem; letter-spacing: 0.04em; }
+    .expr-text { font-size: 0.95rem; font-family: var(--font-display); color: var(--navy); font-weight: 400; line-height: 1.4; flex: 1; }
+    .expr-tag { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--gold); color: var(--gold); padding: 0.1rem 0.4rem; border-radius: 2px; }
+    .expr-tag-free { border-color: var(--gold); color: var(--gold); }
 
-    .article-subtitle {
-      font-size: 1.08rem; opacity: 0.78; line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
+    /* Audio Player cards */
+    .sample-section { margin: 3rem 0; }
+    .sample-section h2 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; color: var(--navy); margin-bottom: 0.5rem; }
+    .sample-section > p { font-size: 0.88rem; opacity: 0.7; margin-bottom: 1.5rem; }
 
-    .author-medallion {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      margin: 0.5rem 0 1.5rem;
-      padding: 0.5rem 0;
-    }
-    .author-medallion img {
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
-      border: 2px solid var(--gold);
-      flex-shrink: 0;
-    }
-    .author-medallion-text { line-height: 1.3; }
-    .author-medallion-name {
-      font-family: var(--font-display);
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin: 0;
-    }
-    .author-medallion-line {
-      font-size: 0.78rem;
-      color: var(--charcoal);
-      opacity: 0.7;
-      margin: 0;
-    }
-    .author-medallion-line em { color: var(--gold); font-style: italic; }
+    .player-card { background: var(--white); border-left: 4px solid var(--gold); padding: 1rem 1.25rem; border-radius: 4px; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(27,42,74,0.04); }
+    .player-card .label { font-family: var(--font-display); font-size: 0.9rem; color: var(--navy); min-width: 140px; flex: 1; }
+    .player-card .label small { display: block; font-family: var(--font-body); font-size: 0.7rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+    .player-card audio { height: 2.5rem; width: 220px; flex-shrink: 0; }
+    .player-card audio::-webkit-media-controls-panel { background: var(--cream); }
 
-    .article-divider { width: 3rem; height: 2px; background: var(--gold); margin: 0 0 2.5rem; }
+    /* CTA block */
+    .cta-block { background: var(--navy); color: var(--cream); padding: 2.5rem 2rem; border-radius: 4px; margin: 3rem 0; text-align: center; }
+    .cta-block h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--cream); margin-bottom: 0.5rem; line-height: 1.3; }
+    .cta-block p { font-size: 0.88rem; color: rgba(247,244,239,0.7); margin-bottom: 0.75rem; }
+    .cta-block p:last-of-type { margin-bottom: 1.5rem; }
+    .cta-block a.btn { display: inline-block; background: var(--gold); color: var(--navy); padding: 0.8rem 2rem; border-radius: 2px; text-decoration: none; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em; transition: opacity 0.2s; }
+    .cta-block a.btn:hover { opacity: 0.85; }
+    .cta-block .btn-sub { font-size: 0.75rem; color: rgba(247,244,239,0.5); margin-top: 0.5rem; }
+    .cta-block .btn-sub em { color: var(--gold); font-style: italic; font-family: var(--font-display); }
 
-    .article-hero { margin: 0 auto 2.5rem; border-radius: 6px; overflow: hidden; box-shadow: 0 8px 30px rgba(27, 42, 74, 0.10); max-width: 480px; }
-    .article-hero img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+    /* Footer links */
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--navy); text-decoration: none; font-size: 0.85rem; opacity: 0.7; margin-top: 2rem; }
+    .back-link:hover { opacity: 1; }
 
-    /* ===== ARTICLE BODY ===== */
-    .article-body h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.5rem, 3vw, 1.85rem);
-      font-weight: 400;
-      color: var(--navy);
-      line-height: 1.25;
-      margin: 2.75rem 0 1rem;
-      letter-spacing: -0.01em;
-    }
-    .article-body h3 {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin: 1.75rem 0 0.6rem;
-    }
-    .article-body p { margin-bottom: 1.1rem; }
-    .article-body em { font-style: italic; color: var(--gold); }
-
-    /* ===== EXPRESSIONS LIST ===== */
-    .expressions-intro {
-      background: var(--white);
-      border-left: 4px solid var(--gold);
-      padding: 1.25rem 1.5rem;
-      margin: 0 0 2.5rem;
-      font-size: 0.95rem;
-    }
-    .expressions-intro strong { color: var(--navy); }
-
-    .sub-theme-label {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      background: rgba(184, 151, 90, 0.08);
-      padding: 0.35rem 0.85rem;
-      border-radius: 2px;
-      margin-bottom: 0.75rem;
-    }
-
-    .expressions-list {
-      list-style: none;
-      margin: 0 0 3rem;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .expression-card {
-      background: var(--white);
-      border-radius: 6px;
-      padding: 1.25rem 1.5rem;
-      box-shadow: 0 2px 10px rgba(27, 42, 74, 0.05);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .expression-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(27, 42, 74, 0.10);
-    }
-
-    .expression-head {
-      display: flex; align-items: baseline; gap: 1rem;
-      margin-bottom: 0.4rem;
-    }
-    .expression-number {
-      font-family: var(--font-display);
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--gold);
-      letter-spacing: 0.05em;
-      flex-shrink: 0;
-    }
-    .expression-text {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-style: italic;
-      color: var(--navy);
-      line-height: 1.4;
-      margin: 0;
-      font-weight: 500;
-    }
-
-    .expression-translation {
-      font-size: 0.88rem;
-      color: var(--charcoal);
-      opacity: 0.65;
-      margin: 0.2rem 0 0.7rem;
-      line-height: 1.5;
-    }
-
-    /* Custom audio player */
-    .audio-player {
-      display: flex; align-items: center; gap: 0.75rem;
-      background: rgba(247, 244, 239, 0.6);
-      border-radius: 4px;
-      padding: 0.5rem 0.75rem;
-    }
-    .audio-player audio {
-      flex: 1;
-      height: 32px;
-      max-width: 100%;
-    }
-    .audio-player audio::-webkit-media-controls-panel {
-      background: transparent;
-    }
-
-    /* ===== ECHO BOUNCE EXPLANATION ===== */
-    .echo-bounce-explain {
-      background: linear-gradient(135deg, rgba(184, 151, 90, 0.06), rgba(27, 42, 74, 0.03));
-      border: 1px solid rgba(184, 151, 90, 0.18);
-      border-radius: 8px;
-      padding: 1.75rem 2rem;
-      margin: 2rem 0 3rem;
-    }
-    .echo-bounce-explain h3 {
-      margin-top: 0;
-      color: var(--navy);
-    }
-    .echo-bounce-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-top: 1.25rem;
-    }
-    .echo-step {
-      text-align: center;
-    }
-    .echo-step-num {
-      display: inline-block;
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--gold);
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 1rem;
-      line-height: 36px;
-      margin-bottom: 0.6rem;
-    }
-    .echo-step-title {
-      font-family: var(--font-display);
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 0.3rem;
-      font-size: 0.95rem;
-    }
-    .echo-step-desc {
-      font-size: 0.82rem;
-      opacity: 0.75;
-      line-height: 1.5;
-    }
+    footer { background: var(--navy); color: rgba(247,244,239,0.6); padding: 2rem var(--gutter); text-align: center; }
+    footer p { font-size: 0.8rem; opacity: 0.4; margin: 0; }
 
     @media (max-width: 600px) {
-      .echo-bounce-steps { grid-template-columns: 1fr; gap: 1rem; }
+      .page-wrap { padding: 6rem var(--gutter) 3rem; }
+      .player-card { flex-direction: column; align-items: stretch; }
+      .player-card audio { width: 100%; }
+      .cta-block { padding: 1.5rem 1rem; }
     }
-
-    /* ===== CTA BLOCK ===== */
-    .cta-block {
-      background: var(--navy);
-      color: var(--cream);
-      padding: 2.5rem;
-      border-radius: 6px;
-      margin: 3rem 0;
-      text-align: center;
-    }
-    .cta-block h3 { color: var(--gold); font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; margin-bottom: 0.75rem; line-height: 1.3; }
-    .cta-block p { font-size: 0.95rem; color: rgba(247,244,239,0.78); margin-bottom: 1.5rem; }
-    .cta-block a.btn {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
-      padding: 0.85rem 2rem;
-      border-radius: 2px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.92rem;
-      letter-spacing: 0.04em;
-      transition: opacity 0.2s;
-    }
-    .cta-block a.btn:hover { opacity: 0.9; }
-    .cta-block .btn-sub { font-size: 0.75rem; opacity: 0.6; margin-top: 1rem; margin-bottom: 0; }
-
-    /* ===== BIO ===== */
-    aside.bio {
-      background: var(--white);
-      border-radius: 6px;
-      padding: 2rem;
-      max-width: 760px;
-      margin: 0 auto 2.5rem;
-      display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
-      box-shadow: 0 2px 12px rgba(27, 42, 74, 0.05);
-    }
-    aside.bio img {
-      width: 80px; height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
-      border: 2px solid var(--gold);
-      flex-shrink: 0;
-    }
-    .bio-text p:first-child {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 0.4rem;
-    }
-    .bio-text p:last-child {
-      font-size: 0.85rem;
-      line-height: 1.65;
-      margin: 0;
-      opacity: 0.82;
-    }
-
-    @media (max-width: 600px) {
-      aside.bio { flex-direction: column; align-items: center; text-align: center; }
-    }
-
-    /* ===== FOOTER ===== */
-    .cross-link {
-      text-align: center;
-      padding: 1.5rem var(--gutter);
-      font-size: 0.85rem;
-    }
-    .cross-link a {
-      color: var(--charcoal);
-      opacity: 0.7;
-      text-decoration: none;
-    }
-    .cross-link a:hover { opacity: 1; }
-
-    footer {
-      background: var(--navy);
-      color: rgba(247,244,239,0.6);
-      padding: 2rem var(--gutter);
-      text-align: center;
-    }
-    footer p { font-size: 0.8rem; opacity: 0.4; }
-    footer a { color: rgba(247,244,239,0.7); text-decoration: none; }
   </style>
 </head>
 <body>
 
-  <nav id="nav" role="navigation" aria-label="Main navigation">
-    <a href="/" class="nav-brand">
-      <svg width="24" height="24" viewBox="0 0 30 30" fill="none"><path d="M25 15C25 9.5 20.5 5 15 5C9.5 5 5 9.5 5 15C5 20.5 9.5 25 15 25C18.8 25 22.1 22.9 24 19.8" stroke="#1B2A4A" stroke-width="3.2" stroke-linecap="round" fill="none"/><path d="M25 15C25 9.5 20.5 5 15 5C9.5 5 5 9.5 5 15C5 20.5 9.5 25 15 25C18.8 25 22.1 22.9 24 19.8" stroke="#B8975A" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.7"/></svg>
-      <span class="nav-brand-text">I Can Speak French<span class="nav-brand-mark">Bouche-à-oreille</span></span>
-    </a>
-    <div class="nav-right">
-      <span class="nav-lang">🇫🇷 French speaker? <a href="https://snapenglish.fr">snapenglish.fr →</a></span>
-      <a href="/blog" class="nav-blog">Blog</a>
-      <a href="/#waitlist" class="nav-cta">Join waitlist</a>
-    </div>
-  </nav>
+<!-- Navigation -->
+<nav role="navigation" aria-label="Main navigation">
+  <a href="/" class="nav-brand">
+    <svg width="24" height="24" viewBox="0 0 30 30" fill="none"><path d="M25 15C25 9.5 20.5 5 15 5C9.5 5 5 9.5 5 15C5 20.5 9.5 25 15 25C18.8 25 22.1 22.9 24 19.8" stroke="#1B2A4A" stroke-width="3.2" stroke-linecap="round" fill="none"/><path d="M25 15C25 9.5 20.5 5 15 5C9.5 5 5 9.5 5 15C5 20.5 9.5 25 15 25C18.8 25 22.1 22.9 24 19.8" stroke="#B8975A" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.7"/></svg>
+    <span class="nav-brand-text">I Can Speak French<span class="nav-brand-mark">Bouche-à-oreille</span></span>
+  </a>
+  <div class="nav-right">
+    <span class="nav-lang">🇫🇷 French speaker? <a href="https://snapenglish.fr">snapenglish.fr →</a></span>
+    <a href="/blog" class="nav-blog">Blog</a>
+    <a href="/#waitlist" class="nav-cta">Join waitlist</a>
+  </div>
+</nav>
 
-  <main>
-    <article>
-      <header>
-        <figure class="article-hero">
-          <picture>
-            <source srcset="/images/article-hero.webp" type="image/webp" />
-            <img src="/images/article-hero.jpg" alt="Terrasse du Cours Mirabeau à Aix-en-Provence, verre de rosé, olives, journal" loading="eager" width="1000" height="1333" />
-          </picture>
-        </figure>
+<div class="page-wrap">
+  <p class="page-mark">Bouche-à-oreille</p>
+  <p class="page-eyebrow">Bouche-à-oreille · Mois 01</p>
+  <h1>Bonjour, Baguette,<br>Voisins</h1>
+  <p class="page-intro">Your first month of Bouche-à-oreille. 25 authentic French expressions recorded by a native teacher — trained with the Echo Bounce loop until they come out naturally.</p>
 
-        <p class="article-mark">Bouche-à-oreille</p>
-        <div class="article-meta">
-          <span>Method</span>
-          <span>Audio Training</span>
-          <span>~20 min</span>
-        </div>
-        <h1 class="article-title">Mois 01 — <em>Bonjour, baguette, voisins</em></h1>
+  <div class="divider"></div>
 
-        <div class="author-medallion">
-          <img src="/images/caroline-cousin.webp" alt="Caroline Cousin — native French teacher" width="64" height="64" />
-          <div class="author-medallion-text">
-            <p class="author-medallion-name">Caroline Cousin</p>
-            <p class="author-medallion-line">Native French teacher · <em>25 years experience</em></p>
-          </div>
-        </div>
-
-        <p class="article-subtitle">25 authentic French expressions for everyday life in France — the ones French people actually say, not the ones your textbook taught you. Trained with the Echo Bounce method until they come out naturally.</p>
-        <div class="article-divider"></div>
-      </header>
-
-      <div class="article-body">
-
-        <div class="echo-bounce-explain">
-          <h3 style="font-family: var(--font-display); font-weight: 500; color: var(--navy);">The Echo Bounce method</h3>
-          <p style="font-size: 0.95rem; opacity: 0.85; margin-bottom: 0;">For each expression below: <strong style="color: var(--navy);">listen</strong> to a native speaker, <strong style="color: var(--navy);">record</strong> yourself saying it, then <strong style="color: var(--navy);">play back</strong> and compare. 5 minutes a day. The loop is what makes it stick.</p>
-          <div class="echo-bounce-steps">
-            <div class="echo-step">
-              <div class="echo-step-num">1</div>
-              <div class="echo-step-title">Listen</div>
-              <div class="echo-step-desc">Hear the expression, the rhythm, the intonation.</div>
-            </div>
-            <div class="echo-step">
-              <div class="echo-step-num">2</div>
-              <div class="echo-step-title">Record</div>
-              <div class="echo-step-desc">Say it out loud, in your own voice. On your phone.</div>
-            </div>
-            <div class="echo-step">
-              <div class="echo-step-num">3</div>
-              <div class="echo-step-title">Compare</div>
-              <div class="echo-step-desc">Play yourself back. The gap closes. Repeat.</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ====== Sub-theme 1 — Le rituel du Bonjour ====== -->
-        <p class="sub-theme-label">Sub-theme 1</p>
-        <h2>The "Bonjour" routine</h2>
-        <p>Five expressions you'll say <em>every single day</em> in France. The ritual of entering a shop, sitting at a café, asking for the check. Master these and the door to French everyday life opens.</p>
-
-        <ol class="expressions-list">
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">01</span>
-              <p class="expression-text">Bonjour !</p>
-            </div>
-            <p class="expression-translation">Hello! (entering any shop, with a smile — never optional)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-01-bonjour.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">02</span>
-              <p class="expression-text">Vous êtes ouvert ?</p>
-            </div>
-            <p class="expression-translation">Are you open? (in front of a shop whose hours are unclear)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-02-vous-etes-ouvert.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">03</span>
-              <p class="expression-text">Vous avez choisi ?</p>
-            </div>
-            <p class="expression-translation">Have you decided? (the server coming to your table)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-03-vous-avez-choisi.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">04</span>
-              <p class="expression-text">Je vous mets un pain au chocolat avec ?</p>
-            </div>
-            <p class="expression-translation">Would you like a pain au chocolat with that? (typical lunch offer)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-04-je-vous-mets-un-petit-pain.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">05</span>
-              <p class="expression-text">Je peux payer comment ?</p>
-            </div>
-            <p class="expression-translation">How can I pay? (the universal version — works everywhere)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-05-je-peux-payer-comment.mp3"></audio></div>
-          </li>
-        </ol>
-
-        <!-- ====== Sub-theme 2 — À la boulangerie, au marché, au café ====== -->
-        <p class="sub-theme-label">Sub-theme 2</p>
-        <h2>At the bakery, the market, the café</h2>
-        <p>The heart of everyday life. What tourists don't dare to ask. What expats repeat 50 times before they dare to try.</p>
-
-        <ol class="expressions-list">
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">06</span>
-              <p class="expression-text">Je voudrais une baguette, pas trop cuite, s'il vous plaît.</p>
-            </div>
-            <p class="expression-translation">I'd like a baguette, not too well-done, please. (The most French sentence in the world.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-06-je-voudrais-baguette-pas-trop-cuite.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">07</span>
-              <p class="expression-text">Sur place ou à emporter ?</p>
-            </div>
-            <p class="expression-translation">For here or to go? (The question that stumps 90% of English speakers — every café, every bakery.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-07-sur-place-ou-a-emporter.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">08</span>
-              <p class="expression-text">Vous me faites une remise si j'en prends trois ?</p>
-            </div>
-            <p class="expression-translation">Can I get a discount if I take three? (The ritual question at the market — the answer is often no, but the asking is the point.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-08-vous-me-faites-une-remise.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">09</span>
-              <p class="expression-text">C'est pour offrir.</p>
-            </div>
-            <p class="expression-translation">It's a gift. (For wine, flowers, chocolate — the shop assistant will wrap it for free.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-09-c-est-pour-offrir.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">10</span>
-              <p class="expression-text">Vous avez la carte ?</p>
-            </div>
-            <p class="expression-translation">Do you take card? (At the market or small shops where cards aren't always accepted.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-10-vous-avez-la-carte.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">11</span>
-              <p class="expression-text">Je peux goûter ?</p>
-            </div>
-            <p class="expression-translation">Can I taste? (The ritual gesture at the market. The vendor will cut a piece for you.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-11-je-peux-gouter.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">12</span>
-              <p class="expression-text">L'addition, s'il vous plaît ! On partage.</p>
-            </div>
-            <p class="expression-translation">The check, please! We're splitting. (At the end of a restaurant meal with friends.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-12-l-addition-on-partage.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">13</span>
-              <p class="expression-text">Je vous dois combien ?</p>
-            </div>
-            <p class="expression-translation">How much do I owe you? (At the hairdresser, the mechanic, after a service where the price wasn't posted.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-13-je-vous-dois-combien.mp3"></audio></div>
-          </li>
-        </ol>
-
-        <!-- ====== Sub-theme 3 — Le français des voisins ====== -->
-        <p class="sub-theme-label">Sub-theme 3</p>
-        <h2>The French of neighbours and daily life</h2>
-        <p>The art of living together — the famous <em>savoir-vivre</em> that francophiles dream of. The situations an English speaker living in France (or on a long stay) faces every week.</p>
-
-        <ol class="expressions-list">
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">14</span>
-              <p class="expression-text">Vous auriez l'heure, s'il vous plaît ?</p>
-            </div>
-            <p class="expression-translation">Do you have the time, please? (Polite conditional — the magic structure of polite French.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-14-vous-auriez-l-heure.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">15</span>
-              <p class="expression-text">Je peux vous emprunter… ?</p>
-            </div>
-            <p class="expression-translation">Can I borrow…? (sugar, salt, a corkscrew, an umbrella — the polite debt.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-15-je-peux-vous-emprunter.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">16</span>
-              <p class="expression-text">Il y a quelqu'un ?</p>
-            </div>
-            <p class="expression-translation">Is anyone there? (Knocking at a door — intonation rises on "quelqu'un".)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-16-il-y-a-quelqu-un.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">17</span>
-              <p class="expression-text">Ça vous dérange si… ?</p>
-            </div>
-            <p class="expression-translation">Do you mind if…? (I play some music, I smoke on the balcony, the dog barks tonight.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-17-ca-vous-derange-si.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">18</span>
-              <p class="expression-text">On se voit quand ?</p>
-            </div>
-            <p class="expression-translation">When do we meet? (The order is reversed compared to English — "when" comes first.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-18-on-sevoit-quand.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">19</span>
-              <p class="expression-text">Amène les enfants !</p>
-            </div>
-            <p class="expression-translation">Bring the kids! (Amener a person/animal with you — not "apporter" for objects.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-19-amene-les-enfants.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">20</span>
-              <p class="expression-text">Tu restes manger ?</p>
-            </div>
-            <p class="expression-translation">Stay for dinner? (The most French invitation — spontaneous, generous, almost always sincere.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-20-tu-restes-manger.mp3"></audio></div>
-          </li>
-        </ol>
-
-        <!-- ====== Sub-theme 4 — Le "petit mot" qui sauve ====== -->
-        <p class="sub-theme-label">Sub-theme 4</p>
-        <h2>The "small word" that saves the conversation</h2>
-        <p>What separates a "textbook" A2-B1 from a "natural" B2-C1. The invisible hinges, the linking words, the dressed-up pauses. Once you master them, everything changes about how natural your French sounds.</p>
-
-        <ol class="expressions-list">
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">21</span>
-              <p class="expression-text">Tu sais quoi ? / Vous savez quoi ?</p>
-            </div>
-            <p class="expression-translation">You know what? (To launch a piece of news, a scoop, a confidence. The listener knows something's coming.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-21-tu-sais-quoi.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">22</span>
-              <p class="expression-text">En fait,…</p>
-            </div>
-            <p class="expression-translation">Actually,… (THE hinge of spoken French. Use it anywhere. The "so…" of French.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-22-en-fait.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">23</span>
-              <p class="expression-text">Du coup,…</p>
-            </div>
-            <p class="expression-translation">So,… (Informal consequence marker. The rhythm of real life.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-23-du-coup.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">24</span>
-              <p class="expression-text">enfin, …</p>
-            </div>
-            <p class="expression-translation">Well, I mean, … (The universal hesitation marker. Use it to nuance, to soften, to restart a thought. More mature than "genre".)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-24-genre.mp3"></audio></div>
-          </li>
-          <li class="expression-card">
-            <div class="expression-head">
-              <span class="expression-number">25</span>
-              <p class="expression-text">Bref !</p>
-            </div>
-            <p class="expression-translation">Anyway! / Long story short! (The closing word. Use it to wrap up — you sound fluent, in control.)</p>
-            <div class="audio-player"><audio controls preload="metadata" src="/audio/mois-01/expression-25-bref.mp3"></audio></div>
-          </li>
-        </ol>
-
-        <!-- ====== CTA ====== -->
-        <div class="cta-block">
-          <h3>Want all 25 + 9 more months of natural French?</h3>
-          <p>Each month, a new theme: small talk, the café, the train station, the doctor's office, work… 25 new expressions, all with audio and the Echo Bounce method.</p>
-          <a href="/#waitlist" class="btn">Join the waitlist →</a>
-          <p class="btn-sub">First month free at launch · No credit card</p>
-        </div>
-
-        <p style="text-align: center; margin-top: 2.5rem; font-size: 0.88rem; opacity: 0.65; font-style: italic;">« Le français qui se murmure, pas celui qu'on enseigne. »<br>— Bouche-à-oreille</p>
-      </div>
-    </article>
-  </main>
-
-  <aside class="bio" aria-label="About the author">
-    <img src="/images/caroline-cousin.webp" alt="Caroline Cousin — SnapEnglish" />
-    <div class="bio-text">
-      <p>Caroline Cousin</p>
-      <p>Native French teacher with 25 years of experience training English speakers and French speakers. Founder of SnapEnglish (Qualiopi-certified) and creator of <strong>Bouche-à-oreille</strong> and Echo Bounce — the listen → record → play back method used in Sound Less French and I Can Speak French.</p>
-    </div>
-  </aside>
-
-  <div class="cross-link">
-    <a href="https://snapenglish.fr">🇫🇷 French speaker learning English? Try Sound Less French on snapenglish.fr →</a>
+  <!-- Theme 1 -->
+  <div class="topic">
+    <h2>🇫🇷 The Bonjour ritual <span>· expressions 1–5</span></h2>
+    <p class="topic-sub">The first 5 seconds of any interaction. The différence between being polite and being forgotten.</p>
+    <ul class="expr-list">
+      <li class="expr-item"><span class="expr-num">01</span><span class="expr-text">Bonjour !</span></li>
+      <li class="expr-item"><span class="expr-num">02</span><span class="expr-text">Vous êtes ouvert ?</span></li>
+      <li class="expr-item"><span class="expr-num">03</span><span class="expr-text">Vous avez choisi ?</span></li>
+      <li class="expr-item"><span class="expr-num">04</span><span class="expr-text">Je vous mets un pain au chocolat avec ?</span></li>
+      <li class="expr-item"><span class="expr-num">05</span><span class="expr-text">Je peux payer comment ?</span></li>
+    </ul>
   </div>
 
-  <footer>
-    <p><a href="/legal">Legal</a></p>
-  </footer>
+  <!-- Theme 2 -->
+  <div class="topic">
+    <h2>🥐 At the bakery, market, café <span>· expressions 6–13</span></h2>
+    <p class="topic-sub">The heart of daily French life. What tourists don't dare ask — what locals do without thinking.</p>
+    <ul class="expr-list">
+      <li class="expr-item"><span class="expr-num">06</span><span class="expr-text">Je voudrais une baguette, pas trop cuite, s'il vous plaît.</span></li>
+      <li class="expr-item"><span class="expr-num">07</span><span class="expr-text">Sur place ou à emporter ?</span></li>
+      <li class="expr-item"><span class="expr-num">08</span><span class="expr-text">Vous me faites une remise si j'en prends trois ?</span></li>
+      <li class="expr-item"><span class="expr-num">09</span><span class="expr-text">C'est pour offrir.</span></li>
+      <li class="expr-item"><span class="expr-num">10</span><span class="expr-text">Vous avez la carte ?</span></li>
+      <li class="expr-item"><span class="expr-num">11</span><span class="expr-text">Je peux goûter ?</span></li>
+      <li class="expr-item"><span class="expr-num">12</span><span class="expr-text">L'addition, s'il vous plaît ! On partage.</span></li>
+      <li class="expr-item"><span class="expr-num">13</span><span class="expr-text">Je vous dois combien ?</span></li>
+    </ul>
+  </div>
+
+  <!-- Theme 3 -->
+  <div class="topic">
+    <h2>🏡 Neighbourhood French <span>· expressions 14–20</span></h2>
+    <p class="topic-sub">The art of living together — the famous savoir-vivre that francophiles dream of.</p>
+    <ul class="expr-list">
+      <li class="expr-item"><span class="expr-num">14</span><span class="expr-text">Vous auriez l'heure, s'il vous plaît ?</span></li>
+      <li class="expr-item"><span class="expr-num">15</span><span class="expr-text">Je peux vous emprunter… ?</span></li>
+      <li class="expr-item"><span class="expr-num">16</span><span class="expr-text">Il y a quelqu'un ?</span></li>
+      <li class="expr-item"><span class="expr-num">17</span><span class="expr-text">Ça vous dérange si… ?</span></li>
+      <li class="expr-item"><span class="expr-num">18</span><span class="expr-text">On se voit quand ? / Tu es libre quand ?</span></li>
+      <li class="expr-item"><span class="expr-num">19</span><span class="expr-text">Amène les enfants !</span></li>
+      <li class="expr-item"><span class="expr-num">20</span><span class="expr-text">Tu restes manger ?</span></li>
+    </ul>
+  </div>
+
+  <!-- Theme 4 -->
+  <div class="topic">
+    <h2>💬 The small word that changes everything <span>· expressions 21–25</span></h2>
+    <p class="topic-sub">The invisible hinges that turn A2 school French into B2 natural French. Once mastered, they transform everything.</p>
+    <ul class="expr-list">
+      <li class="expr-item"><span class="expr-num">21</span><span class="expr-text">Tu sais quoi ? / Vous savez quoi ?</span></li>
+      <li class="expr-item"><span class="expr-num">22</span><span class="expr-text">En fait, …</span></li>
+      <li class="expr-item"><span class="expr-num">23</span><span class="expr-text">Du coup, …</span></li>
+      <li class="expr-item"><span class="expr-num">24</span><span class="expr-text">Enfin, …</span></li>
+      <li class="expr-item"><span class="expr-num">25</span><span class="expr-text">Bref !</span></li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Free preview: 3 audio players -->
+  <div class="sample-section">
+    <h2>🎧 Listen before you subscribe</h2>
+    <p>3 free expressions to test the method. Click play, record yourself, compare — see how Echo Bounce works in practice.</p>
+
+    <div class="player-card">
+      <div class="label"><small>Free preview · expression 01</small>Bonjour !</div>
+      <audio controls preload="none"><source src="/audio/mois-01/expression-01-bonjour.mp3" type="audio/mpeg" /></audio>
+    </div>
+
+    <div class="player-card">
+      <div class="label"><small>Free preview · expression 07</small>Sur place ou à emporter ?</div>
+      <audio controls preload="none"><source src="/audio/mois-01/expression-07-sur-place-ou-a-emporter.mp3" type="audio/mpeg" /></audio>
+    </div>
+
+    <div class="player-card">
+      <div class="label"><small>Free preview · expression 22</small>En fait, …</div>
+      <audio controls preload="none"><source src="/audio/mois-01/expression-22-en-fait.mp3" type="audio/mpeg" /></audio>
+    </div>
+  </div>
+
+  <!-- CTA Block -->
+  <div class="cta-block">
+    <h2>Get all 25 expressions</h2>
+    <p>Full Mois 01 with Echo Bounce coaching — listen, record, and play back until the gap closes.</p>
+    <p class="btn-sub"><em>Bouche-à-oreille</em> · by SnapEnglish</p>
+    <a href="/#waitlist" class="btn">Join the waitlist →</a>
+    <p class="btn-sub">First month free · No credit card</p>
+  </div>
+
+  <a href="/blog" class="back-link">← Back to blog</a>
+</div>
+
+<footer>
+  <p>© 2026 SnapEnglish · <a href="https://snapenglish.fr/legal" style="color:inherit;text-decoration:underline;opacity:0.6;">Legal</a></p>
+</footer>
 
 </body>
 </html>
