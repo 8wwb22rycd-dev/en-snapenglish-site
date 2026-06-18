@@ -50,10 +50,10 @@
     "url": "https://en.snapenglish.fr/",
     "offers": {
       "@type": "Offer",
-      "availability": "https://schema.org/PreOrder",
-      "description": "First month free at launch, no credit card required.",
-      "price": "0",
-      "priceCurrency": "EUR"
+      "availability": "https://schema.org/InStock",
+      "description": "Monthly audio training subscription. First month available now.",
+      "price": "12",
+      "priceCurrency": "USD"
     }
   }
   </script>
@@ -407,7 +407,7 @@
   <div class="nav-right">
     <span class="nav-lang">🇫🇷 French speaker? <a href="https://snapenglish.fr">snapenglish.fr →</a></span>
     <a href="/blog" class="nav-blog">Blog</a>
-    <a href="#waitlist" class="nav-cta">Join waitlist</a>
+    <a href="https://caroquest78.gumroad.com/l/bouche-a-oreille-mois-01" class="nav-cta">Subscribe →</a>
   </div>
 </nav>
 
@@ -544,24 +544,14 @@
       </div>
 
       <div style="display:flex;justify-content:center;gap:0.75rem;margin-top:1.5rem;flex-wrap:wrap;">
-        <a href="#waitlist" style="display:inline-block;background:var(--navy);color:var(--cream);padding:0.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:600;font-size:0.95rem;letter-spacing:0.02em;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Subscribe — $12/month →</a>
+        <a href="https://caroquest78.gumroad.com/l/bouche-a-oreille-mois-01" style="display:inline-block;background:var(--navy);color:var(--cream);padding:0.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:600;font-size:0.95rem;letter-spacing:0.02em;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Subscribe — $12/month →</a>
         <a href="/a-week-with-me-in-paris" style="display:inline-block;background:var(--gold);color:var(--navy);padding:0.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:600;font-size:0.95rem;letter-spacing:0.02em;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Buy Paris Pack — $19 →</a>
       </div>
         </div>
   </div>
 
-    <div id="waitlist" class="waitlist">
-      <p class="waitlist-label">Waitlist</p>
-      <h2>First month free at launch</h2>
-      <p>No credit card. We'll email you when I Can Speak French goes live.</p>
-      <form class="waitlist-form" name="icsf-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="icsf-waitlist" />
-        <input type="hidden" name="bot-field" />
-        <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address" />
-        <button type="submit">Join the waitlist →</button>
-      </form>
-      <p class="waitlist-sub">No spam. One email when we launch.</p>
     </div>
+  </div>
   </div>
 
   <!-- DEFINITION BLOCK -->
@@ -676,10 +666,10 @@
 
       <div class="faq-item">
         <button class="faq-btn" aria-expanded="false" onclick="toggleFaq(this)">
-          <span>When does it launch and how do I get the first month free?</span>
+          <span>How do I subscribe and what are the prices?</span>
           <span class="faq-chevron" aria-hidden="true"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         </button>
-        <div class="faq-answer"><p class="faq-answer-inner">We're in pre-launch. Join the waitlist above with your email — waitlist members get the first month free at launch, no credit card required. We'll send exactly one email when we go live.</p></div>
+        <div class="faq-answer"><p class="faq-answer-inner">We're live! Subscribe now and get your first month of Bouche-à-oreille. Choose monthly ($12) or yearly ($99 — save 31%). Cancel anytime. Start speaking natural French today.</p></div>
       </div>
 
     </div>
@@ -701,13 +691,6 @@
     document.querySelectorAll('.faq-item.open').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false'); });
     if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
   }
-  document.querySelector('.waitlist-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const form = this;
-    fetch('/', { method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString() })
-      .then(() => { form.innerHTML = '<p style="color:var(--gold);font-weight:600;padding:0.5rem 0;">You\'re on the list. We\'ll email you at launch. 🎉</p>'; })
-      .catch(() => { form.innerHTML = '<p style="color:var(--gold);">Something went wrong — email us at <a href="mailto:contact@snapenglish.fr" style="color:var(--gold)">contact@snapenglish.fr</a></p>'; });
-  });
 </script>
 </body>
 </html>
