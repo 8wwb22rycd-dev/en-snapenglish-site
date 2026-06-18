@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review — Bouche-à-oreille audio check</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: #F7F4EF; color: #2C2C2C; padding: 2rem; }
+    h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.8rem; font-weight: 400; color: #1B2A4A; margin-bottom: 0.3rem; }
+    .sub { opacity: 0.6; margin-bottom: 2rem; font-size: 0.9rem; }
+    .month-block { background: #FDFCFA; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 12px rgba(27,42,74,0.06); }
+    .month-title { font-family: 'Playfair Display', Georgia, serif; font-size: 1.2rem; color: #1B2A4A; margin-bottom: 0.5rem; }
+    .month-title .emoji { margin-right: 0.4rem; }
+    .month-title .badge { font-size: 0.7rem; font-weight: 600; color: #B8975A; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'DM Sans', sans-serif; }
+    .expr-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(180,160,120,0.12); flex-wrap: wrap; }
+    .expr-row:last-child { border-bottom: none; }
+    .expr-num { font-size: 0.72rem; font-weight: 600; color: #B8975A; min-width: 1.8rem; }
+    .expr-text { font-family: 'Playfair Display', Georgia, serif; font-size: 0.95rem; color: #1B2A4A; flex: 1; min-width: 180px; }
+    audio { height: 2.2rem; width: 200px; }
+    .status { font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 3px; }
+    .status.ok { background: #e8f5e9; color: #2e7d32; }
+    .status.tocheck { background: #fff3e0; color: #e65100; }
+    .nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .nav a { background: #1B2A4A; color: #F7F4EF; padding: 0.4rem 0.9rem; border-radius: 3px; text-decoration: none; font-size: 0.8rem; }
+    .nav a:hover { opacity: 0.85; }
+    .ok-btn { background: #2e7d32; color: white; border: none; padding: 0.2rem 0.6rem; border-radius: 3px; cursor: pointer; font-size: 0.72rem; }
+    .wrong-btn { background: #e65100; color: white; border: none; padding: 0.2rem 0.6rem; border-radius: 3px; cursor: pointer; font-size: 0.72rem; }
+    .note-input { border: 1px solid #D8CFC0; border-radius: 3px; padding: 0.2rem 0.4rem; font-size: 0.75rem; width: 120px; }
+    @media (max-width: 600px) { .expr-row { flex-direction: column; align-items: flex-start; } audio { width: 100%; } body { padding: 1rem; } }
+  </style>
+</head>
+<body>
+  <h1>🎧 Bouche-à-oreille — Audio Review</h1>
+  <p class="sub">Listen to each expression. If the audio doesn't match the written text, tell me which one and what it should say.</p>
+
+  <div class="nav" id="topNav"></div>
+<div id="content"></div>
+
+<script>
+const months = [
+  { num: "01", theme: "Bonjour, baguette, voisins", emoji: "🥖", slug: "bonjour-baguette-voisins", exprs: [
+    [1, "Bonjour tout le monde !"],
+    [2, "Vous êtes ouvert ?"],
+    [3, "Vous avez choisi ?"],
+    [4, "Je vous mets un pain au chocolat avec ?"],
+    [5, "Je peux payer comment ?"],
+    [6, "Je voudrais une baguette pas trop cuite"],
+    [7, "Sur place ou à emporter ?"],
+    [8, "Vous me faites une remise ?"],
+    [9, "C'est pour offrir"],
+    [10, "Vous avez la carte ?"],
+    [11, "Je peux goûter ?"],
+    [12, "L'addition, s'il vous plaît"],
+    [13, "Je vous dois combien ?"],
+    [14, "Vous auriez l'heure ?"],
+    [15, "Je peux vous emprunter… ?"],
+    [16, "Il y a quelqu'un ?"],
+    [17, "Ça vous dérange si… ?"],
+    [18, "On se voit quand ?"],
+    [19, "Amène les enfants !"],
+    [20, "Tu restes manger ?"],
+    [21, "Tu sais quoi ?"],
+    [22, "En fait…"],
+    [23, "Du coup…"],
+    [24, "Enfin…"],
+    [25, "Bref."]
+  ]},
+  { num: "02", theme: "Au bureau", emoji: "💼", slug: "bureau", exprs: [
+    [1,"Bonjour tout le monde !"],
+    [2,"Tu vas bien ?"],
+    [3,"Tu as passé un bon weekend ?"],
+    [4,"Je peux te parler cinq minutes ?"],
+    [5,"On se fait un café ?"],
+    [6,"On peut commencer ?"],
+    [7,"Je vais vous présenter…"],
+    [8,"Je voulais rebondir sur ce que tu as dit…"],
+    [9,"Je suis d'accord, mais…"],
+    [10,"Je vais faire le point sur…"],
+    [11,"Qu'est-ce que tu en penses ?"],
+    [12,"On peut passer au point suivant ?"],
+    [13,"Merci à tous, on se retrouve…"],
+    [14,"Je t'envoie un mail"],
+    [15,"Je vous remercie de votre retour"],
+    [16,"Allô, bonjour — je suis chez…"],
+    [17,"Vous êtes libre là ?"],
+    [18,"Je suis sur un truc urgent"],
+    [19,"Bon, je vais y aller"],
+    [20,"Je peux vous poser une question rapide ?"],
+    [21,"Dans l'ensemble, c'est bien"],
+    [22,"J'aurais aimé que tu développes…"],
+    [23,"Ce qui est bien, c'est que…"],
+    [24,"J'ai noté ça"],
+    [25,"Bon courage pour la suite !"]
+  ]},
+  { num: "03", theme: "Les sorties", emoji: "🎉", slug: "sorties", exprs: [
+    [1,"Bonjour, vous avez une table pour 2 ?"],
+    [2,"Et pour vous ?"],
+    [3,"Je vais prendre…"],
+    [4,"Ça te dit d'aller… ?"],
+    [5,"On fait un apéro ce soir ?"],
+    [6,"Quelqu'un prend un dessert ?"],
+    [7,"C'est pour partager"],
+    [8,"Je réserve 2 places pour…"],
+    [9,"C'était délicieux, franchement super bon"],
+    [10,"Franchement j'ai trouvé ça génial"],
+    [11,"J'ai adoré"],
+    [12,"Le début était un peu long"],
+    [13,"T'as aimé ?"],
+    [14,"On va voir quoi ?"],
+    [15,"On se prend un verre après ?"],
+    [16,"On se fait un…"],
+    [17,"Je prendrai bien un autre verre"],
+    [18,"On fait moitié-moitié ?"],
+    [19,"Bon c'est bon, on y va"],
+    [20,"Merci pour cette soirée, c'était trop sympa"],
+    [21,"Allez, encore un petit pour la route"],
+    [22,"À ta santé !"],
+    [23,"N'hésitez pas à dire non"],
+    [24,"Vous pouvez nous apporter du pain ?"],
+    [25,"Tu fais quoi ce soir ?"]
+  ]},
+  { num: "04", theme: "Santé", emoji: "🏥", slug: "sante", exprs: [
+    [1,"Bonjour Docteur, je viens parce que…"],
+    [2,"Bonjour, j'aurais besoin d'un conseil"],
+    [3,"Je cherche…"],
+    [4,"C'est pour une consultation"],
+    [5,"Je voudrais prendre rendez-vous"],
+    [6,"Vous avez déjà eu ça ?"],
+    [7,"Ça a commencé quand ?"],
+    [8,"J'ai de la fièvre"],
+    [9,"J'ai mal à…"],
+    [10,"J'ai mal ici"],
+    [11,"Je suis tombé"],
+    [12,"On va vous faire une radio"],
+    [13,"Vous avez pris votre température ?"],
+    [14,"Je vous prescris…"],
+    [15,"C'est à prendre comment ?"],
+    [16,"Vous avez ça sans ordonnance ?"],
+    [17,"Est-ce que c'est remboursé ?"],
+    [18,"Je n'ai pas de mutuelle"],
+    [19,"Je reviens si ça ne passe pas"],
+    [20,"Je voudrais quelque chose de naturel"],
+    [21,"Appelez une ambulance, c'est une urgence"],
+    [22,"Vous pouvez me donner la posologie ?"],
+    [23,"C'est pour un enfant de…"],
+    [24,"Je peux voir un médecin rapidement ?"],
+    [25,"Je vais regarder…"]
+  ]},
+  { num: "05", theme: "Au téléphone", emoji: "📞", slug: "telephone", exprs: [
+    [1,"Allô ?"],
+    [2,"C'est Caroline à l'appareil"],
+    [3,"C'est Caroline, je vous appelle pour…"],
+    [4,"Je peux vous laisser un message ?"],
+    [5,"Prenez un message, je vous prie"],
+    [6,"Dites-lui que je passerai en fin de journée"],
+    [7,"Vous êtes bien sur le répondeur de…"],
+    [8,"Rappelez-moi dès que possible"],
+    [9,"Vous pouvez lui dire que j'ai appelé"],
+    [10,"Il n'est pas là, vous voulez laisser un message ?"],
+    [11,"Je lui dirai que vous avez appelé"],
+    [12,"Ne quittez pas, je vous le passe"],
+    [13,"Je vous rappellerai plus tard, merci"],
+    [14,"Je t'envoie le lien"],
+    [15,"Je vous entends mal, vous pouvez répéter ?"],
+    [16,"Vous êtes en muet"],
+    [17,"On va commencer, vous êtes tous là ?"],
+    [18,"Je partage mon écran, vous voyez ?"],
+    [19,"Je suis en retard, désolé, j'arrive"],
+    [20,"Tu fais quoi ? Pas grand-chose…"],
+    [21,"T'es où ?"],
+    [22,"T'as vu son message ?"],
+    [23,"Mort de rire"],
+    [24,"OK, à toute !"],
+    [25,"On se voit la semaine prochaine ?"]
+  ]},
+  { num: "06", theme: "À table", emoji: "🍽️", slug: "table", exprs: [
+    [1,"Bonsoir, désolé du retard"],
+    [2,"Rouge ou blanc ?"],
+    [3,"C'est quoi comme plat ? Ça sent bon !"],
+    [4,"C'est délicieux, c'est vous qui avez fait ?"],
+    [5,"Je peux goûter ?"],
+    [6,"Allez-y, servez-vous"],
+    [7,"Faites comme chez vous"],
+    [8,"Tenez, c'est pour vous"],
+    [9,"Oh, il fallait pas !"],
+    [10,"Qu'est-ce que je peux apporter ?"],
+    [11,"C'est un peu sec…"],
+    [12,"Je veux bien une autre part"],
+    [13,"Il est bon ce vin, il vient d'où ?"],
+    [14,"Il y a du pain ?"],
+    [15,"Vous pouvez me passer le pain ?"],
+    [16,"Un petit verre de rouge ? Allez…"],
+    [17,"Sans alcool pour moi, merci"],
+    [18,"Vous vous y connaissez en vin ?"],
+    [19,"Tu veux que je t'aide à débarrasser ?"],
+    [20,"Tu veux emporter les restes ?"],
+    [21,"Non merci, j'ai très bien mangé"],
+    [22,"On va y aller, il se fait tard"],
+    [23,"Merci infiniment pour cette superbe soirée"],
+    [24,"À bientôt j'espère, on se tient au courant ?"],
+    [25,"À votre santé !"]
+  ]},
+  { num: "07", theme: "Transports", emoji: "🚄", slug: "transports", exprs: [
+    [1,"Je vais à l'aéroport Charles de Gaulle"],
+    [2,"Je voudrais un billet pour Lyon s'il vous plaît"],
+    [3,"Je voudrais un ticket pour 2 zones s'il vous plaît"],
+    [4,"Un carnet de tickets s'il vous plaît"],
+    [5,"Je peux payer par carte ?"],
+    [6,"C'est bien le quai 5 ? Pour le train de 14h38 ?"],
+    [7,"C'est bien le bus 68 ?"],
+    [8,"C'est quelle direction pour aller à Montparnasse ?"],
+    [9,"Le prochain métro passe dans combien de temps ?"],
+    [10,"Vous savez où je dois descendre pour le Louvre ?"],
+    [11,"C'est tout droit"],
+    [12,"Je dois changer à quelle gare ?"],
+    [13,"Je peux prendre le train suivant avec ce billet ?"],
+    [14,"Le train a combien de retard ?"],
+    [15,"Je valide avec ma carte bancaire, ça marche ?"],
+    [16,"Le plein, s'il vous plaît"],
+    [17,"Le péage c'est combien ?"],
+    [18,"Où est-ce qu'on peut se garer ici ?"],
+    [19,"Vous compostez avant de monter"],
+    [20,"Vous êtes libre ?"],
+    [21,"Vous pouvez me déposer ici, c'est bon"],
+    [22,"Vous pouvez me prendre au 15 rue de Rivoli ?"],
+    [23,"Vous pouvez mettre le compteur ?"],
+    [24,"On partage la course ?"],
+    [25,"On fait une pause"]
+  ]},
+  { num: "08", theme: "Admin", emoji: "🏛️", slug: "admin", exprs: [
+    [1,"Bonjour, excusez-moi de vous déranger"],
+    [2,"Je voudrais prendre rendez-vous pour un passeport"],
+    [3,"J'ai un rendez-vous à 10h00 avec Madame Dupont"],
+    [4,"J'ai toutes les pièces normalement, vous pouvez vérifier ?"],
+    [5,"Quels sont les justificatifs à fournir ?"],
+    [6,"Je fais la demande en ligne ou il faut venir en personne ?"],
+    [7,"Je reviens tout à l'heure avec les documents manquants"],
+    [8,"J'ai besoin d'un extrait d'acte de naissance"],
+    [9,"Je voudrais envoyer une lettre recommandée"],
+    [10,"Je voudrais envoyer ce colis aux États-Unis"],
+    [11,"C'est combien pour 1 timbre et un recommandé AR ?"],
+    [12,"Je voudrais un timbre pour l'étranger s'il vous plaît"],
+    [13,"Avec suivi s'il vous plaît"],
+    [14,"Je peux retirer un colis ? J'ai l'avis de passage"],
+    [15,"Je peux le faire envoyer dans un point relais ?"],
+    [16,"C'est à quel nom ?"],
+    [17,"Je peux avoir une carte bleue ?"],
+    [18,"Je peux retirer de l'argent au distributeur avec ma carte ?"],
+    [19,"Je voudrais ouvrir un compte bancaire"],
+    [20,"Je voudrais faire un virement"],
+    [21,"J'ai perdu ma carte. Je fais opposition ?"],
+    [22,"J'ai perdu mes papiers, comment je fais pour les refaire ?"],
+    [23,"Depuis combien de temps vous habitez ici ?"],
+    [24,"J'arrive pas à comprendre, vous pouvez m'expliquer ?"],
+    [25,"Merci beaucoup, bonne journée !"]
+  ]},
+  { num: "09", theme: "Logement", emoji: "🏠", slug: "logement", exprs: [
+    [1,"Je viens visiter l'appartement"],
+    [2,"On fait l'état des lieux d'entrée quand ?"],
+    [3,"Je peux avoir les clés un peu avant ?"],
+    [4,"C'est quoi les charges ? Et l'eau elle est comprise ?"],
+    [5,"Est-ce que je peux repeindre les murs ?"],
+    [6,"Ça vous embête si je fume sur le balcon ?"],
+    [7,"Merci pour votre discrétion"],
+    [8,"Il y a une fuite sous l'évier"],
+    [9,"Je n'ai plus d'eau chaude"],
+    [10,"Le chauffage ne marche plus"],
+    [11,"Les plombs ont sauté"],
+    [12,"La chasse d'eau est cassée"],
+    [13,"Les toilettes sont bouchées"],
+    [14,"On a un problème avec la porte d'entrée"],
+    [15,"Le bruit des travaux ça dure jusqu'à quand ?"],
+    [16,"Est-ce que c'est urgent ?"],
+    [17,"Quand est-ce que le réparateur peut passer ?"],
+    [18,"Vous pouvez baisser un peu la musique ?"],
+    [19,"Vous avez reçu mon colis par erreur ?"],
+    [20,"Je vais quitter l'appartement dans 2 mois"],
+    [21,"On fait l'état des lieux de sortie le…"],
+    [22,"Vous remboursez la caution sous combien de temps ?"],
+    [23,"Je peux vous laisser un double des clés ?"],
+    [24,"Merci pour tout, je suis bien content d'avoir habité ici"],
+    [25,"Est-ce que le gaz a été vérifié ?"]
+  ]},
+  { num: "10", theme: "Shopping", emoji: "🛍️", slug: "shopping", exprs: [
+    [1,"Je cherche un cadeau pour…"],
+    [2,"Je peux essayer ?"],
+    [3,"Vous faites quelle taille ?"],
+    [4,"La taille au-dessus vous l'avez ?"],
+    [5,"Ça me va ?"],
+    [6,"C'est en solde ?"],
+    [7,"C'est le dernier prix ?"],
+    [8,"Les soldes commencent quand ?"],
+    [9,"Il y a moins 30% sur les manteaux"],
+    [10,"C'est moins cher sur internet"],
+    [11,"Vous faites une remise si j'en prends plusieurs ?"],
+    [12,"C'est pour offrir, vous pouvez faire un paquet cadeau ?"],
+    [13,"Je le prends"],
+    [14,"Vous avez la même chose en rouge ?"],
+    [15,"Je peux échanger contre une autre taille ?"],
+    [16,"Je voudrais retourner cet article"],
+    [17,"Je voudrais être remboursé s'il vous plaît"],
+    [18,"J'ai perdu le ticket de caisse"],
+    [19,"J'ai reçu le mauvais article"],
+    [20,"L'article est défectueux"],
+    [21,"J'ai passé commande et j'ai rien reçu"],
+    [22,"Le colis est en retard"],
+    [23,"Vous livrez en point relais ?"],
+    [24,"Je peux modifier l'adresse de livraison ?"],
+    [25,"Je valide le panier"]
+  ]},
+  { num: "11", theme: "Fêtes", emoji: "🎉", slug: "fetes", exprs: [
+    [1,"Joyeux Noël"],
+    [2,"Joyeux anniversaire"],
+    [3,"Tu as eu quoi pour Noël ?"],
+    [4,"Le Père Noël est passé"],
+    [5,"C'est pour toi, je t'ai pris un p'tit truc"],
+    [6,"Merci pour le cadeau ! C'est trop gentil"],
+    [7,"Je t'ai fait un gâteau. C'est ma recette secrète"],
+    [8,"Tu es magnifique"],
+    [9,"Tu as quel âge ? Je ne devrais pas demander"],
+    [10,"On s'fait un réveillon ?"],
+    [11,"On a mangé du foie gras, de la dinde et de la bûche"],
+    [12,"Le repas était incroyable ! Merci pour tout"],
+    [13,"On a dansé jusqu'à 4h du matin"],
+    [14,"Bonne année ! Meilleurs vœux"],
+    [15,"Je vous souhaite une très bonne année"],
+    [16,"On se fait la bise pour le nouvel an"],
+    [17,"On trinque, à la vôtre !"],
+    [18,"Tous mes vœux"],
+    [19,"Félicitations ! Tous mes vœux de bonheur"],
+    [20,"C'est pour le mariage ? Tu t'habilles comment ?"],
+    [21,"Le petit a été baptisé dimanche"],
+    [22,"Merci pour l'invitation. C'était parfait !"],
+    [23,"On se revoit bientôt j'espère"],
+    [24,"On tire les rois. Qui a la fève ?"],
+    [25,"Je vous envoie une petite carte pour vous remercier"]
+  ]},
+  { num: "12", theme: "Urgences & émotions", emoji: "🚨", slug: "urgences", exprs: [
+    [1,"Excusez-moi, je suis perdu"],
+    [2,"Bonjour, je cherche cette adresse — c'est par où ?"],
+    [3,"C'est à combien de minutes à pied ?"],
+    [4,"Vous pouvez me montrer sur le plan ?"],
+    [5,"Je dois aller à cette station de métro"],
+    [6,"Je stresse trop"],
+    [7,"Je n'en peux plus"],
+    [8,"J'ai besoin de souffler"],
+    [9,"Je suis inquiet pour la suite"],
+    [10,"J'ai des doutes"],
+    [11,"Ça ne s'est pas passé comme prévu"],
+    [12,"Ne t'en fais pas — ça va s'arranger"],
+    [13,"Ça va aller"],
+    [14,"Tu vas y arriver"],
+    [15,"Je suis là pour toi"],
+    [16,"Prends soin de toi"],
+    [17,"Ça me fait peur"],
+    [18,"Je n'arrive pas à me concentrer"],
+    [19,"C'est le meilleur jour de ma vie"],
+    [20,"Je suis aux anges !"],
+    [21,"J'ai la pêche !"],
+    [22,"C'est génial !"],
+    [23,"Ça m'a fait tellement plaisir"],
+    [24,"J'suis trop content"],
+    [25,"La vie est belle, non ?"]
+  ]}
+];
+
+const files = {
+  "01": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
+  "02": ["bonjour-tout-le-monde","tu-vas-bien","tu-as-passe-un-bon-weekend","je-peux-te-parler-5-minutes","on-se-fait-un-cafe","on-peut-commencer","je-vais-vous-presenter","je-voulais-rebondir","je-suis-d-accord-mais","je-vais-faire-le-point","quest-ce-que-tu-en-penses","on-peut-passer-au-point-suivant","merci-a-tous-on-se-retrouve","je-tenvoie-un-mail","je-vous-remercie-de-votre-retour","allo-bonjour-je-suis-bien-chez","vous-etes-libre-la","je-suis-sur-un-truc-urgent","bon-je-vais-y-aller","je-peux-vous-poser-une-question-rapide","dans-lensemble-c-est-bien","jaurais-aime-que-tu-developpes","ce-qui-est-bien-c-est-que","j-ai-note-ca","bon-courage-pour-la-suite"],
+  "03": ["bonjour-vous-avez-une-table-pour-2","et-pour-vous","je-vais-prendre","ca-te-dit-aller","on-fait-un-apero-ce-soir","quelquun-prend-un-dessert","c-est-pour-partager","je-reserve-2-places-pour","c-etait-delicieux-franchement-super-bon","franchement-j-ai-trouve-ca-genial","j-ai-adore","le-debut-etait-un-peu-long","t-as-aime","va-voir-quoi","on-se-prend-un-verre-apres","on-se-fait-un","je-prendrai-bien-un-autre-verre-et-toi","on-fait-moitie-moitie","bon-c-est-bon-on-y-va","bon-on-va-y-aller-merci-pour-cette-soiree","allez-encore-un-petit-pour-la-route","a-ta-sante","n-hesitez-pas-a-dire-non-c-est-juste-une-idee","vous-pouvez-nous-apporter-du-pain-s-il-vous-plait","tu-fais-quoi-ce-soir"],
+  "04": ["bonjour-docteur-je-viens-parce-que","bonjour-j-aurais-besoin-d-un-conseil","je-cherche","c-est-pour-une-consultation","je-voudrais-prendre-rendez-vous","avez-vous-deja-eu-ca","ca-a-commence-quand","j-ai-de-la-fievre","j-ai-mal-a","j-ai-mal-ici","je-suis-tombe","on-va-vous-faire-une-radio","vous-avez-pris-votre-temperature","je-vous-prescris","c-est-a-prendre-comment","vous-avez-ca-sans-ordonnance","est-ce-que-c-est-rembourse","je-n-ai-pas-de-mutuelle","je-reviens-si-ca-ne-passe-pas","je-voudrais-quelque-chose-de-naturel","appelez-une-ambulance-c-est-une-urgence","vous-pouvez-me-donner-la-posologie","c-est-pour-un-enfant-de","est-ce-que-je-peux-voir-un-medecin","je-vais-regarder"],
+  "05": ["allo","c-est-caroline-a-l-appareil","c-est-caroline-je-vous-appelle-pour","je-peux-vous-laisser-un-message","prenez-un-message-je-vous-prie","dites-lui-que-je-passerai-en-fin-de-journee","vous-etes-bien-sur-le-repondeur-de","rappelez-moi-des-que-possible","vous-pouvez-lui-dire-que-j-ai-appele","il-n-est-pas-la-vous-voulez-laisser-un-message","je-lui-dirai-que-vous-avez-appele","ne-quittez-pas-je-vous-le-passe","je-vous-rappellerai-plus-tard-merci","je-tenvoie-un-mail","je-vous-entends-mal-vous-pouvez-repeter","vous-etes-en-muet","on-va-commencer-vous-etes-tous-la","je-partage-mon-ecran-vous-voyez","je-suis-en-retard-desole-j-arrive","tu-fais-quoi-pas-grand-chose-et-toi","t-es-ou","t-as-vu-son-message","mort-de-rire","ok-a-toute","on-se-voit-la-semaine-prochaine-meme-heure"],
+  "06": ["bonsoir-desole-du-retard","rouge-ou-blanc","c-est-quoi-comme-plat-ca-sent-bon","c-est-delicieux-c-est-vous-qui-avez-fait","je-peux-gouter","allez-y-servez-vous","faites-comme-chez-vous","tenez-c-est-pour-vous","oh-il-fallait-pas","qu-est-ce-que-je-peux-apporter","c-est-un-peu-sec","je-veux-bien-une-autre-part","il-est-bon-ce-vin-il-vient-d-ou","il-y-a-du-pain","vous-pouvez-me-passer-le-pain","un-petit-verre-de-rouge-allez-un-petit","sans-alcool-pour-moi-merci","vous-vous-y-connaissez-en-vin","tu-veux-que-je-t-aide-a-debarrasser","tu-veux-emporter-les-restes","non-merci-j-ai-tres-bien-mange","on-va-y-aller-il-se-fait-tard","merci-infiniment-pour-cette-superbe-soiree","a-bientot-j-espere-on-se-tient-au-courant","a-votre-sante"],
+  "07": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
+  "08": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
+  "09": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
+  "10": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
+  "11": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
+  "12": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
+};
+
+function audioFile(num, idx) {
+  const f = files[num];
+  const v = f[idx-1];
+  if (typeof v === 'number') {
+    return `/audio/mois-${num}/expression-${String(v).padStart(2,'0')}.mp3`;
+  }
+  return `/audio/mois-${num}/expression-${String(idx).padStart(2,'0')}-${v}.mp3`;
+}
+
+let navHtml = '';
+let contentHtml = '';
+for (const m of months) {
+  navHtml += `<a href="#m${m.num}">${m.emoji} M${m.num}</a>`;
+
+  let rowsHtml = '';
+  for (const [idx, text] of m.exprs) {
+    const src = audioFile(m.num, idx);
+    rowsHtml += `
+    <div class="expr-row" id="m${m.num}-e${String(idx).padStart(2,'0')}">
+      <span class="expr-num">${String(idx).padStart(2,'0')}</span>
+      <span class="expr-text">${text}</span>
+      <audio controls preload="none"><source src="${src}" type="audio/mpeg" /></audio>
+    </div>`;
+  }
+
+  contentHtml += `
+  <div class="month-block" id="m${m.num}">
+    <div class="month-title">
+      <span class="emoji">${m.emoji}</span>
+      Mois ${m.num} — ${m.theme}
+      <span class="badge">${m.slug}</span>
+    </div>
+    ${rowsHtml}
+  </div>`;
+}
+
+document.getElementById('topNav').innerHTML = navHtml;
+document.getElementById('content').innerHTML = contentHtml;
+</script>
+</body>
+</html>
