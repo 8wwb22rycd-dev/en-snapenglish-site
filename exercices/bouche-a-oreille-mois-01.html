@@ -171,7 +171,8 @@
     .apres-play-btn:hover { background:rgba(212,168,67,0.25); }
     .apres-btn-continue { width:100%; background:#d4a843; color:#1C1408; border:none; border-radius:var(--radius); font-family:var(--font-body); font-size:1rem; font-weight:700; padding:1rem 2rem; cursor:pointer; transition:background 0.2s; }
     .apres-btn-continue:hover { background:#e0b84e; }
-    .hidden { display: none !important; }
+    .intro-photo { width:100%; max-width:400px; height:200px; object-fit:cover; border-radius:10px; opacity:0.88; flex-shrink:0; }
+        .hidden { display: none !important; }
   </style>
 </head>
 <body>
@@ -189,6 +190,7 @@
 <!-- INTRO SCREEN -->
 <div class="screen-intro" id="screenIntro">
   <div class="intro-month">Bouche-à-oreille · Month 01</div>
+  <img class="intro-photo" src="/images/paris-balcony.jpg" alt="Paris morning" />
   <h1 class="intro-title">Bonjour,<br><em>baguette, voisins</em></h1>
   <p class="intro-desc">25 expressions for your first days in Paris — at the bakery, in the neighbourhood, at the café.</p>
   <div class="intro-steps">
@@ -420,13 +422,13 @@ const expressions = [
   {"fr": "Je peux payer comment ?", "en": "How can I pay?", "context": "Cash or card?", "group": "Bonjour ritual", "audio": "/audio/mois-01/expression-05-je-peux-payer-comment.mp3"},
   {"fr": "Une baguette pas trop cuite.", "en": "A baguette, not too done.", "context": "The most French sentence.", "group": "La boulangerie", "audio": "/audio/mois-01/expression-06-je-voudrais-baguette-pas-trop-cuite.mp3"},
   {"fr": "Sur place ou à emporter ?", "en": "For here or to go?", "context": "At the café.", "group": "La boulangerie", "audio": "/audio/mois-01/expression-07-sur-place-ou-a-emporter.mp3"},
-  {"fr": "Remise si j'en prends trois ?", "en": "Discount if I take three?", "context": "At the market.", "group": "La boulangerie", "audio": "/audio/mois-01/expression-08-vous-me-faites-une-remise.mp3"},
+  {"fr": "Vous me faites une remise si j'en prends ?", "en": "Can you give me a discount if I take some?", "context": "At the market.", "group": "La boulangerie", "audio": "/audio/mois-01/expression-08-vous-me-faites-une-remise.mp3"},
   {"fr": "C'est pour offrir.", "en": "It's a gift.", "context": "Please wrap it.", "group": "La boulangerie", "audio": "/audio/mois-01/expression-09-c-est-pour-offrir.mp3"},
   {"fr": "Vous avez la carte ?", "en": "Do you have a menu?", "context": "At the restaurant.", "group": "La boulangerie", "audio": "/audio/mois-01/expression-10-vous-avez-la-carte.mp3"},
   {"fr": "Je peux goûter ?", "en": "Can I taste?", "context": "At the market stall.", "group": "La boulangerie", "audio": "/audio/mois-01/expression-11-je-peux-gouter.mp3"},
-  {"fr": "L'addition, s'il vous plaît.", "en": "The bill, please.", "context": "Meal is over.", "group": "La boulangerie", "audio": "/audio/mois-01/expression-12-l-addition-on-partage.mp3"},
+  {"fr": "L'addition, s'il vous plaît, on partage ?", "en": "The bill please — shall we split?", "context": "Meal is over.", "group": "La boulangerie", "audio": "/audio/mois-01/expression-12-l-addition-on-partage.mp3"},
   {"fr": "Je vous dois combien ?", "en": "How much do I owe you?", "context": "Asking the price.", "group": "La boulangerie", "audio": "/audio/mois-01/expression-13-je-vous-dois-combien.mp3"},
-  {"fr": "Vous auriez l'heure ?", "en": "Do you have the time?", "context": "Asking a stranger.", "group": "Le quartier", "audio": "/audio/mois-01/expression-14-vous-auriez-l-heure.mp3"},
+  {"fr": "Vous auriez l'heure, s'il vous plaît ?", "en": "Do you have the time, please?", "context": "Asking a stranger.", "group": "Le quartier", "audio": "/audio/mois-01/expression-14-vous-auriez-l-heure.mp3"},
   {"fr": "Je peux vous emprunter ?", "en": "Can I borrow from you?", "context": "Asking a neighbour.", "group": "Le quartier", "audio": "/audio/mois-01/expression-15-je-peux-vous-emprunter.mp3"},
   {"fr": "Il y a quelqu'un ?", "en": "Is anyone there?", "context": "Knocking on a door.", "group": "Le quartier", "audio": "/audio/mois-01/expression-16-il-y-a-quelqu-un.mp3"},
   {"fr": "Ça vous dérange si ?", "en": "Do you mind if?", "context": "Polite request.", "group": "Le quartier", "audio": "/audio/mois-01/expression-17-ca-vous-derange-si.mp3"},

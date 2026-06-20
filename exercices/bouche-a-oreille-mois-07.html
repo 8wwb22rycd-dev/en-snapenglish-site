@@ -171,7 +171,8 @@
     .apres-play-btn:hover { background:rgba(212,168,67,0.25); }
     .apres-btn-continue { width:100%; background:#d4a843; color:#1C1408; border:none; border-radius:var(--radius); font-family:var(--font-body); font-size:1rem; font-weight:700; padding:1rem 2rem; cursor:pointer; transition:background 0.2s; }
     .apres-btn-continue:hover { background:#e0b84e; }
-    .hidden { display: none !important; }
+    .intro-photo { width:100%; max-width:400px; height:200px; object-fit:cover; border-radius:10px; opacity:0.88; flex-shrink:0; }
+        .hidden { display: none !important; }
   </style>
 </head>
 <body>
@@ -189,6 +190,7 @@
 <!-- INTRO SCREEN -->
 <div class="screen-intro" id="screenIntro">
   <div class="intro-month">Bouche-à-oreille · Month 07</div>
+  <img class="intro-photo" src="/images/paris-balcony.jpg" alt="Paris morning" />
   <h1 class="intro-title">Bonjour,<br><em>baguette, voisins</em></h1>
   <p class="intro-desc">25 expressions for your first days in Paris — at the bakery, in the neighbourhood, at the café.</p>
   <div class="intro-steps">
@@ -413,30 +415,30 @@
 
 <script>
 const expressions = [
-  {"fr": "Je voudrais un billet pour Lyon.", "en": "I'd like a ticket to Lyon.", "context": "At the train station.", "group": "Train", "audio": "/audio/mois-07/expression-01-je-voudrais-un-billet-pour-lyon.mp3"},
-  {"fr": "C'est bien le quai 5 ?", "en": "Is this platform 5?", "context": "Checking the platform.", "group": "Train", "audio": "/audio/mois-07/expression-02-c-est-bien-le-quai-5.mp3"},
+  {"fr": "Je voudrais un billet pour Lyon, s'il vous plaît ?", "en": "I'd like a ticket to Lyon, please.", "context": "At the train station.", "group": "Train", "audio": "/audio/mois-07/expression-01-je-voudrais-un-billet-pour-lyon.mp3"},
+  {"fr": "C'est bien le quai 5 pour le train de 14H38 ?", "en": "Is this platform 5 for the 2:38 train?", "context": "Checking the platform.", "group": "Train", "audio": "/audio/mois-07/expression-02-c-est-bien-le-quai-5.mp3"},
   {"fr": "Le train a combien de retard ?", "en": "How late is the train?", "context": "When it's not on time.", "group": "Train", "audio": "/audio/mois-07/expression-03-le-train-a-combien-de-retard.mp3"},
   {"fr": "Je dois changer à quelle gare ?", "en": "Which station do I change at?", "context": "Connecting trains.", "group": "Train", "audio": "/audio/mois-07/expression-04-je-dois-changer-a-quelle-gare.mp3"},
-  {"fr": "Je peux prendre le train suivant ?", "en": "Can I take the next train?", "context": "Missed your train.", "group": "Train", "audio": "/audio/mois-07/expression-05-je-peux-prendre-le-train-suivant.mp3"},
-  {"fr": "Un carnet de tickets.", "en": "A book of tickets.", "context": "At the metro booth.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-06-un-carnet-de-tickets.mp3"},
-  {"fr": "C'est quelle direction ?", "en": "Which direction?", "context": "On the platform.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-07-c-est-quelle-direction.mp3"},
-  {"fr": "Vous savez où je dois descendre ?", "en": "Do you know where I get off?", "context": "Asking a fellow passenger.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-08-vous-savez-ou-je-dois-descendre.mp3"},
-  {"fr": "Le prochain métro.", "en": "The next metro.", "context": "How long to wait.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-09-le-prochain-metro.mp3"},
+  {"fr": "Je peux prendre le train suivant avec ce billet ?", "en": "Can I take the next train with this ticket?", "context": "Missed your train.", "group": "Train", "audio": "/audio/mois-07/expression-05-je-peux-prendre-le-train-suivant.mp3"},
+  {"fr": "Un carnet de tickets, s'il vous plaît.", "en": "A book of tickets, please.", "context": "At the metro booth.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-06-un-carnet-de-tickets.mp3"},
+  {"fr": "C'est quelle direction pour aller à Montparnasse ?", "en": "Which direction for Montparnasse?", "context": "On the platform.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-07-c-est-quelle-direction.mp3"},
+  {"fr": "Vous savez où je dois descendre pour le Louvre ?", "en": "Do you know where I get off for the Louvre?", "context": "Asking a fellow passenger.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-08-vous-savez-ou-je-dois-descendre.mp3"},
+  {"fr": "Le prochain métro passe dans combien de temps ?", "en": "How long until the next metro?", "context": "How long to wait.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-09-le-prochain-metro.mp3"},
   {"fr": "Vous compostez avant de monter ?", "en": "Do you validate before boarding?", "context": "Regional trains.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-10-vous-compostez-avant-de-monter.mp3"},
   {"fr": "C'est bien le bus 68 ?", "en": "Is this the 68 bus?", "context": "Checking at the stop.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-11-c-est-bien-le-bus-68.mp3"},
-  {"fr": "Je voudrais un ticket pour 2 zones.", "en": "A 2-zone ticket please.", "context": "Buying a ticket.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-12-je-voudrais-un-ticket-pour-2-zones.mp3"},
-  {"fr": "Je valide avec ma carte bancaire.", "en": "I'll pay with my bank card.", "context": "Contactless on the bus.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-13-je-valide-avec-ma-carte-bancaire.mp3"},
+  {"fr": "Je voudrais un ticket pour les 2 zones, s'il vous plaît ?", "en": "A ticket for both zones, please.", "context": "Buying a ticket.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-12-je-voudrais-un-ticket-pour-2-zones.mp3"},
+  {"fr": "Je valide avec ma carte bancaire, ça marche ?", "en": "Can I pay by card — does that work?", "context": "Contactless on the bus.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-13-je-valide-avec-ma-carte-bancaire.mp3"},
   {"fr": "Vous êtes libre ?", "en": "Are you free?", "context": "Hailing a taxi.", "group": "Taxi", "audio": "/audio/mois-07/expression-14-vous-etes-libre.mp3"},
-  {"fr": "Je vais à l'aéroport.", "en": "I'm going to the airport.", "context": "Telling the driver.", "group": "Taxi", "audio": "/audio/mois-07/expression-15-je-vais-a-l-aeroport.mp3"},
-  {"fr": "Vous pouvez me prendre ?", "en": "Can you take me?", "context": "Asking the driver.", "group": "Taxi", "audio": "/audio/mois-07/expression-16-vous-pouvez-me-prendre.mp3"},
+  {"fr": "Je vais à l'aéroport Charles de Gaulle.", "en": "I'm going to Charles de Gaulle airport.", "context": "Telling the driver.", "group": "Taxi", "audio": "/audio/mois-07/expression-15-je-vais-a-l-aeroport.mp3"},
+  {"fr": "Vous pouvez me prendre au 15 rue de Rivoli ?", "en": "Can you pick me up at 15 rue de Rivoli?", "context": "Asking the driver.", "group": "Taxi", "audio": "/audio/mois-07/expression-16-vous-pouvez-me-prendre.mp3"},
   {"fr": "On partage la course.", "en": "We'll share the ride.", "context": "With another passenger.", "group": "Taxi", "audio": "/audio/mois-07/expression-17-on-partage-la-course.mp3"},
   {"fr": "Vous pouvez mettre le compteur.", "en": "Please start the meter.", "context": "If they forget.", "group": "Taxi", "audio": "/audio/mois-07/expression-18-vous-pouvez-mettre-le-compteur.mp3"},
   {"fr": "Je peux payer par carte ?", "en": "Can I pay by card?", "context": "End of journey.", "group": "Taxi", "audio": "/audio/mois-07/expression-19-je-peux-payer-par-carte.mp3"},
-  {"fr": "Vous pouvez me déposer ici.", "en": "You can drop me off here.", "context": "Getting out.", "group": "Taxi", "audio": "/audio/mois-07/expression-20-vous-pouvez-me-deposer.mp3"},
+  {"fr": "Vous pouvez me déposer ici, c'est bon.", "en": "You can drop me here, this is good.", "context": "Getting out.", "group": "Taxi", "audio": "/audio/mois-07/expression-20-vous-pouvez-me-deposer.mp3"},
   {"fr": "Le plein, s'il vous plaît.", "en": "Fill it up please.", "context": "At a petrol station.", "group": "Voiture", "audio": "/audio/mois-07/expression-21-le-plein.mp3"},
   {"fr": "C'est tout droit.", "en": "It's straight ahead.", "context": "Giving directions.", "group": "Voiture", "audio": "/audio/mois-07/expression-22-c-est-tout-droit.mp3"},
   {"fr": "Le péage, c'est combien ?", "en": "How much is the toll?", "context": "On the motorway.", "group": "Voiture", "audio": "/audio/mois-07/expression-23-le-peage-c-est-combien.mp3"},
-  {"fr": "Où est-ce qu'on peut se garer ?", "en": "Where can we park?", "context": "In a French town.", "group": "Voiture", "audio": "/audio/mois-07/expression-24-ou-est-ce-qu-on-peut-se-garer.mp3"},
+  {"fr": "Où est-ce qu'on peut se garer ici ?", "en": "Where can we park around here?", "context": "In a French town.", "group": "Voiture", "audio": "/audio/mois-07/expression-24-ou-est-ce-qu-on-peut-se-garer.mp3"},
   {"fr": "On fait une pause ?", "en": "Shall we take a break?", "context": "Long road trip.", "group": "Voiture", "audio": "/audio/mois-07/expression-25-on-fait-une-pause.mp3"}
 ];
 

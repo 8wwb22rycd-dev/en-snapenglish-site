@@ -171,7 +171,8 @@
     .apres-play-btn:hover { background:rgba(212,168,67,0.25); }
     .apres-btn-continue { width:100%; background:#d4a843; color:#1C1408; border:none; border-radius:var(--radius); font-family:var(--font-body); font-size:1rem; font-weight:700; padding:1rem 2rem; cursor:pointer; transition:background 0.2s; }
     .apres-btn-continue:hover { background:#e0b84e; }
-    .hidden { display: none !important; }
+    .intro-photo { width:100%; max-width:400px; height:200px; object-fit:cover; border-radius:10px; opacity:0.88; flex-shrink:0; }
+        .hidden { display: none !important; }
   </style>
 </head>
 <body>
@@ -189,6 +190,7 @@
 <!-- INTRO SCREEN -->
 <div class="screen-intro" id="screenIntro">
   <div class="intro-month">Bouche-à-oreille · Month 02</div>
+  <img class="intro-photo" src="/images/paris-balcony.jpg" alt="Paris morning" />
   <h1 class="intro-title">Bonjour,<br><em>baguette, voisins</em></h1>
   <p class="intro-desc">25 expressions for your first days in Paris — at the bakery, in the neighbourhood, at the café.</p>
   <div class="intro-steps">
