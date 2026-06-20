@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1C5HRGQ6BR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1C5HRGQ6BR');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Bouche-à-oreille · Month 07 | I Can Speak French</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1B2A4A; --navy-dark: #111d33; --navy-light: #243660;
+      --gold: #B8975A; --gold-light: #cca96d;
+      --cream: #F7F4EF; --warm: #EDE8DF; --sand: #D4C9B4;
+      --charcoal: #2C2C2C; --white: #fff;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --radius: 6px;
+    }
+    html, body { height: 100%; overflow: hidden; }
+    body { background: var(--navy-dark); color: var(--cream); font-family: var(--font-body); -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; }
+
+    .ex-header { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); background: var(--navy-dark); }
+    .ex-logo { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--cream); text-decoration: none; }
+    .ex-logo span { font-weight: 400; color: var(--gold); }
+    .ex-badge { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(184,151,90,0.35); padding: 0.2rem 0.6rem; border-radius: 2px; }
+    .ex-counter { font-size: 0.8rem; font-weight: 500; color: rgba(247,244,239,0.4); }
+    .ex-counter strong { color: var(--cream); }
+
+    .ex-progress { flex-shrink: 0; height: 3px; background: rgba(255,255,255,0.06); }
+    .ex-progress-bar { height: 100%; background: var(--gold); transition: width 0.4s ease; }
+
+    .ex-main { flex: 1; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem 1.5rem 1rem; max-width: 640px; margin: 0 auto; width: 100%; }
+
+    .ex-card { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 1rem; animation: fadeSlide 0.35s ease both; }
+    @keyframes fadeSlide { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    .ex-group { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); opacity: 0.75; }
+    .ex-context { font-size: 0.82rem; font-weight: 300; font-style: italic; color: rgba(247,244,239,0.45); line-height: 1.5; border-left: 2px solid rgba(184,151,90,0.25); padding-left: 0.75rem; }
+    .ex-expression { font-family: var(--font-display); font-size: clamp(1.4rem, 4.5vw, 2.2rem); font-weight: 400; color: var(--cream); line-height: 1.25; letter-spacing: -0.01em; }
+    .ex-expression.hidden-expr { display: none; }
+    .ex-expression-placeholder { padding: 1.75rem; border: 1px dashed rgba(255,255,255,0.1); border-radius: var(--radius); text-align: center; font-size: 0.85rem; font-weight: 300; color: rgba(247,244,239,0.25); font-style: italic; letter-spacing: 0.06em; }
+    .btn-record:disabled { opacity: 0.2 !important; cursor: not-allowed !important; pointer-events: none; }
+    .btn-reveal:disabled { opacity: 0.2 !important; cursor: not-allowed !important; pointer-events: none; }
+
+    .ex-actions { display: flex; flex-direction: column; gap: 0.65rem; }
+    .btn-listen, .btn-record, .btn-reveal { display: flex; align-items: center; justify-content: center; gap: 0.6rem; border: none; border-radius: var(--radius); font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; padding: 0.9rem 1.5rem; transition: all 0.2s; width: 100%; }
+    .btn-listen { background: var(--gold); color: var(--navy-dark); }
+    .btn-listen:hover { background: var(--gold-light); }
+    .btn-listen:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-listen.playing { background: rgba(184,151,90,0.2); color: var(--gold); border: 1px solid rgba(184,151,90,0.4); }
+    .btn-record { background: rgba(255,255,255,0.05); color: rgba(247,244,239,0.75); border: 1px solid rgba(255,255,255,0.1); }
+    .btn-record:hover { background: rgba(255,255,255,0.1); color: var(--cream); }
+    .btn-record.recording { background: rgba(220,50,50,0.15); color: #f87171; border-color: rgba(220,50,50,0.3); animation: pulse 1.2s ease infinite; }
+    .btn-record.has-recording { background: rgba(100,200,100,0.1); color: #86efac; border-color: rgba(100,200,100,0.25); }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.65; } }
+    .btn-reveal { background: transparent; color: rgba(247,244,239,0.35); border: 1px solid rgba(255,255,255,0.07); font-weight: 400; font-size: 0.8rem; }
+    .btn-reveal:hover { color: rgba(247,244,239,0.65); border-color: rgba(255,255,255,0.15); }
+
+    .ex-translation { background: rgba(184,151,90,0.08); border: 1px solid rgba(184,151,90,0.2); border-radius: var(--radius); padding: 1rem 1.25rem; font-size: 1rem; font-weight: 400; color: var(--gold); font-style: italic; text-align: center; display: none; animation: fadeSlide 0.3s ease both; }
+    .ex-translation.visible { display: block; }
+
+    .ex-status { display: flex; justify-content: center; gap: 0.6rem; padding: 0.5rem 0; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.1); transition: background 0.3s; }
+    .status-dot.done { background: var(--gold); }
+
+    .ex-nav { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .btn-nav { display: flex; align-items: center; gap: 0.4rem; background: none; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); color: rgba(247,244,239,0.45); font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; padding: 0.6rem 1.1rem; cursor: pointer; transition: all 0.2s; }
+    .btn-nav:hover { color: var(--cream); border-color: rgba(255,255,255,0.25); }
+    .btn-nav:disabled { opacity: 0.2; cursor: not-allowed; }
+    .btn-next-main { flex: 1; background: var(--navy-light); border: none; border-radius: var(--radius); color: var(--cream); font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; padding: 0.7rem 1.5rem; cursor: pointer; transition: background 0.2s; letter-spacing: 0.03em; }
+    .btn-next-main:hover { background: #2e4a80; }
+
+    .screen-intro { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; align-items: center; justify-content: safe center; text-align: center; padding: 2rem 1.5rem; max-width: 520px; margin: 0 auto; width: 100%; gap: 1.5rem; }
+    .intro-month { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+    .intro-title { font-family: var(--font-display); font-size: clamp(1.8rem, 6vw, 2.8rem); font-weight: 400; color: var(--cream); line-height: 1.2; }
+    .intro-title em { color: var(--gold); font-style: italic; }
+    .intro-desc { font-size: 0.9rem; font-weight: 300; color: rgba(247,244,239,0.6); line-height: 1.75; max-width: 380px; }
+    .intro-steps { display: flex; flex-direction: column; gap: 0.75rem; width: 100%; text-align: left; }
+    .intro-step { display: flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 0.75rem 1rem; }
+    .intro-step-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .intro-step-text { font-size: 0.82rem; color: rgba(247,244,239,0.65); line-height: 1.4; }
+    .intro-step-text strong { color: var(--cream); font-weight: 600; }
+    .btn-start { background: var(--gold); color: var(--navy-dark); border: none; border-radius: var(--radius); font-family: var(--font-body); font-size: 1rem; font-weight: 700; padding: 1rem 2.5rem; cursor: pointer; transition: background 0.2s; width: 100%; max-width: 320px; letter-spacing: 0.03em; }
+    .btn-start:hover { background: var(--gold-light); }
+
+    .screen-end { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: safe center; text-align: center; padding: 2rem 1.5rem; max-width: 520px; margin: 0 auto; width: 100%; gap: 1.5rem; overflow-y: auto; min-height: 0; }
+    .end-trophy { font-size: 3.5rem; }
+    .end-title { font-family: var(--font-display); font-size: clamp(1.8rem, 6vw, 2.5rem); font-weight: 400; color: var(--cream); line-height: 1.2; }
+    .end-title em { color: var(--gold); font-style: italic; }
+    .end-desc { font-size: 0.9rem; font-weight: 300; color: rgba(247,244,239,0.6); line-height: 1.75; }
+    .btn-quiz-start { width: 100%; background: rgba(184,151,90,0.15); border: 1px solid rgba(184,151,90,0.5); border-radius: var(--radius); color: var(--gold); font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; padding: 1rem 1.5rem; cursor: pointer; letter-spacing: 0.04em; transition: background 0.2s; }
+    .btn-quiz-start:hover { background: rgba(184,151,90,0.25); }
+    .quiz-counter { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(184,151,90,0.7); }
+    .quiz-label { font-size: 0.82rem; font-weight: 300; color: rgba(247,244,239,0.5); }
+    .quiz-french { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--cream); line-height: 1.35; font-style: italic; background: rgba(255,255,255,0.05); border-radius: var(--radius); padding: 1.25rem 1.5rem; width: 100%; }
+    .quiz-english { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--gold); font-style: italic; padding: 1rem 0 0.25rem; }
+    .quiz-assess { display: flex; gap: 0.75rem; width: 100%; margin-top: 0.5rem; }
+    .quiz-yes { flex: 1; background: rgba(80,160,80,0.2); border: 1px solid rgba(80,160,80,0.4); border-radius: var(--radius); color: #7ecb7e; font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; padding: 0.85rem; cursor: pointer; transition: background 0.2s; }
+    .quiz-yes:hover { background: rgba(80,160,80,0.35); }
+    .quiz-no { flex: 1; background: rgba(200,80,80,0.15); border: 1px solid rgba(200,80,80,0.3); border-radius: var(--radius); color: #e08080; font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; padding: 0.85rem; cursor: pointer; transition: background 0.2s; }
+    .quiz-no:hover { background: rgba(200,80,80,0.28); }
+    .quiz-score-big { font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--gold); line-height: 1; }
+    .quiz-score-label { font-size: 0.82rem; font-weight: 300; color: rgba(247,244,239,0.5); }
+    .quiz-best { font-size: 0.78rem; color: rgba(184,151,90,0.55); font-style: italic; }
+    .btn-quiz-retry { width: 100%; background: var(--gold); border: none; border-radius: var(--radius); color: #111d33; font-family: var(--font-body); font-size: 0.88rem; font-weight: 700; padding: 0.9rem; cursor: pointer; letter-spacing: 0.05em; }
+    .btn-quiz-back { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); color: rgba(247,244,239,0.5); font-family: var(--font-body); font-size: 0.82rem; font-weight: 400; padding: 0.75rem; cursor: pointer; }
+    .end-next { background: rgba(184,151,90,0.1); border: 1px solid rgba(184,151,90,0.25); border-radius: var(--radius); padding: 1.25rem 1.5rem; width: 100%; text-align: left; }
+    .end-next-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .end-next-title { font-family: var(--font-display); font-size: 1rem; color: var(--cream); }
+    .btn-restart { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius); color: rgba(247,244,239,0.6); font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; padding: 0.75rem 1.5rem; cursor: pointer; transition: all 0.2s; }
+    .btn-restart:hover { color: var(--cream); border-color: rgba(255,255,255,0.25); }
+
+    .fb { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 1.25rem; text-align: center; }
+    .fb-q { font-size: 0.92rem; font-weight: 500; color: var(--cream); line-height: 1.5; margin-bottom: 1rem; }
+    .fb-q em { color: var(--gold); font-style: italic; }
+    .fb-opts { display: flex; flex-direction: column; gap: 0.5rem; }
+    .fb-opt { background: rgba(255,255,255,0.05); border: 1px solid rgba(184,151,90,0.25); border-radius: var(--radius); color: rgba(247,244,239,0.85); font-family: var(--font-body); font-size: 0.86rem; font-weight: 500; padding: 0.7rem 1rem; cursor: pointer; transition: all 0.2s; }
+    .fb-opt:hover { border-color: var(--gold); background: rgba(184,151,90,0.12); }
+    .fb-opt.selected { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
+    .fb-q2 { font-size: 0.85rem; font-weight: 400; color: rgba(247,244,239,0.75); line-height: 1.5; margin-bottom: 0.75rem; }
+    .fb textarea, .fb input[type=email] { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 0.65rem 0.85rem; color: var(--cream); font-family: var(--font-body); font-size: 0.85rem; font-weight: 300; outline: none; margin-bottom: 0.6rem; transition: border-color 0.2s; }
+    .fb textarea { resize: vertical; min-height: 56px; }
+    .fb textarea:focus, .fb input[type=email]:focus { border-color: rgba(184,151,90,0.5); }
+    .fb textarea::placeholder, .fb input[type=email]::placeholder { color: rgba(247,244,239,0.3); }
+    .fb-send { background: var(--gold); color: var(--navy-dark); border: none; border-radius: var(--radius); font-family: var(--font-body); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em; padding: 0.7rem 1.5rem; cursor: pointer; width: 100%; transition: background 0.2s; }
+    .fb-send:hover { background: var(--gold-light); }
+    .fb-thanks { font-size: 0.88rem; font-weight: 500; color: var(--gold); padding: 0.5rem; }
+    .fb-email-label { font-size: 0.8rem; color: rgba(247,244,239,0.55); margin: 0.75rem 0 0.35rem; text-align: left; }
+
+    .recap-wrap { width: 100%; margin: 1rem 0; text-align: left; }
+    .recap-toggle { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(184,151,90,0.3); border-radius: var(--radius); color: var(--cream); font-size: 0.88rem; font-weight: 500; padding: 0.75rem 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; }
+    .recap-toggle:hover { background: rgba(184,151,90,0.1); }
+    .recap-arrow { transition: transform 0.2s; }
+    .recap-toggle[aria-expanded="true"] .recap-arrow { transform: rotate(180deg); }
+    .recap-list { margin-top: 0.5rem; border: 1px solid rgba(184,151,90,0.2); border-radius: var(--radius); overflow: hidden; }
+    .recap-row { display: flex; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .recap-row:last-child { border-bottom: none; }
+    .recap-fr-col { flex: 1; padding: 0.6rem 0.85rem; font-size: 0.82rem; color: var(--cream); font-weight: 500; background: rgba(255,255,255,0.03); font-family: var(--font-display); font-style: italic; }
+    .recap-en-col { flex: 1; padding: 0.6rem 0.85rem; font-size: 0.82rem; color: rgba(247,244,239,0.55); background: rgba(0,0,0,0.1); }
+
+    .screen-avant { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:safe center; text-align:center; padding:2rem 1.5rem; max-width:520px; margin:0 auto; width:100%; gap:1.2rem; overflow-y:auto; min-height:0; background:#1A1535; }
+    .avant-label { font-size:0.7rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#a89fd8; }
+    .avant-title { font-family:var(--font-display); font-size:clamp(1.5rem,5vw,2rem); font-weight:400; color:#e8e4f4; line-height:1.3; }
+    .avant-desc { font-size:0.9rem; font-weight:300; color:rgba(232,228,244,0.65); line-height:1.75; max-width:340px; }
+    .avant-desc strong { color:#e8e4f4; }
+    .avant-phrase-box { background:rgba(232,228,244,0.06); border:1px dashed rgba(168,159,216,0.4); border-radius:var(--radius); padding:1.25rem 1.5rem; width:100%; }
+    .avant-phrase-fr { font-family:var(--font-display); font-size:1.15rem; font-style:italic; color:#e8e4f4; }
+    .avant-phrase-hint { font-size:0.75rem; color:rgba(168,159,216,0.55); margin-top:0.5rem; }
+    .avant-btn-start { width:100%; background:#a89fd8; color:#1A1535; border:none; border-radius:var(--radius); font-family:var(--font-body); font-size:1rem; font-weight:700; padding:1rem 2rem; cursor:pointer; transition:background 0.2s; }
+    .avant-btn-start:hover { background:#bdb4e6; }
+    .avant-skip { font-size:0.72rem; color:rgba(168,159,216,0.4); cursor:pointer; text-decoration:underline; }
+
+    .screen-apres { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:safe center; text-align:center; padding:2rem 1.5rem; max-width:520px; margin:0 auto; width:100%; gap:1.2rem; overflow-y:auto; min-height:0; background:#1C1408; }
+    .apres-label { font-size:0.7rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#d4a843; }
+    .apres-title { font-family:var(--font-display); font-size:clamp(1.5rem,5vw,2rem); font-weight:400; color:#f7e8c8; line-height:1.3; }
+    .apres-title em { color:#d4a843; font-style:italic; }
+    .apres-phrase-box { font-family:var(--font-display); font-size:1.15rem; font-style:italic; color:#f7e8c8; background:rgba(212,168,67,0.1); border:1px solid rgba(212,168,67,0.3); border-radius:var(--radius); padding:1.25rem 1.5rem; width:100%; }
+    .apres-section { width:100%; display:flex; flex-direction:column; gap:0.5rem; text-align:left; }
+    .apres-section-label { font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:rgba(212,168,67,0.7); }
+    .apres-play-btn { width:100%; background:rgba(212,168,67,0.15); border:1px solid rgba(212,168,67,0.4); border-radius:var(--radius); color:#d4a843; font-family:var(--font-body); font-size:0.88rem; font-weight:600; padding:0.9rem 1.5rem; cursor:pointer; transition:background 0.2s; }
+    .apres-play-btn:hover { background:rgba(212,168,67,0.25); }
+    .apres-btn-continue { width:100%; background:#d4a843; color:#1C1408; border:none; border-radius:var(--radius); font-family:var(--font-body); font-size:1rem; font-weight:700; padding:1rem 2rem; cursor:pointer; transition:background 0.2s; }
+    .apres-btn-continue:hover { background:#e0b84e; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+<header class="ex-header">
+  <a href="/" class="ex-logo">Bouche-à-oreille <span>· Month 07</span></a>
+  <div class="ex-badge">Month 07</div>
+  <div class="ex-counter" id="counter"><strong>0</strong>/25</div>
+</header>
+
+<div class="ex-progress">
+  <div class="ex-progress-bar" id="progressBar" style="width:0%"></div>
+</div>
+
+<!-- INTRO SCREEN -->
+<div class="screen-intro" id="screenIntro">
+  <div class="intro-month">Bouche-à-oreille · Month 07</div>
+  <h1 class="intro-title">Bonjour,<br><em>baguette, voisins</em></h1>
+  <p class="intro-desc">25 expressions for your first days in Paris — at the bakery, in the neighbourhood, at the café.</p>
+  <div class="intro-steps">
+    <div class="intro-step">
+      <span class="intro-step-icon">🔊</span>
+      <div class="intro-step-text"><strong>Step 1 — Listen</strong> to Caroline say the French expression. Don't worry about the meaning yet.</div>
+    </div>
+    <div class="intro-step">
+      <span class="intro-step-icon">🇫🇷</span>
+      <div class="intro-step-text"><strong>Step 2 — Read it</strong> in French — it appears after you listen.</div>
+    </div>
+    <div class="intro-step">
+      <span class="intro-step-icon">🎙️</span>
+      <div class="intro-step-text"><strong>Step 3 — Record yourself</strong> saying it out loud. Then listen back and compare.</div>
+    </div>
+    <div class="intro-step">
+      <span class="intro-step-icon">🇬🇧</span>
+      <div class="intro-step-text"><strong>Step 4 — Reveal</strong> the English meaning. Understanding comes last.</div>
+    </div>
+  </div>
+  <button class="btn-start" onclick="startExercise()">Start practising ⭐</button>
+</div>
+
+<!-- AVANT SCREEN -->
+<div class="screen-avant hidden" id="screenAvant">
+  <div class="avant-label">Before we start</div>
+  <div style="font-size:2.5rem;">🔒</div>
+  <h2 class="avant-title">A surprise<br>awaits at the end</h2>
+  <p class="avant-desc">Record yourself now — at the end you'll hear how much you've improved. <strong>You'll be amazed!</strong></p>
+  <div class="avant-phrase-box">
+    <div class="avant-phrase-fr" id="avantPhraseFr"></div>
+    <div class="avant-phrase-hint">Try to say this French phrase, the best you can</div>
+  </div>
+  <button class="btn-record" id="avantBtnRecord" onclick="avantToggleRecord()" style="width:100%;">
+    <span id="avantRecordIcon">🎙️</span>
+    <span id="avantRecordLabel">Record myself</span>
+  </button>
+  <button id="avantBtnStart" class="avant-btn-start hidden" onclick="startExerciseForReal()">
+    Start practising ⭐
+  </button>
+  <span class="avant-skip" onclick="startExerciseForReal()">Skip this step</span>
+</div>
+
+<!-- EXERCISE SCREEN -->
+<div class="ex-main hidden" id="screenExercise">
+  <div class="ex-card" id="exCard">
+    <div class="ex-group" id="exGroup"></div>
+    <p class="ex-context" id="exContext"></p>
+    <div class="ex-expression-placeholder" id="exPlaceholder">🔊 Listen first...</div>
+    <div class="ex-expression" id="exExpression"></div>
+    <div class="ex-actions">
+      <button class="btn-listen" id="btnListen" onclick="listenExpression()">
+        <span>🔊</span> <span id="listenLabel">Listen — Caroline</span>
+      </button>
+      <button class="btn-record" id="btnRecord" onclick="toggleRecord()">
+        <span id="recordIcon">🎙️</span> <span id="recordLabel">Record yourself</span>
+      </button>
+      <button id="btnReRecord" onclick="reRecord()" style="display:none; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:var(--radius); color:rgba(247,244,239,0.55); font-family:var(--font-body); font-size:0.78rem; font-weight:500; padding:0.5rem 1rem; cursor:pointer;">↺ Record again</button>
+      <button class="btn-reveal" id="btnReveal" onclick="revealTranslation()">
+        👁️ Reveal the English meaning
+      </button>
+    </div>
+    <div class="ex-translation" id="exTranslation"></div>
+    <div class="ex-status" id="exStatus"></div>
+  </div>
+  <nav class="ex-nav">
+    <button class="btn-nav" id="btnPrev" onclick="goTo(current-1)" disabled>← Previous</button>
+    <button class="btn-next-main" id="btnNext" onclick="goNext()">Next →</button>
+  </nav>
+</div>
+
+<!-- END SCREEN -->
+<div class="screen-end hidden" id="screenEnd">
+  <div class="end-trophy">🏆</div>
+  <h2 class="end-title">Session<br><em>complete!</em></h2>
+  <p class="end-desc">You've worked through all 25 expressions of Month 07 — Transports. Come back and practise regularly — spaced repetition is what makes language stick.</p>
+
+  <div id="ctrlScoreEnd" class="hidden" style="background:rgba(184,151,90,0.12);border:1px solid rgba(184,151,90,0.35);border-radius:var(--radius);padding:1rem 1.25rem;width:100%;text-align:center;">
+    <div class="quiz-score-label" style="margin-bottom:0.35rem;">Control score (5 phrases)</div>
+    <div style="display:flex;align-items:baseline;justify-content:center;gap:0.25rem;">
+      <span class="quiz-score-big" id="ctrlScoreEndVal"></span>
+      <span style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--gold);">/5</span>
+    </div>
+  </div>
+
+  <button class="btn-quiz-start" onclick="startQuiz()">🎯 Test your memory — Quiz · 5 questions</button>
+
+  <div class="recap-wrap">
+    <button class="recap-toggle" onclick="toggleRecap(this)" aria-expanded="false">
+      📋 See all 25 expressions <span class="recap-arrow">▼</span>
+    </button>
+    <div class="recap-list hidden" id="recapList"></div>
+  </div>
+
+  <form class="fb" name="feedback-bao-mois07" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="fbForm">
+    <input type="hidden" name="form-name" value="feedback-bao-mois07" />
+    <input type="hidden" name="bot-field" style="display:none" />
+    <input type="hidden" name="satisfaction" id="fbSatisfaction" value="" />
+    <div id="fbStep1">
+      <p class="fb-q">Did this session help you feel more confident <em>speaking French</em>?</p>
+      <div class="fb-opts">
+        <button type="button" class="fb-opt" data-val="Yes" onclick="fbChoose(this)">Yes, really useful</button>
+        <button type="button" class="fb-opt" data-val="Maybe" onclick="fbChoose(this)">Partly — I need more practice</button>
+        <button type="button" class="fb-opt" data-val="No" onclick="fbChoose(this)">Not yet convinced</button>
+      </div>
+    </div>
+    <div id="fbStep2" class="hidden">
+      <p class="fb-q2" id="fbFollowupLabel"></p>
+      <textarea name="raison" id="fbRaison" rows="2" placeholder="Your answer (optional)"></textarea>
+      <textarea name="question_caroline" rows="2" placeholder="A question for Caroline? A comment about this session? (optional)"></textarea>
+      <p style="font-size:0.72rem;color:rgba(247,244,239,0.4);margin-top:-0.5rem;text-align:left;">I'll be happy to reply personally.</p>
+      <p class="fb-email-label">📬 Your email to receive Month 02 when it's ready:</p>
+      <input type="email" name="email" id="fbEmail" placeholder="your@email.com" />
+      <button type="submit" class="fb-send">Send →</button>
+    </div>
+    <div id="fbThanks" class="hidden fb-thanks">✓ Thank you — your feedback is saved.</div>
+  </form>
+
+  <div class="end-next">
+    <div class="end-next-label">Month 02 · Coming soon</div>
+    <div class="end-next-title">Au bureau — At the Office</div>
+  </div>
+
+  <p style="font-size:0.72rem;font-weight:300;color:rgba(247,244,239,0.35);text-align:center;line-height:1.6;">🎁 Every 2 months, Caroline offers a private <em>"Think like a French speaker"</em> session to a subscriber she picks for their dedication.</p>
+
+  <button class="btn-restart" onclick="restart()">↺ Start again from the beginning</button>
+</div>
+
+<!-- CONTROL SCREEN -->
+<div class="screen-end hidden" id="screenControl">
+  <div id="ctrlBody" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:0.9rem;">
+    <div class="quiz-counter" id="ctrlLabel"></div>
+    <p class="quiz-label">Pronounce this French expression:</p>
+    <div class="quiz-french" id="ctrlPhraseFr"></div>
+    <button class="btn-record" id="ctrlBtnRecord" onclick="ctrlToggleRecord()" style="width:100%;">
+      <span id="ctrlRecordIcon">🎙️</span>
+      <span id="ctrlRecordLabel">Record myself in French</span>
+    </button>
+    <div id="ctrlActions" class="hidden" style="display:flex;flex-direction:column;gap:0.6rem;width:100%;">
+      <button class="btn-listen" onclick="ctrlPlayCorrect()" style="margin:0;">🔊 Listen to Caroline's version</button>
+      <button class="btn-reveal" id="ctrlBtnRerecord" onclick="ctrlReRecord()">↺ Record again</button>
+      <p class="quiz-label" style="text-align:center;margin-top:0.25rem;">How did it sound?</p>
+      <div class="quiz-assess">
+        <button class="quiz-yes" id="ctrlBtnYes" onclick="ctrlEvaluate(true)">✓ That felt right</button>
+        <button class="quiz-no" id="ctrlBtnNo" onclick="ctrlEvaluate(false)">😬 Not quite yet</button>
+      </div>
+    </div>
+  </div>
+  <div id="ctrlResult" class="hidden" style="display:flex;flex-direction:column;align-items:center;gap:1rem;width:100%;text-align:center;">
+    <div style="font-size:3rem;" id="ctrlResultEmoji"></div>
+    <div style="font-size:1rem;font-weight:600;color:var(--cream);" id="ctrlResultMsg"></div>
+    <div class="quiz-score-label" id="ctrlResultSub"></div>
+    <button class="btn-quiz-retry" onclick="ctrlContinue()">Continue →</button>
+  </div>
+</div>
+
+<!-- APRÈS SCREEN -->
+<div class="screen-apres hidden" id="screenApres">
+  <div id="apresRecordStep" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:1.2rem;">
+    <div class="apres-label">And now...</div>
+    <div style="font-size:2rem;">🎙️</div>
+    <h2 class="apres-title">Say this French phrase<br>one more time</h2>
+    <div class="apres-phrase-box" id="apresPhraseFr"></div>
+    <button class="btn-record" id="apresBtnRecord" onclick="apresToggleRecord()" style="width:100%;">
+      <span id="apresRecordIcon">🎙️</span>
+      <span id="apresRecordLabel">Record myself</span>
+    </button>
+    <button id="apresBtnCompare" class="apres-btn-continue hidden" onclick="apresShowCompare()">
+      See my progress →
+    </button>
+  </div>
+
+  <div id="apresCompareStep" class="hidden" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:1.2rem;">
+    <div class="apres-label">Your surprise</div>
+    <div style="font-size:2.5rem;">✨</div>
+    <h2 class="apres-title">Hear how much<br><em>you've improved</em></h2>
+    <div class="apres-section">
+      <div class="apres-section-label">At the start</div>
+      <button class="apres-play-btn" onclick="apresListenAvant()">▶ My voice at the start</button>
+    </div>
+    <div class="apres-section">
+      <div class="apres-section-label">Now</div>
+      <button class="apres-play-btn" onclick="apresListenApres()">▶ My voice now</button>
+    </div>
+    <div class="apres-section">
+      <div class="apres-section-label">Reference version</div>
+      <button class="btn-listen" onclick="apresPlayRef()" style="margin:0;width:100%;">🔊 Caroline's version</button>
+    </div>
+    <button class="apres-btn-continue" onclick="apresGoToEnd()">See my results →</button>
+  </div>
+</div>
+
+<!-- QUIZ SCREEN -->
+<div class="screen-end hidden" id="screenQuiz">
+  <div id="quizQuestion">
+    <div class="quiz-counter">Question <strong id="quizNum">1</strong> / 5</div>
+    <p class="quiz-label">How do you say this in French?</p>
+    <div class="quiz-french" id="quizFrench"></div>
+    <button class="btn-record" id="quizBtnRecord" onclick="quizToggleRecord()">
+      <span id="quizRecordIcon">🎙️</span>
+      <span id="quizRecordLabel">Record myself in French</span>
+    </button>
+    <button class="btn-reveal hidden" id="quizBtnReRecord" onclick="quizReRecord()">↩ Record again</button>
+    <button class="btn-reveal" id="quizBtnReveal" onclick="quizReveal()">Reveal the answer ↓</button>
+    <div id="quizAnswer" class="hidden" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:0.75rem;">
+      <div class="quiz-english" id="quizEnglish"></div>
+      <div class="quiz-assess">
+        <button class="quiz-yes" onclick="quizAssess(true)">✓ Got it!</button>
+        <button class="quiz-no" onclick="quizAssess(false)">✗ Not yet</button>
+      </div>
+    </div>
+  </div>
+  <div id="quizResult" class="hidden" style="display:flex;flex-direction:column;align-items:center;gap:1.25rem;width:100%;">
+    <div style="font-size:2.5rem;">🎯</div>
+    <div class="quiz-score-big" id="quizScoreDisplay">0 / 5</div>
+    <div class="quiz-score-label" id="quizScoreMsg"></div>
+    <div class="quiz-best" id="quizBestDisplay"></div>
+    <button class="btn-quiz-retry" onclick="startQuiz()">↩ Try again</button>
+    <button class="btn-quiz-back" onclick="backToEnd()">← Back to session</button>
+  </div>
+</div>
+
+<script>
+const expressions = [
+  {"fr": "Je voudrais un billet pour Lyon.", "en": "I'd like a ticket to Lyon.", "context": "At the train station.", "group": "Train", "audio": "/audio/mois-07/expression-01-je-voudrais-un-billet-pour-lyon.mp3"},
+  {"fr": "C'est bien le quai 5 ?", "en": "Is this platform 5?", "context": "Checking the platform.", "group": "Train", "audio": "/audio/mois-07/expression-02-c-est-bien-le-quai-5.mp3"},
+  {"fr": "Le train a combien de retard ?", "en": "How late is the train?", "context": "When it's not on time.", "group": "Train", "audio": "/audio/mois-07/expression-03-le-train-a-combien-de-retard.mp3"},
+  {"fr": "Je dois changer à quelle gare ?", "en": "Which station do I change at?", "context": "Connecting trains.", "group": "Train", "audio": "/audio/mois-07/expression-04-je-dois-changer-a-quelle-gare.mp3"},
+  {"fr": "Je peux prendre le train suivant ?", "en": "Can I take the next train?", "context": "Missed your train.", "group": "Train", "audio": "/audio/mois-07/expression-05-je-peux-prendre-le-train-suivant.mp3"},
+  {"fr": "Un carnet de tickets.", "en": "A book of tickets.", "context": "At the metro booth.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-06-un-carnet-de-tickets.mp3"},
+  {"fr": "C'est quelle direction ?", "en": "Which direction?", "context": "On the platform.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-07-c-est-quelle-direction.mp3"},
+  {"fr": "Vous savez où je dois descendre ?", "en": "Do you know where I get off?", "context": "Asking a fellow passenger.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-08-vous-savez-ou-je-dois-descendre.mp3"},
+  {"fr": "Le prochain métro.", "en": "The next metro.", "context": "How long to wait.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-09-le-prochain-metro.mp3"},
+  {"fr": "Vous compostez avant de monter ?", "en": "Do you validate before boarding?", "context": "Regional trains.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-10-vous-compostez-avant-de-monter.mp3"},
+  {"fr": "C'est bien le bus 68 ?", "en": "Is this the 68 bus?", "context": "Checking at the stop.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-11-c-est-bien-le-bus-68.mp3"},
+  {"fr": "Je voudrais un ticket pour 2 zones.", "en": "A 2-zone ticket please.", "context": "Buying a ticket.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-12-je-voudrais-un-ticket-pour-2-zones.mp3"},
+  {"fr": "Je valide avec ma carte bancaire.", "en": "I'll pay with my bank card.", "context": "Contactless on the bus.", "group": "Métro & Bus", "audio": "/audio/mois-07/expression-13-je-valide-avec-ma-carte-bancaire.mp3"},
+  {"fr": "Vous êtes libre ?", "en": "Are you free?", "context": "Hailing a taxi.", "group": "Taxi", "audio": "/audio/mois-07/expression-14-vous-etes-libre.mp3"},
+  {"fr": "Je vais à l'aéroport.", "en": "I'm going to the airport.", "context": "Telling the driver.", "group": "Taxi", "audio": "/audio/mois-07/expression-15-je-vais-a-l-aeroport.mp3"},
+  {"fr": "Vous pouvez me prendre ?", "en": "Can you take me?", "context": "Asking the driver.", "group": "Taxi", "audio": "/audio/mois-07/expression-16-vous-pouvez-me-prendre.mp3"},
+  {"fr": "On partage la course.", "en": "We'll share the ride.", "context": "With another passenger.", "group": "Taxi", "audio": "/audio/mois-07/expression-17-on-partage-la-course.mp3"},
+  {"fr": "Vous pouvez mettre le compteur.", "en": "Please start the meter.", "context": "If they forget.", "group": "Taxi", "audio": "/audio/mois-07/expression-18-vous-pouvez-mettre-le-compteur.mp3"},
+  {"fr": "Je peux payer par carte ?", "en": "Can I pay by card?", "context": "End of journey.", "group": "Taxi", "audio": "/audio/mois-07/expression-19-je-peux-payer-par-carte.mp3"},
+  {"fr": "Vous pouvez me déposer ici.", "en": "You can drop me off here.", "context": "Getting out.", "group": "Taxi", "audio": "/audio/mois-07/expression-20-vous-pouvez-me-deposer.mp3"},
+  {"fr": "Le plein, s'il vous plaît.", "en": "Fill it up please.", "context": "At a petrol station.", "group": "Voiture", "audio": "/audio/mois-07/expression-21-le-plein.mp3"},
+  {"fr": "C'est tout droit.", "en": "It's straight ahead.", "context": "Giving directions.", "group": "Voiture", "audio": "/audio/mois-07/expression-22-c-est-tout-droit.mp3"},
+  {"fr": "Le péage, c'est combien ?", "en": "How much is the toll?", "context": "On the motorway.", "group": "Voiture", "audio": "/audio/mois-07/expression-23-le-peage-c-est-combien.mp3"},
+  {"fr": "Où est-ce qu'on peut se garer ?", "en": "Where can we park?", "context": "In a French town.", "group": "Voiture", "audio": "/audio/mois-07/expression-24-ou-est-ce-qu-on-peut-se-garer.mp3"},
+  {"fr": "On fait une pause ?", "en": "Shall we take a break?", "context": "Long road trip.", "group": "Voiture", "audio": "/audio/mois-07/expression-25-on-fait-une-pause.mp3"}
+];
+
+let current = 0;
+let listened = new Array(expressions.length).fill(false);
+let revealed = new Array(expressions.length).fill(false);
+let isPlaying = false;
+let isRecording = false;
+let hasRecording = false;
+let mediaRecorder = null;
+let audioChunks = [];
+let recordedBlob = null;
+let recordingAudio = null;
+let stream = null;
+
+if (new URLSearchParams(window.location.search).get('reset') === '1') {
+  ['bao07_current','bao07_listened','bao07_revealed','bao07_controls','bao07_quiz_best'].forEach(k => localStorage.removeItem(k));
+}
+
+const avantExpr = expressions[Math.floor(Math.random() * expressions.length)];
+let avantHasRec = false, avantIsRecording = false;
+let avantMediaRec = null, avantChunks = [], avantStream = null, avantAudioObj = null;
+let apresHasRec = false, apresIsRecording = false;
+let apresMediaRec = null, apresChunks = [], apresStream = null, apresAudioObj = null;
+
+function startExercise() {
+  document.getElementById('avantPhraseFr').textContent = avantExpr.fr;
+  document.getElementById('screenIntro').classList.add('hidden');
+  document.getElementById('screenAvant').classList.remove('hidden');
+}
+
+function startExerciseForReal() {
+  const saved = localStorage.getItem('bao07_current');
+  if (saved && parseInt(saved) > 0 && parseInt(saved) < expressions.length) current = parseInt(saved);
+  else current = 0;
+  listened = JSON.parse(localStorage.getItem('bao07_listened') || '[]');
+  if (listened.length !== expressions.length) listened = new Array(expressions.length).fill(false);
+  revealed = JSON.parse(localStorage.getItem('bao07_revealed') || '[]');
+  if (revealed.length !== expressions.length) revealed = new Array(expressions.length).fill(false);
+  document.getElementById('screenAvant').classList.add('hidden');
+  document.getElementById('screenExercise').classList.remove('hidden');
+  render();
+}
+
+function render() {
+  const expr = expressions[current];
+  hasRecording = false; isRecording = false;
+  document.getElementById('btnReRecord').style.display = 'none';
+  if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
+  document.getElementById('counter').innerHTML = `<strong>${current + 1}</strong>/25`;
+  document.getElementById('progressBar').style.width = `${((current + 1) / expressions.length) * 100}%`;
+  const card = document.getElementById('exCard');
+  card.style.animation = 'none'; void card.offsetWidth; card.style.animation = '';
+  const alreadyListened = listened[current];
+  document.getElementById('exGroup').textContent = expr.group;
+  document.getElementById('exContext').textContent = expr.context;
+  // Show FRENCH phrase after listening
+  document.getElementById('exExpression').textContent = `« ${expr.fr} »`;
+  document.getElementById('exExpression').classList.toggle('hidden-expr', !alreadyListened);
+  document.getElementById('exPlaceholder').style.display = alreadyListened ? 'none' : '';
+  const btnListen = document.getElementById('btnListen');
+  btnListen.className = 'btn-listen'; btnListen.disabled = false;
+  document.getElementById('listenLabel').textContent = alreadyListened ? 'Listen again' : 'Listen — Caroline';
+  const btnRecord = document.getElementById('btnRecord');
+  btnRecord.className = 'btn-record'; btnRecord.disabled = !alreadyListened;
+  document.getElementById('recordIcon').textContent = '🎙️';
+  document.getElementById('recordLabel').textContent = 'Record yourself';
+  const trans = document.getElementById('exTranslation');
+  // Reveal ENGLISH translation
+  trans.textContent = `🇬🇧 ${expr.en}`;
+  trans.classList.toggle('visible', revealed[current]);
+  document.getElementById('btnReveal').style.display = (alreadyListened && !revealed[current]) ? '' : 'none';
+  document.getElementById('btnPrev').disabled = current === 0;
+  document.getElementById('btnNext').textContent = current === expressions.length - 1 ? 'Finish ✓' : 'Next →';
+  renderDots();
+  localStorage.setItem('bao07_current', current);
+}
+
+function renderDots() {
+  const el = document.getElementById('exStatus');
+  el.innerHTML = '';
+  const show = 5;
+  const start = Math.max(0, Math.min(current - 2, expressions.length - show));
+  for (let i = start; i < Math.min(start + show, expressions.length); i++) {
+    const d = document.createElement('div');
+    d.className = 'status-dot' + (listened[i] ? ' done' : '');
+    if (i === current) d.style.background = 'var(--cream)';
+    el.appendChild(d);
+  }
+}
+
+function listenExpression() {
+  if (isPlaying) {
+    if (window.currentAudio) { window.currentAudio.pause(); window.currentAudio = null; }
+    isPlaying = false; resetListenBtn(); return;
+  }
+  const expr = expressions[current];
+  if (!expr.audio) { alert('Audio not available yet.'); return; }
+  window.currentAudio = new Audio(expr.audio);
+  isPlaying = true;
+  const btn = document.getElementById('btnListen');
+  btn.className = 'btn-listen playing';
+  document.getElementById('listenLabel').textContent = '⏸ Playing...';
+  window.currentAudio.onended = function() {
+    isPlaying = false; listened[current] = true;
+    localStorage.setItem('bao07_listened', JSON.stringify(listened));
+    resetListenBtn(); renderDots();
+    document.getElementById('exPlaceholder').style.display = 'none';
+    const exEl = document.getElementById('exExpression');
+    exEl.classList.remove('hidden-expr');
+    exEl.style.animation = 'none'; void exEl.offsetWidth; exEl.style.animation = 'fadeSlide 0.5s ease both';
+    document.getElementById('btnRecord').disabled = false;
+    if (!revealed[current]) document.getElementById('btnReveal').style.display = '';
+  };
+  window.currentAudio.onerror = function() { isPlaying = false; resetListenBtn(); };
+  window.currentAudio.play();
+}
+
+function resetListenBtn() {
+  const btn = document.getElementById('btnListen');
+  btn.className = 'btn-listen'; btn.disabled = false;
+  document.getElementById('listenLabel').textContent = listened[current] ? 'Listen again' : 'Listen — Caroline';
+}
+
+async function toggleRecord() {
+  if (isRecording) { stopRecording(); }
+  else if (hasRecording) {
+    if (recordingAudio) {
+      recordingAudio.currentTime = 0; recordingAudio.play();
+      document.getElementById('recordLabel').textContent = '▶ Playing...';
+      recordingAudio.onended = () => {
+        document.getElementById('recordIcon').textContent = '▶';
+        document.getElementById('recordLabel').textContent = 'Play my recording';
+      };
+    }
+  } else { await startRecording(); }
+}
+
+function reRecord() {
+  if (recordingAudio) { recordingAudio.pause(); recordingAudio = null; }
+  hasRecording = false; recordedBlob = null;
+  document.getElementById('btnReRecord').style.display = 'none';
+  const btn = document.getElementById('btnRecord');
+  btn.className = 'btn-record';
+  document.getElementById('recordIcon').textContent = '🎙️';
+  document.getElementById('recordLabel').textContent = 'Record yourself';
+  startRecording();
+}
+
+async function startRecording() {
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    audioChunks = [];
+    const mimeType = ['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg'].find(t => MediaRecorder.isTypeSupported(t)) || '';
+    mediaRecorder = new MediaRecorder(stream, mimeType ? { mimeType } : {});
+    mediaRecorder.ondataavailable = e => { if (e.data.size > 0) audioChunks.push(e.data); };
+    mediaRecorder.onstop = () => {
+      recordedBlob = new Blob(audioChunks, { type: mimeType || 'audio/webm' });
+      const url = URL.createObjectURL(recordedBlob);
+      recordingAudio = new Audio(url);
+      hasRecording = true; isRecording = false;
+      const btn = document.getElementById('btnRecord');
+      btn.className = 'btn-record has-recording';
+      document.getElementById('recordIcon').textContent = '▶';
+      document.getElementById('recordLabel').textContent = 'Play my recording';
+      document.getElementById('btnReRecord').style.display = '';
+      stream.getTracks().forEach(t => t.stop());
+    };
+    mediaRecorder.start(); isRecording = true;
+    const btn = document.getElementById('btnRecord');
+    btn.className = 'btn-record recording';
+    document.getElementById('recordIcon').textContent = '⏳';
+    document.getElementById('recordLabel').textContent = 'Get ready...';
+    setTimeout(() => {
+      if (isRecording) {
+        document.getElementById('recordIcon').textContent = '⏹';
+        document.getElementById('recordLabel').textContent = '🔴 Speaking — tap to stop';
+      }
+    }, 500);
+  } catch (e) {
+    alert('Microphone not available. Check your browser permissions.');
+  }
+}
+
+function stopRecording() {
+  if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+}
+
+function revealTranslation() {
+  revealed[current] = true;
+  localStorage.setItem('bao07_revealed', JSON.stringify(revealed));
+  const trans = document.getElementById('exTranslation');
+  trans.classList.add('visible');
+  document.getElementById('btnReveal').style.display = 'none';
+}
+
+function goTo(index) {
+  if (index < 0 || index >= expressions.length) return;
+  current = index; render();
+}
+
+function goNext() {
+  const controlAt = [4, 9, 14, 19, 24];
+  const groupIdx = controlAt.indexOf(current);
+  if (groupIdx !== -1) {
+    showControl(groupIdx, () => {
+      if (current === expressions.length - 1) { showEnd(); }
+      else { current++; localStorage.setItem('bao07_current', current); document.getElementById('screenExercise').classList.remove('hidden'); render(); }
+    });
+  } else if (current === expressions.length - 1) { showEnd(); }
+  else { current++; localStorage.setItem('bao07_current', current); render(); }
+}
+
+function showEnd() {
+  document.getElementById('screenExercise').classList.add('hidden');
+  document.getElementById('screenControl').classList.add('hidden');
+  localStorage.removeItem('bao07_current');
+  if (avantHasRec) {
+    showApres();
+  } else {
+    showEndScreen();
+  }
+}
+
+function showEndScreen() {
+  document.getElementById('screenEnd').classList.remove('hidden');
+  buildRecap();
+  const ctrlTotal = controlScores.filter(s => s === 1).length;
+  const ctrlDone = controlScores.filter(s => s !== null).length;
+  if (ctrlDone > 0) {
+    document.getElementById('ctrlScoreEndVal').textContent = ctrlTotal;
+    document.getElementById('ctrlScoreEnd').classList.remove('hidden');
+  }
+}
+
+function buildRecap() {
+  const list = document.getElementById('recapList');
+  if (!list || list.children.length > 0) return;
+  expressions.forEach(exp => {
+    const row = document.createElement('div');
+    row.className = 'recap-row';
+    row.innerHTML = `<div class="recap-fr-col">${exp.fr}</div><div class="recap-en-col">${exp.en}</div>`;
+    list.appendChild(row);
+  });
+}
+
+function toggleRecap(btn) {
+  const list = document.getElementById('recapList');
+  const open = !list.classList.contains('hidden');
+  list.classList.toggle('hidden', open);
+  btn.setAttribute('aria-expanded', String(!open));
+}
+
+function restart() {
+  current = 0;
+  listened = new Array(expressions.length).fill(false);
+  revealed = new Array(expressions.length).fill(false);
+  controlScores = [null, null, null, null, null];
+  localStorage.removeItem('bao07_current');
+  localStorage.removeItem('bao07_listened');
+  localStorage.removeItem('bao07_revealed');
+  localStorage.removeItem('bao07_controls');
+  document.getElementById('screenEnd').classList.add('hidden');
+  document.getElementById('ctrlScoreEnd').classList.add('hidden');
+  document.getElementById('screenExercise').classList.remove('hidden');
+  render();
+}
+
+let fbSelected = '';
+let fbSubmitted = false;
+
+function fbChoose(btn) {
+  fbSelected = btn.dataset.val;
+  document.getElementById('fbSatisfaction').value = fbSelected;
+  document.querySelectorAll('.fb-opt').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  if (typeof gtag === 'function') gtag('event', 'feedback_bao_mois01', { satisfaction: fbSelected });
+  const labels = {
+    'Yes': "What was most useful in this session?",
+    'Maybe': "What would make it more useful for you?",
+    'No': "What was missing? Your honest feedback helps a lot."
+  };
+  document.getElementById('fbFollowupLabel').textContent = labels[fbSelected];
+  document.getElementById('fbStep1').classList.add('hidden');
+  document.getElementById('fbStep2').classList.remove('hidden');
+}
+
+const fbForm = document.getElementById('fbForm');
+if (fbForm) {
+  fbForm.addEventListener('submit', e => { e.preventDefault(); fbSubmit(); });
+}
+
+function fbSubmit() {
+  if (fbSubmitted || !fbSelected) return;
+  fbSubmitted = true;
+  fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(fbForm)).toString() }).catch(() => {});
+  document.getElementById('fbStep2').classList.add('hidden');
+  document.getElementById('fbThanks').classList.remove('hidden');
+}
+
+function fbBeacon() {
+  if (fbSubmitted || !fbSelected) return;
+  fbSubmitted = true;
+  const body = new URLSearchParams(new FormData(fbForm)).toString();
+  if (navigator.sendBeacon) navigator.sendBeacon('/', new Blob([body], { type: 'application/x-www-form-urlencoded' }));
+}
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') fbBeacon(); });
+window.addEventListener('pagehide', fbBeacon);
+
+document.addEventListener('keydown', e => {
+  if (document.getElementById('screenExercise').classList.contains('hidden')) return;
+  if (e.key === 'ArrowRight' || e.key === 'Enter') goNext();
+  if (e.key === 'ArrowLeft') goTo(current - 1);
+  if (e.key === ' ') { e.preventDefault(); listenExpression(); }
+});
+
+// ── QUIZ ──
+let quizExprs = [], quizIndex = 0, quizGood = 0;
+let qIsRecording = false, qHasRecording = false;
+let qMediaRecorder = null, qAudioChunks = [], qRecordedBlob = null;
+let qRecordingAudio = null, qStream = null;
+
+function startQuiz() {
+  const shuffled = [...expressions].sort(() => Math.random() - 0.5);
+  quizExprs = shuffled.slice(0, 5);
+  quizIndex = 0; quizGood = 0;
+  document.getElementById('screenEnd').classList.add('hidden');
+  document.getElementById('quizResult').classList.add('hidden');
+  document.getElementById('quizQuestion').classList.remove('hidden');
+  document.getElementById('screenQuiz').classList.remove('hidden');
+  renderQuiz();
+}
+
+function renderQuiz() {
+  const expr = quizExprs[quizIndex];
+  qHasRecording = false; qIsRecording = false;
+  if (qStream) { qStream.getTracks().forEach(t => t.stop()); qStream = null; }
+  if (qRecordingAudio) { qRecordingAudio.pause(); qRecordingAudio = null; }
+  document.getElementById('quizNum').textContent = quizIndex + 1;
+  // Show English as prompt, French as answer
+  document.getElementById('quizFrench').textContent = `"${expr.en}"`;
+  document.getElementById('quizEnglish').textContent = `« ${expr.fr} »`;
+  document.getElementById('quizAnswer').classList.add('hidden');
+  document.getElementById('quizBtnReveal').classList.remove('hidden');
+  const btn = document.getElementById('quizBtnRecord');
+  btn.className = 'btn-record';
+  document.getElementById('quizRecordIcon').textContent = '🎙️';
+  document.getElementById('quizRecordLabel').textContent = 'Record myself in French';
+  document.getElementById('quizBtnReRecord').classList.add('hidden');
+}
+
+function quizReveal() {
+  document.getElementById('quizAnswer').classList.remove('hidden');
+  document.getElementById('quizBtnReveal').classList.add('hidden');
+}
+
+function quizAssess(correct) {
+  if (correct) quizGood++;
+  if (qIsRecording && qMediaRecorder && qMediaRecorder.state !== 'inactive') qMediaRecorder.stop();
+  if (qStream) { qStream.getTracks().forEach(t => t.stop()); qStream = null; }
+  quizIndex++;
+  if (quizIndex >= quizExprs.length) showQuizResult();
+  else renderQuiz();
+}
+
+function showQuizResult() {
+  document.getElementById('quizQuestion').classList.add('hidden');
+  document.getElementById('quizResult').classList.remove('hidden');
+  document.getElementById('quizScoreDisplay').textContent = `${quizGood} / 5`;
+  const msgs = ['Keep going — you\'ll get there!', 'Nice try!', 'Not bad!', 'Well done!', 'Great!', 'Perfect — 5/5! 🏆'];
+  document.getElementById('quizScoreMsg').textContent = msgs[quizGood] || '';
+  const prevBest = parseInt(localStorage.getItem('bao07_quiz_best') || '0');
+  const newBest = Math.max(prevBest, quizGood);
+  localStorage.setItem('bao07_quiz_best', newBest);
+  const bestEl = document.getElementById('quizBestDisplay');
+  bestEl.textContent = newBest > quizGood ? `Your best: ${newBest} / 5` : (newBest === 5 ? '' : `New record! ${newBest} / 5 ⭐`);
+}
+
+function backToEnd() {
+  document.getElementById('screenQuiz').classList.add('hidden');
+  document.getElementById('screenEnd').classList.remove('hidden');
+}
+
+async function quizToggleRecord() {
+  if (qIsRecording) { quizStopRecording(); }
+  else if (qHasRecording) {
+    if (qRecordingAudio) {
+      qRecordingAudio.currentTime = 0; qRecordingAudio.play();
+      document.getElementById('quizRecordLabel').textContent = '▶ Playing...';
+      qRecordingAudio.onended = () => {
+        document.getElementById('quizRecordIcon').textContent = '▶';
+        document.getElementById('quizRecordLabel').textContent = 'Play my recording';
+      };
+    }
+  } else { await quizStartRecording(); }
+}
+
+function quizReRecord() {
+  if (qRecordingAudio) { qRecordingAudio.pause(); qRecordingAudio = null; }
+  qHasRecording = false;
+  document.getElementById('quizBtnReRecord').classList.add('hidden');
+  const btn = document.getElementById('quizBtnRecord');
+  btn.className = 'btn-record';
+  document.getElementById('quizRecordIcon').textContent = '🎙️';
+  document.getElementById('quizRecordLabel').textContent = 'Record myself in French';
+  quizStartRecording();
+}
+
+async function quizStartRecording() {
+  try {
+    qStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    qAudioChunks = [];
+    const mimeType = ['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg'].find(t => MediaRecorder.isTypeSupported(t)) || '';
+    qMediaRecorder = new MediaRecorder(qStream, mimeType ? { mimeType } : {});
+    qMediaRecorder.ondataavailable = e => { if (e.data.size > 0) qAudioChunks.push(e.data); };
+    qMediaRecorder.onstop = () => {
+      qRecordedBlob = new Blob(qAudioChunks, { type: mimeType || 'audio/webm' });
+      qRecordingAudio = new Audio(URL.createObjectURL(qRecordedBlob));
+      qHasRecording = true; qIsRecording = false;
+      const btn = document.getElementById('quizBtnRecord');
+      btn.className = 'btn-record has-recording';
+      document.getElementById('quizRecordIcon').textContent = '▶';
+      document.getElementById('quizRecordLabel').textContent = 'Play my recording';
+      document.getElementById('quizBtnReRecord').classList.remove('hidden');
+      qStream.getTracks().forEach(t => t.stop());
+    };
+    qMediaRecorder.start(); qIsRecording = true;
+    const btn = document.getElementById('quizBtnRecord');
+    btn.className = 'btn-record recording';
+    document.getElementById('quizRecordIcon').textContent = '⏳';
+    document.getElementById('quizRecordLabel').textContent = 'Get ready...';
+    setTimeout(() => {
+      if (qIsRecording) {
+        document.getElementById('quizRecordIcon').textContent = '⏹';
+        document.getElementById('quizRecordLabel').textContent = '🔴 Speaking — tap to stop';
+      }
+    }, 500);
+  } catch (e) { alert('Microphone not available. Check your browser permissions.'); }
+}
+
+function quizStopRecording() {
+  if (qMediaRecorder && qMediaRecorder.state !== 'inactive') qMediaRecorder.stop();
+}
+
+// ── AVANT / APRÈS ──
+async function avantToggleRecord() {
+  if (avantIsRecording) { if (avantMediaRec && avantMediaRec.state !== 'inactive') avantMediaRec.stop(); return; }
+  if (avantHasRec) { if (avantAudioObj) { avantAudioObj.currentTime = 0; avantAudioObj.play(); } return; }
+  try {
+    avantStream = await navigator.mediaDevices.getUserMedia({ audio: true }); avantChunks = [];
+    const mt = ['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg'].find(t => MediaRecorder.isTypeSupported(t)) || '';
+    avantMediaRec = new MediaRecorder(avantStream, mt ? { mimeType: mt } : {});
+    avantMediaRec.ondataavailable = e => { if (e.data.size > 0) avantChunks.push(e.data); };
+    avantMediaRec.onstop = () => {
+      const blob = new Blob(avantChunks, { type: mt || 'audio/webm' });
+      avantAudioObj = new Audio(URL.createObjectURL(blob));
+      avantHasRec = true; avantIsRecording = false;
+      document.getElementById('avantBtnRecord').className = 'btn-record has-recording';
+      document.getElementById('avantRecordIcon').textContent = '▶';
+      document.getElementById('avantRecordLabel').textContent = 'Play my recording';
+      document.getElementById('avantBtnStart').classList.remove('hidden');
+      avantStream.getTracks().forEach(t => t.stop());
+    };
+    avantMediaRec.start(); avantIsRecording = true;
+    document.getElementById('avantBtnRecord').className = 'btn-record recording';
+    document.getElementById('avantRecordIcon').textContent = '⏳';
+    document.getElementById('avantRecordLabel').textContent = 'Get ready...';
+    setTimeout(() => {
+      if (avantIsRecording) {
+        document.getElementById('avantRecordIcon').textContent = '⏹';
+        document.getElementById('avantRecordLabel').textContent = '🔴 Speaking — tap to stop';
+      }
+    }, 500);
+  } catch (e) { alert('Microphone not available.'); }
+}
+
+function showApres() {
+  document.getElementById('apresPhraseFr').textContent = avantExpr.fr;
+  apresHasRec = false; apresIsRecording = false; apresAudioObj = null;
+  document.getElementById('apresBtnRecord').className = 'btn-record';
+  document.getElementById('apresRecordIcon').textContent = '🎙️';
+  document.getElementById('apresRecordLabel').textContent = 'Record myself';
+  document.getElementById('apresBtnCompare').classList.add('hidden');
+  document.getElementById('apresRecordStep').classList.remove('hidden');
+  document.getElementById('apresCompareStep').classList.add('hidden');
+  document.getElementById('screenApres').classList.remove('hidden');
+}
+
+function apresShowCompare() {
+  document.getElementById('apresRecordStep').classList.add('hidden');
+  document.getElementById('apresCompareStep').classList.remove('hidden');
+}
+
+function apresListenAvant() {
+  if (avantAudioObj) { avantAudioObj.currentTime = 0; avantAudioObj.play(); }
+}
+
+function apresListenApres() {
+  if (apresAudioObj) { apresAudioObj.currentTime = 0; apresAudioObj.play(); }
+}
+
+async function apresToggleRecord() {
+  if (apresIsRecording) { if (apresMediaRec && apresMediaRec.state !== 'inactive') apresMediaRec.stop(); return; }
+  if (apresHasRec) { if (apresAudioObj) { apresAudioObj.currentTime = 0; apresAudioObj.play(); } return; }
+  try {
+    apresStream = await navigator.mediaDevices.getUserMedia({ audio: true }); apresChunks = [];
+    const mt = ['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg'].find(t => MediaRecorder.isTypeSupported(t)) || '';
+    apresMediaRec = new MediaRecorder(apresStream, mt ? { mimeType: mt } : {});
+    apresMediaRec.ondataavailable = e => { if (e.data.size > 0) apresChunks.push(e.data); };
+    apresMediaRec.onstop = () => {
+      const blob = new Blob(apresChunks, { type: mt || 'audio/webm' });
+      apresAudioObj = new Audio(URL.createObjectURL(blob));
+      apresHasRec = true; apresIsRecording = false;
+      document.getElementById('apresBtnRecord').className = 'btn-record has-recording';
+      document.getElementById('apresRecordIcon').textContent = '▶';
+      document.getElementById('apresRecordLabel').textContent = 'Play my recording';
+      document.getElementById('apresBtnCompare').classList.remove('hidden');
+      apresStream.getTracks().forEach(t => t.stop());
+    };
+    apresMediaRec.start(); apresIsRecording = true;
+    document.getElementById('apresBtnRecord').className = 'btn-record recording';
+    document.getElementById('apresRecordIcon').textContent = '⏳';
+    document.getElementById('apresRecordLabel').textContent = 'Get ready...';
+    setTimeout(() => {
+      if (apresIsRecording) {
+        document.getElementById('apresRecordIcon').textContent = '⏹';
+        document.getElementById('apresRecordLabel').textContent = '🔴 Speaking — tap to stop';
+      }
+    }, 500);
+  } catch (e) { alert('Microphone not available.'); }
+}
+
+function apresPlayRef() {
+  if (avantExpr && avantExpr.audio) {
+    const a = new Audio(avantExpr.audio);
+    a.play();
+  }
+}
+
+function apresGoToEnd() {
+  document.getElementById('screenApres').classList.add('hidden');
+  showEndScreen();
+}
+
+// ── CONTROL PHRASES ──
+let controlScores = JSON.parse(localStorage.getItem('bao07_controls') || 'null') || [null,null,null,null,null];
+let ctrlGroup = 0, ctrlNextAction = null, ctrlCurrentExpr = null, ctrlCorrectPlayed = false;
+let ctrlHasRecording = false, ctrlRecording = false, ctrlMediaRecorder = null;
+let ctrlAudioChunks = [], ctrlStream = null, ctrlRecordingAudio = null;
+
+function showControl(groupIndex, callback) {
+  ctrlGroup = groupIndex; ctrlNextAction = callback;
+  ctrlCorrectPlayed = false; ctrlHasRecording = false; ctrlRecording = false; ctrlRecordingAudio = null;
+  if (ctrlStream) { ctrlStream.getTracks().forEach(t => t.stop()); ctrlStream = null; }
+  const pool = expressions.slice(groupIndex * 5, (groupIndex + 1) * 5);
+  ctrlCurrentExpr = pool[Math.floor(Math.random() * pool.length)];
+  document.getElementById('ctrlLabel').textContent = `Control phrase · Group ${groupIndex + 1} / 5`;
+  document.getElementById('ctrlPhraseFr').textContent = ctrlCurrentExpr.fr;
+  document.getElementById('ctrlBtnRecord').className = 'btn-record';
+  document.getElementById('ctrlRecordIcon').textContent = '🎙️';
+  document.getElementById('ctrlRecordLabel').textContent = 'Record myself in French';
+  document.getElementById('ctrlActions').classList.add('hidden');
+  document.getElementById('ctrlBtnRerecord').style.display = '';
+  document.getElementById('ctrlBtnYes').disabled = false;
+  document.getElementById('ctrlBtnNo').disabled = false;
+  document.getElementById('ctrlBody').classList.remove('hidden');
+  document.getElementById('ctrlResult').classList.add('hidden');
+  document.getElementById('screenExercise').classList.add('hidden');
+  document.getElementById('screenControl').classList.remove('hidden');
+}
+
+async function ctrlToggleRecord() {
+  if (ctrlRecording) { if (ctrlMediaRecorder && ctrlMediaRecorder.state !== 'inactive') ctrlMediaRecorder.stop(); return; }
+  if (ctrlHasRecording) { if (ctrlRecordingAudio) { ctrlRecordingAudio.currentTime = 0; ctrlRecordingAudio.play(); } return; }
+  try {
+    ctrlStream = await navigator.mediaDevices.getUserMedia({ audio: true }); ctrlAudioChunks = [];
+    const mt = ['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg'].find(t => MediaRecorder.isTypeSupported(t)) || '';
+    ctrlMediaRecorder = new MediaRecorder(ctrlStream, mt ? { mimeType: mt } : {});
+    ctrlMediaRecorder.ondataavailable = e => { if (e.data.size > 0) ctrlAudioChunks.push(e.data); };
+    ctrlMediaRecorder.onstop = () => {
+      const blob = new Blob(ctrlAudioChunks, { type: mt || 'audio/webm' });
+      ctrlRecordingAudio = new Audio(URL.createObjectURL(blob));
+      ctrlHasRecording = true; ctrlRecording = false;
+      document.getElementById('ctrlBtnRecord').className = 'btn-record has-recording';
+      document.getElementById('ctrlRecordIcon').textContent = '▶';
+      document.getElementById('ctrlRecordLabel').textContent = 'Play my recording';
+      document.getElementById('ctrlActions').classList.remove('hidden');
+      ctrlStream.getTracks().forEach(t => t.stop());
+    };
+    ctrlMediaRecorder.start(); ctrlRecording = true;
+    document.getElementById('ctrlBtnRecord').className = 'btn-record recording';
+    document.getElementById('ctrlRecordIcon').textContent = '⏳';
+    document.getElementById('ctrlRecordLabel').textContent = 'Get ready...';
+    document.getElementById('ctrlActions').classList.add('hidden');
+    setTimeout(() => {
+      if (ctrlRecording) {
+        document.getElementById('ctrlRecordIcon').textContent = '⏹';
+        document.getElementById('ctrlRecordLabel').textContent = '🔴 Speaking — tap to stop';
+      }
+    }, 500);
+  } catch (e) { alert('Microphone not available.'); }
+}
+
+function ctrlPlayCorrect() {
+  if (!ctrlCurrentExpr || !ctrlCurrentExpr.audio) return;
+  const a = new Audio(ctrlCurrentExpr.audio);
+  a.play();
+  if (!ctrlCorrectPlayed) { ctrlCorrectPlayed = true; document.getElementById('ctrlBtnRerecord').style.display = 'none'; }
+}
+
+function ctrlReRecord() {
+  if (ctrlRecordingAudio) { ctrlRecordingAudio.pause(); ctrlRecordingAudio = null; }
+  ctrlHasRecording = false;
+  document.getElementById('ctrlActions').classList.add('hidden');
+  document.getElementById('ctrlBtnRecord').className = 'btn-record';
+  document.getElementById('ctrlRecordIcon').textContent = '🎙️';
+  document.getElementById('ctrlRecordLabel').textContent = 'Record myself in French';
+  ctrlToggleRecord();
+}
+
+function ctrlEvaluate(success) {
+  controlScores[ctrlGroup] = success ? 1 : 0;
+  localStorage.setItem('bao07_controls', JSON.stringify(controlScores));
+  document.getElementById('ctrlBtnYes').disabled = true;
+  document.getElementById('ctrlBtnNo').disabled = true;
+  const total = controlScores.filter(s => s === 1).length;
+  const done = controlScores.filter(s => s !== null).length;
+  document.getElementById('ctrlResultEmoji').textContent = success ? '✅' : '💪';
+  document.getElementById('ctrlResultMsg').textContent = success ? 'Well done!' : 'Keep practising!';
+  document.getElementById('ctrlResultSub').textContent = `Control score: ${total} / ${done}`;
+  document.getElementById('ctrlBody').classList.add('hidden');
+  document.getElementById('ctrlResult').classList.remove('hidden');
+}
+
+function ctrlContinue() {
+  document.getElementById('screenControl').classList.add('hidden');
+  if (ctrlNextAction) ctrlNextAction();
+}
+</script>
+</body>
+</html>
