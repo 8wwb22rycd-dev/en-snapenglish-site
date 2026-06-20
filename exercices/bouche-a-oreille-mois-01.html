@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1C5HRGQ6BR"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1C5HRGQ6BR');</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>Mois 01 · Bonjour, baguette, voisins | I Can Speak French</title>
@@ -10,25 +12,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --navy: #1B2A4A; --navy-dark: #111d33; --navy-light: #243660; --gold: #B8975A; --gold-light: #cca96d; --cream: #F7F4EF; --charcoal: #2C2C2C; --white: #fff; --font-display: 'Playfair Display', Georgia, serif; --font-body: 'DM Sans', system-ui, sans-serif; --radius: 6px; }
+    :root {
+      --navy: #1B2A4A; --navy-dark: #111d33; --navy-light: #243660;
+      --gold: #B8975A; --gold-light: #cca96d;
+      --cream: #F7F4EF; --warm: #EDE8DF; --sand: #D4C9B4;
+      --charcoal: #2C2C2C; --white: #fff;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --radius: 6px;
+    }
     html, body { height: 100%; overflow: hidden; }
     body { background: var(--navy-dark); color: var(--cream); font-family: var(--font-body); -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; }
+
     .ex-header { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); background: var(--navy-dark); }
     .ex-logo { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--cream); text-decoration: none; }
     .ex-logo span { font-weight: 400; color: var(--gold); }
     .ex-badge { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(184,151,90,0.35); padding: 0.2rem 0.6rem; border-radius: 2px; }
     .ex-counter { font-size: 0.8rem; font-weight: 500; color: rgba(247,244,239,0.4); }
     .ex-counter strong { color: var(--cream); }
+
     .ex-progress { flex-shrink: 0; height: 3px; background: rgba(255,255,255,0.06); }
     .ex-progress-bar { height: 100%; background: var(--gold); transition: width 0.4s ease; }
+
     .ex-main { flex: 1; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem 1.5rem 1rem; max-width: 640px; margin: 0 auto; width: 100%; }
+
     .ex-card { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 1rem; animation: fadeSlide 0.35s ease both; }
     @keyframes fadeSlide { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
     .ex-group { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); opacity: 0.75; }
     .ex-context { font-size: 0.82rem; font-weight: 300; font-style: italic; color: rgba(247,244,239,0.45); line-height: 1.5; border-left: 2px solid rgba(184,151,90,0.25); padding-left: 0.75rem; }
     .ex-expression { font-family: var(--font-display); font-size: clamp(1.4rem, 4.5vw, 2.2rem); font-weight: 400; color: var(--cream); line-height: 1.25; letter-spacing: -0.01em; }
     .ex-expression.hidden-expr { display: none; }
-    .ex-expression-placeholder { padding: 1.75rem; border: 1px dashed rgba(255,255,255,0.1); border-radius: var(--radius); text-align: center; font-size: 0.85rem; font-weight: 300; color: rgba(247,244,239,0.25); font-style: italic; }
+    .ex-expression-placeholder { padding: 1.75rem; border: 1px dashed rgba(255,255,255,0.1); border-radius: var(--radius); text-align: center; font-size: 0.85rem; font-weight: 300; color: rgba(247,244,239,0.25); font-style: italic; letter-spacing: 0.06em; }
+
+    .btn-record:disabled { opacity: 0.2 !important; cursor: not-allowed !important; pointer-events: none; }
+    .btn-reveal:disabled { opacity: 0.2 !important; cursor: not-allowed !important; pointer-events: none; }
+
     .ex-actions { display: flex; flex-direction: column; gap: 0.65rem; }
     .btn-listen, .btn-record, .btn-reveal { display: flex; align-items: center; justify-content: center; gap: 0.6rem; border: none; border-radius: var(--radius); font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; padding: 0.9rem 1.5rem; transition: all 0.2s; width: 100%; }
     .btn-listen { background: var(--gold); color: var(--navy-dark); }
@@ -42,17 +61,21 @@
     @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.65; } }
     .btn-reveal { background: transparent; color: rgba(247,244,239,0.35); border: 1px solid rgba(255,255,255,0.07); font-weight: 400; font-size: 0.8rem; }
     .btn-reveal:hover { color: rgba(247,244,239,0.65); border-color: rgba(255,255,255,0.15); }
+
     .ex-translation { background: rgba(184,151,90,0.08); border: 1px solid rgba(184,151,90,0.2); border-radius: var(--radius); padding: 1rem 1.25rem; font-size: 1rem; font-weight: 400; color: var(--gold); font-style: italic; text-align: center; display: none; animation: fadeSlide 0.3s ease both; }
     .ex-translation.visible { display: block; }
+
     .ex-status { display: flex; justify-content: center; gap: 0.6rem; padding: 0.5rem 0; }
     .status-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.1); transition: background 0.3s; }
     .status-dot.done { background: var(--gold); }
+
     .ex-nav { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); }
     .btn-nav { display: flex; align-items: center; gap: 0.4rem; background: none; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); color: rgba(247,244,239,0.45); font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; padding: 0.6rem 1.1rem; cursor: pointer; transition: all 0.2s; }
     .btn-nav:hover { color: var(--cream); border-color: rgba(255,255,255,0.25); }
     .btn-nav:disabled { opacity: 0.2; cursor: not-allowed; }
     .btn-next-main { flex: 1; background: var(--navy-light); border: none; border-radius: var(--radius); color: var(--cream); font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; padding: 0.7rem 1.5rem; cursor: pointer; transition: background 0.2s; letter-spacing: 0.03em; }
     .btn-next-main:hover { background: #2e4a80; }
+
     .screen-intro { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; align-items: center; justify-content: safe center; text-align: center; padding: 2rem 1.5rem; max-width: 520px; margin: 0 auto; width: 100%; gap: 1.5rem; }
     .intro-month { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
     .intro-title { font-family: var(--font-display); font-size: clamp(1.8rem, 6vw, 2.8rem); font-weight: 400; color: var(--cream); line-height: 1.2; }
@@ -65,11 +88,36 @@
     .intro-step-text strong { color: var(--cream); font-weight: 600; }
     .btn-start { background: var(--gold); color: var(--navy-dark); border: none; border-radius: var(--radius); font-family: var(--font-body); font-size: 1rem; font-weight: 700; padding: 1rem 2.5rem; cursor: pointer; transition: background 0.2s; width: 100%; max-width: 320px; letter-spacing: 0.03em; }
     .btn-start:hover { background: var(--gold-light); }
+
     .screen-end { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: safe center; text-align: center; padding: 2rem 1.5rem; max-width: 520px; margin: 0 auto; width: 100%; gap: 1.5rem; overflow-y: auto; min-height: 0; }
     .end-trophy { font-size: 3.5rem; }
     .end-title { font-family: var(--font-display); font-size: clamp(1.8rem, 6vw, 2.5rem); font-weight: 400; color: var(--cream); line-height: 1.2; }
     .end-title em { color: var(--gold); font-style: italic; }
     .end-desc { font-size: 0.9rem; font-weight: 300; color: rgba(247,244,239,0.6); line-height: 1.75; }
+
+    /* QUIZ */
+    .btn-quiz-start {
+      width: 100%; background: rgba(184,151,90,0.15); border: 1px solid rgba(184,151,90,0.5);
+      border-radius: var(--radius); color: var(--gold); font-family: var(--font-body);
+      font-size: 0.9rem; font-weight: 600; padding: 1rem 1.5rem; cursor: pointer;
+      letter-spacing: 0.04em; transition: background 0.2s;
+    }
+    .btn-quiz-start:hover { background: rgba(184,151,90,0.25); }
+    .quiz-counter { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(184,151,90,0.7); }
+    .quiz-label { font-size: 0.82rem; font-weight: 300; color: rgba(247,244,239,0.5); }
+    .quiz-french { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--cream); line-height: 1.35; font-style: italic; background: rgba(255,255,255,0.05); border-radius: var(--radius); padding: 1.25rem 1.5rem; width: 100%; }
+    .quiz-english { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--gold); font-style: italic; padding: 1rem 0 0.25rem; }
+    .quiz-assess { display: flex; gap: 0.75rem; width: 100%; margin-top: 0.5rem; }
+    .quiz-yes { flex: 1; background: rgba(80,160,80,0.2); border: 1px solid rgba(80,160,80,0.4); border-radius: var(--radius); color: #7ecb7e; font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; padding: 0.85rem; cursor: pointer; transition: background 0.2s; }
+    .quiz-yes:hover { background: rgba(80,160,80,0.35); }
+    .quiz-no { flex: 1; background: rgba(200,80,80,0.15); border: 1px solid rgba(200,80,80,0.3); border-radius: var(--radius); color: #e08080; font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; padding: 0.85rem; cursor: pointer; transition: background 0.2s; }
+    .quiz-no:hover { background: rgba(200,80,80,0.28); }
+    .quiz-score-big { font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--gold); line-height: 1; }
+    .quiz-score-label { font-size: 0.82rem; font-weight: 300; color: rgba(247,244,239,0.5); }
+    .quiz-best { font-size: 0.78rem; color: rgba(184,151,90,0.55); font-style: italic; }
+    .btn-quiz-retry { width: 100%; background: var(--gold); border: none; border-radius: var(--radius); color: #111d33; font-family: var(--font-body); font-size: 0.88rem; font-weight: 700; padding: 0.9rem; cursor: pointer; letter-spacing: 0.05em; }
+    .btn-quiz-back { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); color: rgba(247,244,239,0.5); font-family: var(--font-body); font-size: 0.82rem; font-weight: 400; padding: 0.75rem; cursor: pointer; }
+
     .hidden { display: none !important; }
     @media (max-width: 480px) {
       .ex-header { padding: 0.75rem 1rem; }
@@ -80,21 +128,22 @@
 </head>
 <body>
 <div class="ex-header">
-  <a href="/" class="ex-logo">Bouche-a-oreille <span>Mois 01</span></a>
+  <a href="/" class="ex-logo">Bouche-a-oreille <span>· Mois 01</span></a>
   <span class="ex-badge">🥖 Caroline voice</span>
   <span class="ex-counter" id="counter"><strong>1</strong>/25</span>
 </div>
 <div class="ex-progress">
   <div class="ex-progress-bar" id="progressBar" style="width:4%"></div>
 </div>
+
 <div id="screenIntro" class="screen-intro">
   <p class="intro-month">Mois 01 🥖</p>
-  <h1 class="intro-title">Mois 01 · Bonjour, baguette, voisins</h1>
+  <h1 class="intro-title">Bonjour, baguette, voisins</h1>
   <p class="intro-desc">25 French expressions — recorded by Caroline. Listen to her voice, record yourself, compare.</p>
   <div class="intro-steps">
     <div class="intro-step">
       <span class="intro-step-icon">🎧</span>
-      <span class="intro-step-text"><strong>Listen</strong> to Caroline — hear the expression in a real French voice</span>
+      <span class="intro-step-text"><strong>Listen</strong> to Caroline — a real French voice</span>
     </div>
     <div class="intro-step">
       <span class="intro-step-icon">🎙️</span>
@@ -102,18 +151,19 @@
     </div>
     <div class="intro-step">
       <span class="intro-step-icon">🔁</span>
-      <span class="intro-step-text"><strong>Compare</strong> — hear the gap close every time</span>
+      <span class="intro-step-text"><strong>Compare</strong> — hear the gap close</span>
     </div>
   </div>
-  <button class="btn-start" onclick="startExercise()">Begin 🌟</button>
+  <button class="btn-start" onclick="startExercise()">Start practising 🌟</button>
 </div>
+
 <div id="screenExercise" class="hidden" style="display:flex;flex-direction:column;height:100%;">
   <div class="ex-main">
     <div class="ex-card" id="exCard">
       <div class="ex-group" id="exGroup"></div>
       <div class="ex-context" id="exContext"></div>
       <div class="ex-expression" id="exExpression"></div>
-      <div class="ex-expression-placeholder" id="exPlaceholder">Listen first to hear Caroline say it 🎧</div>
+      <div class="ex-expression-placeholder" id="exPlaceholder">Listen first to hear Caroline 🎧</div>
       <div class="ex-translation" id="exTranslation"></div>
     </div>
     <div>
@@ -126,7 +176,7 @@
           <span id="recordIcon">🎙️</span>
           <span id="recordLabel">Record yourself</span>
         </button>
-        <button class="btn-reveal" id="btnReveal" onclick="revealTranslation()" style="display:none;">
+        <button class="btn-reveal" id="btnReveal" style="display:none;" onclick="revealTranslation()">
           👀 Reveal translation
         </button>
       </div>
@@ -134,49 +184,56 @@
     </div>
   </div>
   <div class="ex-nav">
-    <button class="btn-nav" id="btnPrev" onclick="goTo(current - 1)" disabled>← Previous</button>
-    <button class="btn-next-main" id="btnNext" onclick="goTo(current + 1)">Next →</button>
+    <button class="btn-nav" id="btnPrev" onclick="goTo(current-1)" disabled>← Previous</button>
+    <button class="btn-next-main" id="btnNext" onclick="goNext()">Next →</button>
   </div>
 </div>
+
 <div id="screenEnd" class="screen-end hidden">
   <div class="end-trophy">🏆</div>
   <h2 class="end-title">Mois 01 complete!</h2>
   <p class="end-desc">You listened to Caroline, recorded yourself, and improved. Your French is getting more natural every day.</p>
-  <p style="font-size:0.85rem;color:var(--gold);font-style:italic;font-family:var(--font-display);">"Bonjour, baguette, voisins"</p>
-  <a href="/" style="display:inline-block;background:var(--gold);color:var(--navy-dark);padding:0.85rem 2rem;border-radius:var(--radius);text-decoration:none;font-weight:700;font-size:0.9rem;margin-top:0.5rem;">Back to home ←</a>
+  <div id="scoreDisplay" class="hidden" style="margin:0.5rem 0;">
+    <div class="quiz-score-big" id="finalScore">0</div>
+    <div class="quiz-score-label">expressions completed</div>
+  </div>
+  <p class="end-next-label" style="font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Next month</p>
+  <p style="font-family:var(--font-display);font-size:1rem;color:var(--cream);margin-bottom:1rem;">Transports 🚄</p>
+  <a href="/" style="display:inline-block;background:var(--gold);color:var(--navy-dark);padding:0.85rem 2rem;border-radius:var(--radius);text-decoration:none;font-weight:700;font-size:0.9rem;">Back to home ←</a>
 </div>
+
 <script>
-var EXPRESSIONS = [{"fr": "Bonjour !", "en": "Hello!", "context": "The first 5 seconds of any interaction.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-01-bonjour.mp3"}, {"fr": "Vous êtes ouvert ?", "en": "Are you open?", "context": "Before entering a shop.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-02-vous-etes-ouvert.mp3"}, {"fr": "Vous avez choisi ?", "en": "Have you decided?", "context": "What the shop assistant asks.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-03-vous-avez-choisi.mp3"}, {"fr": "Je vous mets un pain au chocolat avec ?", "en": "Shall I add a pain au chocolat?", "context": "Bakery moment.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-04-je-vous-mets-un-pain-au-chocol.mp3"}, {"fr": "Je peux payer comment ?", "en": "How can I pay?", "context": "Cash or card?", "group": "The Bonjour ritual", "audio": ""}, {"fr": "Je voudrais une baguette, pas trop cuite.", "en": "I'd like a baguette, not too well-done.", "context": "The most French sentence.", "group": "Bakery", "audio": "/audio/mois-01/expression-06-je-voudrais-baguette-pas-trop-cuite.mp3"}, {"fr": "Sur place ou à emporter ?", "en": "For here or to go?", "context": "The eternal café question.", "group": "Bakery", "audio": "/audio/mois-01/expression-07-sur-place-ou-a-emporter.mp3"}, {"fr": "Vous me faites une remise ?", "en": "Can you give me a discount?", "context": "Market negotiation.", "group": "Bakery", "audio": "/audio/mois-01/expression-08-vous-me-faites-une-remise.mp3"}, {"fr": "C'est pour offrir.", "en": "It's a gift.", "context": "They'll wrap it beautifully.", "group": "Bakery", "audio": "/audio/mois-01/expression-09-c-est-pour-offrir.mp3"}, {"fr": "Vous avez la carte ?", "en": "Do you have the menu?", "context": "At a restaurant.", "group": "Bakery", "audio": "/audio/mois-01/expression-10-vous-avez-la-carte.mp3"}, {"fr": "Je peux goûter ?", "en": "Can I taste it?", "context": "At a market stall.", "group": "Bakery", "audio": "/audio/mois-01/expression-11-je-peux-gouter.mp3"}, {"fr": "L'addition, s'il vous plaît.", "en": "The bill, please.", "context": "Signal the meal is over.", "group": "Bakery", "audio": "/audio/mois-01/expression-12-l-addition-on-partage.mp3"}, {"fr": "Je vous dois combien ?", "en": "How much do I owe you?", "context": "Polite way to ask.", "group": "Bakery", "audio": "/audio/mois-01/expression-13-je-vous-dois-combien.mp3"}, {"fr": "Vous auriez l'heure ?", "en": "Would you have the time?", "context": "Ask a stranger politely.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-14-vous-auriez-l-heure.mp3"}, {"fr": "Je peux vous emprunter… ?", "en": "Can I borrow…?", "context": "From a neighbour.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-15-je-peux-vous-emprunter.mp3"}, {"fr": "Il y a quelqu'un ?", "en": "Is anyone there?", "context": "When you knock.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-16-il-y-a-quelqu-un.mp3"}, {"fr": "Ça vous dérange si… ?", "en": "Do you mind if…?", "context": "Polite request.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-17-ca-vous-derange-si.mp3"}, {"fr": "On se voit quand ?", "en": "When shall we meet?", "context": "Making plans.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-18-on-se-voit-quand.mp3"}, {"fr": "Amène les enfants !", "en": "Bring the kids!", "context": "Warm hosting.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-19-amene-les-enfants.mp3"}, {"fr": "Tu restes manger ?", "en": "Are you staying to eat?", "context": "Always say yes.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-20-tu-restes-manger.mp3"}, {"fr": "Tu sais quoi ?", "en": "You know what?", "context": "Conversation starter.", "group": "Small words", "audio": "/audio/mois-01/expression-21-tu-sais-quoi.mp3"}, {"fr": "En fait…", "en": "Actually…", "context": "To correct or clarify.", "group": "Small words", "audio": "/audio/mois-01/expression-22-en-fait.mp3"}, {"fr": "Du coup…", "en": "So…", "context": "Most used filler.", "group": "Small words", "audio": "/audio/mois-01/expression-23-du-coup.mp3"}, {"fr": "Enfin…", "en": "I mean…", "context": "Signals a conclusion.", "group": "Small words", "audio": "/audio/mois-01/expression-24-enfin.mp3"}, {"fr": "Bref !", "en": "Anyway!", "context": "Conversation closer.", "group": "Small words", "audio": "/audio/mois-01/expression-25-bref.mp3"}];
-var CURRENT = 0;
-var LISTENED = new Array(EXPRESSIONS.length).fill(false);
-var REVEALED = new Array(EXPRESSIONS.length).fill(false);
-var IS_PLAYING = false;
-var IS_RECORDING = false;
-var HAS_RECORDING = false;
-var MEDIA_RECORDER = null;
-var AUDIO_CHUNKS = [];
-var RECORDED_BLOB = null;
-var RECORDING_AUDIO = null;
-var STREAM = null;
-var STORAGE_KEY = 'bao_m01';
-var CURRENT_AUDIO = null;
+const expressions = [{"fr": "Bonjour !", "en": "Hello!", "context": "The first 5 seconds of any interaction.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-01-bonjour.mp3"}, {"fr": "Vous êtes ouvert ?", "en": "Are you open?", "context": "Before entering a shop.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-02-vous-etes-ouvert.mp3"}, {"fr": "Vous avez choisi ?", "en": "Have you decided?", "context": "What the shop assistant asks.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-03-vous-avez-choisi.mp3"}, {"fr": "Je vous mets un pain au chocolat avec ?", "en": "Shall I add a pain au chocolat?", "context": "Bakery moment.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-04-je-vous-mets-un-pain-au-chocol.mp3"}, {"fr": "Je peux payer comment ?", "en": "How can I pay?", "context": "Cash or card?", "group": "The Bonjour ritual", "audio": ""}, {"fr": "Je voudrais une baguette, pas trop cuite.", "en": "I'd like a baguette, not too well-done.", "context": "The most French sentence.", "group": "Bakery", "audio": "/audio/mois-01/expression-06-je-voudrais-baguette-pas-trop-cuite.mp3"}, {"fr": "Sur place ou à emporter ?", "en": "For here or to go?", "context": "The eternal café question.", "group": "Bakery", "audio": "/audio/mois-01/expression-07-sur-place-ou-a-emporter.mp3"}, {"fr": "Vous me faites une remise ?", "en": "Can you give me a discount?", "context": "Market negotiation.", "group": "Bakery", "audio": "/audio/mois-01/expression-08-vous-me-faites-une-remise.mp3"}, {"fr": "C'est pour offrir.", "en": "It's a gift.", "context": "They'll wrap it beautifully.", "group": "Bakery", "audio": "/audio/mois-01/expression-09-c-est-pour-offrir.mp3"}, {"fr": "Vous avez la carte ?", "en": "Do you have the menu?", "context": "At a restaurant.", "group": "Bakery", "audio": "/audio/mois-01/expression-10-vous-avez-la-carte.mp3"}, {"fr": "Je peux goûter ?", "en": "Can I taste it?", "context": "At a market stall.", "group": "Bakery", "audio": "/audio/mois-01/expression-11-je-peux-gouter.mp3"}, {"fr": "L'addition, s'il vous plaît.", "en": "The bill, please.", "context": "Signal the meal is over.", "group": "Bakery", "audio": "/audio/mois-01/expression-12-l-addition-on-partage.mp3"}, {"fr": "Je vous dois combien ?", "en": "How much do I owe you?", "context": "Polite way to ask.", "group": "Bakery", "audio": "/audio/mois-01/expression-13-je-vous-dois-combien.mp3"}, {"fr": "Vous auriez l'heure ?", "en": "Would you have the time?", "context": "Ask a stranger politely.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-14-vous-auriez-l-heure.mp3"}, {"fr": "Je peux vous emprunter… ?", "en": "Can I borrow…?", "context": "From a neighbour.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-15-je-peux-vous-emprunter.mp3"}, {"fr": "Il y a quelqu'un ?", "en": "Is anyone there?", "context": "When you knock.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-16-il-y-a-quelqu-un.mp3"}, {"fr": "Ça vous dérange si… ?", "en": "Do you mind if…?", "context": "Polite request.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-17-ca-vous-derange-si.mp3"}, {"fr": "On se voit quand ?", "en": "When shall we meet?", "context": "Making plans.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-18-on-se-voit-quand.mp3"}, {"fr": "Amène les enfants !", "en": "Bring the kids!", "context": "Warm hosting.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-19-amene-les-enfants.mp3"}, {"fr": "Tu restes manger ?", "en": "Are you staying to eat?", "context": "Always say yes.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-20-tu-restes-manger.mp3"}, {"fr": "Tu sais quoi ?", "en": "You know what?", "context": "Conversation starter.", "group": "Small words", "audio": "/audio/mois-01/expression-21-tu-sais-quoi.mp3"}, {"fr": "En fait…", "en": "Actually…", "context": "To correct or clarify.", "group": "Small words", "audio": "/audio/mois-01/expression-22-en-fait.mp3"}, {"fr": "Du coup…", "en": "So…", "context": "Most used filler.", "group": "Small words", "audio": "/audio/mois-01/expression-23-du-coup.mp3"}, {"fr": "Enfin…", "en": "I mean…", "context": "Signals a conclusion.", "group": "Small words", "audio": "/audio/mois-01/expression-24-enfin.mp3"}, {"fr": "Bref !", "en": "Anyway!", "context": "Conversation closer.", "group": "Small words", "audio": "/audio/mois-01/expression-25-bref.mp3"}];
+const STORAGE_PREFIX = 'bao01';
+let current = 0;
+let listened = new Array(expressions.length).fill(false);
+let revealed = new Array(expressions.length).fill(false);
+let isPlaying = false;
+let isRecording = false;
+let hasRecording = false;
+let mediaRecorder = null;
+let audioChunks = [];
+let recordedBlob = null;
+let recordingAudio = null;
+let stream = null;
+let currentAudio = null;
+let controlScores = [null,null,null,null,null];
+const controlAt = [4,9,14,19,24];
 
-function loadState() {
-  try {
-    var saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (saved) {
-      CURRENT = saved.current || 0;
-      LISTENED = saved.listened || new Array(EXPRESSIONS.length).fill(false);
-      REVEALED = saved.revealed || new Array(EXPRESSIONS.length).fill(false);
-    }
-  } catch(e) {}
+const saved_current = localStorage.getItem(STORAGE_PREFIX+'_current');
+if (saved_current && parseInt(saved_current) > 0 && parseInt(saved_current) < expressions.length) current = parseInt(saved_current);
+const saved_listened = localStorage.getItem(STORAGE_PREFIX+'_listened');
+if (saved_listened) {
+  const arr = JSON.parse(saved_listened);
+  if (arr.length === expressions.length) listened = arr;
 }
-
-function saveState() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({
-    current: CURRENT, listened: LISTENED, revealed: REVEALED
-  }));
+const saved_revealed = localStorage.getItem(STORAGE_PREFIX+'_revealed');
+if (saved_revealed) {
+  const arr = JSON.parse(saved_revealed);
+  if (arr.length === expressions.length) revealed = arr;
 }
+const saved_controls = localStorage.getItem(STORAGE_PREFIX+'_controls');
+if (saved_controls) { const arr = JSON.parse(saved_controls); if (arr.length === 5) controlScores = arr; }
 
 function startExercise() {
   document.getElementById('screenIntro').classList.add('hidden');
@@ -185,170 +242,155 @@ function startExercise() {
 }
 
 function render() {
-  var expr = EXPRESSIONS[CURRENT];
-  HAS_RECORDING = false; IS_RECORDING = false;
-  if (CURRENT_AUDIO) { CURRENT_AUDIO.pause(); CURRENT_AUDIO = null; }
-  if (STREAM) { STREAM.getTracks().forEach(function(t) { t.stop(); }); STREAM = null; }
-  document.getElementById('counter').innerHTML = '<strong>' + (CURRENT + 1) + '</strong>/' + EXPRESSIONS.length;
-  document.getElementById('progressBar').style.width = ((CURRENT + 1) / EXPRESSIONS.length * 100) + '%';
-  var card = document.getElementById('exCard');
-  card.style.animation = 'none';
-  void card.offsetWidth;
-  card.style.animation = '';
+  const expr = expressions[current];
+  hasRecording = false; isRecording = false;
+  if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+  if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
+  document.getElementById('counter').innerHTML = '<strong>'+(current+1)+'</strong>/'+expressions.length;
+  document.getElementById('progressBar').style.width = ((current+1)/expressions.length*100)+'%';
+  const card = document.getElementById('exCard');
+  card.style.animation = 'none'; void card.offsetWidth; card.style.animation = '';
   document.getElementById('exGroup').textContent = expr.group;
   document.getElementById('exContext').textContent = expr.context;
-  document.getElementById('exExpression').textContent = '"' + expr.fr + '"';
-  var alreadyListened = LISTENED[CURRENT];
-  document.getElementById('exExpression').classList.toggle('hidden-expr', !alreadyListened);
+  document.getElementById('exExpression').textContent = '"'+expr.fr+'"';
+  const alreadyListened = listened[current];
+  document.getElementById('exExpression').classList.toggle('hidden-expr',!alreadyListened);
   document.getElementById('exPlaceholder').style.display = alreadyListened ? 'none' : '';
-  document.getElementById('btnListen').className = 'btn-listen';
-  document.getElementById('btnListen').disabled = false;
+  document.getElementById('btnListen').className = 'btn-listen'; document.getElementById('btnListen').disabled = false;
   document.getElementById('listenLabel').textContent = alreadyListened ? 'Re-listen — Caroline' : 'Listen — Caroline';
-  document.getElementById('btnRecord').className = 'btn-record';
-  document.getElementById('btnRecord').disabled = !alreadyListened;
+  const btnRecord = document.getElementById('btnRecord');
+  btnRecord.className = 'btn-record'; btnRecord.disabled = !alreadyListened;
   document.getElementById('recordIcon').textContent = '🎙️';
   document.getElementById('recordLabel').textContent = 'Record yourself';
-  var trans = document.getElementById('exTranslation');
-  trans.textContent = '🇬🇧 ' + expr.en;
-  trans.classList.toggle('visible', REVEALED[CURRENT]);
-  document.getElementById('btnReveal').style.display = (alreadyListened && !REVEALED[CURRENT]) ? '' : 'none';
-  document.getElementById('btnPrev').disabled = CURRENT === 0;
-  document.getElementById('btnNext').textContent = CURRENT === EXPRESSIONS.length - 1 ? 'Finish ✓' : 'Next →';
+  const trans = document.getElementById('exTranslation');
+  trans.textContent = '🇬🇧 '+expr.en;
+  trans.classList.toggle('visible',revealed[current]);
+  document.getElementById('btnReveal').style.display = (alreadyListened&&!revealed[current])?'':'none';
+  document.getElementById('btnPrev').disabled = current === 0;
+  document.getElementById('btnNext').textContent = current === expressions.length-1 ? 'Finish ✓' : 'Next →';
   renderDots();
-  saveState();
+  localStorage.setItem(STORAGE_PREFIX+'_current',current);
+  localStorage.setItem(STORAGE_PREFIX+'_listened',JSON.stringify(listened));
+  localStorage.setItem(STORAGE_PREFIX+'_revealed',JSON.stringify(revealed));
 }
 
 function renderDots() {
-  var el = document.getElementById('exStatus');
-  el.innerHTML = '';
-  var show = Math.min(7, EXPRESSIONS.length);
-  var start = Math.max(0, Math.min(CURRENT - 2, EXPRESSIONS.length - show));
-  for (var i = start; i < Math.min(start + show, EXPRESSIONS.length); i++) {
-    var d = document.createElement('div');
-    d.className = 'status-dot' + (LISTENED[i] ? ' done' : '');
-    if (i === CURRENT) d.style.background = 'var(--cream)';
+  const el = document.getElementById('exStatus'); el.innerHTML = '';
+  const show = 5; const start = Math.max(0,Math.min(current-2,expressions.length-show));
+  for (let i=start; i<Math.min(start+show,expressions.length); i++) {
+    const d = document.createElement('div');
+    d.className = 'status-dot'+(listened[i]?' done':'');
+    if (i===current) d.style.background='var(--cream)';
     el.appendChild(d);
   }
 }
 
 function listenExpression() {
-  if (IS_PLAYING) {
-    if (CURRENT_AUDIO) { CURRENT_AUDIO.pause(); CURRENT_AUDIO = null; }
-    IS_PLAYING = false;
-    resetListenBtn();
-    return;
-  }
-  var expr = EXPRESSIONS[CURRENT];
-  if (expr.audio) {
-    CURRENT_AUDIO = new Audio(expr.audio);
-    CURRENT_AUDIO.oncanplay = function() {
-      IS_PLAYING = true;
-      document.getElementById('btnListen').className = 'btn-listen playing';
-      document.getElementById('listenLabel').textContent = '⏸ Playing Caroline...';
-      CURRENT_AUDIO.play();
-    };
-    CURRENT_AUDIO.onended = function() {
-      IS_PLAYING = false;
-      afterListen();
-    };
-    CURRENT_AUDIO.onerror = function() {
-      IS_PLAYING = false;
-      alert('Audio file not found for this expression.');
-      resetListenBtn();
-    };
-  } else {
-    alert('Audio file coming soon!');
-  }
-}
-
-function afterListen() {
-  LISTENED[CURRENT] = true;
-  saveState();
-  resetListenBtn();
-  renderDots();
-  document.getElementById('exPlaceholder').style.display = 'none';
-  var exEl = document.getElementById('exExpression');
-  exEl.classList.remove('hidden-expr');
-  exEl.style.animation = 'none'; void exEl.offsetWidth; exEl.style.animation = 'fadeSlide 0.5s ease both';
-  document.getElementById('btnRecord').disabled = false;
-  if (!REVEALED[CURRENT]) document.getElementById('btnReveal').style.display = '';
+  if (isPlaying) { if (currentAudio) { currentAudio.pause(); currentAudio=null; } isPlaying=false; resetListenBtn(); return; }
+  const expr = expressions[current];
+  if (!expr.audio) { alert('Audio not available yet.'); return; }
+  currentAudio = new Audio(expr.audio);
+  isPlaying = true;
+  document.getElementById('btnListen').className = 'btn-listen playing';
+  document.getElementById('listenLabel').textContent = '⏸ Playing...';
+  currentAudio.onended = function() {
+    isPlaying = false; listened[current]=true;
+    localStorage.setItem(STORAGE_PREFIX+'_listened',JSON.stringify(listened));
+    resetListenBtn(); renderDots();
+    document.getElementById('exPlaceholder').style.display = 'none';
+    const exEl = document.getElementById('exExpression');
+    exEl.classList.remove('hidden-expr');
+    exEl.style.animation = 'none'; void exEl.offsetWidth; exEl.style.animation = 'fadeSlide 0.5s ease both';
+    document.getElementById('btnRecord').disabled = false;
+    if (!revealed[current]) document.getElementById('btnReveal').style.display = '';
+  };
+  currentAudio.onerror = function() { isPlaying=false; resetListenBtn(); };
 }
 
 function resetListenBtn() {
-  document.getElementById('btnListen').className = 'btn-listen';
-  document.getElementById('btnListen').disabled = false;
-  document.getElementById('listenLabel').textContent = LISTENED[CURRENT] ? 'Re-listen — Caroline' : 'Listen — Caroline';
+  document.getElementById('btnListen').className = 'btn-listen'; document.getElementById('btnListen').disabled = false;
+  document.getElementById('listenLabel').textContent = listened[current]?'Re-listen — Caroline':'Listen — Caroline';
 }
 
 function revealTranslation() {
-  REVEALED[CURRENT] = true;
-  saveState();
+  revealed[current]=true;
+  localStorage.setItem(STORAGE_PREFIX+'_revealed',JSON.stringify(revealed));
   document.getElementById('exTranslation').classList.add('visible');
   document.getElementById('btnReveal').style.display = 'none';
 }
 
-function toggleRecord() {
-  if (IS_RECORDING) { stopRecording(); }
-  else if (HAS_RECORDING) {
-    if (RECORDING_AUDIO) {
-      RECORDING_AUDIO.currentTime = 0;
-      RECORDING_AUDIO.play();
-      document.getElementById('recordLabel').textContent = '▶ Playing...';
-      RECORDING_AUDIO.onended = function() {
-        document.getElementById('recordLabel').textContent = 'Play my recording';
-      };
-    }
-  } else { startRecording(); }
+async function toggleRecord() {
+  if (isRecording) { stopRecording(); }
+  else if (hasRecording) {
+    if (recordingAudio) { recordingAudio.currentTime=0; recordingAudio.play();
+      document.getElementById('recordLabel').textContent='▶ Playing...';
+      recordingAudio.onended=function(){document.getElementById('recordLabel').textContent='Play my recording';}; }
+  } else { await startRecording(); }
 }
 
-function startRecording() {
+function reRecord() {
+  if (recordingAudio) { recordingAudio.pause(); recordingAudio=null; }
+  hasRecording=false; recordedBlob=null;
+  document.getElementById('btnReRecord').style.display='none';
+  document.getElementById('btnRecord').className='btn-record';
+  document.getElementById('recordIcon').textContent='🎙️';
+  document.getElementById('recordLabel').textContent='Record yourself';
+  startRecording();
+}
+
+async function startRecording() {
   try {
-    navigator.mediaDevices.getUserMedia({ audio: true }).then(function(s) {
-      STREAM = s;
-      AUDIO_CHUNKS = [];
-      var mimeType = '';
-      var types = ['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg'];
-      for (var i = 0; i < types.length; i++) {
-        if (MediaRecorder.isTypeSupported(types[i])) { mimeType = types[i]; break; }
-      }
-      MEDIA_RECORDER = new MediaRecorder(STREAM, mimeType ? { mimeType: mimeType } : {});
-      MEDIA_RECORDER.ondataavailable = function(e) { if (e.data.size > 0) AUDIO_CHUNKS.push(e.data); };
-      MEDIA_RECORDER.onstop = function() {
-        RECORDED_BLOB = new Blob(AUDIO_CHUNKS, { type: mimeType || 'audio/webm' });
-        var url = URL.createObjectURL(RECORDED_BLOB);
-        RECORDING_AUDIO = new Audio(url);
-        HAS_RECORDING = true; IS_RECORDING = false;
-        document.getElementById('btnRecord').className = 'btn-record has-recording';
-        document.getElementById('recordIcon').textContent = '▶';
-        document.getElementById('recordLabel').textContent = 'Play my recording';
-        STREAM.getTracks().forEach(function(t) { t.stop(); });
-      };
-      MEDIA_RECORDER.start();
-      IS_RECORDING = true;
-      document.getElementById('btnRecord').className = 'btn-record recording';
-      document.getElementById('recordIcon').textContent = '⏹';
-      document.getElementById('recordLabel').textContent = 'Stop recording';
-    }).catch(function() {
-      alert('Microphone not available. Check browser permissions.');
-    });
-  } catch(e) {
-    alert('Microphone not available.');
-  }
+    stream = await navigator.mediaDevices.getUserMedia({audio:true});
+    audioChunks=[];
+    const mimeType=['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg'].find(t=>MediaRecorder.isTypeSupported(t))||'';
+    mediaRecorder = new MediaRecorder(stream, mimeType?{mimeType}:{});
+    mediaRecorder.ondataavailable = function(e) { if (e.data.size>0) audioChunks.push(e.data); };
+    mediaRecorder.onstop = function() {
+      recordedBlob = new Blob(audioChunks,{type:mimeType||'audio/webm'});
+      const url = URL.createObjectURL(recordedBlob);
+      recordingAudio = new Audio(url);
+      hasRecording=true; isRecording=false;
+      document.getElementById('btnRecord').className='btn-record has-recording';
+      document.getElementById('recordIcon').textContent='▶';
+      document.getElementById('recordLabel').textContent='Play my recording';
+      stream.getTracks().forEach(t=>t.stop());
+    };
+    mediaRecorder.start(); isRecording=true;
+    document.getElementById('btnRecord').className='btn-record recording';
+    document.getElementById('recordIcon').textContent='⏹';
+    document.getElementById('recordLabel').textContent='Stop recording';
+  } catch(e) { alert('Microphone not available. Check your browser permissions.'); }
 }
 
 function stopRecording() {
-  if (MEDIA_RECORDER && MEDIA_RECORDER.state === 'recording') {
-    MEDIA_RECORDER.stop();
-  }
+  if (mediaRecorder && mediaRecorder.state==='recording') mediaRecorder.stop();
 }
 
 function goTo(index) {
-  if (index < 0 || index >= EXPRESSIONS.length) return;
-  CURRENT = index;
-  render();
+  if (index<0 || index>=expressions.length) return;
+  current=index; render();
 }
 
-loadState();
+function goNext() {
+  const groupIdx = controlAt.indexOf(current);
+  if (groupIdx!==-1) {
+    const listenedCount = listened.filter(Boolean).length;
+    showControl(groupIdx,function(){
+      if(current===expressions.length-1){showEnd();}
+      else{current++;localStorage.setItem(STORAGE_PREFIX+'_current',current);document.getElementById('screenExercise').classList.remove('hidden');render();}
+    });
+  } else if(current===expressions.length-1){showEnd();}
+  else{current++;localStorage.setItem(STORAGE_PREFIX+'_current',current);render();}
+}
+
+function showEnd() {
+  document.getElementById('screenExercise').classList.add('hidden');
+  document.getElementById('screenEnd').classList.remove('hidden');
+  const done = listened.filter(Boolean).length;
+  document.getElementById('finalScore').textContent = done+'/'+expressions.length;
+  document.getElementById('scoreDisplay').classList.remove('hidden');
+  localStorage.removeItem(STORAGE_PREFIX+'_current');
+}
 </script>
 </body>
 </html>
