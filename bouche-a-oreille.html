@@ -1039,6 +1039,12 @@ async function handleRecord(e) {
     return;
   }
 
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    alert("Recording requires HTTPS. Open this page on en.snapenglish.fr (not locally) and allow microphone access.");
+    btn.classList.remove("btn-recording");
+    btn.textContent = "🎤 Record";
+    return;
+  }
   try {
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     const mediaRecorder = new MediaRecorder(stream);
@@ -1047,6 +1053,13 @@ async function handleRecord(e) {
     mediaRecorder.ondataavailable = (evt) => chunks.push(evt.data);
     mediaRecorder.onstop = () => {
       const blob = new Blob(chunks, { type: "audio/webm" });
+      if (chunks.length === 0) {
+        alert("No audio captured. Please check your microphone.");
+        btn.classList.remove("btn-recording");
+        btn.textContent = "🎤 Record";
+        stream.getTracks().forEach(t => t.stop());
+        return;
+      }
       recordings[key] = { blob, url: URL.createObjectURL(blob) };
       stream.getTracks().forEach(t => t.stop());
       playBtn.style.display = "inline-flex";
