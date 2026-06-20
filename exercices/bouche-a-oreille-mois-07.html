@@ -374,11 +374,8 @@ function goTo(index) {
 function goNext() {
   const groupIdx = controlAt.indexOf(current);
   if (groupIdx!==-1) {
-    const listenedCount = listened.filter(Boolean).length;
-    showControl(groupIdx,function(){
-      if(current===expressions.length-1){showEnd();}
-      else{current++;localStorage.setItem(STORAGE_PREFIX+'_current',current);document.getElementById('screenExercise').classList.remove('hidden');render();}
-    });
+    if(current===expressions.length-1){showEnd();}
+    else{current++;localStorage.setItem(STORAGE_PREFIX+'_current',current);render();}
   } else if(current===expressions.length-1){showEnd();}
   else{current++;localStorage.setItem(STORAGE_PREFIX+'_current',current);render();}
 }
