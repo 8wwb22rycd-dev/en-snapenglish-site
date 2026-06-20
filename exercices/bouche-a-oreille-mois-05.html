@@ -10,9 +10,8 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>Mois 02 · Going through Security &amp; Boarding | I Can Speak French</title>
+  <title>Bouche-à-oreille · Month 05 | I Can Speak French</title>
   <meta name="robots" content="noindex, nofollow" />
-  <link rel="canonical" href="https://en.snapenglish.fr/exercices/bouche-a-oreille-mois-05" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -99,13 +98,7 @@
     .end-title { font-family: var(--font-display); font-size: clamp(1.8rem, 6vw, 2.5rem); font-weight: 400; color: var(--cream); line-height: 1.2; }
     .end-title em { color: var(--gold); font-style: italic; }
     .end-desc { font-size: 0.9rem; font-weight: 300; color: rgba(247,244,239,0.6); line-height: 1.75; }
-        /* ── QUIZ ── */
-    .btn-quiz-start {
-      width: 100%; background: rgba(184,151,90,0.15); border: 1px solid rgba(184,151,90,0.5);
-      border-radius: var(--radius); color: var(--gold); font-family: var(--font-body);
-      font-size: 0.9rem; font-weight: 600; padding: 1rem 1.5rem; cursor: pointer;
-      letter-spacing: 0.04em; transition: background 0.2s;
-    }
+    .btn-quiz-start { width: 100%; background: rgba(184,151,90,0.15); border: 1px solid rgba(184,151,90,0.5); border-radius: var(--radius); color: var(--gold); font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; padding: 1rem 1.5rem; cursor: pointer; letter-spacing: 0.04em; transition: background 0.2s; }
     .btn-quiz-start:hover { background: rgba(184,151,90,0.25); }
     .quiz-counter { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(184,151,90,0.7); }
     .quiz-label { font-size: 0.82rem; font-weight: 300; color: rgba(247,244,239,0.5); }
@@ -152,41 +145,40 @@
     .recap-list { margin-top: 0.5rem; border: 1px solid rgba(184,151,90,0.2); border-radius: var(--radius); overflow: hidden; }
     .recap-row { display: flex; border-bottom: 1px solid rgba(255,255,255,0.06); }
     .recap-row:last-child { border-bottom: none; }
-    .recap-en { flex: 1; padding: 0.6rem 0.85rem; font-size: 0.82rem; color: var(--cream); font-weight: 500; background: rgba(255,255,255,0.03); }
-    .recap-fr { flex: 1; padding: 0.6rem 0.85rem; font-size: 0.82rem; color: rgba(247,244,239,0.55); background: rgba(0,0,0,0.1); }
+    .recap-fr-col { flex: 1; padding: 0.6rem 0.85rem; font-size: 0.82rem; color: var(--cream); font-weight: 500; background: rgba(255,255,255,0.03); font-family: var(--font-display); font-style: italic; }
+    .recap-en-col { flex: 1; padding: 0.6rem 0.85rem; font-size: 0.82rem; color: rgba(247,244,239,0.55); background: rgba(0,0,0,0.1); }
 
-    /* ── ÉCRAN AVANT (violet/nuit) ── */
-    .screen-avant{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:safe center;text-align:center;padding:2rem 1.5rem;max-width:520px;margin:0 auto;width:100%;gap:1.2rem;overflow-y:auto;min-height:0;background:#1A1535;}
-    .avant-label{font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#a89fd8;}
-    .avant-title{font-family:var(--font-display);font-size:clamp(1.5rem,5vw,2rem);font-weight:400;color:#e8e4f4;line-height:1.3;}
-    .avant-desc{font-size:0.9rem;font-weight:300;color:rgba(232,228,244,0.65);line-height:1.75;max-width:340px;}
-    .avant-desc strong{color:#e8e4f4;}
-    .avant-phrase-box{background:rgba(232,228,244,0.06);border:1px dashed rgba(168,159,216,0.4);border-radius:var(--radius);padding:1.25rem 1.5rem;width:100%;}
-    .avant-phrase-fr{font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:#e8e4f4;}
-    .avant-phrase-hint{font-size:0.75rem;color:rgba(168,159,216,0.55);margin-top:0.5rem;}
-    .avant-btn-start{width:100%;background:#a89fd8;color:#1A1535;border:none;border-radius:var(--radius);font-family:var(--font-body);font-size:1rem;font-weight:700;padding:1rem 2rem;cursor:pointer;transition:background 0.2s;}
-    .avant-btn-start:hover{background:#bdb4e6;}
-    .avant-skip{font-size:0.72rem;color:rgba(168,159,216,0.4);cursor:pointer;text-decoration:underline;}
-    /* ── ÉCRAN APRÈS (ambre/doré) ── */
-    .screen-apres{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:safe center;text-align:center;padding:2rem 1.5rem;max-width:520px;margin:0 auto;width:100%;gap:1.2rem;overflow-y:auto;min-height:0;background:#1C1408;}
-    .apres-label{font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#d4a843;}
-    .apres-title{font-family:var(--font-display);font-size:clamp(1.5rem,5vw,2rem);font-weight:400;color:#f7e8c8;line-height:1.3;}
-    .apres-title em{color:#d4a843;font-style:italic;}
-    .apres-phrase-box{font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:#f7e8c8;background:rgba(212,168,67,0.1);border:1px solid rgba(212,168,67,0.3);border-radius:var(--radius);padding:1.25rem 1.5rem;width:100%;}
-    .apres-section{width:100%;display:flex;flex-direction:column;gap:0.5rem;text-align:left;}
-    .apres-section-label{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(212,168,67,0.7);}
-    .apres-play-btn{width:100%;background:rgba(212,168,67,0.15);border:1px solid rgba(212,168,67,0.4);border-radius:var(--radius);color:#d4a843;font-family:var(--font-body);font-size:0.88rem;font-weight:600;padding:0.9rem 1.5rem;cursor:pointer;transition:background 0.2s;}
-    .apres-play-btn:hover{background:rgba(212,168,67,0.25);}
-    .apres-btn-continue{width:100%;background:#d4a843;color:#1C1408;border:none;border-radius:var(--radius);font-family:var(--font-body);font-size:1rem;font-weight:700;padding:1rem 2rem;cursor:pointer;transition:background 0.2s;}
-    .apres-btn-continue:hover{background:#e0b84e;}
+    .screen-avant { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:safe center; text-align:center; padding:2rem 1.5rem; max-width:520px; margin:0 auto; width:100%; gap:1.2rem; overflow-y:auto; min-height:0; background:#1A1535; }
+    .avant-label { font-size:0.7rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#a89fd8; }
+    .avant-title { font-family:var(--font-display); font-size:clamp(1.5rem,5vw,2rem); font-weight:400; color:#e8e4f4; line-height:1.3; }
+    .avant-desc { font-size:0.9rem; font-weight:300; color:rgba(232,228,244,0.65); line-height:1.75; max-width:340px; }
+    .avant-desc strong { color:#e8e4f4; }
+    .avant-phrase-box { background:rgba(232,228,244,0.06); border:1px dashed rgba(168,159,216,0.4); border-radius:var(--radius); padding:1.25rem 1.5rem; width:100%; }
+    .avant-phrase-fr { font-family:var(--font-display); font-size:1.15rem; font-style:italic; color:#e8e4f4; }
+    .avant-phrase-hint { font-size:0.75rem; color:rgba(168,159,216,0.55); margin-top:0.5rem; }
+    .avant-btn-start { width:100%; background:#a89fd8; color:#1A1535; border:none; border-radius:var(--radius); font-family:var(--font-body); font-size:1rem; font-weight:700; padding:1rem 2rem; cursor:pointer; transition:background 0.2s; }
+    .avant-btn-start:hover { background:#bdb4e6; }
+    .avant-skip { font-size:0.72rem; color:rgba(168,159,216,0.4); cursor:pointer; text-decoration:underline; }
+
+    .screen-apres { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:safe center; text-align:center; padding:2rem 1.5rem; max-width:520px; margin:0 auto; width:100%; gap:1.2rem; overflow-y:auto; min-height:0; background:#1C1408; }
+    .apres-label { font-size:0.7rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#d4a843; }
+    .apres-title { font-family:var(--font-display); font-size:clamp(1.5rem,5vw,2rem); font-weight:400; color:#f7e8c8; line-height:1.3; }
+    .apres-title em { color:#d4a843; font-style:italic; }
+    .apres-phrase-box { font-family:var(--font-display); font-size:1.15rem; font-style:italic; color:#f7e8c8; background:rgba(212,168,67,0.1); border:1px solid rgba(212,168,67,0.3); border-radius:var(--radius); padding:1.25rem 1.5rem; width:100%; }
+    .apres-section { width:100%; display:flex; flex-direction:column; gap:0.5rem; text-align:left; }
+    .apres-section-label { font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:rgba(212,168,67,0.7); }
+    .apres-play-btn { width:100%; background:rgba(212,168,67,0.15); border:1px solid rgba(212,168,67,0.4); border-radius:var(--radius); color:#d4a843; font-family:var(--font-body); font-size:0.88rem; font-weight:600; padding:0.9rem 1.5rem; cursor:pointer; transition:background 0.2s; }
+    .apres-play-btn:hover { background:rgba(212,168,67,0.25); }
+    .apres-btn-continue { width:100%; background:#d4a843; color:#1C1408; border:none; border-radius:var(--radius); font-family:var(--font-body); font-size:1rem; font-weight:700; padding:1rem 2rem; cursor:pointer; transition:background 0.2s; }
+    .apres-btn-continue:hover { background:#e0b84e; }
     .hidden { display: none !important; }
   </style>
 </head>
 <body>
 
 <header class="ex-header">
-  <a href="/" class="ex-logo">Bouche-a-oreille <span>· Mois 05</span></a>
-  <div class="ex-badge">Voyage · Mois 02</div>
+  <a href="/" class="ex-logo">Bouche-à-oreille <span>· Month 05</span></a>
+  <div class="ex-badge">Month 05</div>
   <div class="ex-counter" id="counter"><strong>0</strong>/25</div>
 </header>
 
@@ -194,56 +186,58 @@
   <div class="ex-progress-bar" id="progressBar" style="width:0%"></div>
 </div>
 
+<!-- INTRO SCREEN -->
 <div class="screen-intro" id="screenIntro">
-  <div class="intro-month">Bouche-a-oreille  · Mois 02 </div>
-  <h1 class="intro-title">Going through<br><em>Security &amp; Boarding</em></h1>
-  <p class="intro-desc">25 expressions pour passer la sécurité, le contrôle des passeports et l'embarquement — avec calme et assurance.</p>
+  <div class="intro-month">Bouche-à-oreille · Month 05</div>
+  <h1 class="intro-title">Bonjour,<br><em>baguette, voisins</em></h1>
+  <p class="intro-desc">25 expressions for your first days in Paris — at the bakery, in the neighbourhood, at the café.</p>
   <div class="intro-steps">
     <div class="intro-step">
       <span class="intro-step-icon">🔊</span>
-      <div class="intro-step-text"><strong>Étape 1 — Écoutez</strong> l'expression. L'anglais est caché : entraînez votre oreille avant vos yeux.</div>
-    </div>
-    <div class="intro-step">
-      <span class="intro-step-icon">🇬🇧</span>
-      <div class="intro-step-text"><strong>Étape 2 — Visualisez</strong> l'expression en anglais. Elle apparaît après l'écoute.</div>
-    </div>
-    <div class="intro-step">
-      <span class="intro-step-icon">🎙️</span>
-      <div class="intro-step-text"><strong>Étape 3 — Enregistrez-vous</strong> et réécoutez-vous. C'est là que l'ancrage se fait.</div>
+      <div class="intro-step-text"><strong>Step 1 — Listen</strong> to Caroline say the French expression. Don't worry about the meaning yet.</div>
     </div>
     <div class="intro-step">
       <span class="intro-step-icon">🇫🇷</span>
-      <div class="intro-step-text"><strong>Étape 4 — Révélez</strong> la traduction française. La compréhension arrive en dernier.</div>
+      <div class="intro-step-text"><strong>Step 2 — Read it</strong> in French — it appears after you listen.</div>
+    </div>
+    <div class="intro-step">
+      <span class="intro-step-icon">🎙️</span>
+      <div class="intro-step-text"><strong>Step 3 — Record yourself</strong> saying it out loud. Then listen back and compare.</div>
+    </div>
+    <div class="intro-step">
+      <span class="intro-step-icon">🇬🇧</span>
+      <div class="intro-step-text"><strong>Step 4 — Reveal</strong> the English meaning. Understanding comes last.</div>
     </div>
   </div>
-  <button class="btn-start" onclick="startExercise()">Commencer l'exercice →</button>
+  <button class="btn-start" onclick="startExercise()">Start practising ⭐</button>
 </div>
 
-<!-- ÉCRAN AVANT -->
+<!-- AVANT SCREEN -->
 <div class="screen-avant hidden" id="screenAvant">
-  <div class="avant-label">Avant de commencer</div>
+  <div class="avant-label">Before we start</div>
   <div style="font-size:2.5rem;">🔒</div>
-  <h2 class="avant-title">Une surprise<br>t'attend à la fin</h2>
-  <p class="avant-desc">Enregistre-toi maintenant — à la fin tu entendras si tu as vraiment progressé. <strong>Tu vas être très surpris !</strong></p>
+  <h2 class="avant-title">A surprise<br>awaits at the end</h2>
+  <p class="avant-desc">Record yourself now — at the end you'll hear how much you've improved. <strong>You'll be amazed!</strong></p>
   <div class="avant-phrase-box">
     <div class="avant-phrase-fr" id="avantPhraseFr"></div>
-    <div class="avant-phrase-hint">Dis cette phrase en anglais, comme tu peux</div>
+    <div class="avant-phrase-hint">Try to say this French phrase, the best you can</div>
   </div>
   <button class="btn-record" id="avantBtnRecord" onclick="avantToggleRecord()" style="width:100%;">
     <span id="avantRecordIcon">🎙️</span>
-    <span id="avantRecordLabel">M'enregistrer</span>
+    <span id="avantRecordLabel">Record myself</span>
   </button>
   <button id="avantBtnStart" class="avant-btn-start hidden" onclick="startExerciseForReal()">
-    Commencer l'exercice →
+    Start practising ⭐
   </button>
-  <span class="avant-skip" onclick="startExerciseForReal()">Passer cette étape</span>
+  <span class="avant-skip" onclick="startExerciseForReal()">Skip this step</span>
 </div>
 
+<!-- EXERCISE SCREEN -->
 <div class="ex-main hidden" id="screenExercise">
   <div class="ex-card" id="exCard">
     <div class="ex-group" id="exGroup"></div>
     <p class="ex-context" id="exContext"></p>
-    <div class="ex-expression-placeholder" id="exPlaceholder">🔊 Écoutez d'abord...</div>
+    <div class="ex-expression-placeholder" id="exPlaceholder">🔊 Listen first...</div>
     <div class="ex-expression" id="exExpression"></div>
     <div class="ex-actions">
       <button class="btn-listen" id="btnListen" onclick="listenExpression()">
@@ -252,9 +246,9 @@
       <button class="btn-record" id="btnRecord" onclick="toggleRecord()">
         <span id="recordIcon">🎙️</span> <span id="recordLabel">Record yourself</span>
       </button>
-      <button id="btnReRecord" onclick="reRecord()" style="display:none; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:var(--radius); color:rgba(247,244,239,0.55); font-family:var(--font-body); font-size:0.78rem; font-weight:500; padding:0.5rem 1rem; cursor:pointer;">↺ Ré-enregistrer</button>
+      <button id="btnReRecord" onclick="reRecord()" style="display:none; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:var(--radius); color:rgba(247,244,239,0.55); font-family:var(--font-body); font-size:0.78rem; font-weight:500; padding:0.5rem 1rem; cursor:pointer;">↺ Record again</button>
       <button class="btn-reveal" id="btnReveal" onclick="revealTranslation()">
-        👁️ Voir la traduction française
+        👁️ Reveal the English meaning
       </button>
     </div>
     <div class="ex-translation" id="exTranslation"></div>
@@ -266,80 +260,80 @@
   </nav>
 </div>
 
+<!-- END SCREEN -->
 <div class="screen-end hidden" id="screenEnd">
   <div class="end-trophy">🏆</div>
-  <h2 class="end-title">Exercice<br><em>terminé !</em></h2>
-  <p class="end-desc">Vous avez travaillé les 25 expressions du Mois 02 Voyage. Revenez les pratiquer régulièrement — la répétition espacée ancre l'automatisme.</p>
+  <h2 class="end-title">Session<br><em>complete!</em></h2>
+  <p class="end-desc">You've worked through all 25 expressions of Month 05 — Au téléphone. Come back and practise regularly — spaced repetition is what makes language stick.</p>
 
   <div id="ctrlScoreEnd" class="hidden" style="background:rgba(184,151,90,0.12);border:1px solid rgba(184,151,90,0.35);border-radius:var(--radius);padding:1rem 1.25rem;width:100%;text-align:center;">
-    <div class="quiz-score-label" style="margin-bottom:0.35rem;">Score contrôle oral (5 phrases)</div>
+    <div class="quiz-score-label" style="margin-bottom:0.35rem;">Control score (5 phrases)</div>
     <div style="display:flex;align-items:baseline;justify-content:center;gap:0.25rem;">
       <span class="quiz-score-big" id="ctrlScoreEndVal"></span>
       <span style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--gold);">/5</span>
     </div>
   </div>
 
-  <button class="btn-quiz-start" onclick="startQuiz()">🎯 Tester ta mémoire — Quiz 5 questions</button>
+  <button class="btn-quiz-start" onclick="startQuiz()">🎯 Test your memory — Quiz · 5 questions</button>
 
   <div class="recap-wrap">
     <button class="recap-toggle" onclick="toggleRecap(this)" aria-expanded="false">
-      📋 Voir les 25 expressions du mois <span class="recap-arrow">▼</span>
+      📋 See all 25 expressions <span class="recap-arrow">▼</span>
     </button>
     <div class="recap-list hidden" id="recapList"></div>
   </div>
 
-  <form class="fb" name="feedback-voyage-mois02" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="fbForm">
-    <input type="hidden" name="form-name" value="feedback-voyage-mois02" />
+  <form class="fb" name="feedback-bao-mois05" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="fbForm">
+    <input type="hidden" name="form-name" value="feedback-bao-mois05" />
     <input type="hidden" name="bot-field" style="display:none" />
     <input type="hidden" name="satisfaction" id="fbSatisfaction" value="" />
     <div id="fbStep1">
-      <p class="fb-q">Cette session vous a-t-elle aidé à vous sentir plus <em>à l'aise en voyage</em> ?</p>
+      <p class="fb-q">Did this session help you feel more confident <em>speaking French</em>?</p>
       <div class="fb-opts">
-        <button type="button" class="fb-opt" data-val="Oui" onclick="fbChoose(this)">Oui, vraiment utile</button>
-        <button type="button" class="fb-opt" data-val="Peut-être" onclick="fbChoose(this)">En partie, j'attends de pratiquer</button>
-        <button type="button" class="fb-opt" data-val="Non" onclick="fbChoose(this)">Pas encore convaincu(e)</button>
+        <button type="button" class="fb-opt" data-val="Yes" onclick="fbChoose(this)">Yes, really useful</button>
+        <button type="button" class="fb-opt" data-val="Maybe" onclick="fbChoose(this)">Partly — I need more practice</button>
+        <button type="button" class="fb-opt" data-val="No" onclick="fbChoose(this)">Not yet convinced</button>
       </div>
     </div>
     <div id="fbStep2" class="hidden">
       <p class="fb-q2" id="fbFollowupLabel"></p>
-      <textarea name="raison" id="fbRaison" rows="2" placeholder="Votre réponse (facultatif)"></textarea>
-      <p class="fb-email-label">📬 Votre email pour recevoir le Mois 03 dès sa sortie :</p>
-      <textarea name="question_caroline" rows="2" placeholder="Une question pour Caroline ? Une remarque sur cet exercice ? (facultatif)"></textarea>
-      <p style="font-size:0.72rem;color:rgba(247,244,239,0.4);margin-top:-0.5rem;text-align:left;">Je serai ravie de vous répondre personnellement.</p>
-      <input type="email" name="email" id="fbEmail" placeholder="votre@email.fr" />
-      <button type="submit" class="fb-send">Envoyer →</button>
+      <textarea name="raison" id="fbRaison" rows="2" placeholder="Your answer (optional)"></textarea>
+      <textarea name="question_caroline" rows="2" placeholder="A question for Caroline? A comment about this session? (optional)"></textarea>
+      <p style="font-size:0.72rem;color:rgba(247,244,239,0.4);margin-top:-0.5rem;text-align:left;">I'll be happy to reply personally.</p>
+      <p class="fb-email-label">📬 Your email to receive Month 02 when it's ready:</p>
+      <input type="email" name="email" id="fbEmail" placeholder="your@email.com" />
+      <button type="submit" class="fb-send">Send →</button>
     </div>
-    <div id="fbThanks" class="hidden fb-thanks">✓ Merci, votre retour est bien enregistré.</div>
+    <div id="fbThanks" class="hidden fb-thanks">✓ Thank you — your feedback is saved.</div>
   </form>
 
   <div class="end-next">
-    <div class="end-next-label">Mois 03 · À venir</div>
-    <div class="end-next-title">At the Hotel — Check-in &amp; Requests</div>
+    <div class="end-next-label">Month 02 · Coming soon</div>
+    <div class="end-next-title">Au bureau — At the Office</div>
   </div>
 
-  <!-- CADEAU ABONNÉ -->
-  <p style="font-size:0.72rem;font-weight:300;color:rgba(247,244,239,0.35);text-align:center;line-height:1.6;">🎁 Tous les 2 mois, Caroline offre une séance <em>« Penser comme un anglophone »</em> à un abonné qu'elle choisit pour sa motivation.</p>
+  <p style="font-size:0.72rem;font-weight:300;color:rgba(247,244,239,0.35);text-align:center;line-height:1.6;">🎁 Every 2 months, Caroline offers a private <em>"Think like a French speaker"</em> session to a subscriber she picks for their dedication.</p>
 
-  <button class="btn-restart" onclick="restart()">↺ Recommencer depuis le début</button>
+  <button class="btn-restart" onclick="restart()">↺ Start again from the beginning</button>
 </div>
 
 <!-- CONTROL SCREEN -->
 <div class="screen-end hidden" id="screenControl">
   <div id="ctrlBody" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:0.9rem;">
     <div class="quiz-counter" id="ctrlLabel"></div>
-    <p class="quiz-label">Dis cette phrase en anglais :</p>
+    <p class="quiz-label">Pronounce this French expression:</p>
     <div class="quiz-french" id="ctrlPhraseFr"></div>
     <button class="btn-record" id="ctrlBtnRecord" onclick="ctrlToggleRecord()" style="width:100%;">
       <span id="ctrlRecordIcon">🎙️</span>
-      <span id="ctrlRecordLabel">M'enregistrer en anglais</span>
+      <span id="ctrlRecordLabel">Record myself in French</span>
     </button>
     <div id="ctrlActions" class="hidden" style="display:flex;flex-direction:column;gap:0.6rem;width:100%;">
-      <button class="btn-listen" onclick="ctrlPlayCorrect()" style="margin:0;">🔊 Listen — Caroline la bonne version</button>
-      <button class="btn-reveal" id="ctrlBtnRerecord" onclick="ctrlReRecord()">↺ Réenregistrer</button>
-      <p class="quiz-label" style="text-align:center;margin-top:0.25rem;">Comment tu t'es senti(e) ?</p>
+      <button class="btn-listen" onclick="ctrlPlayCorrect()" style="margin:0;">🔊 Listen to Caroline's version</button>
+      <button class="btn-reveal" id="ctrlBtnRerecord" onclick="ctrlReRecord()">↺ Record again</button>
+      <p class="quiz-label" style="text-align:center;margin-top:0.25rem;">How did it sound?</p>
       <div class="quiz-assess">
-        <button class="quiz-yes" id="ctrlBtnYes" onclick="ctrlEvaluate(true)">✓ C'était bon</button>
-        <button class="quiz-no" id="ctrlBtnNo" onclick="ctrlEvaluate(false)">😬 Pas encore</button>
+        <button class="quiz-yes" id="ctrlBtnYes" onclick="ctrlEvaluate(true)">✓ That felt right</button>
+        <button class="quiz-no" id="ctrlBtnNo" onclick="ctrlEvaluate(false)">😬 Not quite yet</button>
       </div>
     </div>
   </div>
@@ -347,67 +341,63 @@
     <div style="font-size:3rem;" id="ctrlResultEmoji"></div>
     <div style="font-size:1rem;font-weight:600;color:var(--cream);" id="ctrlResultMsg"></div>
     <div class="quiz-score-label" id="ctrlResultSub"></div>
-    <button class="btn-quiz-retry" onclick="ctrlContinue()">Continuer →</button>
+    <button class="btn-quiz-retry" onclick="ctrlContinue()">Continue →</button>
   </div>
 </div>
 
-<!-- ÉCRAN APRÈS -->
+<!-- APRÈS SCREEN -->
 <div class="screen-apres hidden" id="screenApres">
-
-  <!-- Étape 1 : réenregistrement -->
   <div id="apresRecordStep" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:1.2rem;">
-    <div class="apres-label">Et maintenant...</div>
+    <div class="apres-label">And now...</div>
     <div style="font-size:2rem;">🎙️</div>
-    <h2 class="apres-title">Dis cette phrase<br>en anglais</h2>
+    <h2 class="apres-title">Say this French phrase<br>one more time</h2>
     <div class="apres-phrase-box" id="apresPhraseFr"></div>
     <button class="btn-record" id="apresBtnRecord" onclick="apresToggleRecord()" style="width:100%;">
       <span id="apresRecordIcon">🎙️</span>
-      <span id="apresRecordLabel">M'enregistrer</span>
+      <span id="apresRecordLabel">Record myself</span>
     </button>
     <button id="apresBtnCompare" class="apres-btn-continue hidden" onclick="apresShowCompare()">
-      Voir ma progression →
+      See my progress →
     </button>
   </div>
 
-  <!-- Étape 2 : comparaison avant / après -->
   <div id="apresCompareStep" class="hidden" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:1.2rem;">
-    <div class="apres-label">Ta surprise</div>
+    <div class="apres-label">Your surprise</div>
     <div style="font-size:2.5rem;">✨</div>
-    <h2 class="apres-title">Écoute comme<br><em>tu as progressé</em></h2>
+    <h2 class="apres-title">Hear how much<br><em>you've improved</em></h2>
     <div class="apres-section">
-      <div class="apres-section-label">Au début</div>
-      <button class="apres-play-btn" onclick="apresListenAvant()">▶ Ma voix du début</button>
+      <div class="apres-section-label">At the start</div>
+      <button class="apres-play-btn" onclick="apresListenAvant()">▶ My voice at the start</button>
     </div>
     <div class="apres-section">
-      <div class="apres-section-label">Maintenant</div>
-      <button class="apres-play-btn" onclick="apresListenApres()">▶ Ma voix maintenant</button>
+      <div class="apres-section-label">Now</div>
+      <button class="apres-play-btn" onclick="apresListenApres()">▶ My voice now</button>
     </div>
     <div class="apres-section">
-      <div class="apres-section-label">Version de référence</div>
-      <button class="btn-listen" onclick="apresPlayRef()" style="margin:0;width:100%;">🔊 Version native</button>
+      <div class="apres-section-label">Reference version</div>
+      <button class="btn-listen" onclick="apresPlayRef()" style="margin:0;width:100%;">🔊 Caroline's version</button>
     </div>
-    <button class="apres-btn-continue" onclick="apresGoToEnd()">Voir mes résultats →</button>
+    <button class="apres-btn-continue" onclick="apresGoToEnd()">See my results →</button>
   </div>
-
 </div>
 
 <!-- QUIZ SCREEN -->
 <div class="screen-end hidden" id="screenQuiz">
   <div id="quizQuestion">
     <div class="quiz-counter">Question <strong id="quizNum">1</strong> / 5</div>
-    <p class="quiz-label">Comment dis-tu en anglais :</p>
+    <p class="quiz-label">How do you say this in French?</p>
     <div class="quiz-french" id="quizFrench"></div>
     <button class="btn-record" id="quizBtnRecord" onclick="quizToggleRecord()">
       <span id="quizRecordIcon">🎙️</span>
-      <span id="quizRecordLabel">M'enregistrer en anglais</span>
+      <span id="quizRecordLabel">Record myself in French</span>
     </button>
-    <button class="btn-rerecord hidden" id="quizBtnReRecord" onclick="quizReRecord()">↩ Réenregistrer</button>
-    <button class="btn-reveal" id="quizBtnReveal" onclick="quizReveal()">Voir la réponse ↓</button>
+    <button class="btn-reveal hidden" id="quizBtnReRecord" onclick="quizReRecord()">↩ Record again</button>
+    <button class="btn-reveal" id="quizBtnReveal" onclick="quizReveal()">Reveal the answer ↓</button>
     <div id="quizAnswer" class="hidden" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:0.75rem;">
       <div class="quiz-english" id="quizEnglish"></div>
       <div class="quiz-assess">
-        <button class="quiz-yes" onclick="quizAssess(true)">✓ Je l'avais</button>
-        <button class="quiz-no" onclick="quizAssess(false)">✗ Pas encore</button>
+        <button class="quiz-yes" onclick="quizAssess(true)">✓ Got it!</button>
+        <button class="quiz-no" onclick="quizAssess(false)">✗ Not yet</button>
       </div>
     </div>
   </div>
@@ -416,8 +406,8 @@
     <div class="quiz-score-big" id="quizScoreDisplay">0 / 5</div>
     <div class="quiz-score-label" id="quizScoreMsg"></div>
     <div class="quiz-best" id="quizBestDisplay"></div>
-    <button class="btn-quiz-retry" onclick="startQuiz()">↩ Réessayer</button>
-    <button class="btn-quiz-back" onclick="backToEnd()">← Retour à l'exercice</button>
+    <button class="btn-quiz-retry" onclick="startQuiz()">↩ Try again</button>
+    <button class="btn-quiz-back" onclick="backToEnd()">← Back to session</button>
   </div>
 </div>
 
@@ -435,27 +425,24 @@ let audioChunks = [];
 let recordedBlob = null;
 let recordingAudio = null;
 let stream = null;
-let voices = [];
-let selectedVoice = null;
-
-function pickVoice() {
-  const preferred = ['Google UK English Female','Samantha','Karen','Moira','Serena','Kate','Fiona','Allison','Ava','Victoria','Hazel','Zira','Google US English','Martha','Google UK English Male','Daniel','Arthur'];
-  for (const name of preferred) {
-    const v = voices.find(v => v.name === name);
-    if (v) return v;
-  }
-  return voices.find(v => v.lang && v.lang.startsWith('en')) || null;
-}
-
-function loadVoices() { voices = .getVoices(); selectedVoice = pickVoice(); }
-.onvoiceschanged = loadVoices;
-loadVoices();
 
 if (new URLSearchParams(window.location.search).get('reset') === '1') {
-  ['bao05_current','bao05_listened','bao05_revealed'].forEach(k => localStorage.removeItem(k));
+  ['bao05_current','bao05_listened','bao05_revealed','bao05_controls','bao05_quiz_best'].forEach(k => localStorage.removeItem(k));
 }
 
+const avantExpr = expressions[Math.floor(Math.random() * expressions.length)];
+let avantHasRec = false, avantIsRecording = false;
+let avantMediaRec = null, avantChunks = [], avantStream = null, avantAudioObj = null;
+let apresHasRec = false, apresIsRecording = false;
+let apresMediaRec = null, apresChunks = [], apresStream = null, apresAudioObj = null;
+
 function startExercise() {
+  document.getElementById('avantPhraseFr').textContent = avantExpr.fr;
+  document.getElementById('screenIntro').classList.add('hidden');
+  document.getElementById('screenAvant').classList.remove('hidden');
+}
+
+function startExerciseForReal() {
   const saved = localStorage.getItem('bao05_current');
   if (saved && parseInt(saved) > 0 && parseInt(saved) < expressions.length) current = parseInt(saved);
   else current = 0;
@@ -463,7 +450,7 @@ function startExercise() {
   if (listened.length !== expressions.length) listened = new Array(expressions.length).fill(false);
   revealed = JSON.parse(localStorage.getItem('bao05_revealed') || '[]');
   if (revealed.length !== expressions.length) revealed = new Array(expressions.length).fill(false);
-  document.getElementById('screenIntro').classList.add('hidden');
+  document.getElementById('screenAvant').classList.add('hidden');
   document.getElementById('screenExercise').classList.remove('hidden');
   render();
 }
@@ -472,7 +459,7 @@ function render() {
   const expr = expressions[current];
   hasRecording = false; isRecording = false;
   document.getElementById('btnReRecord').style.display = 'none';
-  
+  if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
   document.getElementById('counter').innerHTML = `<strong>${current + 1}</strong>/25`;
   document.getElementById('progressBar').style.width = `${((current + 1) / expressions.length) * 100}%`;
   const card = document.getElementById('exCard');
@@ -480,18 +467,20 @@ function render() {
   const alreadyListened = listened[current];
   document.getElementById('exGroup').textContent = expr.group;
   document.getElementById('exContext').textContent = expr.context;
-  document.getElementById('exExpression').textContent = `"${expr.en}"`;
+  // Show FRENCH phrase after listening
+  document.getElementById('exExpression').textContent = `« ${expr.fr} »`;
   document.getElementById('exExpression').classList.toggle('hidden-expr', !alreadyListened);
   document.getElementById('exPlaceholder').style.display = alreadyListened ? 'none' : '';
   const btnListen = document.getElementById('btnListen');
   btnListen.className = 'btn-listen'; btnListen.disabled = false;
-  document.getElementById('listenLabel').textContent = alreadyListened ? 'Re-listen' : 'Listen — Caroline';
+  document.getElementById('listenLabel').textContent = alreadyListened ? 'Listen again' : 'Listen — Caroline';
   const btnRecord = document.getElementById('btnRecord');
   btnRecord.className = 'btn-record'; btnRecord.disabled = !alreadyListened;
   document.getElementById('recordIcon').textContent = '🎙️';
-  document.getElementById('recordLabel').textContent = "M'enregistrer";
+  document.getElementById('recordLabel').textContent = 'Record yourself';
   const trans = document.getElementById('exTranslation');
-  trans.textContent = `🇫🇷 ${expr.fr}`;
+  // Reveal ENGLISH translation
+  trans.textContent = `🇬🇧 ${expr.en}`;
   trans.classList.toggle('visible', revealed[current]);
   document.getElementById('btnReveal').style.display = (alreadyListened && !revealed[current]) ? '' : 'none';
   document.getElementById('btnPrev').disabled = current === 0;
@@ -514,15 +503,19 @@ function renderDots() {
 }
 
 function listenExpression() {
-  if (isPlaying) { if (window.currentAudio) { window.currentAudio.pause(); window.currentAudio=null; } isPlaying=false; resetListenBtn(); return; }
+  if (isPlaying) {
+    if (window.currentAudio) { window.currentAudio.pause(); window.currentAudio = null; }
+    isPlaying = false; resetListenBtn(); return;
+  }
   const expr = expressions[current];
   if (!expr.audio) { alert('Audio not available yet.'); return; }
   window.currentAudio = new Audio(expr.audio);
   isPlaying = true;
-  document.getElementById('btnListen').className = 'btn-listen playing';
-  document.getElementById('listenLabel').textContent = '\u23f8 Playing...';
+  const btn = document.getElementById('btnListen');
+  btn.className = 'btn-listen playing';
+  document.getElementById('listenLabel').textContent = '⏸ Playing...';
   window.currentAudio.onended = function() {
-    isPlaying = false; listened[current]=true;
+    isPlaying = false; listened[current] = true;
     localStorage.setItem('bao05_listened', JSON.stringify(listened));
     resetListenBtn(); renderDots();
     document.getElementById('exPlaceholder').style.display = 'none';
@@ -532,13 +525,14 @@ function listenExpression() {
     document.getElementById('btnRecord').disabled = false;
     if (!revealed[current]) document.getElementById('btnReveal').style.display = '';
   };
-  window.currentAudio.onerror = function() { isPlaying=false; resetListenBtn(); };
+  window.currentAudio.onerror = function() { isPlaying = false; resetListenBtn(); };
+  window.currentAudio.play();
 }
 
 function resetListenBtn() {
   const btn = document.getElementById('btnListen');
   btn.className = 'btn-listen'; btn.disabled = false;
-  document.getElementById('listenLabel').textContent = listened[current] ? 'Re-listen' : 'Listen — Caroline';
+  document.getElementById('listenLabel').textContent = listened[current] ? 'Listen again' : 'Listen — Caroline';
 }
 
 async function toggleRecord() {
@@ -546,13 +540,13 @@ async function toggleRecord() {
   else if (hasRecording) {
     if (recordingAudio) {
       recordingAudio.currentTime = 0; recordingAudio.play();
-      document.getElementById('recordLabel').textContent = '▶ Lecture...';
+      document.getElementById('recordLabel').textContent = '▶ Playing...';
       recordingAudio.onended = () => {
         document.getElementById('recordIcon').textContent = '▶';
-        document.getElementById('recordLabel').textContent = 'Play again mon enregistrement';
+        document.getElementById('recordLabel').textContent = 'Play my recording';
       };
     }
-  } else { startRecording(); }
+  } else { await startRecording(); }
 }
 
 function reRecord() {
@@ -562,7 +556,7 @@ function reRecord() {
   const btn = document.getElementById('btnRecord');
   btn.className = 'btn-record';
   document.getElementById('recordIcon').textContent = '🎙️';
-  document.getElementById('recordLabel').textContent = "M'enregistrer";
+  document.getElementById('recordLabel').textContent = 'Record yourself';
   startRecording();
 }
 
@@ -581,17 +575,23 @@ async function startRecording() {
       const btn = document.getElementById('btnRecord');
       btn.className = 'btn-record has-recording';
       document.getElementById('recordIcon').textContent = '▶';
-      document.getElementById('recordLabel').textContent = 'Play again mon enregistrement';
+      document.getElementById('recordLabel').textContent = 'Play my recording';
       document.getElementById('btnReRecord').style.display = '';
-      
+      stream.getTracks().forEach(t => t.stop());
     };
     mediaRecorder.start(); isRecording = true;
     const btn = document.getElementById('btnRecord');
     btn.className = 'btn-record recording';
-    document.getElementById('recordIcon').textContent = '⏹';
-    document.getElementById('recordLabel').textContent = "Arrêter l'enregistrement";
+    document.getElementById('recordIcon').textContent = '⏳';
+    document.getElementById('recordLabel').textContent = 'Get ready...';
+    setTimeout(() => {
+      if (isRecording) {
+        document.getElementById('recordIcon').textContent = '⏹';
+        document.getElementById('recordLabel').textContent = '🔴 Speaking — tap to stop';
+      }
+    }, 500);
   } catch (e) {
-    alert('Microphone non disponible. Vérifiez les permissions de votre navigateur.');
+    alert('Microphone not available. Check your browser permissions.');
   }
 }
 
@@ -609,29 +609,41 @@ function revealTranslation() {
 
 function goTo(index) {
   if (index < 0 || index >= expressions.length) return;
-   current = index; render();
+  current = index; render();
 }
 
 function goNext() {
-  const controlAt=[4,9,14,19,24];
-  const groupIdx=controlAt.indexOf(current);
-  if(groupIdx!==-1){
-    showControl(groupIdx,()=>{
-      if(current===expressions.length-1){showEnd();}
-      else{current++;localStorage.setItem('bao05_current',current);document.getElementById('screenExercise').classList.remove('hidden');render();}
+  const controlAt = [4, 9, 14, 19, 24];
+  const groupIdx = controlAt.indexOf(current);
+  if (groupIdx !== -1) {
+    showControl(groupIdx, () => {
+      if (current === expressions.length - 1) { showEnd(); }
+      else { current++; localStorage.setItem('bao05_current', current); document.getElementById('screenExercise').classList.remove('hidden'); render(); }
     });
-  }else if(current===expressions.length-1){showEnd();}
-  else{current++;localStorage.setItem('bao05_current',current);render();}
+  } else if (current === expressions.length - 1) { showEnd(); }
+  else { current++; localStorage.setItem('bao05_current', current); render(); }
 }
 
 function showEnd() {
   document.getElementById('screenExercise').classList.add('hidden');
-  document.getElementById('screenEnd').classList.remove('hidden');
+  document.getElementById('screenControl').classList.add('hidden');
   localStorage.removeItem('bao05_current');
+  if (avantHasRec) {
+    showApres();
+  } else {
+    showEndScreen();
+  }
+}
+
+function showEndScreen() {
+  document.getElementById('screenEnd').classList.remove('hidden');
   buildRecap();
-  const ctrlTotal=controlScores.filter(s=>s===1).length;
-  const ctrlDone=controlScores.filter(s=>s!==null).length;
-  if(ctrlDone>0){document.getElementById('ctrlScoreEndVal').textContent=ctrlTotal;document.getElementById('ctrlScoreEnd').classList.remove('hidden');}
+  const ctrlTotal = controlScores.filter(s => s === 1).length;
+  const ctrlDone = controlScores.filter(s => s !== null).length;
+  if (ctrlDone > 0) {
+    document.getElementById('ctrlScoreEndVal').textContent = ctrlTotal;
+    document.getElementById('ctrlScoreEnd').classList.remove('hidden');
+  }
 }
 
 function buildRecap() {
@@ -640,7 +652,7 @@ function buildRecap() {
   expressions.forEach(exp => {
     const row = document.createElement('div');
     row.className = 'recap-row';
-    row.innerHTML = `<div class="recap-en">${exp.en}</div><div class="recap-fr">${exp.fr}</div>`;
+    row.innerHTML = `<div class="recap-fr-col">${exp.fr}</div><div class="recap-en-col">${exp.en}</div>`;
     list.appendChild(row);
   });
 }
@@ -656,7 +668,7 @@ function restart() {
   current = 0;
   listened = new Array(expressions.length).fill(false);
   revealed = new Array(expressions.length).fill(false);
-  controlScores=[null,null,null,null,null];
+  controlScores = [null, null, null, null, null];
   localStorage.removeItem('bao05_current');
   localStorage.removeItem('bao05_listened');
   localStorage.removeItem('bao05_revealed');
@@ -675,11 +687,11 @@ function fbChoose(btn) {
   document.getElementById('fbSatisfaction').value = fbSelected;
   document.querySelectorAll('.fb-opt').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
-  if (typeof gtag === 'function') gtag('event', 'feedback_satisfaction_voyage_mois02', { satisfaction: fbSelected });
+  if (typeof gtag === 'function') gtag('event', 'feedback_bao_mois01', { satisfaction: fbSelected });
   const labels = {
-    'Oui': "Qu'est-ce qui vous a été le plus utile dans cette session ?",
-    'Peut-être': "Qu'est-ce qui manquerait pour que ce soit vraiment utile pour vous ?",
-    'Non': "Qu'est-ce qui vous a manqué ? Votre franchise m'aide beaucoup."
+    'Yes': "What was most useful in this session?",
+    'Maybe': "What would make it more useful for you?",
+    'No': "What was missing? Your honest feedback helps a lot."
   };
   document.getElementById('fbFollowupLabel').textContent = labels[fbSelected];
   document.getElementById('fbStep1').classList.add('hidden');
@@ -715,7 +727,7 @@ document.addEventListener('keydown', e => {
   if (e.key === ' ') { e.preventDefault(); listenExpression(); }
 });
 
-// ── QUIZ DE MÉMOIRE ──
+// ── QUIZ ──
 let quizExprs = [], quizIndex = 0, quizGood = 0;
 let qIsRecording = false, qHasRecording = false;
 let qMediaRecorder = null, qAudioChunks = [], qRecordedBlob = null;
@@ -738,14 +750,15 @@ function renderQuiz() {
   if (qStream) { qStream.getTracks().forEach(t => t.stop()); qStream = null; }
   if (qRecordingAudio) { qRecordingAudio.pause(); qRecordingAudio = null; }
   document.getElementById('quizNum').textContent = quizIndex + 1;
-  document.getElementById('quizFrench').textContent = `« ${expr.fr} »`;
-  document.getElementById('quizEnglish').textContent = `"${expr.en}"`;
+  // Show English as prompt, French as answer
+  document.getElementById('quizFrench').textContent = `"${expr.en}"`;
+  document.getElementById('quizEnglish').textContent = `« ${expr.fr} »`;
   document.getElementById('quizAnswer').classList.add('hidden');
   document.getElementById('quizBtnReveal').classList.remove('hidden');
   const btn = document.getElementById('quizBtnRecord');
   btn.className = 'btn-record';
   document.getElementById('quizRecordIcon').textContent = '🎙️';
-  document.getElementById('quizRecordLabel').textContent = "M'enregistrer en anglais";
+  document.getElementById('quizRecordLabel').textContent = 'Record myself in French';
   document.getElementById('quizBtnReRecord').classList.add('hidden');
 }
 
@@ -767,13 +780,13 @@ function showQuizResult() {
   document.getElementById('quizQuestion').classList.add('hidden');
   document.getElementById('quizResult').classList.remove('hidden');
   document.getElementById('quizScoreDisplay').textContent = `${quizGood} / 5`;
-  const msgs = ['Continue — tu y arriveras !', 'Bien essayé !', 'Pas mal !', 'Très bien !', 'Excellent !', 'Parfait — 5/5 ! 🏆'];
+  const msgs = ['Keep going — you\'ll get there!', 'Nice try!', 'Not bad!', 'Well done!', 'Great!', 'Perfect — 5/5! 🏆'];
   document.getElementById('quizScoreMsg').textContent = msgs[quizGood] || '';
   const prevBest = parseInt(localStorage.getItem('bao05_quiz_best') || '0');
   const newBest = Math.max(prevBest, quizGood);
   localStorage.setItem('bao05_quiz_best', newBest);
   const bestEl = document.getElementById('quizBestDisplay');
-  bestEl.textContent = newBest > quizGood ? `Ton record : ${newBest} / 5` : (newBest === 5 ? '' : `Nouveau record ! ${newBest} / 5 ⭐`);
+  bestEl.textContent = newBest > quizGood ? `Your best: ${newBest} / 5` : (newBest === 5 ? '' : `New record! ${newBest} / 5 ⭐`);
 }
 
 function backToEnd() {
@@ -786,10 +799,10 @@ async function quizToggleRecord() {
   else if (qHasRecording) {
     if (qRecordingAudio) {
       qRecordingAudio.currentTime = 0; qRecordingAudio.play();
-      document.getElementById('quizRecordLabel').textContent = '▶ Lecture...';
+      document.getElementById('quizRecordLabel').textContent = '▶ Playing...';
       qRecordingAudio.onended = () => {
         document.getElementById('quizRecordIcon').textContent = '▶';
-        document.getElementById('quizRecordLabel').textContent = 'Play again mon enregistrement';
+        document.getElementById('quizRecordLabel').textContent = 'Play my recording';
       };
     }
   } else { await quizStartRecording(); }
@@ -802,7 +815,7 @@ function quizReRecord() {
   const btn = document.getElementById('quizBtnRecord');
   btn.className = 'btn-record';
   document.getElementById('quizRecordIcon').textContent = '🎙️';
-  document.getElementById('quizRecordLabel').textContent = "M'enregistrer en anglais";
+  document.getElementById('quizRecordLabel').textContent = 'Record myself in French';
   quizStartRecording();
 }
 
@@ -820,7 +833,7 @@ async function quizStartRecording() {
       const btn = document.getElementById('quizBtnRecord');
       btn.className = 'btn-record has-recording';
       document.getElementById('quizRecordIcon').textContent = '▶';
-      document.getElementById('quizRecordLabel').textContent = 'Play again mon enregistrement';
+      document.getElementById('quizRecordLabel').textContent = 'Play my recording';
       document.getElementById('quizBtnReRecord').classList.remove('hidden');
       qStream.getTracks().forEach(t => t.stop());
     };
@@ -828,14 +841,14 @@ async function quizStartRecording() {
     const btn = document.getElementById('quizBtnRecord');
     btn.className = 'btn-record recording';
     document.getElementById('quizRecordIcon').textContent = '⏳';
-    document.getElementById('quizRecordLabel').textContent = 'Préparez-vous...';
+    document.getElementById('quizRecordLabel').textContent = 'Get ready...';
     setTimeout(() => {
       if (qIsRecording) {
         document.getElementById('quizRecordIcon').textContent = '⏹';
-        document.getElementById('quizRecordLabel').textContent = '🔴 Parlez — puis arrêtez';
+        document.getElementById('quizRecordLabel').textContent = '🔴 Speaking — tap to stop';
       }
     }, 500);
-  } catch (e) { alert('Microphone non disponible. Vérifiez les permissions de votre navigateur.'); }
+  } catch (e) { alert('Microphone not available. Check your browser permissions.'); }
 }
 
 function quizStopRecording() {
@@ -843,197 +856,198 @@ function quizStopRecording() {
 }
 
 // ── AVANT / APRÈS ──
-const avantExpr=expressions[Math.floor(Math.random()*expressions.length)];
-let avantDone=false,avantHasRec=false,avantIsRecording=false;
-let avantMediaRec=null,avantChunks=[],avantStream=null,avantAudioObj=null;
-let apresHasRec=false,apresIsRecording=false;
-let apresMediaRec=null,apresChunks=[],apresStream=null,apresAudioObj=null;
-
-async function avantToggleRecord(){
-  if(avantIsRecording){if(avantMediaRec&&avantMediaRec.state!=='inactive')avantMediaRec.stop();return;}
-  if(avantHasRec){if(avantAudioObj){avantAudioObj.currentTime=0;avantAudioObj.play();}return;}
-  try{
-    avantStream=await navigator.mediaDevices.getUserMedia({audio:true});avantChunks=[];
-    const mt=['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg'].find(t=>MediaRecorder.isTypeSupported(t))||'';
-    avantMediaRec=new MediaRecorder(avantStream,mt?{mimeType:mt}:{});
-    avantMediaRec.ondataavailable=e=>{if(e.data.size>0)avantChunks.push(e.data);};
-    avantMediaRec.onstop=()=>{
-      const blob=new Blob(avantChunks,{type:mt||'audio/webm'});
-      avantAudioObj=new Audio(URL.createObjectURL(blob));
-      avantHasRec=true;avantIsRecording=false;
-      document.getElementById('avantBtnRecord').className='btn-record has-recording';
-      document.getElementById('avantRecordIcon').textContent='▶';
-      document.getElementById('avantRecordLabel').textContent='Play again mon enregistrement';
+async function avantToggleRecord() {
+  if (avantIsRecording) { if (avantMediaRec && avantMediaRec.state !== 'inactive') avantMediaRec.stop(); return; }
+  if (avantHasRec) { if (avantAudioObj) { avantAudioObj.currentTime = 0; avantAudioObj.play(); } return; }
+  try {
+    avantStream = await navigator.mediaDevices.getUserMedia({ audio: true }); avantChunks = [];
+    const mt = ['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg'].find(t => MediaRecorder.isTypeSupported(t)) || '';
+    avantMediaRec = new MediaRecorder(avantStream, mt ? { mimeType: mt } : {});
+    avantMediaRec.ondataavailable = e => { if (e.data.size > 0) avantChunks.push(e.data); };
+    avantMediaRec.onstop = () => {
+      const blob = new Blob(avantChunks, { type: mt || 'audio/webm' });
+      avantAudioObj = new Audio(URL.createObjectURL(blob));
+      avantHasRec = true; avantIsRecording = false;
+      document.getElementById('avantBtnRecord').className = 'btn-record has-recording';
+      document.getElementById('avantRecordIcon').textContent = '▶';
+      document.getElementById('avantRecordLabel').textContent = 'Play my recording';
       document.getElementById('avantBtnStart').classList.remove('hidden');
-      avantStream.getTracks().forEach(t=>t.stop());
+      avantStream.getTracks().forEach(t => t.stop());
     };
-    avantMediaRec.start();avantIsRecording=true;
-    document.getElementById('avantBtnRecord').className='btn-record recording';
-    document.getElementById('avantRecordIcon').textContent='⏳';
-    document.getElementById('avantRecordLabel').textContent='Préparez-vous...';
-    setTimeout(()=>{if(avantIsRecording){document.getElementById('avantRecordIcon').textContent='⏹';document.getElementById('avantRecordLabel').textContent='🔴 Parlez — puis arrêtez';}},500);
-  }catch(e){alert('Microphone non disponible.');}
+    avantMediaRec.start(); avantIsRecording = true;
+    document.getElementById('avantBtnRecord').className = 'btn-record recording';
+    document.getElementById('avantRecordIcon').textContent = '⏳';
+    document.getElementById('avantRecordLabel').textContent = 'Get ready...';
+    setTimeout(() => {
+      if (avantIsRecording) {
+        document.getElementById('avantRecordIcon').textContent = '⏹';
+        document.getElementById('avantRecordLabel').textContent = '🔴 Speaking — tap to stop';
+      }
+    }, 500);
+  } catch (e) { alert('Microphone not available.'); }
 }
 
-function showApres(){
-  document.getElementById('apresPhraseFr').textContent=avantExpr.fr;
-  apresHasRec=false;apresIsRecording=false;apresAudioObj=null;
-  document.getElementById('apresBtnRecord').className='btn-record';
-  document.getElementById('apresRecordIcon').textContent='🎙️';
-  document.getElementById('apresRecordLabel').textContent="M'enregistrer";
+function showApres() {
+  document.getElementById('apresPhraseFr').textContent = avantExpr.fr;
+  apresHasRec = false; apresIsRecording = false; apresAudioObj = null;
+  document.getElementById('apresBtnRecord').className = 'btn-record';
+  document.getElementById('apresRecordIcon').textContent = '🎙️';
+  document.getElementById('apresRecordLabel').textContent = 'Record myself';
   document.getElementById('apresBtnCompare').classList.add('hidden');
   document.getElementById('apresRecordStep').classList.remove('hidden');
   document.getElementById('apresCompareStep').classList.add('hidden');
-  document.getElementById('screenExercise').classList.add('hidden');
-  document.getElementById('screenControl').classList.add('hidden');
   document.getElementById('screenApres').classList.remove('hidden');
-  localStorage.removeItem('bao05_current');
 }
 
-function apresShowCompare(){
+function apresShowCompare() {
   document.getElementById('apresRecordStep').classList.add('hidden');
   document.getElementById('apresCompareStep').classList.remove('hidden');
 }
 
-function apresListenAvant(){
-  if(avantAudioObj){avantAudioObj.currentTime=0;avantAudioObj.play();}
+function apresListenAvant() {
+  if (avantAudioObj) { avantAudioObj.currentTime = 0; avantAudioObj.play(); }
 }
 
-function apresListenApres(){
-  if(apresAudioObj){apresAudioObj.currentTime=0;apresAudioObj.play();}
+function apresListenApres() {
+  if (apresAudioObj) { apresAudioObj.currentTime = 0; apresAudioObj.play(); }
 }
 
-async function apresToggleRecord(){
-  if(apresIsRecording){if(apresMediaRec&&apresMediaRec.state!=='inactive')apresMediaRec.stop();return;}
-  if(apresHasRec){if(apresAudioObj){apresAudioObj.currentTime=0;apresAudioObj.play();}return;}
-  try{
-    apresStream=await navigator.mediaDevices.getUserMedia({audio:true});apresChunks=[];
-    const mt=['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg'].find(t=>MediaRecorder.isTypeSupported(t))||'';
-    apresMediaRec=new MediaRecorder(apresStream,mt?{mimeType:mt}:{});
-    apresMediaRec.ondataavailable=e=>{if(e.data.size>0)apresChunks.push(e.data);};
-    apresMediaRec.onstop=()=>{
-      const blob=new Blob(apresChunks,{type:mt||'audio/webm'});
-      apresAudioObj=new Audio(URL.createObjectURL(blob));
-      apresHasRec=true;apresIsRecording=false;
-      document.getElementById('apresBtnRecord').className='btn-record has-recording';
-      document.getElementById('apresRecordIcon').textContent='▶';
-      document.getElementById('apresRecordLabel').textContent='Play again mon enregistrement';
+async function apresToggleRecord() {
+  if (apresIsRecording) { if (apresMediaRec && apresMediaRec.state !== 'inactive') apresMediaRec.stop(); return; }
+  if (apresHasRec) { if (apresAudioObj) { apresAudioObj.currentTime = 0; apresAudioObj.play(); } return; }
+  try {
+    apresStream = await navigator.mediaDevices.getUserMedia({ audio: true }); apresChunks = [];
+    const mt = ['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg'].find(t => MediaRecorder.isTypeSupported(t)) || '';
+    apresMediaRec = new MediaRecorder(apresStream, mt ? { mimeType: mt } : {});
+    apresMediaRec.ondataavailable = e => { if (e.data.size > 0) apresChunks.push(e.data); };
+    apresMediaRec.onstop = () => {
+      const blob = new Blob(apresChunks, { type: mt || 'audio/webm' });
+      apresAudioObj = new Audio(URL.createObjectURL(blob));
+      apresHasRec = true; apresIsRecording = false;
+      document.getElementById('apresBtnRecord').className = 'btn-record has-recording';
+      document.getElementById('apresRecordIcon').textContent = '▶';
+      document.getElementById('apresRecordLabel').textContent = 'Play my recording';
       document.getElementById('apresBtnCompare').classList.remove('hidden');
-      apresStream.getTracks().forEach(t=>t.stop());
+      apresStream.getTracks().forEach(t => t.stop());
     };
-    apresMediaRec.start();apresIsRecording=true;
-    document.getElementById('apresBtnRecord').className='btn-record recording';
-    document.getElementById('apresRecordIcon').textContent='⏳';
-    document.getElementById('apresRecordLabel').textContent='Préparez-vous...';
-    setTimeout(()=>{if(apresIsRecording){document.getElementById('apresRecordIcon').textContent='⏹';document.getElementById('apresRecordLabel').textContent='🔴 Parlez — puis arrêtez';}},500);
-  }catch(e){alert('Microphone non disponible.');}
+    apresMediaRec.start(); apresIsRecording = true;
+    document.getElementById('apresBtnRecord').className = 'btn-record recording';
+    document.getElementById('apresRecordIcon').textContent = '⏳';
+    document.getElementById('apresRecordLabel').textContent = 'Get ready...';
+    setTimeout(() => {
+      if (apresIsRecording) {
+        document.getElementById('apresRecordIcon').textContent = '⏹';
+        document.getElementById('apresRecordLabel').textContent = '🔴 Speaking — tap to stop';
+      }
+    }, 500);
+  } catch (e) { alert('Microphone not available.'); }
 }
 
-function apresPlayRef(){
-  
-  const u=new SpeechSynthesisUtterance(avantExpr.en);
-  u.lang=(selectedVoice&&selectedVoice.lang)?selectedVoice.lang.replace('_','-'):'en-GB';
-  u.rate=0.85;if(selectedVoice)u.voice=selectedVoice;
-  .speak(u);
+function apresPlayRef() {
+  if (avantExpr && avantExpr.audio) {
+    const a = new Audio(avantExpr.audio);
+    a.play();
+  }
 }
 
-function apresGoToEnd(){
+function apresGoToEnd() {
   document.getElementById('screenApres').classList.add('hidden');
-  showEndForReal();
+  showEndScreen();
 }
 
-// ── PHRASES DE CONTRÔLE ──
-let controlScores=JSON.parse(localStorage.getItem('bao05_controls')||'null')||[null,null,null,null,null];
-let ctrlGroup=0,ctrlNextAction=null,ctrlCurrentExpr=null,ctrlCorrectPlayed=false;
-let ctrlHasRecording=false,ctrlRecording=false,ctrlMediaRecorder=null;
-let ctrlAudioChunks=[],ctrlStream=null,ctrlRecordingAudio=null;
+// ── CONTROL PHRASES ──
+let controlScores = JSON.parse(localStorage.getItem('bao05_controls') || 'null') || [null,null,null,null,null];
+let ctrlGroup = 0, ctrlNextAction = null, ctrlCurrentExpr = null, ctrlCorrectPlayed = false;
+let ctrlHasRecording = false, ctrlRecording = false, ctrlMediaRecorder = null;
+let ctrlAudioChunks = [], ctrlStream = null, ctrlRecordingAudio = null;
 
-function showControl(groupIndex,callback){
-  ctrlGroup=groupIndex;ctrlNextAction=callback;
-  ctrlCorrectPlayed=false;ctrlHasRecording=false;ctrlRecording=false;ctrlRecordingAudio=null;
-  if(ctrlStream){ctrlStream.getTracks().forEach(t=>t.stop());ctrlStream=null;}
-  const pool=expressions.slice(groupIndex*5,(groupIndex+1)*5);
-  ctrlCurrentExpr=pool[Math.floor(Math.random()*pool.length)];
-  document.getElementById('ctrlLabel').textContent=`Phrase de contrôle · Groupe ${groupIndex+1} / 5`;
-  document.getElementById('ctrlPhraseFr').textContent=ctrlCurrentExpr.fr;
-  document.getElementById('ctrlBtnRecord').className='btn-record';
-  document.getElementById('ctrlRecordIcon').textContent='🎙️';
-  document.getElementById('ctrlRecordLabel').textContent="M'enregistrer en anglais";
+function showControl(groupIndex, callback) {
+  ctrlGroup = groupIndex; ctrlNextAction = callback;
+  ctrlCorrectPlayed = false; ctrlHasRecording = false; ctrlRecording = false; ctrlRecordingAudio = null;
+  if (ctrlStream) { ctrlStream.getTracks().forEach(t => t.stop()); ctrlStream = null; }
+  const pool = expressions.slice(groupIndex * 5, (groupIndex + 1) * 5);
+  ctrlCurrentExpr = pool[Math.floor(Math.random() * pool.length)];
+  document.getElementById('ctrlLabel').textContent = `Control phrase · Group ${groupIndex + 1} / 5`;
+  document.getElementById('ctrlPhraseFr').textContent = ctrlCurrentExpr.fr;
+  document.getElementById('ctrlBtnRecord').className = 'btn-record';
+  document.getElementById('ctrlRecordIcon').textContent = '🎙️';
+  document.getElementById('ctrlRecordLabel').textContent = 'Record myself in French';
   document.getElementById('ctrlActions').classList.add('hidden');
-  document.getElementById('ctrlBtnRerecord').style.display='';
-  document.getElementById('ctrlBtnYes').disabled=false;
-  document.getElementById('ctrlBtnNo').disabled=false;
+  document.getElementById('ctrlBtnRerecord').style.display = '';
+  document.getElementById('ctrlBtnYes').disabled = false;
+  document.getElementById('ctrlBtnNo').disabled = false;
   document.getElementById('ctrlBody').classList.remove('hidden');
   document.getElementById('ctrlResult').classList.add('hidden');
   document.getElementById('screenExercise').classList.add('hidden');
   document.getElementById('screenControl').classList.remove('hidden');
 }
 
-async function ctrlToggleRecord(){
-  if(ctrlRecording){if(ctrlMediaRecorder&&ctrlMediaRecorder.state!=='inactive')ctrlMediaRecorder.stop();return;}
-  if(ctrlHasRecording){if(ctrlRecordingAudio){ctrlRecordingAudio.currentTime=0;ctrlRecordingAudio.play();}return;}
-  try{
-    ctrlStream=await navigator.mediaDevices.getUserMedia({audio:true});ctrlAudioChunks=[];
-    const mt=['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg'].find(t=>MediaRecorder.isTypeSupported(t))||'';
-    ctrlMediaRecorder=new MediaRecorder(ctrlStream,mt?{mimeType:mt}:{});
-    ctrlMediaRecorder.ondataavailable=e=>{if(e.data.size>0)ctrlAudioChunks.push(e.data);};
-    ctrlMediaRecorder.onstop=()=>{
-      const blob=new Blob(ctrlAudioChunks,{type:mt||'audio/webm'});
-      ctrlRecordingAudio=new Audio(URL.createObjectURL(blob));
-      ctrlHasRecording=true;ctrlRecording=false;
-      document.getElementById('ctrlBtnRecord').className='btn-record has-recording';
-      document.getElementById('ctrlRecordIcon').textContent='▶';
-      document.getElementById('ctrlRecordLabel').textContent='Play again mon enregistrement';
+async function ctrlToggleRecord() {
+  if (ctrlRecording) { if (ctrlMediaRecorder && ctrlMediaRecorder.state !== 'inactive') ctrlMediaRecorder.stop(); return; }
+  if (ctrlHasRecording) { if (ctrlRecordingAudio) { ctrlRecordingAudio.currentTime = 0; ctrlRecordingAudio.play(); } return; }
+  try {
+    ctrlStream = await navigator.mediaDevices.getUserMedia({ audio: true }); ctrlAudioChunks = [];
+    const mt = ['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg'].find(t => MediaRecorder.isTypeSupported(t)) || '';
+    ctrlMediaRecorder = new MediaRecorder(ctrlStream, mt ? { mimeType: mt } : {});
+    ctrlMediaRecorder.ondataavailable = e => { if (e.data.size > 0) ctrlAudioChunks.push(e.data); };
+    ctrlMediaRecorder.onstop = () => {
+      const blob = new Blob(ctrlAudioChunks, { type: mt || 'audio/webm' });
+      ctrlRecordingAudio = new Audio(URL.createObjectURL(blob));
+      ctrlHasRecording = true; ctrlRecording = false;
+      document.getElementById('ctrlBtnRecord').className = 'btn-record has-recording';
+      document.getElementById('ctrlRecordIcon').textContent = '▶';
+      document.getElementById('ctrlRecordLabel').textContent = 'Play my recording';
       document.getElementById('ctrlActions').classList.remove('hidden');
-      ctrlStream.getTracks().forEach(t=>t.stop());
+      ctrlStream.getTracks().forEach(t => t.stop());
     };
-    ctrlMediaRecorder.start();ctrlRecording=true;
-    document.getElementById('ctrlBtnRecord').className='btn-record recording';
-    document.getElementById('ctrlRecordIcon').textContent='⏳';
-    document.getElementById('ctrlRecordLabel').textContent='Préparez-vous...';
+    ctrlMediaRecorder.start(); ctrlRecording = true;
+    document.getElementById('ctrlBtnRecord').className = 'btn-record recording';
+    document.getElementById('ctrlRecordIcon').textContent = '⏳';
+    document.getElementById('ctrlRecordLabel').textContent = 'Get ready...';
     document.getElementById('ctrlActions').classList.add('hidden');
-    setTimeout(()=>{if(ctrlRecording){document.getElementById('ctrlRecordIcon').textContent='⏹';document.getElementById('ctrlRecordLabel').textContent='🔴 Parlez — puis arrêtez';}},500);
-  }catch(e){alert('Microphone non disponible.');}
+    setTimeout(() => {
+      if (ctrlRecording) {
+        document.getElementById('ctrlRecordIcon').textContent = '⏹';
+        document.getElementById('ctrlRecordLabel').textContent = '🔴 Speaking — tap to stop';
+      }
+    }, 500);
+  } catch (e) { alert('Microphone not available.'); }
 }
 
-function ctrlPlayCorrect(){
-  if(!ctrlCurrentExpr)return;
-  
-  const u=new SpeechSynthesisUtterance(ctrlCurrentExpr.en);
-  u.lang=(selectedVoice&&selectedVoice.lang)?selectedVoice.lang.replace('_','-'):'en-GB';
-  u.rate=0.85;if(selectedVoice)u.voice=selectedVoice;
-  .speak(u);
-  if(!ctrlCorrectPlayed){ctrlCorrectPlayed=true;document.getElementById('ctrlBtnRerecord').style.display='none';}
+function ctrlPlayCorrect() {
+  if (!ctrlCurrentExpr || !ctrlCurrentExpr.audio) return;
+  const a = new Audio(ctrlCurrentExpr.audio);
+  a.play();
+  if (!ctrlCorrectPlayed) { ctrlCorrectPlayed = true; document.getElementById('ctrlBtnRerecord').style.display = 'none'; }
 }
 
-function ctrlReRecord(){
-  if(ctrlRecordingAudio){ctrlRecordingAudio.pause();ctrlRecordingAudio=null;}
-  ctrlHasRecording=false;
+function ctrlReRecord() {
+  if (ctrlRecordingAudio) { ctrlRecordingAudio.pause(); ctrlRecordingAudio = null; }
+  ctrlHasRecording = false;
   document.getElementById('ctrlActions').classList.add('hidden');
-  document.getElementById('ctrlBtnRecord').className='btn-record';
-  document.getElementById('ctrlRecordIcon').textContent='🎙️';
-  document.getElementById('ctrlRecordLabel').textContent="M'enregistrer en anglais";
+  document.getElementById('ctrlBtnRecord').className = 'btn-record';
+  document.getElementById('ctrlRecordIcon').textContent = '🎙️';
+  document.getElementById('ctrlRecordLabel').textContent = 'Record myself in French';
   ctrlToggleRecord();
 }
 
-function ctrlEvaluate(success){
-  controlScores[ctrlGroup]=success?1:0;
-  localStorage.setItem('bao05_controls',JSON.stringify(controlScores));
-  document.getElementById('ctrlBtnYes').disabled=true;
-  document.getElementById('ctrlBtnNo').disabled=true;
-  const total=controlScores.filter(s=>s===1).length;
-  const done=controlScores.filter(s=>s!==null).length;
-  document.getElementById('ctrlResultEmoji').textContent=success?'✅':'💪';
-  document.getElementById('ctrlResultMsg').textContent=success?'Bien joué !':'Continue à t\'entraîner !';
-  document.getElementById('ctrlResultSub').textContent=`Score contrôle : ${total} / ${done}`;
+function ctrlEvaluate(success) {
+  controlScores[ctrlGroup] = success ? 1 : 0;
+  localStorage.setItem('bao05_controls', JSON.stringify(controlScores));
+  document.getElementById('ctrlBtnYes').disabled = true;
+  document.getElementById('ctrlBtnNo').disabled = true;
+  const total = controlScores.filter(s => s === 1).length;
+  const done = controlScores.filter(s => s !== null).length;
+  document.getElementById('ctrlResultEmoji').textContent = success ? '✅' : '💪';
+  document.getElementById('ctrlResultMsg').textContent = success ? 'Well done!' : 'Keep practising!';
+  document.getElementById('ctrlResultSub').textContent = `Control score: ${total} / ${done}`;
   document.getElementById('ctrlBody').classList.add('hidden');
   document.getElementById('ctrlResult').classList.remove('hidden');
 }
 
-function ctrlContinue(){
-  
+function ctrlContinue() {
   document.getElementById('screenControl').classList.add('hidden');
-  if(ctrlNextAction)ctrlNextAction();
+  if (ctrlNextAction) ctrlNextAction();
 }
 </script>
 </body>
