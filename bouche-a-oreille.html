@@ -925,7 +925,7 @@ function getAudioUrl(month, index) {
   const key = String(month);
   const files = AUDIO_FILES[key];
   if (files && index < files.length) {
-    return AUDIO_BASE + key.padStart(2, "0") + "/" + files[index];
+    return AUDIO_BASE + "mois-" + key.padStart(2, "0") + "/" + files[index];
   }
   return "";
 }
