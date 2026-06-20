@@ -10,14 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --navy: #1B2A4A; --navy-dark: #111d33; --navy-light: #243660;
-      --gold: #B8975A; --gold-light: #cca96d;
-      --cream: #F7F4EF; --charcoal: #2C2C2C; --white: #fff;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body: 'DM Sans', system-ui, sans-serif;
-      --radius: 6px;
-    }
+    :root { --navy: #1B2A4A; --navy-dark: #111d33; --navy-light: #243660; --gold: #B8975A; --gold-light: #cca96d; --cream: #F7F4EF; --charcoal: #2C2C2C; --white: #fff; --font-display: 'Playfair Display', Georgia, serif; --font-body: 'DM Sans', system-ui, sans-serif; --radius: 6px; }
     html, body { height: 100%; overflow: hidden; }
     body { background: var(--navy-dark); color: var(--cream); font-family: var(--font-body); -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; }
     .ex-header { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); background: var(--navy-dark); }
@@ -35,7 +28,7 @@
     .ex-context { font-size: 0.82rem; font-weight: 300; font-style: italic; color: rgba(247,244,239,0.45); line-height: 1.5; border-left: 2px solid rgba(184,151,90,0.25); padding-left: 0.75rem; }
     .ex-expression { font-family: var(--font-display); font-size: clamp(1.4rem, 4.5vw, 2.2rem); font-weight: 400; color: var(--cream); line-height: 1.25; letter-spacing: -0.01em; }
     .ex-expression.hidden-expr { display: none; }
-    .ex-expression-placeholder { padding: 1.75rem; border: 1px dashed rgba(255,255,255,0.1); border-radius: var(--radius); text-align: center; font-size: 0.85rem; font-weight: 300; color: rgba(247,244,239,0.25); font-style: italic; letter-spacing: 0.06em; }
+    .ex-expression-placeholder { padding: 1.75rem; border: 1px dashed rgba(255,255,255,0.1); border-radius: var(--radius); text-align: center; font-size: 0.85rem; font-weight: 300; color: rgba(247,244,239,0.25); font-style: italic; }
     .ex-actions { display: flex; flex-direction: column; gap: 0.65rem; }
     .btn-listen, .btn-record, .btn-reveal { display: flex; align-items: center; justify-content: center; gap: 0.6rem; border: none; border-radius: var(--radius); font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; padding: 0.9rem 1.5rem; transition: all 0.2s; width: 100%; }
     .btn-listen { background: var(--gold); color: var(--navy-dark); }
@@ -88,7 +81,7 @@
 <body>
 <div class="ex-header">
   <a href="/" class="ex-logo">Bouche-a-oreille <span>Mois 01</span></a>
-  <span class="ex-badge">🥖 Echo Bounce</span>
+  <span class="ex-badge">🥖 Caroline voice</span>
   <span class="ex-counter" id="counter"><strong>1</strong>/25</span>
 </div>
 <div class="ex-progress">
@@ -97,11 +90,11 @@
 <div id="screenIntro" class="screen-intro">
   <p class="intro-month">Mois 01 🥖</p>
   <h1 class="intro-title">Mois 01 · Bonjour, baguette, voisins</h1>
-  <p class="intro-desc">25 French expressions for your first conversations — with Caroline as your guide.</p>
+  <p class="intro-desc">25 French expressions — recorded by Caroline. Listen to her voice, record yourself, compare.</p>
   <div class="intro-steps">
     <div class="intro-step">
       <span class="intro-step-icon">🎧</span>
-      <span class="intro-step-text"><strong>Listen</strong> to Caroline say the expression</span>
+      <span class="intro-step-text"><strong>Listen</strong> to Caroline — hear the expression in a real French voice</span>
     </div>
     <div class="intro-step">
       <span class="intro-step-icon">🎙️</span>
@@ -109,7 +102,7 @@
     </div>
     <div class="intro-step">
       <span class="intro-step-icon">🔁</span>
-      <span class="intro-step-text"><strong>Compare</strong> — hear the gap close</span>
+      <span class="intro-step-text"><strong>Compare</strong> — hear the gap close every time</span>
     </div>
   </div>
   <button class="btn-start" onclick="startExercise()">Begin 🌟</button>
@@ -120,14 +113,14 @@
       <div class="ex-group" id="exGroup"></div>
       <div class="ex-context" id="exContext"></div>
       <div class="ex-expression" id="exExpression"></div>
-      <div class="ex-expression-placeholder" id="exPlaceholder">Listen first to reveal the expression 🎧</div>
+      <div class="ex-expression-placeholder" id="exPlaceholder">Listen first to hear Caroline say it 🎧</div>
       <div class="ex-translation" id="exTranslation"></div>
     </div>
     <div>
       <div class="ex-actions">
         <button class="btn-listen" id="btnListen" onclick="listenExpression()">
           <span>🎧</span>
-          <span id="listenLabel">Listen</span>
+          <span id="listenLabel">Listen — Caroline</span>
         </button>
         <button class="btn-record" id="btnRecord" onclick="toggleRecord()" disabled>
           <span id="recordIcon">🎙️</span>
@@ -148,13 +141,12 @@
 <div id="screenEnd" class="screen-end hidden">
   <div class="end-trophy">🏆</div>
   <h2 class="end-title">Mois 01 complete!</h2>
-  <p class="end-desc">You listened, recorded, and improved. Keep going — your French is getting more natural every day.</p>
+  <p class="end-desc">You listened to Caroline, recorded yourself, and improved. Your French is getting more natural every day.</p>
   <p style="font-size:0.85rem;color:var(--gold);font-style:italic;font-family:var(--font-display);">"Bonjour, baguette, voisins"</p>
   <a href="/" style="display:inline-block;background:var(--gold);color:var(--navy-dark);padding:0.85rem 2rem;border-radius:var(--radius);text-decoration:none;font-weight:700;font-size:0.9rem;margin-top:0.5rem;">Back to home ←</a>
 </div>
-
 <script>
-var EXPRESSIONS = [{"fr": "Bonjour !", "en": "Hello!", "context": "The first 5 seconds of any interaction. The difference between being polite and being forgotten.", "group": "The Bonjour ritual"}, {"fr": "Vous êtes ouvert ?", "en": "Are you open?", "context": "Before entering a shop — ask before trying the door.", "group": "The Bonjour ritual"}, {"fr": "Vous avez choisi ?", "en": "Have you decided?", "context": "What the shop assistant asks. Acknowledge it.", "group": "The Bonjour ritual"}, {"fr": "Je vous mets un pain au chocolat avec ?", "en": "Shall I add a pain au chocolat?", "context": "The bakery assistant offering more. A classic French moment.", "group": "The Bonjour ritual"}, {"fr": "Je peux payer comment ?", "en": "How can I pay?", "context": "Cash or card? Ask before the total is announced.", "group": "The Bonjour ritual"}, {"fr": "Je voudrais une baguette, pas trop cuite.", "en": "I'd like a baguette, not too well-done.", "context": "The most French sentence at a bakery.", "group": "At the bakery, market, café"}, {"fr": "Sur place ou à emporter ?", "en": "For here or to go?", "context": "The eternal café question.", "group": "At the bakery, market, café"}, {"fr": "Vous me faites une remise ?", "en": "Can you give me a discount?", "context": "Gentle negotiation at markets.", "group": "At the bakery, market, café"}, {"fr": "C'est pour offrir.", "en": "It's a gift.", "context": "Tell them this and they'll wrap it beautifully.", "group": "At the bakery, market, café"}, {"fr": "Vous avez la carte ?", "en": "Do you have the menu?", "context": "At a restaurant.", "group": "At the bakery, market, café"}, {"fr": "Je peux goûter ?", "en": "Can I taste it?", "context": "At a market stall.", "group": "At the bakery, market, café"}, {"fr": "L'addition, s'il vous plaît.", "en": "The bill, please.", "context": "The signal that the meal is over.", "group": "At the bakery, market, café"}, {"fr": "Je vous dois combien ?", "en": "How much do I owe you?", "context": "A polite way to ask the price.", "group": "At the bakery, market, café"}, {"fr": "Vous auriez l'heure ?", "en": "Would you have the time?", "context": "A polite way to ask the time.", "group": "Neighbourhood French"}, {"fr": "Je peux vous emprunter… ?", "en": "Can I borrow…?", "context": "From a neighbour.", "group": "Neighbourhood French"}, {"fr": "Il y a quelqu'un ?", "en": "Is anyone there?", "context": "When you knock.", "group": "Neighbourhood French"}, {"fr": "Ça vous dérange si… ?", "en": "Do you mind if…?", "context": "The polite way to ask anything.", "group": "Neighbourhood French"}, {"fr": "On se voit quand ?", "en": "When shall we meet?", "context": "Making plans.", "group": "Neighbourhood French"}, {"fr": "Amène les enfants !", "en": "Bring the kids!", "context": "Warm and inclusive.", "group": "Neighbourhood French"}, {"fr": "Tu restes manger ?", "en": "Are you staying to eat?", "context": "Always say yes.", "group": "Neighbourhood French"}, {"fr": "Tu sais quoi ?", "en": "You know what?", "context": "A conversation starter.", "group": "The small word"}, {"fr": "En fait…", "en": "Actually…", "context": "To correct or clarify.", "group": "The small word"}, {"fr": "Du coup…", "en": "So…", "context": "The most used filler in French.", "group": "The small word"}, {"fr": "Enfin…", "en": "I mean…", "context": "Signals a conclusion.", "group": "The small word"}, {"fr": "Bref !", "en": "Anyway!", "context": "The conversation closer.", "group": "The small word"}];
+var EXPRESSIONS = [{"fr": "Bonjour !", "en": "Hello!", "context": "The first 5 seconds of any interaction.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-01-bonjour.mp3"}, {"fr": "Vous êtes ouvert ?", "en": "Are you open?", "context": "Before entering a shop.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-02-vous-etes-ouvert.mp3"}, {"fr": "Vous avez choisi ?", "en": "Have you decided?", "context": "What the shop assistant asks.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-03-vous-avez-choisi.mp3"}, {"fr": "Je vous mets un pain au chocolat avec ?", "en": "Shall I add a pain au chocolat?", "context": "Bakery moment.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-04-je-vous-mets-un-pain-au-chocol.mp3"}, {"fr": "Je peux payer comment ?", "en": "How can I pay?", "context": "Cash or card?", "group": "The Bonjour ritual", "audio": ""}, {"fr": "Je voudrais une baguette, pas trop cuite.", "en": "I'd like a baguette, not too well-done.", "context": "The most French sentence.", "group": "Bakery", "audio": "/audio/mois-01/expression-06-je-voudrais-baguette-pas-trop-cuite.mp3"}, {"fr": "Sur place ou à emporter ?", "en": "For here or to go?", "context": "The eternal café question.", "group": "Bakery", "audio": "/audio/mois-01/expression-07-sur-place-ou-a-emporter.mp3"}, {"fr": "Vous me faites une remise ?", "en": "Can you give me a discount?", "context": "Market negotiation.", "group": "Bakery", "audio": "/audio/mois-01/expression-08-vous-me-faites-une-remise.mp3"}, {"fr": "C'est pour offrir.", "en": "It's a gift.", "context": "They'll wrap it beautifully.", "group": "Bakery", "audio": "/audio/mois-01/expression-09-c-est-pour-offrir.mp3"}, {"fr": "Vous avez la carte ?", "en": "Do you have the menu?", "context": "At a restaurant.", "group": "Bakery", "audio": "/audio/mois-01/expression-10-vous-avez-la-carte.mp3"}, {"fr": "Je peux goûter ?", "en": "Can I taste it?", "context": "At a market stall.", "group": "Bakery", "audio": "/audio/mois-01/expression-11-je-peux-gouter.mp3"}, {"fr": "L'addition, s'il vous plaît.", "en": "The bill, please.", "context": "Signal the meal is over.", "group": "Bakery", "audio": "/audio/mois-01/expression-12-l-addition-on-partage.mp3"}, {"fr": "Je vous dois combien ?", "en": "How much do I owe you?", "context": "Polite way to ask.", "group": "Bakery", "audio": "/audio/mois-01/expression-13-je-vous-dois-combien.mp3"}, {"fr": "Vous auriez l'heure ?", "en": "Would you have the time?", "context": "Ask a stranger politely.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-14-vous-auriez-l-heure.mp3"}, {"fr": "Je peux vous emprunter… ?", "en": "Can I borrow…?", "context": "From a neighbour.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-15-je-peux-vous-emprunter.mp3"}, {"fr": "Il y a quelqu'un ?", "en": "Is anyone there?", "context": "When you knock.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-16-il-y-a-quelqu-un.mp3"}, {"fr": "Ça vous dérange si… ?", "en": "Do you mind if…?", "context": "Polite request.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-17-ca-vous-derange-si.mp3"}, {"fr": "On se voit quand ?", "en": "When shall we meet?", "context": "Making plans.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-18-on-se-voit-quand.mp3"}, {"fr": "Amène les enfants !", "en": "Bring the kids!", "context": "Warm hosting.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-19-amene-les-enfants.mp3"}, {"fr": "Tu restes manger ?", "en": "Are you staying to eat?", "context": "Always say yes.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-20-tu-restes-manger.mp3"}, {"fr": "Tu sais quoi ?", "en": "You know what?", "context": "Conversation starter.", "group": "Small words", "audio": "/audio/mois-01/expression-21-tu-sais-quoi.mp3"}, {"fr": "En fait…", "en": "Actually…", "context": "To correct or clarify.", "group": "Small words", "audio": "/audio/mois-01/expression-22-en-fait.mp3"}, {"fr": "Du coup…", "en": "So…", "context": "Most used filler.", "group": "Small words", "audio": "/audio/mois-01/expression-23-du-coup.mp3"}, {"fr": "Enfin…", "en": "I mean…", "context": "Signals a conclusion.", "group": "Small words", "audio": "/audio/mois-01/expression-24-enfin.mp3"}, {"fr": "Bref !", "en": "Anyway!", "context": "Conversation closer.", "group": "Small words", "audio": "/audio/mois-01/expression-25-bref.mp3"}];
 var CURRENT = 0;
 var LISTENED = new Array(EXPRESSIONS.length).fill(false);
 var REVEALED = new Array(EXPRESSIONS.length).fill(false);
@@ -167,26 +159,7 @@ var RECORDED_BLOB = null;
 var RECORDING_AUDIO = null;
 var STREAM = null;
 var STORAGE_KEY = 'bao_m01';
-
-var voices = [];
-var selectedVoice = null;
-
-function pickVoice() {
-  var preferred = ['Amelie','Thomas','Marie','Audrey','French','Google français'];
-  for (var i = 0; i < preferred.length; i++) {
-    for (var j = 0; j < voices.length; j++) {
-      if (voices[j].name === preferred[i]) return voices[j];
-    }
-  }
-  for (var j = 0; j < voices.length; j++) {
-    if (voices[j].lang && voices[j].lang.startsWith('fr')) return voices[j];
-  }
-  return null;
-}
-
-function loadVoices() { voices = window.speechSynthesis.getVoices(); selectedVoice = pickVoice(); }
-window.speechSynthesis.onvoiceschanged = loadVoices;
-loadVoices();
+var CURRENT_AUDIO = null;
 
 function loadState() {
   try {
@@ -214,6 +187,7 @@ function startExercise() {
 function render() {
   var expr = EXPRESSIONS[CURRENT];
   HAS_RECORDING = false; IS_RECORDING = false;
+  if (CURRENT_AUDIO) { CURRENT_AUDIO.pause(); CURRENT_AUDIO = null; }
   if (STREAM) { STREAM.getTracks().forEach(function(t) { t.stop(); }); STREAM = null; }
   document.getElementById('counter').innerHTML = '<strong>' + (CURRENT + 1) + '</strong>/' + EXPRESSIONS.length;
   document.getElementById('progressBar').style.width = ((CURRENT + 1) / EXPRESSIONS.length * 100) + '%';
@@ -229,7 +203,7 @@ function render() {
   document.getElementById('exPlaceholder').style.display = alreadyListened ? 'none' : '';
   document.getElementById('btnListen').className = 'btn-listen';
   document.getElementById('btnListen').disabled = false;
-  document.getElementById('listenLabel').textContent = alreadyListened ? 'Re-listen' : 'Listen';
+  document.getElementById('listenLabel').textContent = alreadyListened ? 'Re-listen — Caroline' : 'Listen — Caroline';
   document.getElementById('btnRecord').className = 'btn-record';
   document.getElementById('btnRecord').disabled = !alreadyListened;
   document.getElementById('recordIcon').textContent = '🎙️';
@@ -258,37 +232,52 @@ function renderDots() {
 }
 
 function listenExpression() {
-  if (IS_PLAYING) { window.speechSynthesis.cancel(); IS_PLAYING = false; resetListenBtn(); return; }
-  var expr = EXPRESSIONS[CURRENT];
-  var utterance = new SpeechSynthesisUtterance(expr.fr);
-  utterance.lang = 'fr-FR';
-  utterance.rate = 0.82;
-  utterance.pitch = 1.0;
-  if (selectedVoice) utterance.voice = selectedVoice;
-  IS_PLAYING = true;
-  document.getElementById('btnListen').className = 'btn-listen playing';
-  document.getElementById('listenLabel').textContent = '⏸ Playing...';
-  utterance.onend = function() {
+  if (IS_PLAYING) {
+    if (CURRENT_AUDIO) { CURRENT_AUDIO.pause(); CURRENT_AUDIO = null; }
     IS_PLAYING = false;
-    LISTENED[CURRENT] = true;
-    saveState();
     resetListenBtn();
-    renderDots();
-    document.getElementById('exPlaceholder').style.display = 'none';
-    var exEl = document.getElementById('exExpression');
-    exEl.classList.remove('hidden-expr');
-    exEl.style.animation = 'none'; void exEl.offsetWidth; exEl.style.animation = 'fadeSlide 0.5s ease both';
-    document.getElementById('btnRecord').disabled = false;
-    if (!REVEALED[CURRENT]) document.getElementById('btnReveal').style.display = '';
-  };
-  utterance.onerror = function() { IS_PLAYING = false; resetListenBtn(); };
-  window.speechSynthesis.speak(utterance);
+    return;
+  }
+  var expr = EXPRESSIONS[CURRENT];
+  if (expr.audio) {
+    CURRENT_AUDIO = new Audio(expr.audio);
+    CURRENT_AUDIO.oncanplay = function() {
+      IS_PLAYING = true;
+      document.getElementById('btnListen').className = 'btn-listen playing';
+      document.getElementById('listenLabel').textContent = '⏸ Playing Caroline...';
+      CURRENT_AUDIO.play();
+    };
+    CURRENT_AUDIO.onended = function() {
+      IS_PLAYING = false;
+      afterListen();
+    };
+    CURRENT_AUDIO.onerror = function() {
+      IS_PLAYING = false;
+      alert('Audio file not found for this expression.');
+      resetListenBtn();
+    };
+  } else {
+    alert('Audio file coming soon!');
+  }
+}
+
+function afterListen() {
+  LISTENED[CURRENT] = true;
+  saveState();
+  resetListenBtn();
+  renderDots();
+  document.getElementById('exPlaceholder').style.display = 'none';
+  var exEl = document.getElementById('exExpression');
+  exEl.classList.remove('hidden-expr');
+  exEl.style.animation = 'none'; void exEl.offsetWidth; exEl.style.animation = 'fadeSlide 0.5s ease both';
+  document.getElementById('btnRecord').disabled = false;
+  if (!REVEALED[CURRENT]) document.getElementById('btnReveal').style.display = '';
 }
 
 function resetListenBtn() {
   document.getElementById('btnListen').className = 'btn-listen';
   document.getElementById('btnListen').disabled = false;
-  document.getElementById('listenLabel').textContent = LISTENED[CURRENT] ? 'Re-listen' : 'Listen';
+  document.getElementById('listenLabel').textContent = LISTENED[CURRENT] ? 'Re-listen — Caroline' : 'Listen — Caroline';
 }
 
 function revealTranslation() {
@@ -314,7 +303,6 @@ function toggleRecord() {
 
 function startRecording() {
   try {
-    STREAM = null;
     navigator.mediaDevices.getUserMedia({ audio: true }).then(function(s) {
       STREAM = s;
       AUDIO_CHUNKS = [];
@@ -341,7 +329,7 @@ function startRecording() {
       document.getElementById('recordIcon').textContent = '⏹';
       document.getElementById('recordLabel').textContent = 'Stop recording';
     }).catch(function() {
-      alert('Microphone not available. Check your browser permissions.');
+      alert('Microphone not available. Check browser permissions.');
     });
   } catch(e) {
     alert('Microphone not available.');

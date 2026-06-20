@@ -10,14 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --navy: #1B2A4A; --navy-dark: #111d33; --navy-light: #243660;
-      --gold: #B8975A; --gold-light: #cca96d;
-      --cream: #F7F4EF; --charcoal: #2C2C2C; --white: #fff;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body: 'DM Sans', system-ui, sans-serif;
-      --radius: 6px;
-    }
+    :root { --navy: #1B2A4A; --navy-dark: #111d33; --navy-light: #243660; --gold: #B8975A; --gold-light: #cca96d; --cream: #F7F4EF; --charcoal: #2C2C2C; --white: #fff; --font-display: 'Playfair Display', Georgia, serif; --font-body: 'DM Sans', system-ui, sans-serif; --radius: 6px; }
     html, body { height: 100%; overflow: hidden; }
     body { background: var(--navy-dark); color: var(--cream); font-family: var(--font-body); -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; }
     .ex-header { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); background: var(--navy-dark); }
@@ -35,7 +28,7 @@
     .ex-context { font-size: 0.82rem; font-weight: 300; font-style: italic; color: rgba(247,244,239,0.45); line-height: 1.5; border-left: 2px solid rgba(184,151,90,0.25); padding-left: 0.75rem; }
     .ex-expression { font-family: var(--font-display); font-size: clamp(1.4rem, 4.5vw, 2.2rem); font-weight: 400; color: var(--cream); line-height: 1.25; letter-spacing: -0.01em; }
     .ex-expression.hidden-expr { display: none; }
-    .ex-expression-placeholder { padding: 1.75rem; border: 1px dashed rgba(255,255,255,0.1); border-radius: var(--radius); text-align: center; font-size: 0.85rem; font-weight: 300; color: rgba(247,244,239,0.25); font-style: italic; letter-spacing: 0.06em; }
+    .ex-expression-placeholder { padding: 1.75rem; border: 1px dashed rgba(255,255,255,0.1); border-radius: var(--radius); text-align: center; font-size: 0.85rem; font-weight: 300; color: rgba(247,244,239,0.25); font-style: italic; }
     .ex-actions { display: flex; flex-direction: column; gap: 0.65rem; }
     .btn-listen, .btn-record, .btn-reveal { display: flex; align-items: center; justify-content: center; gap: 0.6rem; border: none; border-radius: var(--radius); font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; padding: 0.9rem 1.5rem; transition: all 0.2s; width: 100%; }
     .btn-listen { background: var(--gold); color: var(--navy-dark); }
@@ -88,8 +81,8 @@
 <body>
 <div class="ex-header">
   <a href="/" class="ex-logo">Bouche-a-oreille <span>Mois 09</span></a>
-  <span class="ex-badge">🏠 Echo Bounce</span>
-  <span class="ex-counter" id="counter"><strong>1</strong>/5</span>
+  <span class="ex-badge">🏠 Caroline voice</span>
+  <span class="ex-counter" id="counter"><strong>1</strong>/25</span>
 </div>
 <div class="ex-progress">
   <div class="ex-progress-bar" id="progressBar" style="width:4%"></div>
@@ -97,11 +90,11 @@
 <div id="screenIntro" class="screen-intro">
   <p class="intro-month">Mois 09 🏠</p>
   <h1 class="intro-title">Mois 09 · Logement</h1>
-  <p class="intro-desc">25 French expressions for renting, repairs, neighbours, and moving out.</p>
+  <p class="intro-desc">25 French expressions — recorded by Caroline. Listen to her voice, record yourself, compare.</p>
   <div class="intro-steps">
     <div class="intro-step">
       <span class="intro-step-icon">🎧</span>
-      <span class="intro-step-text"><strong>Listen</strong> to Caroline say the expression</span>
+      <span class="intro-step-text"><strong>Listen</strong> to Caroline — hear the expression in a real French voice</span>
     </div>
     <div class="intro-step">
       <span class="intro-step-icon">🎙️</span>
@@ -109,7 +102,7 @@
     </div>
     <div class="intro-step">
       <span class="intro-step-icon">🔁</span>
-      <span class="intro-step-text"><strong>Compare</strong> — hear the gap close</span>
+      <span class="intro-step-text"><strong>Compare</strong> — hear the gap close every time</span>
     </div>
   </div>
   <button class="btn-start" onclick="startExercise()">Begin 🌟</button>
@@ -120,14 +113,14 @@
       <div class="ex-group" id="exGroup"></div>
       <div class="ex-context" id="exContext"></div>
       <div class="ex-expression" id="exExpression"></div>
-      <div class="ex-expression-placeholder" id="exPlaceholder">Listen first to reveal the expression 🎧</div>
+      <div class="ex-expression-placeholder" id="exPlaceholder">Listen first to hear Caroline say it 🎧</div>
       <div class="ex-translation" id="exTranslation"></div>
     </div>
     <div>
       <div class="ex-actions">
         <button class="btn-listen" id="btnListen" onclick="listenExpression()">
           <span>🎧</span>
-          <span id="listenLabel">Listen</span>
+          <span id="listenLabel">Listen — Caroline</span>
         </button>
         <button class="btn-record" id="btnRecord" onclick="toggleRecord()" disabled>
           <span id="recordIcon">🎙️</span>
@@ -148,13 +141,12 @@
 <div id="screenEnd" class="screen-end hidden">
   <div class="end-trophy">🏆</div>
   <h2 class="end-title">Mois 09 complete!</h2>
-  <p class="end-desc">You listened, recorded, and improved. Keep going — your French is getting more natural every day.</p>
-  <p style="font-size:0.85rem;color:var(--gold);font-style:italic;font-family:var(--font-display);">"Housing — Renting, Repairs, Neighbours"</p>
+  <p class="end-desc">You listened to Caroline, recorded yourself, and improved. Your French is getting more natural every day.</p>
+  <p style="font-size:0.85rem;color:var(--gold);font-style:italic;font-family:var(--font-display);">"Logement"</p>
   <a href="/" style="display:inline-block;background:var(--gold);color:var(--navy-dark);padding:0.85rem 2rem;border-radius:var(--radius);text-decoration:none;font-weight:700;font-size:0.9rem;margin-top:0.5rem;">Back to home ←</a>
 </div>
-
 <script>
-var EXPRESSIONS = [{"fr": "Je viens visiter l'appartement.", "en": "I've come to see the flat.", "context": "The first words at a viewing.", "group": "Moving in"}, {"fr": "Je peux avoir les clés un peu avant ?", "en": "Can I get the keys early?", "context": "Negotiating move-in.", "group": "Moving in"}, {"fr": "On fait l'état des lieux quand ?", "en": "When's the inspection?", "context": "Document everything.", "group": "Moving in"}, {"fr": "C'est quoi les charges ?", "en": "What are the charges?", "context": "Before signing a lease.", "group": "Moving in"}, {"fr": "Le chauffage ne marche plus.", "en": "The heating isn't working.", "context": "Common winter issue.", "group": "Repairs"}];
+var EXPRESSIONS = [{"fr": "Je viens visiter l'appartement.", "en": "I've come to see the flat.", "context": "First words at a viewing.", "group": "Moving in", "audio": "/audio/mois-09/expression-01-je-viens-visiter-l-appartement.mp3"}, {"fr": "Je peux avoir les clés un peu avant ?", "en": "Can I get the keys early?", "context": "Negotiating move-in.", "group": "Moving in", "audio": "/audio/mois-09/expression-02-je-peux-avoir-les-cles.mp3"}, {"fr": "On fait l'état des lieux d'entrée quand ?", "en": "When's the move-in inspection?", "context": "Document everything.", "group": "Moving in", "audio": "/audio/mois-09/expression-03-etat-des-lieux-entree.mp3"}, {"fr": "C'est quoi les charges ? L'eau est comprise ?", "en": "What are the charges? Is water included?", "context": "Before signing.", "group": "Moving in", "audio": "/audio/mois-09/expression-04-charges-et-eau-comprises.mp3"}, {"fr": "Est-ce que le gaz a été vérifié ?", "en": "Has the gas been checked?", "context": "Safety first.", "group": "Moving in", "audio": "/audio/mois-09/expression-05-gaz-verifie.mp3"}, {"fr": "Le chauffage ne marche plus.", "en": "The heating isn't working.", "context": "Common winter issue.", "group": "Repairs", "audio": "/audio/mois-09/expression-06-chauffage-ne-marche-plus.mp3"}, {"fr": "Je n'ai plus d'eau chaude.", "en": "I have no hot water.", "context": "Urgent repair.", "group": "Repairs", "audio": "/audio/mois-09/expression-07-plus-d-eau-chaude.mp3"}, {"fr": "Il y a une fuite sous l'évier.", "en": "There's a leak under the sink.", "context": "Plumbing issue.", "group": "Repairs", "audio": "/audio/mois-09/expression-08-fuite-sous-l-ev Commission.mp3"}, {"fr": "Les toilettes sont bouchées.", "en": "The toilet is blocked.", "context": "Plumbing issue.", "group": "Repairs", "audio": "/audio/mois-09/expression-09-toilettes-bouchees.mp3"}, {"fr": "Les plombs ont sauté.", "en": "The fuse has blown.", "context": "Electrical issue.", "group": "Repairs", "audio": "/audio/mois-09/expression-10-plombs-ont-saute.mp3"}, {"fr": "La chasse d'eau est cassée.", "en": "The toilet flush is broken.", "context": "Minor repair.", "group": "Repairs", "audio": "/audio/mois-09/expression-11-chasse-d-eau-cassee.mp3"}, {"fr": "On a un problème avec la porte d'entrée.", "en": "There's a problem with the front door.", "context": "Security issue.", "group": "Repairs", "audio": "/audio/mois-09/expression-12-probleme-porte-entree.mp3"}, {"fr": "C'est urgent ?", "en": "Is it urgent?", "context": "When something breaks.", "group": "Repairs", "audio": "/audio/mois-09/expression-13-est-ce-urgent.mp3"}, {"fr": "Quand est-ce que le réparateur peut passer ?", "en": "When can the repairman come?", "context": "Scheduling a fix.", "group": "Neighbours", "audio": "/audio/mois-09/expression-14-quand-reparateur-peut-passer.mp3"}, {"fr": "Je peux repeindre les murs ?", "en": "Can I repaint the walls?", "context": "Customizing.", "group": "Neighbours", "audio": "/audio/mois-09/expression-15-je-peux-repeindre-les-murs.mp3"}, {"fr": "Ça vous embête si je fume sur le balcon ?", "en": "Do you mind if I smoke on the balcony?", "context": "Ask the neighbour.", "group": "Neighbours", "audio": "/audio/mois-09/expression-16-ca-vous-embete-si-je-fume.mp3"}, {"fr": "Vous pouvez baisser la musique ?", "en": "Can you turn down the music?", "context": "Noise complaint.", "group": "Neighbours", "audio": "/audio/mois-09/expression-17-baisser-la-musique.mp3"}, {"fr": "Vous avez reçu mon colis par erreur ?", "en": "Did you receive my parcel by mistake?", "context": "Mis-delivery.", "group": "Neighbours", "audio": "/audio/mois-09/expression-18-colis-par-erreur.mp3"}, {"fr": "Merci pour votre discrétion.", "en": "Thank you for your discretion.", "context": "Appreciating a neighbour.", "group": "Neighbours", "audio": "/audio/mois-09/expression-19-merci-votre-discretion.mp3"}, {"fr": "Le bruit des travaux, ça dure jusqu'à quand ?", "en": "The construction noise, how long?", "context": "Ask the building.", "group": "Neighbours", "audio": "/audio/mois-09/expression-20-bruit-travaux-jusqu-a-quand.mp3"}, {"fr": "Je vais quitter l'appartement dans deux mois.", "en": "I'm leaving the flat in two months.", "context": "Notice period.", "group": "Moving out", "audio": "/audio/mois-09/expression-21-je-vais-quitter-l-appartement.mp3"}, {"fr": "On fait l'état des lieux de sortie le…", "en": "The move-out inspection is on…", "context": "Scheduling.", "group": "Moving out", "audio": "/audio/mois-09/expression-22-etat-des-lieux-sortie.mp3"}, {"fr": "Vous remboursez la caution sous combien de temps ?", "en": "How long for deposit refund?", "context": "Important question.", "group": "Moving out", "audio": "/audio/mois-09/expression-23-remboursement-caution.mp3"}, {"fr": "Je peux vous laisser un double des clés ?", "en": "Can I leave a spare key?", "context": "Handing over.", "group": "Moving out", "audio": "/audio/mois-09/expression-24-double-des-cles.mp3"}, {"fr": "Merci pour tout, j'ai bien aimé habiter ici.", "en": "Thanks for everything, I enjoyed living here.", "context": "Goodbye.", "group": "Moving out", "audio": "/audio/mois-09/expression-25-merci-content-habite-ici.mp3"}];
 var CURRENT = 0;
 var LISTENED = new Array(EXPRESSIONS.length).fill(false);
 var REVEALED = new Array(EXPRESSIONS.length).fill(false);
@@ -167,26 +159,7 @@ var RECORDED_BLOB = null;
 var RECORDING_AUDIO = null;
 var STREAM = null;
 var STORAGE_KEY = 'bao_m09';
-
-var voices = [];
-var selectedVoice = null;
-
-function pickVoice() {
-  var preferred = ['Amelie','Thomas','Marie','Audrey','French','Google français'];
-  for (var i = 0; i < preferred.length; i++) {
-    for (var j = 0; j < voices.length; j++) {
-      if (voices[j].name === preferred[i]) return voices[j];
-    }
-  }
-  for (var j = 0; j < voices.length; j++) {
-    if (voices[j].lang && voices[j].lang.startsWith('fr')) return voices[j];
-  }
-  return null;
-}
-
-function loadVoices() { voices = window.speechSynthesis.getVoices(); selectedVoice = pickVoice(); }
-window.speechSynthesis.onvoiceschanged = loadVoices;
-loadVoices();
+var CURRENT_AUDIO = null;
 
 function loadState() {
   try {
@@ -214,6 +187,7 @@ function startExercise() {
 function render() {
   var expr = EXPRESSIONS[CURRENT];
   HAS_RECORDING = false; IS_RECORDING = false;
+  if (CURRENT_AUDIO) { CURRENT_AUDIO.pause(); CURRENT_AUDIO = null; }
   if (STREAM) { STREAM.getTracks().forEach(function(t) { t.stop(); }); STREAM = null; }
   document.getElementById('counter').innerHTML = '<strong>' + (CURRENT + 1) + '</strong>/' + EXPRESSIONS.length;
   document.getElementById('progressBar').style.width = ((CURRENT + 1) / EXPRESSIONS.length * 100) + '%';
@@ -229,7 +203,7 @@ function render() {
   document.getElementById('exPlaceholder').style.display = alreadyListened ? 'none' : '';
   document.getElementById('btnListen').className = 'btn-listen';
   document.getElementById('btnListen').disabled = false;
-  document.getElementById('listenLabel').textContent = alreadyListened ? 'Re-listen' : 'Listen';
+  document.getElementById('listenLabel').textContent = alreadyListened ? 'Re-listen — Caroline' : 'Listen — Caroline';
   document.getElementById('btnRecord').className = 'btn-record';
   document.getElementById('btnRecord').disabled = !alreadyListened;
   document.getElementById('recordIcon').textContent = '🎙️';
@@ -258,37 +232,52 @@ function renderDots() {
 }
 
 function listenExpression() {
-  if (IS_PLAYING) { window.speechSynthesis.cancel(); IS_PLAYING = false; resetListenBtn(); return; }
-  var expr = EXPRESSIONS[CURRENT];
-  var utterance = new SpeechSynthesisUtterance(expr.fr);
-  utterance.lang = 'fr-FR';
-  utterance.rate = 0.82;
-  utterance.pitch = 1.0;
-  if (selectedVoice) utterance.voice = selectedVoice;
-  IS_PLAYING = true;
-  document.getElementById('btnListen').className = 'btn-listen playing';
-  document.getElementById('listenLabel').textContent = '⏸ Playing...';
-  utterance.onend = function() {
+  if (IS_PLAYING) {
+    if (CURRENT_AUDIO) { CURRENT_AUDIO.pause(); CURRENT_AUDIO = null; }
     IS_PLAYING = false;
-    LISTENED[CURRENT] = true;
-    saveState();
     resetListenBtn();
-    renderDots();
-    document.getElementById('exPlaceholder').style.display = 'none';
-    var exEl = document.getElementById('exExpression');
-    exEl.classList.remove('hidden-expr');
-    exEl.style.animation = 'none'; void exEl.offsetWidth; exEl.style.animation = 'fadeSlide 0.5s ease both';
-    document.getElementById('btnRecord').disabled = false;
-    if (!REVEALED[CURRENT]) document.getElementById('btnReveal').style.display = '';
-  };
-  utterance.onerror = function() { IS_PLAYING = false; resetListenBtn(); };
-  window.speechSynthesis.speak(utterance);
+    return;
+  }
+  var expr = EXPRESSIONS[CURRENT];
+  if (expr.audio) {
+    CURRENT_AUDIO = new Audio(expr.audio);
+    CURRENT_AUDIO.oncanplay = function() {
+      IS_PLAYING = true;
+      document.getElementById('btnListen').className = 'btn-listen playing';
+      document.getElementById('listenLabel').textContent = '⏸ Playing Caroline...';
+      CURRENT_AUDIO.play();
+    };
+    CURRENT_AUDIO.onended = function() {
+      IS_PLAYING = false;
+      afterListen();
+    };
+    CURRENT_AUDIO.onerror = function() {
+      IS_PLAYING = false;
+      alert('Audio file not found for this expression.');
+      resetListenBtn();
+    };
+  } else {
+    alert('Audio file coming soon!');
+  }
+}
+
+function afterListen() {
+  LISTENED[CURRENT] = true;
+  saveState();
+  resetListenBtn();
+  renderDots();
+  document.getElementById('exPlaceholder').style.display = 'none';
+  var exEl = document.getElementById('exExpression');
+  exEl.classList.remove('hidden-expr');
+  exEl.style.animation = 'none'; void exEl.offsetWidth; exEl.style.animation = 'fadeSlide 0.5s ease both';
+  document.getElementById('btnRecord').disabled = false;
+  if (!REVEALED[CURRENT]) document.getElementById('btnReveal').style.display = '';
 }
 
 function resetListenBtn() {
   document.getElementById('btnListen').className = 'btn-listen';
   document.getElementById('btnListen').disabled = false;
-  document.getElementById('listenLabel').textContent = LISTENED[CURRENT] ? 'Re-listen' : 'Listen';
+  document.getElementById('listenLabel').textContent = LISTENED[CURRENT] ? 'Re-listen — Caroline' : 'Listen — Caroline';
 }
 
 function revealTranslation() {
@@ -314,7 +303,6 @@ function toggleRecord() {
 
 function startRecording() {
   try {
-    STREAM = null;
     navigator.mediaDevices.getUserMedia({ audio: true }).then(function(s) {
       STREAM = s;
       AUDIO_CHUNKS = [];
@@ -341,7 +329,7 @@ function startRecording() {
       document.getElementById('recordIcon').textContent = '⏹';
       document.getElementById('recordLabel').textContent = 'Stop recording';
     }).catch(function() {
-      alert('Microphone not available. Check your browser permissions.');
+      alert('Microphone not available. Check browser permissions.');
     });
   } catch(e) {
     alert('Microphone not available.');
