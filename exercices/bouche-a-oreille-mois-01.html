@@ -10,9 +10,8 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>Mois 02 · Going through Security &amp; Boarding | I Can Speak French</title>
+  <title>Bouche-a-oreille · Mois 01 | I Can Speak French</title>
   <meta name="robots" content="noindex, nofollow" />
-  <link rel="canonical" href="https://en.snapenglish.fr/exercices/bouche-a-oreille-mois-01" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -195,7 +194,7 @@
 </div>
 
 <div class="screen-intro" id="screenIntro">
-  <div class="intro-month">Bouche-a-oreille  · Mois 02 </div>
+  <div class="intro-month">Bouche-a-oreille · Mois 01</div>
   <h1 class="intro-title">Going through<br><em>Security &amp; Boarding</em></h1>
   <p class="intro-desc">25 expressions pour passer la sécurité, le contrôle des passeports et l'embarquement — avec calme et assurance.</p>
   <div class="intro-steps">
@@ -216,7 +215,7 @@
       <div class="intro-step-text"><strong>Étape 4 — Révélez</strong> la traduction française. La compréhension arrive en dernier.</div>
     </div>
   </div>
-  <button class="btn-start" onclick="startExercise()">Commencer l'exercice →</button>
+  <button class="btn-start" onclick="startExercise()">Start practising ⭐</button>
 </div>
 
 <!-- ÉCRAN AVANT -->
@@ -234,7 +233,7 @@
     <span id="avantRecordLabel">M'enregistrer</span>
   </button>
   <button id="avantBtnStart" class="avant-btn-start hidden" onclick="startExerciseForReal()">
-    Commencer l'exercice →
+    Start practising ⭐
   </button>
   <span class="avant-skip" onclick="startExerciseForReal()">Passer cette étape</span>
 </div>
@@ -317,6 +316,7 @@
     <div class="end-next-title">At the Hotel — Check-in &amp; Requests</div>
   </div>
 
+
   <!-- CADEAU ABONNÉ -->
   <p style="font-size:0.72rem;font-weight:300;color:rgba(247,244,239,0.35);text-align:center;line-height:1.6;">🎁 Tous les 2 mois, Caroline offre une séance <em>« Penser comme un anglophone »</em> à un abonné qu'elle choisit pour sa motivation.</p>
 
@@ -334,7 +334,7 @@
       <span id="ctrlRecordLabel">M'enregistrer en anglais</span>
     </button>
     <div id="ctrlActions" class="hidden" style="display:flex;flex-direction:column;gap:0.6rem;width:100%;">
-      <button class="btn-listen" onclick="ctrlPlayCorrect()" style="margin:0;">🔊 Listen — Caroline la bonne version</button>
+      <button class="btn-listen" onclick="ctrlPlayCorrect()" style="margin:0;">🔊 Écouter la bonne version</button>
       <button class="btn-reveal" id="ctrlBtnRerecord" onclick="ctrlReRecord()">↺ Réenregistrer</button>
       <p class="quiz-label" style="text-align:center;margin-top:0.25rem;">Comment tu t'es senti(e) ?</p>
       <div class="quiz-assess">
@@ -421,8 +421,9 @@
   </div>
 </div>
 
+
 <script>
-const expressions = [{"fr": "Bonjour !", "en": "Hello!", "context": "The first 5 seconds of any interaction.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-01-bonjour.mp3"}, {"fr": "Vous êtes ouvert ?", "en": "Are you open?", "context": "Before entering a shop.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-02-vous-etes-ouvert.mp3"}, {"fr": "Vous avez choisi ?", "en": "Have you decided?", "context": "What the shop assistant asks.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-03-vous-avez-choisi.mp3"}, {"fr": "Je vous mets un pain au chocolat avec ?", "en": "Shall I add a pain au chocolat?", "context": "Bakery moment.", "group": "The Bonjour ritual", "audio": "/audio/mois-01/expression-04-je-vous-mets-un-pain-au-chocol.mp3"}, {"fr": "Je peux payer comment ?", "en": "How can I pay?", "context": "Cash or card?", "group": "The Bonjour ritual", "audio": ""}, {"fr": "Je voudrais une baguette, pas trop cuite.", "en": "I'd like a baguette, not too well-done.", "context": "The most French sentence.", "group": "Bakery", "audio": "/audio/mois-01/expression-06-je-voudrais-baguette-pas-trop-cuite.mp3"}, {"fr": "Sur place ou à emporter ?", "en": "For here or to go?", "context": "The eternal café question.", "group": "Bakery", "audio": "/audio/mois-01/expression-07-sur-place-ou-a-emporter.mp3"}, {"fr": "Vous me faites une remise ?", "en": "Can you give me a discount?", "context": "Market negotiation.", "group": "Bakery", "audio": "/audio/mois-01/expression-08-vous-me-faites-une-remise.mp3"}, {"fr": "C'est pour offrir.", "en": "It's a gift.", "context": "They'll wrap it beautifully.", "group": "Bakery", "audio": "/audio/mois-01/expression-09-c-est-pour-offrir.mp3"}, {"fr": "Vous avez la carte ?", "en": "Do you have the menu?", "context": "At a restaurant.", "group": "Bakery", "audio": "/audio/mois-01/expression-10-vous-avez-la-carte.mp3"}, {"fr": "Je peux goûter ?", "en": "Can I taste it?", "context": "At a market stall.", "group": "Bakery", "audio": "/audio/mois-01/expression-11-je-peux-gouter.mp3"}, {"fr": "L'addition, s'il vous plaît.", "en": "The bill, please.", "context": "Signal the meal is over.", "group": "Bakery", "audio": "/audio/mois-01/expression-12-l-addition-on-partage.mp3"}, {"fr": "Je vous dois combien ?", "en": "How much do I owe you?", "context": "Polite way to ask.", "group": "Bakery", "audio": "/audio/mois-01/expression-13-je-vous-dois-combien.mp3"}, {"fr": "Vous auriez l'heure ?", "en": "Would you have the time?", "context": "Ask a stranger politely.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-14-vous-auriez-l-heure.mp3"}, {"fr": "Je peux vous emprunter… ?", "en": "Can I borrow…?", "context": "From a neighbour.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-15-je-peux-vous-emprunter.mp3"}, {"fr": "Il y a quelqu'un ?", "en": "Is anyone there?", "context": "When you knock.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-16-il-y-a-quelqu-un.mp3"}, {"fr": "Ça vous dérange si… ?", "en": "Do you mind if…?", "context": "Polite request.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-17-ca-vous-derange-si.mp3"}, {"fr": "On se voit quand ?", "en": "When shall we meet?", "context": "Making plans.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-18-on-se-voit-quand.mp3"}, {"fr": "Amène les enfants !", "en": "Bring the kids!", "context": "Warm hosting.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-19-amene-les-enfants.mp3"}, {"fr": "Tu restes manger ?", "en": "Are you staying to eat?", "context": "Always say yes.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-20-tu-restes-manger.mp3"}, {"fr": "Tu sais quoi ?", "en": "You know what?", "context": "Conversation starter.", "group": "Small words", "audio": "/audio/mois-01/expression-21-tu-sais-quoi.mp3"}, {"fr": "En fait…", "en": "Actually…", "context": "To correct or clarify.", "group": "Small words", "audio": "/audio/mois-01/expression-22-en-fait.mp3"}, {"fr": "Du coup…", "en": "So…", "context": "Most used filler.", "group": "Small words", "audio": "/audio/mois-01/expression-23-du-coup.mp3"}, {"fr": "Enfin…", "en": "I mean…", "context": "Signals a conclusion.", "group": "Small words", "audio": "/audio/mois-01/expression-24-enfin.mp3"}, {"fr": "Bref !", "en": "Anyway!", "context": "Conversation closer.", "group": "Small words", "audio": "/audio/mois-01/expression-25-bref.mp3"}];
+const expressions = [{"fr": "Bonjour !", "en": "Hello!", "context": "First 5 seconds.", "group": "Bonjour ritual", "audio": "/audio/mois-01/expression-01-bonjour.mp3"}, {"fr": "Vous êtes ouvert ?", "en": "Are you open?", "context": "Before shop.", "group": "Bonjour ritual", "audio": "/audio/mois-01/expression-02-vous-etes-ouvert.mp3"}, {"fr": "Vous avez choisi ?", "en": "Decided?", "context": "Shop asks.", "group": "Bonjour ritual", "audio": "/audio/mois-01/expression-03-vous-avez-choisi.mp3"}, {"fr": "Je vous mets un pain au chocolat ?", "en": "Add pain au chocolat?", "context": "Bakery.", "group": "Bonjour ritual", "audio": "/audio/mois-01/expression-04-je-vous-mets-un-pain-au-chocol.mp3"}, {"fr": "Je peux payer comment ?", "en": "How to pay?", "context": "Cash/card.", "group": "Bonjour ritual", "audio": "/audio/mois-01/expression-05-je-peux-payer-comment.mp3"}, {"fr": "Une baguette pas trop cuite.", "en": "Baguette not too done.", "context": "Most French sentence.", "group": "Bakery", "audio": "/audio/mois-01/expression-06-je-voudrais-baguette-pas-trop-cuite.mp3"}, {"fr": "Sur place ou à emporter ?", "en": "For here or to go?", "context": "Cafe.", "group": "Bakery", "audio": "/audio/mois-01/expression-07-sur-place-ou-a-emporter.mp3"}, {"fr": "Remise si j'en prends trois ?", "en": "Discount for three?", "context": "Market.", "group": "Bakery", "audio": "/audio/mois-01/expression-08-vous-me-faites-une-remise.mp3"}, {"fr": "C'est pour offrir.", "en": "It's a gift.", "context": "Wrap it.", "group": "Bakery", "audio": "/audio/mois-01/expression-09-c-est-pour-offrir.mp3"}, {"fr": "Vous avez la carte ?", "en": "Menu please?", "context": "Restaurant.", "group": "Bakery", "audio": "/audio/mois-01/expression-10-vous-avez-la-carte.mp3"}, {"fr": "Je peux goûter ?", "en": "Can I taste?", "context": "Stall.", "group": "Bakery", "audio": "/audio/mois-01/expression-11-je-peux-gouter.mp3"}, {"fr": "L'addition s'il vous plaît.", "en": "Bill please.", "context": "Meal over.", "group": "Bakery", "audio": "/audio/mois-01/expression-12-l-addition-on-partage.mp3"}, {"fr": "Je vous dois combien ?", "en": "How much?", "context": "Price.", "group": "Bakery", "audio": "/audio/mois-01/expression-13-je-vous-dois-combien.mp3"}, {"fr": "Vous auriez l'heure ?", "en": "Time please?", "context": "Stranger.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-14-vous-auriez-l-heure.mp3"}, {"fr": "Je peux vous emprunter ?", "en": "Can I borrow?", "context": "Neighbour.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-15-je-peux-vous-emprunter.mp3"}, {"fr": "Il y a quelqu'un ?", "en": "Anyone there?", "context": "Knock.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-16-il-y-a-quelqu-un.mp3"}, {"fr": "Ça vous dérange si ?", "en": "Do you mind if?", "context": "Polite.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-17-ca-vous-derange-si.mp3"}, {"fr": "On se voit quand ?", "en": "Meet when?", "context": "Plans.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-18-on-se-voit-quand.mp3"}, {"fr": "Amène les enfants !", "en": "Bring kids!", "context": "Hosting.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-19-amene-les-enfants.mp3"}, {"fr": "Tu restes manger ?", "en": "Stay to eat?", "context": "Always yes.", "group": "Neighbourhood", "audio": "/audio/mois-01/expression-20-tu-restes-manger.mp3"}, {"fr": "Tu sais quoi ?", "en": "Know what?", "context": "Starter.", "group": "Small words", "audio": "/audio/mois-01/expression-21-tu-sais-quoi.mp3"}, {"fr": "En fait.", "en": "Actually.", "context": "Clarify.", "group": "Small words", "audio": "/audio/mois-01/expression-22-en-fait.mp3"}, {"fr": "Du coup.", "en": "So.", "context": "Filler.", "group": "Small words", "audio": "/audio/mois-01/expression-23-du-coup.mp3"}, {"fr": "Enfin.", "en": "I mean.", "context": "Conclude.", "group": "Small words", "audio": "/audio/mois-01/expression-24-enfin.mp3"}, {"fr": "Bref !", "en": "Anyway!", "context": "Closer.", "group": "Small words", "audio": "/audio/mois-01/expression-25-bref.mp3"}];
 
 let current = 0;
 let listened = new Array(expressions.length).fill(false);
@@ -435,10 +436,9 @@ let audioChunks = [];
 let recordedBlob = null;
 let recordingAudio = null;
 let stream = null;
-let voices = [];
-let selectedVoice = null;
 
-function pickVoice() {
+
+ {
   const preferred = ['Google UK English Female','Samantha','Karen','Moira','Serena','Kate','Fiona','Allison','Ava','Victoria','Hazel','Zira','Google US English','Martha','Google UK English Male','Daniel','Arthur'];
   for (const name of preferred) {
     const v = voices.find(v => v.name === name);
@@ -447,9 +447,9 @@ function pickVoice() {
   return voices.find(v => v.lang && v.lang.startsWith('en')) || null;
 }
 
-function loadVoices() { voices = .getVoices(); selectedVoice = pickVoice(); }
+ { voices = .getVoices(); selectedVoice = pickVoice(); }
 .onvoiceschanged = loadVoices;
-loadVoices();
+
 
 if (new URLSearchParams(window.location.search).get('reset') === '1') {
   ['bao01_current','bao01_listened','bao01_revealed'].forEach(k => localStorage.removeItem(k));
@@ -472,7 +472,7 @@ function render() {
   const expr = expressions[current];
   hasRecording = false; isRecording = false;
   document.getElementById('btnReRecord').style.display = 'none';
-  
+  if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
   document.getElementById('counter').innerHTML = `<strong>${current + 1}</strong>/25`;
   document.getElementById('progressBar').style.width = `${((current + 1) / expressions.length) * 100}%`;
   const card = document.getElementById('exCard');
@@ -485,7 +485,7 @@ function render() {
   document.getElementById('exPlaceholder').style.display = alreadyListened ? 'none' : '';
   const btnListen = document.getElementById('btnListen');
   btnListen.className = 'btn-listen'; btnListen.disabled = false;
-  document.getElementById('listenLabel').textContent = alreadyListened ? 'Re-listen' : 'Listen — Caroline';
+  document.getElementById('listenLabel').textContent = alreadyListened ? 'Réécouter' : 'Écouter';
   const btnRecord = document.getElementById('btnRecord');
   btnRecord.className = 'btn-record'; btnRecord.disabled = !alreadyListened;
   document.getElementById('recordIcon').textContent = '🎙️';
@@ -519,14 +519,15 @@ function listenExpression() {
   if (!expr.audio) { alert('Audio not available yet.'); return; }
   window.currentAudio = new Audio(expr.audio);
   isPlaying = true;
-  document.getElementById('btnListen').className = 'btn-listen playing';
-  document.getElementById('listenLabel').textContent = '\u23f8 Playing...';
+  var btn = document.getElementById('btnListen');
+  btn.className = 'btn-listen playing';
+  document.getElementById('listenLabel').textContent = '⏸ Playing...';
   window.currentAudio.onended = function() {
     isPlaying = false; listened[current]=true;
     localStorage.setItem('bao01_listened', JSON.stringify(listened));
     resetListenBtn(); renderDots();
     document.getElementById('exPlaceholder').style.display = 'none';
-    const exEl = document.getElementById('exExpression');
+    var exEl = document.getElementById('exExpression');
     exEl.classList.remove('hidden-expr');
     exEl.style.animation = 'none'; void exEl.offsetWidth; exEl.style.animation = 'fadeSlide 0.5s ease both';
     document.getElementById('btnRecord').disabled = false;
@@ -538,7 +539,7 @@ function listenExpression() {
 function resetListenBtn() {
   const btn = document.getElementById('btnListen');
   btn.className = 'btn-listen'; btn.disabled = false;
-  document.getElementById('listenLabel').textContent = listened[current] ? 'Re-listen' : 'Listen — Caroline';
+  document.getElementById('listenLabel').textContent = listened[current] ? 'Réécouter' : 'Écouter';
 }
 
 async function toggleRecord() {
@@ -549,10 +550,10 @@ async function toggleRecord() {
       document.getElementById('recordLabel').textContent = '▶ Lecture...';
       recordingAudio.onended = () => {
         document.getElementById('recordIcon').textContent = '▶';
-        document.getElementById('recordLabel').textContent = 'Play again mon enregistrement';
+        document.getElementById('recordLabel').textContent = 'Rejouer mon enregistrement';
       };
     }
-  } else { startRecording(); }
+  } else { await startRecording(); }
 }
 
 function reRecord() {
@@ -581,9 +582,9 @@ async function startRecording() {
       const btn = document.getElementById('btnRecord');
       btn.className = 'btn-record has-recording';
       document.getElementById('recordIcon').textContent = '▶';
-      document.getElementById('recordLabel').textContent = 'Play again mon enregistrement';
+      document.getElementById('recordLabel').textContent = 'Rejouer mon enregistrement';
       document.getElementById('btnReRecord').style.display = '';
-      
+      stream.getTracks().forEach(t => t.stop());
     };
     mediaRecorder.start(); isRecording = true;
     const btn = document.getElementById('btnRecord');
@@ -613,6 +614,7 @@ function goTo(index) {
 }
 
 function goNext() {
+  
   const controlAt=[4,9,14,19,24];
   const groupIdx=controlAt.indexOf(current);
   if(groupIdx!==-1){
@@ -789,7 +791,7 @@ async function quizToggleRecord() {
       document.getElementById('quizRecordLabel').textContent = '▶ Lecture...';
       qRecordingAudio.onended = () => {
         document.getElementById('quizRecordIcon').textContent = '▶';
-        document.getElementById('quizRecordLabel').textContent = 'Play again mon enregistrement';
+        document.getElementById('quizRecordLabel').textContent = 'Rejouer mon enregistrement';
       };
     }
   } else { await quizStartRecording(); }
@@ -820,7 +822,7 @@ async function quizStartRecording() {
       const btn = document.getElementById('quizBtnRecord');
       btn.className = 'btn-record has-recording';
       document.getElementById('quizRecordIcon').textContent = '▶';
-      document.getElementById('quizRecordLabel').textContent = 'Play again mon enregistrement';
+      document.getElementById('quizRecordLabel').textContent = 'Rejouer mon enregistrement';
       document.getElementById('quizBtnReRecord').classList.remove('hidden');
       qStream.getTracks().forEach(t => t.stop());
     };
@@ -841,6 +843,7 @@ async function quizStartRecording() {
 function quizStopRecording() {
   if (qMediaRecorder && qMediaRecorder.state !== 'inactive') qMediaRecorder.stop();
 }
+
 
 // ── AVANT / APRÈS ──
 const avantExpr=expressions[Math.floor(Math.random()*expressions.length)];
@@ -863,7 +866,7 @@ async function avantToggleRecord(){
       avantHasRec=true;avantIsRecording=false;
       document.getElementById('avantBtnRecord').className='btn-record has-recording';
       document.getElementById('avantRecordIcon').textContent='▶';
-      document.getElementById('avantRecordLabel').textContent='Play again mon enregistrement';
+      document.getElementById('avantRecordLabel').textContent='Rejouer mon enregistrement';
       document.getElementById('avantBtnStart').classList.remove('hidden');
       avantStream.getTracks().forEach(t=>t.stop());
     };
@@ -917,7 +920,7 @@ async function apresToggleRecord(){
       apresHasRec=true;apresIsRecording=false;
       document.getElementById('apresBtnRecord').className='btn-record has-recording';
       document.getElementById('apresRecordIcon').textContent='▶';
-      document.getElementById('apresRecordLabel').textContent='Play again mon enregistrement';
+      document.getElementById('apresRecordLabel').textContent='Rejouer mon enregistrement';
       document.getElementById('apresBtnCompare').classList.remove('hidden');
       apresStream.getTracks().forEach(t=>t.stop());
     };
@@ -983,7 +986,7 @@ async function ctrlToggleRecord(){
       ctrlHasRecording=true;ctrlRecording=false;
       document.getElementById('ctrlBtnRecord').className='btn-record has-recording';
       document.getElementById('ctrlRecordIcon').textContent='▶';
-      document.getElementById('ctrlRecordLabel').textContent='Play again mon enregistrement';
+      document.getElementById('ctrlRecordLabel').textContent='Rejouer mon enregistrement';
       document.getElementById('ctrlActions').classList.remove('hidden');
       ctrlStream.getTracks().forEach(t=>t.stop());
     };
