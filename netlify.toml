@@ -32,6 +32,11 @@
   status = 200
 
 [[redirects]]
+  from = "/bouche-a-oreille"
+  to = "/bouche-a-oreille.html"
+  status = 200
+
+[[redirects]]
   from = "/mois-01"
   to = "/mois-01.html"
   status = 200
