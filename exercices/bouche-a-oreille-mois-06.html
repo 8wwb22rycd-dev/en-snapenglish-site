@@ -176,7 +176,7 @@
 
     /* Paris banner */
     .ex-banner { flex-shrink: 0; height: 130px; position: relative; overflow: hidden; }
-    .ex-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; display: block; opacity: 0.32; }
+    .ex-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; display: block; opacity: 0.58; }
     .ex-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, var(--navy-dark) 0%, transparent 35%, transparent 65%, var(--navy-dark) 100%); z-index: 1; }
     @media (max-height: 600px) { .ex-banner { height: 80px; } }
   </style>
@@ -192,7 +192,7 @@
 <div class="ex-progress">
   <div class="ex-progress-bar" id="progressBar" style="width:0%"></div>
 </div>
-<div class="ex-banner" aria-hidden="true">
+<div class="ex-banner" id="parisBanner" aria-hidden="true" style="display:none">
   <img src="/images/paris-banner.jpg.jpeg" alt="" />
 </div>
 
@@ -463,7 +463,7 @@ function startExerciseForReal() {
   revealed = JSON.parse(localStorage.getItem('bao06_revealed') || '[]');
   if (revealed.length !== expressions.length) revealed = new Array(expressions.length).fill(false);
   document.getElementById('screenAvant').classList.add('hidden');
-  document.getElementById('screenExercise').classList.remove('hidden');
+  document.getElementById('screenExercise').classList.remove('hidden'); document.getElementById('parisBanner').style.display='block';
   render();
 }
 
@@ -630,14 +630,14 @@ function goNext() {
   if (groupIdx !== -1) {
     showControl(groupIdx, () => {
       if (current === expressions.length - 1) { showEnd(); }
-      else { current++; localStorage.setItem('bao06_current', current); document.getElementById('screenExercise').classList.remove('hidden'); render(); }
+      else { current++; localStorage.setItem('bao06_current', current); document.getElementById('screenExercise').classList.remove('hidden'); document.getElementById('parisBanner').style.display='block'; render(); }
     });
   } else if (current === expressions.length - 1) { showEnd(); }
   else { current++; localStorage.setItem('bao06_current', current); render(); }
 }
 
 function showEnd() {
-  document.getElementById('screenExercise').classList.add('hidden');
+  document.getElementById('screenExercise').classList.add('hidden'); document.getElementById('parisBanner').style.display='none';
   document.getElementById('screenControl').classList.add('hidden');
   localStorage.removeItem('bao06_current');
   if (avantHasRec) {
@@ -687,7 +687,7 @@ function restart() {
   localStorage.removeItem('bao06_controls');
   document.getElementById('screenEnd').classList.add('hidden');
   document.getElementById('ctrlScoreEnd').classList.add('hidden');
-  document.getElementById('screenExercise').classList.remove('hidden');
+  document.getElementById('screenExercise').classList.remove('hidden'); document.getElementById('parisBanner').style.display='block';
   render();
 }
 
@@ -990,7 +990,7 @@ function showControl(groupIndex, callback) {
   document.getElementById('ctrlBtnNo').disabled = false;
   document.getElementById('ctrlBody').classList.remove('hidden');
   document.getElementById('ctrlResult').classList.add('hidden');
-  document.getElementById('screenExercise').classList.add('hidden');
+  document.getElementById('screenExercise').classList.add('hidden'); document.getElementById('parisBanner').style.display='none';
   document.getElementById('screenControl').classList.remove('hidden');
 }
 
