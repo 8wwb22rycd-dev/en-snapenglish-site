@@ -388,6 +388,16 @@
     .lifestyle-manifesto .signature { display: block; font-size: 0.95rem; margin-top: 0.4rem; opacity: 0.7; }
     .lifestyle-manifesto em { color: var(--gold); font-style: italic; }
 
+    /* Card English translation line */
+    .lifestyle-card-en { font-size: 0.76rem; opacity: 0.65; margin: 0.2rem 0 0; font-style: italic; line-height: 1.3; color: var(--cream); }
+
+    /* Caroline voice intro audios */
+    .hero-intro-audios { margin-top: 1.25rem; }
+    .hero-intro-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.85; margin-bottom: 0.6rem; }
+    .hero-audio-row { display: flex; flex-direction: column; gap: 0.5rem; }
+    .hero-audio-item { display: flex; align-items: center; gap: 0.6rem; }
+    .audio-flag { font-size: 0.78rem; color: var(--navy); opacity: 0.75; min-width: 80px; font-weight: 500; }
+
     /* Article stamp (above the article meta) */
     .article-mark { font-family: var(--font-display); font-style: italic; color: var(--gold); font-size: 0.88rem; letter-spacing: 0.04em; margin: 0 0 0.6rem; opacity: 0.9; }
     .bio-text strong { color: var(--navy); }
@@ -427,6 +437,19 @@
         <img src="/images/caroline-cousin.webp" alt="Caroline Cousin — native French teacher, founder of SnapEnglish" width="130" height="130" />
         <p class="hero-signature-text"><strong>Caroline Cousin</strong> · native French teacher · <span class="accent">25 years experience</span></p>
       </div>
+      <div class="hero-intro-audios">
+        <p class="hero-intro-label">Hear Caroline</p>
+        <div class="hero-audio-row">
+          <div class="hero-audio-item">
+            <span class="audio-flag">🇫🇷 En français</span>
+            <audio controls preload="none" style="height:2rem;width:150px;"><source src="/audio/caroline-intro-fr.mp3" type="audio/mpeg" /></audio>
+          </div>
+          <div class="hero-audio-item">
+            <span class="audio-flag">🇬🇧 In English</span>
+            <audio controls preload="none" style="height:2rem;width:150px;"><source src="/audio/caroline-intro-en.mp3" type="audio/mpeg" /></audio>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="hero-image">
       <picture>
@@ -441,10 +464,10 @@
 
   <section class="lifestyle" aria-label="Tous les visages du français">
     <p class="lifestyle-eyebrow">L'art de vivre</p>
-    <h2 class="lifestyle-title">Tous les visages du français</h2>
-    <p class="lifestyle-subtitle">Une langue, mille façons de la vivre. Voici le français qu'on ne vous apprend pas dans les manuels — celui qui se goûte, se partage, se vit.</p>
+    <h2 class="lifestyle-title">French as it's actually lived</h2>
+    <p class="lifestyle-subtitle">One language, a thousand ways to experience it. This is the French they never taught you in class — the kind you taste, share, and live.</p>
 
-    <p class="lifestyle-manifesto">«&nbsp;<em>Le français qui se murmure, pas celui qu'on enseigne.</em>&nbsp;»<span class="signature">— Bouche-à-oreille</span></p>
+    <p class="lifestyle-manifesto">«&nbsp;<em>The French that's whispered, not taught.</em>&nbsp;»<span class="signature">— Bouche-à-oreille</span></p>
 
     <div class="lifestyle-grid">
       <div class="lifestyle-card">
@@ -455,6 +478,7 @@
         <div class="lifestyle-card-text">
           <p class="lifestyle-card-key">Douceur de vivre</p>
           <p class="lifestyle-card-line">L'apéro sous les platanes, comme à Aix.</p>
+          <p class="lifestyle-card-en">Aperitif under the plane trees, the Aix way.</p>
         </div>
       </div>
 
@@ -466,6 +490,7 @@
         <div class="lifestyle-card-text">
           <p class="lifestyle-card-key">Convivialité</p>
           <p class="lifestyle-card-line">L'art de la conversation, en vrai.</p>
+          <p class="lifestyle-card-en">The art of real conversation.</p>
         </div>
       </div>
 
@@ -477,6 +502,7 @@
         <div class="lifestyle-card-text">
           <p class="lifestyle-card-key">Authenticité</p>
           <p class="lifestyle-card-line">Le marché du matin, comme une locale.</p>
+          <p class="lifestyle-card-en">The morning market, like a local.</p>
         </div>
       </div>
 
@@ -488,16 +514,17 @@
         <div class="lifestyle-card-text">
           <p class="lifestyle-card-key">Élégance</p>
           <p class="lifestyle-card-line">Paris, naturellement.</p>
+          <p class="lifestyle-card-en">Paris, naturally.</p>
         </div>
       </div>
     </div>
   </section>
 
   <div class="section" style="background:var(--white);border-radius:6px;padding:2.5rem;margin:3rem auto 2rem;max-width:600px;text-align:center;">
-    <p class="section-label">Le Mois 01 est prêt</p>
+    <p class="section-label">Month 01 is ready</p>
     <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:400;color:var(--navy);line-height:1.25;margin:0 0 1rem;">Bonjour, baguette, voisins</h2>
-    <p style="font-size:0.9rem;color:var(--charcoal);opacity:0.7;margin-bottom:1.5rem;line-height:1.7;">25 expressions enregistrées par Caroline — écoutez un extrait gratuit, découvrez la méthode Echo Bounce, et recevez le Mois 01 complet à la sortie.</p>
-    <p style="font-size:0.7rem;text-transform:uppercase;font-weight:600;letter-spacing:0.12em;color:var(--gold);margin-bottom:0.75rem;">🎧 3 écoutes libres</p>
+    <p style="font-size:0.9rem;color:var(--charcoal);opacity:0.7;margin-bottom:1.5rem;line-height:1.7;">25 expressions recorded by Caroline — listen to a free preview, discover the Echo Bounce method, and get Month 01 in full.</p>
+    <p style="font-size:0.7rem;text-transform:uppercase;font-weight:600;letter-spacing:0.12em;color:var(--gold);margin-bottom:0.75rem;">🎧 3 free listens</p>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;margin-bottom:1.25rem;">
       <div style="display:flex;align-items:center;gap:0.5rem;background:var(--cream);padding:0.35rem 0.7rem;border-radius:3px;">
         <span style="font-family:var(--font-display);color:var(--gold);font-size:0.8rem;">01</span>
