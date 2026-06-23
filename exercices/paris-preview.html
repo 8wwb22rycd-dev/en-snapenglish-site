@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1C5HRGQ6BR"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1C5HRGQ6BR');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Try 3 Free — A Week with Me in Paris | I Can Speak French</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1B2A4A; --navy-dark: #111d33; --navy-light: #243660;
+      --gold: #B8975A; --gold-light: #cca96d;
+      --cream: #F7F4EF; --sand: #D4C9B4;
+      --charcoal: #2C2C2C; --white: #fff;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --radius: 6px;
+    }
+    html, body { height: 100%; overflow: hidden; }
+    body { background: var(--navy-dark); color: var(--cream); font-family: var(--font-body); -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; }
+
+    /* HEADER */
+    .ex-header { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); background: var(--navy-dark); }
+    .ex-logo { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--cream); text-decoration: none; }
+    .ex-logo span { font-weight: 400; color: var(--gold); }
+    .ex-badge { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(184,151,90,0.35); padding: 0.2rem 0.6rem; border-radius: 2px; }
+    .ex-counter { font-size: 0.8rem; font-weight: 500; color: rgba(247,244,239,0.4); }
+    .ex-counter strong { color: var(--cream); }
+
+    /* PROGRESS */
+    .ex-progress { flex-shrink: 0; height: 3px; background: rgba(255,255,255,0.06); }
+    .ex-progress-bar { height: 100%; background: var(--gold); transition: width 0.4s ease; width: 0%; }
+
+    /* MAIN */
+    .ex-main { flex: 1; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem 1.5rem 1rem; max-width: 640px; margin: 0 auto; width: 100%; }
+
+    /* SCREENS */
+    .hidden { display: none !important; }
+
+    /* INTRO */
+    .screen-intro { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; align-items: center; justify-content: safe center; text-align: center; padding: 1.5rem; max-width: 480px; margin: 0 auto; width: 100%; gap: 1.25rem; }
+    .intro-tag { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+    .intro-title { font-family: var(--font-display); font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 400; color: var(--cream); line-height: 1.2; }
+    .intro-title em { color: var(--gold); font-style: italic; }
+    .intro-desc { font-size: 0.88rem; font-weight: 300; color: rgba(247,244,239,0.6); line-height: 1.7; max-width: 340px; }
+    .intro-steps { display: flex; flex-direction: column; gap: 0.6rem; width: 100%; text-align: left; }
+    .intro-step { display: flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 0.65rem 1rem; font-size: 0.82rem; color: rgba(247,244,239,0.65); line-height: 1.4; }
+    .intro-step strong { color: var(--cream); }
+    .intro-free-badge { background: rgba(184,151,90,0.12); border: 1px solid rgba(184,151,90,0.3); border-radius: 20px; padding: 0.3rem 1rem; font-size: 0.75rem; color: var(--gold); font-weight: 600; }
+    .btn-start { background: var(--gold); color: var(--navy-dark); border: none; border-radius: var(--radius); font-family: var(--font-body); font-size: 1rem; font-weight: 700; padding: 1rem 2rem; cursor: pointer; width: 100%; max-width: 300px; letter-spacing: 0.03em; transition: opacity 0.2s; }
+    .btn-start:hover { opacity: 0.87; }
+
+    /* EXERCISE CARD */
+    .ex-card { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 1rem; animation: fadeSlide 0.35s ease both; }
+    @keyframes fadeSlide { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .ex-group { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); opacity: 0.75; }
+    .ex-context { font-size: 0.82rem; font-weight: 300; font-style: italic; color: rgba(247,244,239,0.45); line-height: 1.5; border-left: 2px solid rgba(184,151,90,0.25); padding-left: 0.75rem; }
+    .ex-expression { font-family: var(--font-display); font-size: clamp(1.5rem, 5vw, 2.2rem); font-weight: 400; color: var(--cream); line-height: 1.25; letter-spacing: -0.01em; }
+    .ex-expression-placeholder { padding: 1.75rem; border: 1px dashed rgba(255,255,255,0.1); border-radius: var(--radius); text-align: center; font-size: 0.85rem; font-weight: 300; color: rgba(247,244,239,0.25); font-style: italic; letter-spacing: 0.06em; }
+    .ex-translation { background: rgba(184,151,90,0.08); border: 1px solid rgba(184,151,90,0.2); border-radius: var(--radius); padding: 0.9rem 1.25rem; font-size: 1rem; color: var(--gold); font-style: italic; text-align: center; display: none; }
+    .ex-translation.visible { display: block; }
+
+    .ex-actions { display: flex; flex-direction: column; gap: 0.65rem; }
+    .btn-listen, .btn-record, .btn-reveal { display: flex; align-items: center; justify-content: center; gap: 0.6rem; border: none; border-radius: var(--radius); font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; padding: 0.9rem 1.5rem; transition: all 0.2s; width: 100%; }
+    .btn-listen { background: var(--gold); color: var(--navy-dark); }
+    .btn-listen:hover { background: var(--gold-light); }
+    .btn-listen:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-listen.playing { background: rgba(184,151,90,0.2); color: var(--gold); border: 1px solid rgba(184,151,90,0.4); }
+    .btn-record { background: rgba(255,255,255,0.05); color: rgba(247,244,239,0.75); border: 1px solid rgba(255,255,255,0.1); }
+    .btn-record:hover { background: rgba(255,255,255,0.1); color: var(--cream); }
+    .btn-record.recording { background: rgba(220,50,50,0.15); color: #f87171; border-color: rgba(220,50,50,0.3); animation: pulse 1.2s ease infinite; }
+    .btn-record.has-recording { background: rgba(100,200,100,0.1); color: #86efac; border-color: rgba(100,200,100,0.25); }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.65; } }
+    .btn-reveal { background: transparent; color: rgba(247,244,239,0.35); border: 1px solid rgba(255,255,255,0.07); font-weight: 400; font-size: 0.8rem; }
+    .btn-reveal:hover { color: rgba(247,244,239,0.65); border-color: rgba(255,255,255,0.15); }
+    .btn-reveal:disabled { opacity: 0.2; cursor: not-allowed; }
+    .btn-record:disabled { opacity: 0.2; cursor: not-allowed; pointer-events: none; }
+
+    /* NAV */
+    .ex-nav { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .btn-next-main { flex: 1; background: var(--navy-light); border: none; border-radius: var(--radius); color: var(--cream); font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; padding: 0.7rem 1.5rem; cursor: pointer; transition: background 0.2s; letter-spacing: 0.03em; }
+    .btn-next-main:hover { background: #2e4a80; }
+    .btn-next-main:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    /* PAYWALL */
+    .screen-paywall { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 1.5rem; max-width: 480px; margin: 0 auto; width: 100%; gap: 1.1rem; }
+    .paywall-icon { font-size: 2.5rem; }
+    .paywall-title { font-family: var(--font-display); font-size: clamp(1.4rem, 5vw, 2rem); font-weight: 400; color: var(--cream); line-height: 1.2; }
+    .paywall-title em { color: var(--gold); font-style: italic; }
+    .paywall-desc { font-size: 0.88rem; font-weight: 300; color: rgba(247,244,239,0.6); line-height: 1.65; max-width: 320px; }
+    .paywall-locked { width: 100%; display: flex; flex-direction: column; gap: 0.4rem; }
+    .locked-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0.9rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; opacity: 0.4; filter: blur(3px); pointer-events: none; }
+    .locked-num { font-size: 0.72rem; color: var(--gold); min-width: 1.5rem; font-weight: 600; }
+    .locked-text { font-size: 0.82rem; color: var(--cream); }
+    .locked-more { font-size: 0.78rem; color: rgba(247,244,239,0.3); margin-top: 0.25rem; }
+    .btn-buy-paywall { display: block; background: var(--gold); color: var(--navy-dark); border: none; border-radius: var(--radius); font-family: var(--font-body); font-size: 1rem; font-weight: 700; padding: 1rem 1.5rem; cursor: pointer; width: 100%; letter-spacing: 0.02em; text-decoration: none; transition: opacity 0.2s; }
+    .btn-buy-paywall:hover { opacity: 0.87; }
+    .paywall-sub { font-size: 0.72rem; color: rgba(247,244,239,0.3); }
+    .btn-back-intro { background: none; border: none; font-family: var(--font-body); font-size: 0.78rem; color: rgba(247,244,239,0.3); cursor: pointer; text-decoration: underline; }
+    .btn-back-intro:hover { color: rgba(247,244,239,0.6); }
+  </style>
+</head>
+<body>
+
+<div class="ex-header">
+  <a href="/a-week-with-me-in-paris" class="ex-logo">I Can <span>Speak French</span></a>
+  <span class="ex-badge">🗼 Free preview</span>
+  <span class="ex-counter" id="counterDisplay" style="display:none"><strong id="counterCurrent">1</strong>/3</span>
+</div>
+
+<div class="ex-progress"><div class="ex-progress-bar" id="progressBar"></div></div>
+
+<!-- INTRO -->
+<div class="screen-intro" id="screenIntro">
+  <div class="intro-tag">🗼 A Week with Me in Paris</div>
+  <h1 class="intro-title">Try <em>3 expressions</em><br>for free</h1>
+  <p class="intro-desc">Same method, same voice, same tool as the full pack. Hear the difference for yourself before you decide.</p>
+
+  <div class="intro-steps">
+    <div class="intro-step">🎧 <span><strong>Listen</strong> to Caroline say the expression — twice. Natural speed, then slowly.</span></div>
+    <div class="intro-step">🎤 <span><strong>Record yourself</strong> and listen back. That's where progress happens.</span></div>
+    <div class="intro-step">👁️ <span><strong>Reveal</strong> the expression and translation when you're ready.</span></div>
+  </div>
+
+  <span class="intro-free-badge">✨ 3 expressions · free · no login</span>
+  <button class="btn-start" onclick="startPreview()">Start the preview →</button>
+</div>
+
+<!-- EXERCISE SCREEN -->
+<div class="ex-main hidden" id="screenExercise">
+  <div class="ex-card">
+    <div class="ex-group" id="exGroup"></div>
+    <div class="ex-context" id="exContext"></div>
+    <div class="ex-expression-placeholder" id="exPlaceholder">🔊 Listen first...</div>
+    <div class="ex-expression hidden" id="exExpression"></div>
+    <div class="ex-translation" id="exTranslation"></div>
+
+    <div class="ex-actions">
+      <button class="btn-listen" id="btnListen" onclick="listenAudio()">🎧 Listen to Caroline</button>
+      <button class="btn-record" id="btnRecord" onclick="toggleRecord()" disabled>🎤 Record myself</button>
+      <button class="btn-reveal" id="btnReveal" onclick="revealExpression()" disabled>👁️ Reveal the expression</button>
+    </div>
+  </div>
+
+  <div class="ex-nav">
+    <button class="btn-next-main" id="btnNext" onclick="nextExpression()" disabled>Next →</button>
+  </div>
+</div>
+
+<!-- PAYWALL -->
+<div class="screen-paywall hidden" id="screenPaywall">
+  <div class="paywall-icon">🗼</div>
+  <h2 class="paywall-title">You've practiced<br><em>3 expressions.</em></h2>
+  <p class="paywall-desc">32 more are waiting — one for every real situation in your Paris week. The full pack includes all 35 with lifetime access.</p>
+
+  <div class="paywall-locked">
+    <div class="locked-row"><span class="locked-num">04</span><span class="locked-text">C'est loin d'ici ?</span></div>
+    <div class="locked-row"><span class="locked-num">05</span><span class="locked-text">Gardez la monnaie.</span></div>
+    <div class="locked-row"><span class="locked-num">06</span><span class="locked-text">Un café, s'il vous plaît.</span></div>
+    <div class="locked-more">+ 29 more expressions across 7 days in Paris</div>
+  </div>
+
+  <a href="https://caroquest78.gumroad.com/l/a-week-in-paris" class="btn-buy-paywall">🇫🇷 Start your week in Paris today</a>
+  <p class="paywall-sub">$19 · one-time purchase · lifetime access</p>
+  <button class="btn-back-intro" onclick="restartPreview()">↺ Redo the 3 free expressions</button>
+</div>
+
+<script>
+const expressions = [
+  {
+    fr: "Bonjour, j'ai une réservation.",
+    en: "Hello, I have a reservation.",
+    context: "Checking in at the hotel.",
+    group: "Jour 1 — Arrivée 🛬",
+    audio: "/audio/expression-01.mp3"
+  },
+  {
+    fr: "Vous pouvez me déposer ici ?",
+    en: "Can you drop me here?",
+    context: "To the taxi driver.",
+    group: "Jour 1 — Arrivée 🛬",
+    audio: "/audio/expression-03.mp3"
+  },
+  {
+    fr: "Un café, s'il vous plaît.",
+    en: "A coffee, please.",
+    context: "At the counter — never say 'je voudrais'.",
+    group: "Jour 2 — Matin parisien 🥐",
+    audio: "/audio/expression-06.mp3"
+  }
+];
+
+let current = 0;
+let listened = false;
+let revealed = false;
+let mediaRecorder = null;
+let audioChunks = [];
+let recordingBlob = null;
+let recordedAudio = null;
+let isRecording = false;
+let currentAudio = null;
+
+function startPreview() {
+  document.getElementById('screenIntro').classList.add('hidden');
+  document.getElementById('screenExercise').classList.remove('hidden');
+  document.getElementById('counterDisplay').style.display = '';
+  current = 0;
+  loadExpression();
+}
+
+function loadExpression() {
+  const expr = expressions[current];
+  listened = false;
+  revealed = false;
+  recordingBlob = null;
+  recordedAudio = null;
+
+  document.getElementById('exGroup').textContent = expr.group;
+  document.getElementById('exContext').textContent = expr.context;
+  document.getElementById('exExpression').textContent = expr.fr;
+  document.getElementById('exExpression').classList.add('hidden');
+  document.getElementById('exPlaceholder').style.display = '';
+  document.getElementById('exTranslation').textContent = '"' + expr.en + '"';
+  document.getElementById('exTranslation').classList.remove('visible');
+
+  document.getElementById('btnListen').textContent = '🎧 Listen to Caroline';
+  document.getElementById('btnListen').classList.remove('playing');
+  document.getElementById('btnListen').disabled = false;
+  document.getElementById('btnRecord').disabled = true;
+  document.getElementById('btnRecord').textContent = '🎤 Record myself';
+  document.getElementById('btnRecord').className = 'btn-record';
+  document.getElementById('btnReveal').disabled = true;
+  document.getElementById('btnNext').disabled = true;
+  document.getElementById('btnNext').textContent = current === expressions.length - 1 ? 'See results →' : 'Next →';
+
+  document.getElementById('counterCurrent').textContent = current + 1;
+  document.getElementById('progressBar').style.width = `${((current) / expressions.length) * 100}%`;
+
+  if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+}
+
+function listenAudio() {
+  const expr = expressions[current];
+  if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+  const audio = new Audio(expr.audio);
+  currentAudio = audio;
+  const btn = document.getElementById('btnListen');
+  btn.textContent = '⏸ Playing...';
+  btn.classList.add('playing');
+  audio.play();
+  audio.onended = () => {
+    btn.textContent = '🎧 Listen again';
+    btn.classList.remove('playing');
+    if (!listened) {
+      listened = true;
+      document.getElementById('btnRecord').disabled = false;
+      document.getElementById('btnReveal').disabled = false;
+    }
+  };
+}
+
+async function toggleRecord() {
+  if (isRecording) {
+    mediaRecorder.stop();
+    isRecording = false;
+    return;
+  }
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    audioChunks = [];
+    mediaRecorder = new MediaRecorder(stream);
+    const btn = document.getElementById('btnRecord');
+
+    setTimeout(() => {
+      if (isRecording) { mediaRecorder.start(); }
+    }, 400);
+
+    isRecording = true;
+    btn.textContent = '⏹ Stop recording';
+    btn.classList.add('recording');
+
+    mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+    mediaRecorder.onstop = () => {
+      stream.getTracks().forEach(t => t.stop());
+      recordingBlob = new Blob(audioChunks, { type: 'audio/webm' });
+      recordedAudio = new Audio(URL.createObjectURL(recordingBlob));
+      btn.textContent = '▶ Play my recording';
+      btn.classList.remove('recording');
+      btn.classList.add('has-recording');
+      btn.onclick = playMyRecording;
+      document.getElementById('btnNext').disabled = false;
+    };
+    setTimeout(() => { if (isRecording) mediaRecorder.start(); }, 0);
+  } catch(e) {
+    document.getElementById('btnRecord').textContent = '🎤 Microphone needed';
+    document.getElementById('btnRecord').disabled = true;
+    document.getElementById('btnNext').disabled = false;
+  }
+}
+
+function playMyRecording() {
+  if (recordedAudio) {
+    recordedAudio.currentTime = 0;
+    recordedAudio.play();
+    const btn = document.getElementById('btnRecord');
+    btn.textContent = '⏸ Playing...';
+    recordedAudio.onended = () => { btn.textContent = '▶ Play my recording'; };
+  }
+}
+
+function revealExpression() {
+  revealed = true;
+  document.getElementById('exPlaceholder').style.display = 'none';
+  document.getElementById('exExpression').classList.remove('hidden');
+  document.getElementById('exTranslation').classList.add('visible');
+  document.getElementById('btnReveal').textContent = '✓ Revealed';
+  document.getElementById('btnReveal').disabled = true;
+  document.getElementById('btnNext').disabled = false;
+}
+
+function nextExpression() {
+  if (current < expressions.length - 1) {
+    current++;
+    loadExpression();
+  } else {
+    showPaywall();
+  }
+}
+
+function showPaywall() {
+  document.getElementById('screenExercise').classList.add('hidden');
+  document.getElementById('screenPaywall').classList.remove('hidden');
+  document.getElementById('progressBar').style.width = '100%';
+  document.getElementById('counterDisplay').style.display = 'none';
+}
+
+function restartPreview() {
+  document.getElementById('screenPaywall').classList.add('hidden');
+  document.getElementById('screenExercise').classList.remove('hidden');
+  document.getElementById('counterDisplay').style.display = '';
+  current = 0;
+  loadExpression();
+}
+</script>
+</body>
+</html>
