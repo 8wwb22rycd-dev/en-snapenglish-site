@@ -104,6 +104,13 @@
     .btn-buy:hover { opacity: 0.87; }
     .buy-sub { font-size: 0.72rem; color: rgba(247,244,239,0.35); margin-top: 0.6rem; text-align: center; }
 
+    /* PARIS VIDEOS */
+    .videos-wrap { background: var(--navy-dark); padding: 1.75rem 0 1.75rem var(--gutter); max-width: var(--max); margin: 0 auto; overflow: hidden; }
+    .videos-tag { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1rem; }
+    .videos-scroll { display: flex; gap: 0.65rem; overflow-x: auto; padding-right: var(--gutter); -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .videos-scroll::-webkit-scrollbar { display: none; }
+    .paris-video { flex-shrink: 0; width: 155px; aspect-ratio: 9/16; object-fit: cover; border-radius: 6px; background: #000; cursor: pointer; }
+
     footer { background: var(--navy); color: rgba(247,244,239,0.6); padding: 2rem var(--gutter); text-align: center; margin-top: 2rem; }
     footer p { font-size: 0.8rem; opacity: 0.4; }
   </style>
@@ -147,6 +154,17 @@
         <audio controls preload="none" style="height:1.8rem;width:160px;"><source src="/audio/caroline-intro-fr.mp3" type="audio/mpeg" /></audio>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- PARIS VIDEOS -->
+<div class="videos-wrap">
+  <span class="videos-tag">🎬 Paris, with me</span>
+  <div class="videos-scroll">
+    <video class="paris-video" src="/videos/paris-galerie-1.mp4" poster="/images/thumb-galerie-1.jpg" playsinline preload="none" controls></video>
+    <video class="paris-video" src="/videos/paris-cafe.mp4" poster="/images/thumb-cafe.jpg" playsinline preload="none" controls></video>
+    <video class="paris-video" src="/videos/paris-galerie-2.mp4" poster="/images/thumb-galerie-2.jpg" playsinline preload="none" controls></video>
+    <video class="paris-video" src="/videos/paris-garnier.mp4" poster="/images/thumb-garnier.jpg" playsinline preload="none" controls></video>
   </div>
 </div>
 
@@ -202,7 +220,7 @@
       <li>35 MP3 audio files with Caroline's voice</li>
       <li>Interactive training tool included</li>
       <li>Record yourself &amp; compare</li>
-      <li>Video episodes from Paris 🎬 <em style="font-size:0.82em;opacity:0.6;">— coming soon</em></li>
+      <li>Video episodes from Paris 🎬</li>
       <li>Lifetime access</li>
     </ul>
     <a href="https://caroquest78.gumroad.com/l/a-week-in-paris" class="btn-buy">🇫🇷 Start your week in Paris today</a>
