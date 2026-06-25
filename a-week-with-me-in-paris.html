@@ -113,6 +113,14 @@
     .videos-scroll::-webkit-scrollbar { display: none; }
     .paris-video { flex-shrink: 0; width: 155px; aspect-ratio: 9/16; object-fit: cover; border-radius: 6px; background: #000; cursor: pointer; }
 
+    /* BONUS PREVIEW */
+    .bonus-preview { background: var(--white); border-radius: 6px; padding: 1.5rem 1.5rem 1.75rem; border-left: 4px solid var(--gold); box-shadow: 0 2px 12px rgba(27,42,74,0.06); }
+    .bonus-preview-tag { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+    .bonus-preview-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+    .bonus-preview-desc { font-size: 0.83rem; color: var(--charcoal); opacity: 0.7; line-height: 1.6; margin-bottom: 1.1rem; }
+    .btn-bonus-preview { display: inline-block; background: var(--navy); color: var(--cream); padding: 0.7rem 1.4rem; border-radius: 3px; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.02em; transition: opacity 0.2s; }
+    .btn-bonus-preview:hover { opacity: 0.85; }
+
     footer { background: var(--navy); color: rgba(247,244,239,0.6); padding: 2rem var(--gutter); text-align: center; margin-top: 2rem; }
     footer p { font-size: 0.8rem; opacity: 0.4; }
   </style>
@@ -200,6 +208,16 @@
   </div>
 </div>
 
+<!-- FRENCH CULTURE BONUS -->
+<div class="section" style="padding-top:0;">
+  <div class="bonus-preview">
+    <div class="bonus-preview-tag">✨ Included with your purchase</div>
+    <h3 class="bonus-preview-title">🇫🇷 French Café Etiquette Guide</h3>
+    <p class="bonus-preview-desc">10 things every visitor should know before ordering coffee in France — from saying Bonjour to asking for the bill with confidence. Beautiful, illustrated web guide included with the course.</p>
+    <a href="/cafe-etiquette.html" class="btn-bonus-preview" target="_blank" rel="noopener">☕ Preview the Guide →</a>
+  </div>
+</div>
+
 <!-- TESTIMONIALS -->
 <div class="section" style="padding-top:0;">
   <h2 class="section-title">What <em>students say</em></h2>
@@ -230,6 +248,7 @@
       <li>Interactive training tool included</li>
       <li>Record yourself &amp; compare</li>
       <li>Video episodes from Paris 🎬</li>
+      <li>☕ French Café Etiquette Guide (bonus)</li>
       <li>Lifetime access</li>
     </ul>
     <a href="https://caroquest78.gumroad.com/l/a-week-in-paris" class="btn-buy">🇫🇷 Start your week in Paris today</a>
