@@ -785,7 +785,7 @@
 
 <script>
 (function(){
-  var KEY='selp_v1';
+  var KEY='selp_v2';
   function seen(){try{return localStorage.getItem(KEY);}catch(e){return false;}}
   function mark(v){try{localStorage.setItem(KEY,v);}catch(e){}}
   function open(){ if(seen())return; document.getElementById('selp-overlay').classList.add('selp-show'); mark('shown'); }
@@ -799,7 +799,7 @@
       .catch(function(){ f.style.display='none'; document.querySelector('.selp-benefits').style.display='none'; document.querySelector('.selp-fine').style.display='none'; document.getElementById('selp-success').classList.add('selp-on'); mark('done'); });
     return false;
   };
-  setTimeout(open, 18000);
+  setTimeout(open, 8000);
   document.addEventListener('mouseout', function(e){ if(e.clientY<=0) open(); });
 })();
 </script>
