@@ -263,31 +263,31 @@
 
 <!-- ===== EMAIL CAPTURE POPUP (Netlify Forms) ===== -->
 <div id="selp-overlay" class="selp-overlay" role="dialog" aria-modal="true" aria-label="Free gift signup">
-  <div class="selp-card">
+  <div class="selp-card" id="selp-card">
     <button class="selp-close" aria-label="Close" onclick="selpClose()">&times;</button>
-    <div class="selp-eyebrow">&#127881; FREE GIFT &middot; 🇫🇷</div>
-    <h2 class="selp-title">Speak French Like<br>You Belong There</h2>
-    <div class="selp-rule"></div>
-    <p class="selp-sub">Get 5 authentic Paris phrases with native audio — and start sounding more natural from your very first day in France.</p>
-
-    <div class="selp-benefits">
-      <span class="selp-ben"><i>&#10003;</i> Native pronunciation</span>
-      <span class="selp-ben"><i>&#10003;</i> Real-life Paris phrases</span>
-      <span class="selp-ben"><i>&#10003;</i> PDF + audio included</span>
+    <div class="selp-view">
+      <div class="selp-eyebrow">&#127881; FREE GIFT &middot; 🇫🇷</div>
+      <h2 class="selp-title">Speak French Like<br>You Belong There</h2>
+      <div class="selp-rule"></div>
+      <p class="selp-sub">Get 5 authentic Paris phrases with native audio — and start sounding more natural from your very first day in France.</p>
+      <div class="selp-benefits">
+        <span class="selp-ben"><i>&#10003;</i> Native pronunciation</span>
+        <span class="selp-ben"><i>&#10003;</i> Real-life Paris phrases</span>
+        <span class="selp-ben"><i>&#10003;</i> PDF + audio included</span>
+      </div>
+      <form id="selp-form" name="paris-phrases-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return selpSubmit(event)">
+        <input type="hidden" name="form-name" value="paris-phrases-signup">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <input class="selp-input" type="email" name="email" placeholder="Your email address" required>
+        <button class="selp-btn" type="submit">Get My Free Guide &rarr;</button>
+      </form>
+      <p class="selp-fine">No spam, ever. Unsubscribe anytime. Created by a French teacher with 25+ years of experience.</p>
     </div>
-
-    <form id="selp-form" name="paris-phrases-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return selpSubmit(event)">
-      <input type="hidden" name="form-name" value="paris-phrases-signup">
-      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
-      <input class="selp-input" type="email" name="email" placeholder="Your email address" required>
-      <button class="selp-btn" type="submit">Get My Free Guide &rarr;</button>
-    </form>
-    <p class="selp-fine">No spam, ever. Unsubscribe anytime. Created by a French teacher with 25+ years of experience.</p>
-
-    <div id="selp-success" class="selp-success">
+    <div class="selp-success">
       <div class="selp-check">&#10003;</div>
-      <h3 class="selp-thanks">Merci&nbsp;! Your guide is ready.</h3>
-      <a class="selp-dl" href="/free-paris-phrases.pdf" download target="_blank" rel="noopener">&#11015; Download your 5 phrases</a>
+      <h3 class="selp-thanks">Merci&nbsp;! Your free guide is ready.</h3>
+      <p class="selp-ssub">Listen to the native audio and download your 5 phrases.</p>
+      <a class="selp-dl" href="/free-paris-phrases.html">&#127911; Access my 5 phrases + audio &rarr;</a>
     </div>
   </div>
 </div>
@@ -311,11 +311,13 @@
 .selp-btn{width:100%;background:#1B2A4A;color:#F7F4EF;border:none;padding:1rem;border-radius:8px;font-size:1rem;font-weight:700;font-family:inherit;letter-spacing:.02em;cursor:pointer;transition:transform .15s,opacity .2s;box-shadow:0 6px 18px rgba(27,42,74,0.22);}
 .selp-btn:hover{opacity:.92;transform:translateY(-1px);}
 .selp-fine{font-size:.68rem;color:#1B2A4A;opacity:.45;margin-top:.85rem;line-height:1.5;}
-.selp-success{display:none;}
-.selp-success.selp-on{display:block;}
-.selp-check{width:54px;height:54px;border-radius:50%;background:rgba(90,171,126,0.15);color:#5AAB7E;font-size:1.6rem;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;}
-.selp-thanks{font-family:'Playfair Display',Georgia,serif;font-size:1.3rem;font-weight:600;color:#1B2A4A;margin-bottom:1.1rem;}
-.selp-dl{display:inline-block;background:#B8975A;color:#1B2A4A;font-weight:700;font-size:.9rem;padding:.8rem 1.6rem;border-radius:8px;text-decoration:none;}
+.selp-success{display:none;padding:1rem 0 .5rem;}
+.selp-card.selp-done .selp-view{display:none;}
+.selp-card.selp-done .selp-success{display:block;}
+.selp-check{width:58px;height:58px;border-radius:50%;background:rgba(90,171,126,0.15);color:#5AAB7E;font-size:1.7rem;display:flex;align-items:center;justify-content:center;margin:0 auto 1.1rem;}
+.selp-thanks{font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;font-weight:600;color:#1B2A4A;margin-bottom:.5rem;}
+.selp-ssub{font-size:.86rem;color:#2C2C2C;opacity:.7;margin-bottom:1.3rem;line-height:1.5;}
+.selp-dl{display:inline-block;background:#B8975A;color:#1B2A4A;font-weight:700;font-size:.95rem;padding:.9rem 1.8rem;border-radius:8px;text-decoration:none;box-shadow:0 6px 18px rgba(184,151,90,.3);}
 @media(max-width:480px){.selp-title{font-size:1.6rem;}.selp-card{padding:2rem 1.35rem 1.5rem;}.selp-sub{font-size:.86rem;}.selp-benefits{max-width:230px;}}
 </style>
 
@@ -330,9 +332,8 @@
     e.preventDefault();
     var f=document.getElementById('selp-form');
     var data=new URLSearchParams(new FormData(f)).toString();
-    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data})
-      .then(function(){ f.style.display='none'; document.querySelector('.selp-benefits').style.display='none'; document.querySelector('.selp-fine').style.display='none'; document.getElementById('selp-success').classList.add('selp-on'); mark('done'); })
-      .catch(function(){ f.style.display='none'; document.querySelector('.selp-benefits').style.display='none'; document.querySelector('.selp-fine').style.display='none'; document.getElementById('selp-success').classList.add('selp-on'); mark('done'); });
+    function done(){ document.getElementById('selp-card').classList.add('selp-done'); mark('done'); }
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data}).then(done).catch(done);
     return false;
   };
   setTimeout(open, 8000);
