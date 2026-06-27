@@ -725,5 +725,77 @@
     if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
   }
 </script>
+<!-- ===== EMAIL CAPTURE POPUP (Netlify Forms) ===== -->
+<div id="selp-overlay" class="selp-overlay" role="dialog" aria-modal="true" aria-label="Free gift signup">
+  <div class="selp-card">
+    <button class="selp-close" aria-label="Close" onclick="selpClose()">&times;</button>
+    <div class="selp-eyebrow">&#127881; Free Gift &middot; 🇫🇷</div>
+    <h2 class="selp-title">5 Essential<br>Paris Phrases</h2>
+    <div class="selp-rule"></div>
+    <p class="selp-sub">Get the free guide and start speaking the French you'll actually use in Paris — from day one.</p>
+
+    <form id="selp-form" name="paris-phrases-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return selpSubmit(event)">
+      <input type="hidden" name="form-name" value="paris-phrases-signup">
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <input class="selp-input" type="email" name="email" placeholder="Your email address" required>
+      <button class="selp-btn" type="submit">Send me the free guide &rarr;</button>
+    </form>
+    <p class="selp-fine">No spam, ever. Unsubscribe anytime. ♥</p>
+
+    <div id="selp-success" class="selp-success">
+      <div class="selp-check">&#10003;</div>
+      <h3 class="selp-thanks">Merci&nbsp;! Your guide is ready.</h3>
+      <a class="selp-dl" href="/free-paris-phrases.pdf" download target="_blank" rel="noopener">&#11015; Download your 5 phrases</a>
+    </div>
+  </div>
+</div>
+
+<style>
+.selp-overlay{position:fixed;inset:0;z-index:9999;background:rgba(17,29,51,0.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:1.25rem;opacity:0;transition:opacity .3s ease;}
+.selp-overlay.selp-show{display:flex;opacity:1;}
+.selp-card{position:relative;background:#F7F4EF;border:1px solid rgba(184,151,90,0.3);border-radius:16px;max-width:420px;width:100%;padding:2.4rem 2rem 2rem;text-align:center;box-shadow:0 24px 60px rgba(17,29,51,0.35);transform:translateY(14px);transition:transform .3s ease;font-family:'DM Sans',system-ui,sans-serif;}
+.selp-overlay.selp-show .selp-card{transform:translateY(0);}
+.selp-close{position:absolute;top:.7rem;right:1rem;background:none;border:none;font-size:1.8rem;line-height:1;color:#1B2A4A;opacity:.4;cursor:pointer;transition:opacity .2s;}
+.selp-close:hover{opacity:.8;}
+.selp-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#B8975A;margin-bottom:.8rem;}
+.selp-title{font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:600;color:#1B2A4A;line-height:1.05;margin:0 0 .9rem;}
+.selp-rule{width:42px;height:2px;background:#B8975A;opacity:.5;margin:0 auto 1rem;}
+.selp-sub{font-size:.9rem;color:#2C2C2C;opacity:.75;line-height:1.6;margin-bottom:1.4rem;}
+.selp-input{width:100%;padding:.85rem 1rem;border:1px solid rgba(27,42,74,0.18);border-radius:8px;font-size:.95rem;font-family:inherit;background:#fff;margin-bottom:.65rem;outline:none;transition:border .2s;}
+.selp-input:focus{border-color:#B8975A;}
+.selp-btn{width:100%;background:#1B2A4A;color:#F7F4EF;border:none;padding:.9rem;border-radius:8px;font-size:.95rem;font-weight:700;font-family:inherit;letter-spacing:.02em;cursor:pointer;transition:opacity .2s;}
+.selp-btn:hover{opacity:.88;}
+.selp-fine{font-size:.68rem;color:#1B2A4A;opacity:.4;margin-top:.8rem;}
+.selp-success{display:none;}
+.selp-success.selp-on{display:block;}
+.selp-check{width:54px;height:54px;border-radius:50%;background:rgba(90,171,126,0.15);color:#5AAB7E;font-size:1.6rem;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;}
+.selp-thanks{font-family:'Playfair Display',Georgia,serif;font-size:1.3rem;font-weight:600;color:#1B2A4A;margin-bottom:1.1rem;}
+.selp-dl{display:inline-block;background:#B8975A;color:#1B2A4A;font-weight:700;font-size:.9rem;padding:.8rem 1.6rem;border-radius:8px;text-decoration:none;}
+@media(max-width:480px){.selp-title{font-size:1.7rem;}.selp-card{padding:2rem 1.4rem 1.6rem;}}
+</style>
+
+<script>
+(function(){
+  var KEY='selp_v1';
+  function seen(){try{return localStorage.getItem(KEY);}catch(e){return false;}}
+  function mark(v){try{localStorage.setItem(KEY,v);}catch(e){}}
+  function open(){ if(seen())return; document.getElementById('selp-overlay').classList.add('selp-show'); mark('shown'); }
+  window.selpClose=function(){ document.getElementById('selp-overlay').classList.remove('selp-show'); };
+  window.selpSubmit=function(e){
+    e.preventDefault();
+    var f=document.getElementById('selp-form');
+    var data=new URLSearchParams(new FormData(f)).toString();
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data})
+      .then(function(){ f.style.display='none'; document.querySelector('.selp-fine').style.display='none'; document.getElementById('selp-success').classList.add('selp-on'); mark('done'); })
+      .catch(function(){ f.style.display='none'; document.querySelector('.selp-fine').style.display='none'; document.getElementById('selp-success').classList.add('selp-on'); mark('done'); });
+    return false;
+  };
+  // Triggers: 18s delay OR exit-intent (desktop)
+  setTimeout(open, 18000);
+  document.addEventListener('mouseout', function(e){ if(e.clientY<=0) open(); });
+})();
+</script>
+<!-- ===== /EMAIL CAPTURE POPUP ===== -->
+
 </body>
 </html>
