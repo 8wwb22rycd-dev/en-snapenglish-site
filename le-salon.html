@@ -40,7 +40,7 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 
 /* HERO */
 .hero-photo{width:100%;height:clamp(280px,52vw,460px);overflow:hidden;position:relative;}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 55%;}
+.hero-photo img,.hero-photo video{width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block;}
 .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,58,48,0.12),rgba(246,241,230,0.0) 35%,rgba(246,241,230,0.85) 100%);}
 .hero-head{text-align:center;margin-top:-2.5rem;position:relative;z-index:2;padding:0 1.4rem;}
 .hero-kicker{font-family:var(--garamond);font-style:italic;font-size:1.05rem;color:var(--gold);margin-bottom:0.5rem;}
@@ -132,7 +132,12 @@ footer a{color:inherit;}
 </nav>
 
 <!-- HERO -->
-<div class="hero-photo"><img src="/images/salon-hero.jpg" alt="A warm Parisian tea table — orchid, candles, teapot"></div>
+<div class="hero-photo">
+  <video autoplay muted loop playsinline poster="/images/salon-video-poster.jpg">
+    <source src="/videos/salon-video.mp4" type="video/mp4">
+    <img src="/images/salon-hero.jpg" alt="A warm Parisian tea table — orchid, candles, teapot">
+  </video>
+</div>
 <div class="hero-head">
   <div class="hero-kicker">Bienvenue ✦</div>
   <h1 class="hero-title">Le salon de Caroline</h1>
