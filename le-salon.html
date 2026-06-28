@@ -90,6 +90,32 @@ footer{background:var(--fir);color:rgba(246,241,230,0.7);padding:2.2rem 1.5rem;t
 footer p{font-family:var(--garamond);font-style:italic;font-size:1rem;opacity:0.8;}
 footer .seo{font-family:var(--body);font-style:normal;font-size:0.6rem;opacity:0.25;margin-top:1rem;letter-spacing:0.01em;}
 footer a{color:inherit;}
+
+/* ===== L'UNIVERS — Bento / magazine ===== */
+.univers{padding:1rem 0 1.5rem;}
+.univers-head{text-align:center;margin-bottom:2rem;}
+.u-kicker{font-family:var(--garamond);font-style:italic;font-size:1.05rem;color:var(--gold);margin-bottom:.4rem;}
+.univers-head h2{font-family:var(--serif);font-size:clamp(1.7rem,5.5vw,2.2rem);font-weight:600;color:var(--fir);line-height:1.1;margin-bottom:.7rem;}
+.univers-head p{font-family:var(--garamond);font-size:1.2rem;color:var(--ink);max-width:480px;margin:0 auto;line-height:1.5;}
+.bento{display:flex;flex-direction:column;gap:1.2rem;}
+.bento-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+@media(max-width:640px){.bento-row{grid-template-columns:1fr;}}
+.tile{position:relative;display:block;border-radius:16px;overflow:hidden;text-decoration:none;box-shadow:0 6px 26px rgba(46,70,58,.10);
+  opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease,box-shadow .3s ease;}
+.tile.visible{opacity:1;transform:none;}
+.tile:hover{box-shadow:0 18px 42px rgba(46,70,58,.22);}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease;}
+.tile:hover img{transform:scale(1.07);}
+.tile-overlay{position:relative;z-index:2;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem 1.5rem 1.4rem;
+  background:linear-gradient(180deg,rgba(36,58,48,0) 28%,rgba(36,58,48,.32) 55%,rgba(36,58,48,.84) 100%);}
+.tile.feat .tile-overlay{min-height:370px;max-width:560px;}
+.tile-emoji{font-size:1.5rem;margin-bottom:.45rem;}
+.tile h3{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:#fff;line-height:1.15;margin-bottom:.4rem;}
+.tile.feat h3{font-size:clamp(1.9rem,5vw,2.3rem);}
+.tile p{font-family:var(--garamond);font-size:1.08rem;color:rgba(255,255,255,.93);line-height:1.4;margin-bottom:.95rem;}
+.tile.feat p{font-size:1.25rem;}
+.tile-cta{font-family:var(--body);font-size:.85rem;font-weight:600;color:#fff;letter-spacing:.02em;border-bottom:1.5px solid var(--gold);padding-bottom:2px;width:fit-content;transition:color .2s;}
+.tile:hover .tile-cta{color:var(--gold-soft);}
 </style>
 </head>
 <body>
@@ -127,6 +153,57 @@ footer a{color:inherit;}
 
   <div class="divider"><i></i><span>✦</span><i></i></div>
 
+  <!-- L'UNIVERS — MORE THAN FRENCH -->
+  <section class="univers">
+    <div class="univers-head">
+      <div class="u-kicker">Mon univers ✦</div>
+      <h2>The world of More Than French</h2>
+      <p>More than a place to practise — a whole collection of little French experiences to take with you, wherever you go.</p>
+    </div>
+    <div class="bento">
+      <a class="tile feat reveal" href="/stay-cool-in-france.html">
+        <img src="/images/shop-staycool.jpg" alt="A sunny Parisian café terrace in summer" loading="lazy">
+        <div class="tile-overlay">
+          <div class="tile-emoji">🇫🇷</div>
+          <h3>Stay Cool in France</h3>
+          <p>French expressions for surviving the summer like a local.</p>
+          <span class="tile-cta">Explore the guide →</span>
+        </div>
+      </a>
+      <div class="bento-row">
+        <a class="tile reveal" href="https://www.etsy.com/listing/4528931897/french-cafe-etiquette-guide-10-insider" target="_blank" rel="noopener noreferrer">
+          <img src="/images/scf-cafe.jpg" alt="A Parisian espresso and a golden croissant" loading="lazy">
+          <div class="tile-overlay">
+            <div class="tile-emoji">☕</div>
+            <h3>French Café Etiquette</h3>
+            <p>Order naturally, understand café culture and sound like a local.</p>
+            <span class="tile-cta">Discover café culture →</span>
+          </div>
+        </a>
+        <a class="tile reveal" href="https://www.etsy.com/listing/4529038919/french-phrasebook-for-transport-in" target="_blank" rel="noopener noreferrer">
+          <img src="/images/scf-transport.jpg" alt="An elegant Parisian café on a cobbled street" loading="lazy">
+          <div class="tile-overlay">
+            <div class="tile-emoji">🚆</div>
+            <h3>Getting Around in France</h3>
+            <p>Essential French for trains, metros, taxis and everyday travel.</p>
+            <span class="tile-cta">Travel with confidence →</span>
+          </div>
+        </a>
+        <a class="tile reveal" href="https://www.etsy.com/listing/4529032646/french-phrasebook-for-everyday-life-in" target="_blank" rel="noopener noreferrer">
+          <img src="/images/scf-baguette.jpg" alt="A warm French bakery window" loading="lazy">
+          <div class="tile-overlay">
+            <div class="tile-emoji">🥐</div>
+            <h3>Bonjour, Baguette &amp; Voisins</h3>
+            <p>The little phrases of everyday French — bakery, market and neighbourly chats.</p>
+            <span class="tile-cta">Step into everyday French →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><i></i><span>✦</span><i></i></div>
+
   <!-- EXPERIENCES -->
   <section class="experiences">
 
@@ -142,13 +219,13 @@ footer a{color:inherit;}
     </article>
 
     <article class="exp">
-      <div class="exp-photo"><img src="/images/salon-object.jpg" alt="A delicate gilded French porcelain piece"></div>
+      <div class="exp-photo"><img src="/images/salon-everyday.jpg" alt="A classic French breakfast at a Paris café"></div>
       <div class="exp-body">
         <div class="exp-fr-label">L'expérience complète</div>
         <h2 class="exp-title">Je parle français</h2>
         <p class="exp-desc">Trois cents expressions, pour toutes les saisons de la vie. Celles qu'on dit au marché, au téléphone, entre amis. Le français vivant — celui qu'on n'apprend pas dans les livres.</p>
         <p class="exp-desc-en">Three hundred expressions, for every season of life. The ones spoken at the market, on the phone, between friends. Living French — the kind you'll never find in a textbook.</p>
-        <a class="exp-btn" href="/bouche-a-oreille">J'écoute <span class="en">· I listen</span></a>
+        <a class="exp-btn" href="https://caroquest78.gumroad.com/l/bouche-a-oreille-complete" target="_blank" rel="noopener noreferrer">J'écoute <span class="en">· I listen</span></a>
       </div>
     </article>
 
@@ -175,5 +252,9 @@ footer a{color:inherit;}
   <p class="seo">SnapEnglish · French learning guides &amp; audio experiences · learn French · A Week with Me in Paris · 300 expressions · <a href="https://snapenglish.fr/mentions-legales">Legal</a></p>
 </footer>
 
+<script>
+var _obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');_obs.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){_obs.observe(el);});
+</script>
 </body>
 </html>
