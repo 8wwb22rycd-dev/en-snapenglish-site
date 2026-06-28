@@ -161,7 +161,7 @@ footer a{color:inherit;}
 
 <!-- HERO -->
 <div class="hero-photo">
-  <video autoplay muted loop playsinline poster="/images/salon-video-poster.jpg">
+  <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="/images/salon-video-poster.jpg" id="hero-video">
     <source src="/videos/salon-video.mp4" type="video/mp4">
     <img src="/images/salon-hero.jpg" alt="A warm Parisian tea table — orchid, candles, teapot">
   </video>
@@ -288,6 +288,13 @@ footer a{color:inherit;}
 <script>
 var _obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');_obs.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){_obs.observe(el);});
+</script>
+<script>
+(function(){var v=document.getElementById('hero-video');if(!v)return;v.muted=true;v.setAttribute('muted','');v.playsInline=true;
+function go(){var p=v.play();if(p&&p.catch){p.catch(function(){});}}
+go();
+document.addEventListener('touchstart',go,{once:true,passive:true});
+document.addEventListener('visibilitychange',function(){if(!document.hidden)go();});})();
 </script>
 </body>
 </html>
