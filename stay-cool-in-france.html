@@ -113,6 +113,32 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-fo
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
 .footer{text-align:center;font-size:.7rem;color:var(--muted);padding:2rem 1rem;border-top:1px solid var(--line);}
+
+/* ====================================================================
+   ====  CROSS-SELL — "Explore More French Moments"  =================
+   ==================================================================== */
+.explore{margin-top:2.5rem;}
+.explore-divider{width:60px;height:2px;background:var(--gold);opacity:.45;margin:2.6rem auto;}
+.explore-divider.soft{opacity:.3;}
+.explore-head{text-align:center;margin-bottom:1.6rem;}
+.explore-head h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:.7rem;line-height:1.2;}
+.explore-sub{font-size:.88rem;color:#5d5950;line-height:1.65;max-width:440px;margin:0 auto;}
+.products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+@media(max-width:480px){.products-grid{grid-template-columns:1fr;}}
+.pc{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 3px 16px rgba(120,110,90,.07);display:flex;flex-direction:column;transition:transform .22s ease,box-shadow .22s ease;}
+.pc:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(120,110,90,.17);}
+.pc-img{height:132px;overflow:hidden;}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease;}
+.pc:hover .pc-img img{transform:scale(1.06);}
+.pc-body{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;flex:1;}
+.pc-sub{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem;}
+.pc-title{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:.5rem;}
+.pc-desc{font-size:.8rem;color:#5d5950;line-height:1.5;flex:1;margin-bottom:1rem;}
+.pc-btn{display:inline-block;text-align:center;background:var(--sage-deep);color:#fff;font-size:.82rem;font-weight:600;padding:.7rem 1rem;border-radius:24px;text-decoration:none;transition:opacity .2s;}
+.pc-btn:hover{opacity:.88;}
+.coming-soon{text-align:center;}
+.coming-soon h4{font-family:var(--serif);font-size:1.18rem;font-weight:600;color:var(--sage-deep);margin-bottom:.6rem;}
+.coming-soon p{font-size:.86rem;color:#5d5950;line-height:1.6;max-width:400px;margin:0 auto;}
 </style>
 </head>
 <body>
@@ -185,6 +211,21 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-fo
       <button class="btn-primary" onclick="startExperience()">Restart the experience</button>
       <br><button class="btn-ghost" onclick="openGuide()">Explore the Summer Guide →</button>
     </div>
+
+      <!-- ===== CROSS-SELL: EXPLORE MORE FRENCH MOMENTS ===== -->
+      <div class="explore">
+        <div class="explore-divider"></div>
+        <div class="explore-head">
+          <h3>🇫🇷 Explore More French Moments</h3>
+          <p class="explore-sub">If you enjoyed learning how to stay cool in France during a summer heatwave, you'll love these immersive French experiences. From everyday French culture to travel-ready phrases, discover the real France &mdash; one beautiful moment at a time.</p>
+        </div>
+        <div class="products-grid" id="products-grid"></div>
+        <div class="explore-divider soft"></div>
+        <div class="coming-soon">
+          <h4>✨ More French experiences are coming soon...</h4>
+          <p>Build your own collection of authentic French experiences and discover France one beautiful moment at a time.</p>
+        </div>
+      </div>
   </section>
 
   <!-- ===== SUMMER GUIDE ===== -->
@@ -485,6 +526,33 @@ const GUIDE = [
 ];
 
 
+
+/* ====================================================================
+   ====  CROSS-SELL PRODUCTS — EDIT YOUR ETSY LINKS HERE  =============
+   Replace each "link" below with your exact Etsy listing URL.
+   You can also change the title / subtitle / desc / image / button.
+   Images live in /images/  (scf-cafe.jpg, scf-baguette.jpg, ...).
+   To add a card: copy one { ... } block.
+   ==================================================================== */
+const PRODUCTS = [
+  { title:"French Café Etiquette", subtitle:"Coffee like a local",
+    desc:"Discover the little French habits that make café life so special. Learn what to order, what to say and how to enjoy French cafés with confidence.",
+    button:"Discover", image:"/images/scf-cafe.jpg",
+    link:"https://www.etsy.com/shop/LiveFrench" },        /* 👉 replace with the exact Etsy listing URL */
+  { title:"Bonjour, Baguette & Voisins", subtitle:"Everyday French",
+    desc:"Master authentic French expressions you'll hear every day at the bakery, the market and in neighbourhood conversations.",
+    button:"Discover", image:"/images/scf-baguette.jpg",
+    link:"https://www.etsy.com/shop/LiveFrench" },        /* 👉 replace with the exact Etsy listing URL */
+  { title:"Getting Around in France", subtitle:"Travel French",
+    desc:"Travel confidently across France with practical French phrases for trains, metros, taxis and everyday transport.",
+    button:"Discover", image:"/images/scf-transport.jpg",
+    link:"https://www.etsy.com/shop/LiveFrench" },        /* 👉 replace with the exact Etsy listing URL */
+  { title:"A Week With Me in Paris", subtitle:"French Lifestyle Experience",
+    desc:"Experience Paris through authentic cafés, elegant walks, hidden gems and beautiful French moments with native audio and immersive situations.",
+    button:"Start Exploring", image:"/images/scf-paris.jpg",
+    link:"https://www.etsy.com/shop/LiveFrench" },        /* 👉 replace with the exact Etsy listing URL */
+];
+
 /* ====================================================================
    ====  AUDIO FOLDER  ================================================
    Put your audio files here: phrase-01.mp3 ... phrase-25.mp3, bonus.mp3
@@ -561,6 +629,21 @@ function renderGuide(){
   }).join('');
 }
 renderGuide();
+
+/* Render the cross-sell product cards from PRODUCTS */
+function renderProducts(){
+  document.getElementById('products-grid').innerHTML = PRODUCTS.map(function(p){
+    return '<article class="pc">'+
+      '<div class="pc-img"><img src="'+p.image+'" alt="'+p.title+'" loading="lazy"></div>'+
+      '<div class="pc-body">'+
+        '<div class="pc-sub">'+p.subtitle+'</div>'+
+        '<h4 class="pc-title">'+p.title+'</h4>'+
+        '<p class="pc-desc">'+p.desc+'</p>'+
+        '<a class="pc-btn" href="'+p.link+'" target="_blank" rel="noopener noreferrer">'+p.button+' &rarr;</a>'+
+      '</div></article>';
+  }).join('');
+}
+renderProducts();
 </script>
 </body>
 </html>
