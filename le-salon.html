@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le salon de Caroline — Let my voice take you to Paris | I Can Speak French</title>
+<meta name="description" content="Le salon de Caroline — an intimate corner of Paris. Pour a cup of tea, listen to my voice, and let yourself drift into French. Immersive audio French experiences.">
+<link rel="canonical" href="https://en.snapenglish.fr/le-salon">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta property="og:title" content="Le salon de Caroline">
+<meta property="og:description" content="Laissez ma voix vous emmener à Paris. Pour a cup of tea, listen, and let yourself drift into French.">
+<meta property="og:image" content="https://en.snapenglish.fr/images/salon-hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F6F1E6; --beige:#ECE2D0; --paper:#FCF9F2;
+  --fir:#2E463A; --fir-deep:#243a30; --fir-soft:#E3EAE1;
+  --gold:#B0894F; --gold-soft:#EBDFC6;
+  --ink:#3A352C; --muted:#8a8170; --line:#E2D7C2;
+  --serif:'Playfair Display',Georgia,serif;
+  --garamond:'Cormorant Garamond',Georgia,serif;
+  --body:'DM Sans',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);background:var(--cream);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:760px;margin:0 auto;padding:0 1.4rem;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:rgba(246,241,230,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(176,137,79,0.16);}
+.nav-brand{display:flex;align-items:center;gap:0.6rem;text-decoration:none;}
+.nav-brand-text{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--fir);display:flex;flex-direction:column;line-height:1.05;}
+.nav-brand-mark{font-family:var(--garamond);font-style:italic;font-weight:500;font-size:0.78rem;color:var(--gold);margin-top:0.05rem;}
+.nav-right{display:flex;align-items:center;gap:1.2rem;}
+.nav-link{font-size:0.82rem;font-weight:500;color:var(--fir);text-decoration:none;opacity:0.6;transition:opacity 0.2s;}
+.nav-link:hover{opacity:1;}
+.nav-link.active{opacity:1;color:var(--gold);font-weight:600;}
+
+/* HERO */
+.hero-photo{width:100%;height:clamp(280px,52vw,460px);overflow:hidden;position:relative;}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 55%;}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,58,48,0.12),rgba(246,241,230,0.0) 35%,rgba(246,241,230,0.85) 100%);}
+.hero-head{text-align:center;margin-top:-2.5rem;position:relative;z-index:2;padding:0 1.4rem;}
+.hero-kicker{font-family:var(--garamond);font-style:italic;font-size:1.05rem;color:var(--gold);margin-bottom:0.5rem;}
+.hero-title{font-family:var(--serif);font-size:clamp(2.4rem,8vw,3.4rem);font-weight:600;color:var(--fir);line-height:1.02;}
+.hero-sub{font-family:var(--garamond);font-style:italic;font-size:clamp(1.15rem,4vw,1.5rem);color:var(--fir);opacity:0.8;margin-top:0.7rem;}
+.hero-sub-en{font-size:0.82rem;color:var(--muted);margin-top:0.35rem;letter-spacing:0.02em;}
+.divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:2.2rem 0;color:var(--gold);}
+.divider i{height:1px;width:54px;background:var(--gold);opacity:0.45;display:block;}
+.divider span{font-size:14px;}
+
+/* WELCOME */
+.welcome{text-align:center;padding:1rem 0 0.5rem;}
+.welcome p{font-family:var(--garamond);font-size:1.35rem;font-weight:500;color:var(--ink);line-height:1.65;max-width:560px;margin:0 auto;}
+.welcome .en{font-family:var(--body);font-size:0.92rem;color:var(--muted);font-style:italic;line-height:1.7;margin-top:1.1rem;max-width:520px;}
+.signature{font-family:var(--garamond);font-style:italic;font-size:1.3rem;color:var(--gold);margin-top:1.3rem;}
+
+/* EXPERIENCES */
+.experiences{padding:3rem 0 1rem;}
+.exp{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 30px rgba(46,70,58,0.07);margin-bottom:2.2rem;}
+.exp-photo{height:230px;overflow:hidden;}
+.exp-photo img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;}
+.exp:hover .exp-photo img{transform:scale(1.04);}
+.exp-body{padding:2rem 2rem 2.2rem;}
+.exp-fr-label{font-family:var(--garamond);font-style:italic;font-size:1rem;color:var(--gold);margin-bottom:0.3rem;}
+.exp-title{font-family:var(--serif);font-size:1.7rem;font-weight:600;color:var(--fir);line-height:1.15;margin-bottom:1rem;}
+.exp-desc{font-family:var(--garamond);font-size:1.25rem;font-weight:500;color:var(--ink);line-height:1.6;margin-bottom:0.7rem;}
+.exp-desc-en{font-size:0.88rem;color:var(--muted);line-height:1.65;margin-bottom:1.6rem;}
+.exp-btn{display:inline-flex;align-items:center;gap:0.5rem;background:var(--fir);color:var(--cream);font-family:var(--body);font-size:0.92rem;font-weight:600;padding:0.85rem 1.8rem;border-radius:30px;text-decoration:none;letter-spacing:0.02em;transition:background 0.25s,transform 0.15s;}
+.exp-btn:hover{background:var(--fir-deep);transform:translateY(-2px);}
+.exp-btn .en{font-weight:400;opacity:0.7;font-size:0.8rem;}
+
+/* WINDOWS (small photo accents) */
+.windows{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1rem 0 3rem;}
+.window{border-radius:14px;overflow:hidden;height:170px;box-shadow:0 4px 20px rgba(46,70,58,0.08);}
+.window img{width:100%;height:100%;object-fit:cover;}
+@media(max-width:520px){.exp-body{padding:1.6rem;}.windows{gap:0.8rem;}.window{height:140px;}}
+
+/* SUPPORT */
+.support{text-align:center;background:var(--fir-soft);border-radius:16px;padding:2.4rem 1.6rem;margin:1rem 0 4rem;}
+.support-cup{font-size:1.7rem;margin-bottom:0.6rem;}
+.support h3{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--fir);margin-bottom:0.6rem;}
+.support p{font-family:var(--garamond);font-size:1.15rem;color:var(--ink);max-width:420px;margin:0 auto 1.3rem;line-height:1.55;}
+.support-btn{display:inline-block;background:transparent;border:1.5px solid var(--gold);color:var(--gold);font-size:0.86rem;font-weight:600;padding:0.7rem 1.8rem;border-radius:30px;text-decoration:none;transition:background 0.25s,color 0.25s;}
+.support-btn:hover{background:var(--gold);color:#fff;}
+
+footer{background:var(--fir);color:rgba(246,241,230,0.7);padding:2.2rem 1.5rem;text-align:center;}
+footer p{font-family:var(--garamond);font-style:italic;font-size:1rem;opacity:0.8;}
+footer .seo{font-family:var(--body);font-style:normal;font-size:0.6rem;opacity:0.25;margin-top:1rem;letter-spacing:0.01em;}
+footer a{color:inherit;}
+</style>
+</head>
+<body>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="/" class="nav-brand">
+    <svg width="24" height="24" viewBox="0 0 30 30" fill="none"><path d="M25 15C25 9.5 20.5 5 15 5C9.5 5 5 9.5 5 15C5 20.5 9.5 25 15 25C18.8 25 22.1 22.9 24 19.8" stroke="#2E463A" stroke-width="3.2" stroke-linecap="round" fill="none"/></svg>
+    <span class="nav-brand-text">SnapEnglish<span class="nav-brand-mark">Le salon</span></span>
+  </a>
+  <div class="nav-right">
+    <a href="/blog" class="nav-link">Blog</a>
+    <a href="/le-salon" class="nav-link active">Le salon</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-photo"><img src="/images/salon-hero.jpg" alt="A warm Parisian tea table — orchid, candles, teapot"></div>
+<div class="hero-head">
+  <div class="hero-kicker">Bienvenue ✦</div>
+  <h1 class="hero-title">Le salon de Caroline</h1>
+  <p class="hero-sub">Laissez ma voix vous emmener à Paris.</p>
+  <p class="hero-sub-en">Let my voice take you to Paris.</p>
+</div>
+
+<div class="wrap">
+
+  <div class="divider"><i></i><span>✦</span><i></i></div>
+
+  <!-- WELCOME -->
+  <section class="welcome">
+    <p>Bonjour, je suis Caroline. Ce salon est mon univers. J'y pose mes mots, mes émotions, mes petits secrets parisiens. Prenez une tasse de thé virtuelle, écoutez ma voix, et laissez-vous porter.</p>
+    <p class="en">Bonjour, I'm Caroline. This salon is my world — where I share my words, my feelings, my little Parisian secrets. Pour yourself a virtual cup of tea, listen to my voice, and let yourself drift.</p>
+    <div class="signature">— Caroline</div>
+  </section>
+
+  <div class="divider"><i></i><span>✦</span><i></i></div>
+
+  <!-- EXPERIENCES -->
+  <section class="experiences">
+
+    <article class="exp">
+      <div class="exp-photo"><img src="/images/scf-paris.jpg" alt="A Parisian café terrace"></div>
+      <div class="exp-body">
+        <div class="exp-fr-label">L'expérience d'une semaine</div>
+        <h2 class="exp-title">Une semaine avec moi à Paris</h2>
+        <p class="exp-desc">Sept jours, trente-cinq expressions, et ma voix pour vous guider. On flâne, on commande un café, on se perd dans les ruelles — et le français devient un peu le vôtre.</p>
+        <p class="exp-desc-en">Seven days, thirty-five expressions, and my voice to guide you. We wander, we order a coffee, we lose ourselves in the streets — and French slowly becomes yours.</p>
+        <a class="exp-btn" href="/a-week-with-me-in-paris">Je m'installe <span class="en">· I settle in</span></a>
+      </div>
+    </article>
+
+    <article class="exp">
+      <div class="exp-photo"><img src="/images/salon-object.jpg" alt="A delicate gilded French porcelain piece"></div>
+      <div class="exp-body">
+        <div class="exp-fr-label">L'expérience complète</div>
+        <h2 class="exp-title">Je parle français</h2>
+        <p class="exp-desc">Trois cents expressions, pour toutes les saisons de la vie. Celles qu'on dit au marché, au téléphone, entre amis. Le français vivant — celui qu'on n'apprend pas dans les livres.</p>
+        <p class="exp-desc-en">Three hundred expressions, for every season of life. The ones spoken at the market, on the phone, between friends. Living French — the kind you'll never find in a textbook.</p>
+        <a class="exp-btn" href="/bouche-a-oreille">J'écoute <span class="en">· I listen</span></a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- WINDOWS -->
+  <div class="windows">
+    <div class="window"><img src="/images/salon-flower.jpg" alt="A delicate French keepsake with flowers"></div>
+    <div class="window"><img src="/images/salon-hero.jpg" alt="A warm Parisian tea moment"></div>
+  </div>
+
+  <!-- SUPPORT -->
+  <section class="support">
+    <div class="support-cup">☕</div>
+    <h3>Un café pour Caroline ?</h3>
+    <p>If this little salon brought a touch of Paris into your day, you can offer me a coffee — simply, with no strings attached. Merci du fond du cœur. 🤍</p>
+    <a class="support-btn" href="#" id="coffee-link" target="_blank" rel="noopener noreferrer">Offrir un café · Buy me a coffee</a>
+  </section>
+
+</div>
+
+<footer>
+  <p>Avec amour, depuis Paris — Caroline Cousin 🇫🇷</p>
+  <p class="seo">SnapEnglish · French learning guides &amp; audio experiences · learn French · A Week with Me in Paris · 300 expressions · <a href="https://snapenglish.fr/mentions-legales">Legal</a></p>
+</footer>
+
+</body>
+</html>
