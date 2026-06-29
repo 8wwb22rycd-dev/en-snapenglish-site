@@ -76,8 +76,19 @@
   to = "/blog-french-small-talk-after-bonjour.html"
   status = 200
 
+[[redirects]]
+  from = "/french-phrases-summer-france"
+  to = "/french-phrases-summer-france.html"
+  status = 200
+
 [[headers]]
   for = "/audio/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/media/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
     X-Content-Type-Options = "nosniff"
