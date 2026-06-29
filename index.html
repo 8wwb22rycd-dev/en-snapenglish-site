@@ -124,7 +124,7 @@ gtag('config', 'G-P83L56LY28');
     body { background: var(--cream); color: var(--charcoal); font-family: var(--font-body); font-size: 1rem; line-height: 1.8; -webkit-font-smoothing: antialiased; }
 
     /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.1rem var(--gutter); display: flex; align-items: center; justify-content: space-between; background: rgba(247,244,239,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(180,160,120,0.12); }
+    nav { position: fixed; top: 44px; left: 0; right: 0; z-index: 100; padding: 1.1rem var(--gutter); display: flex; align-items: center; justify-content: space-between; background: rgba(247,244,239,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(180,160,120,0.12); }
     .nav-brand { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--navy); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; }
     .nav-lang { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--charcoal); opacity: 0.5; }
     .nav-lang a { color: var(--gold); text-decoration: none; opacity: 1; }
@@ -136,7 +136,7 @@ gtag('config', 'G-P83L56LY28');
     .nav-blog:hover { opacity: 1; }
 
     /* HERO */
-    .hero { padding: 8rem var(--gutter) 2.5rem; text-align: center; max-width: var(--max); margin: 0 auto; }
+    .hero { padding: calc(8rem + 44px) var(--gutter) 2.5rem; text-align: center; max-width: var(--max); margin: 0 auto; }
 
     .hero-signature {
       display: flex;
@@ -424,10 +424,27 @@ gtag('config', 'G-P83L56LY28');
       .hero-mark { text-align: center; }
       .lifestyle-manifesto { font-size: 1.05rem; }
     }
-  </style>
+  
+/* ===== PROMO BAR (Stay Cool in France) ===== */
+.promo-bar{position:fixed;top:0;left:0;right:0;height:44px;z-index:200;background:var(--navy);color:var(--cream);display:flex;align-items:center;justify-content:center;gap:.85rem;padding:0 1rem;font-family:var(--font-body);font-size:.84rem;text-decoration:none;white-space:nowrap;overflow:hidden;border-bottom:1px solid rgba(184,151,90,0.25);}
+.promo-new{background:var(--gold);color:var(--navy);font-weight:700;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;padding:.22rem .6rem;border-radius:20px;flex-shrink:0;}
+.promo-text{color:var(--cream);overflow:hidden;text-overflow:ellipsis;}
+.promo-text strong{font-weight:600;}
+.promo-tag{opacity:.68;}
+.promo-btn{color:var(--gold);font-weight:700;flex-shrink:0;transition:opacity .2s;}
+.promo-bar:hover .promo-btn{opacity:.8;}
+@media(max-width:680px){.promo-bar{font-size:.78rem;gap:.55rem;}.promo-tag{display:none;}}
+@media(max-width:380px){.promo-text strong{font-size:.75rem;}.promo-btn{font-size:.74rem;}}
+</style>
 </head>
 
 <body>
+<a class="promo-bar" href="https://www.etsy.com/listing/4529236673/stay-cool-in-france-learn-french-for?utm_source=ensnapenglish&utm_medium=home-banner&utm_campaign=stay-cool-summer" target="_blank" rel="noopener noreferrer" aria-label="New: Stay Cool in France — get the summer guide">
+  <span class="promo-new">✨ New</span>
+  <span class="promo-text"><strong>Stay Cool in France</strong><span class="promo-tag"> — 25 essential French phrases with native audio</span></span>
+  <span class="promo-btn">Get the summer guide →</span>
+</a>
+
 <nav role="navigation" aria-label="Main navigation">
   <a href="/" class="nav-brand">
     <svg width="26" height="26" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
