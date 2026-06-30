@@ -161,6 +161,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://en.snapenglish.fr/i-can-speak-french</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://en.snapenglish.fr/le-salon</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://en.snapenglish.fr/stay-cool-in-france</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://en.snapenglish.fr/cafe-etiquette</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
