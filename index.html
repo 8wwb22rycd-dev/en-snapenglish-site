@@ -285,12 +285,14 @@ gtag('config', 'G-P83L56LY28');
     /* ---------- Booking ---------- */
     .booking { text-align: center; }
     .booking-text { color: var(--ink-soft); max-width: 46ch; margin: 0 auto clamp(2rem, 5vw, 2.75rem); font-size: 1.08rem; }
-    .embed-box {
-      background: var(--cream-2); border: 1px dashed var(--line); border-radius: 8px;
-      min-height: 320px; display: flex; align-items: center; justify-content: center;
-      padding: 2rem; text-align: center;
+    .booking-card {
+      background: var(--cream-2); border: 1px solid var(--line); border-radius: 12px;
+      padding: clamp(2rem, 5vw, 3.25rem) clamp(1.5rem, 4vw, 2.5rem);
+      box-shadow: 0 24px 56px -34px rgba(31,58,46,0.45);
     }
-    .embed-hint { color: var(--ink-faint); font-size: 0.95rem; }
+    .booking-card .booking-text { margin-bottom: 1.6rem; }
+    .btn-lg { padding: 1.15rem 2.7rem; font-size: 1.08rem; }
+    .booking-sub { margin-top: 1rem; margin-bottom: 0; font-size: 0.8rem; color: var(--ink-faint); }
 
     /* ---------- FAQ ---------- */
     .faq-list { max-width: 760px; margin: 0 auto; }
@@ -513,10 +515,11 @@ gtag('config', 'G-P83L56LY28');
         <h2 class="section-title">Book your lessons</h2>
         <div class="divider-rule"></div>
       </div>
-      <p class="booking-text">Choose a time that works for you — you'll get your Zoom link automatically.</p>
-      <div class="embed-box">
-        <!-- TIDYCAL EMBED ICI -->
-        <p class="embed-hint">Your booking calendar will appear here.</p>
+      <div class="booking-card">
+        <p class="booking-text">Choose a time that works for you — you'll get your Zoom link automatically.</p>
+        <!-- TIDYCAL LINK ICI -->
+        <a class="btn btn-primary btn-lg" href="https://tidycal.com/carohomework" target="_blank" rel="noopener" id="book-cta" data-pack="general">Book your lesson →</a>
+        <p class="booking-sub">Secure booking via TidyCal · opens in a new tab</p>
       </div>
     </div>
   </section>
