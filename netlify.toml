@@ -81,6 +81,11 @@
   to = "/french-phrases-summer-france.html"
   status = 200
 
+[[redirects]]
+  from = "/blog/why-french-waiters-dont-bring-the-check"
+  to = "/blog-why-french-waiters-dont-bring-the-check.html"
+  status = 200
+
 [[headers]]
   for = "/audio/*"
   [headers.values]
