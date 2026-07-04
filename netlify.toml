@@ -1,6 +1,15 @@
 [build]
   publish = "."
 
+# Domain migration: en.snapenglish.fr is retired, carolinecousinfrench.com
+# replaces it entirely. Force every path to a permanent redirect on the
+# new domain — must stay first so it wins over static file serving.
+[[redirects]]
+  from = "/*"
+  to = "https://carolinecousinfrench.com/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
