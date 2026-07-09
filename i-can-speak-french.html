@@ -136,7 +136,7 @@ gtag('config', 'G-P83L56LY28');
     .nav-blog:hover { opacity: 1; }
 
     /* HERO */
-    .hero { padding: calc(8rem + 44px) var(--gutter) 2.5rem; text-align: center; max-width: var(--max); margin: 0 auto; }
+    .hero { padding: calc(8rem + 44px) var(--gutter) 2rem; max-width: 1180px; margin: 0 auto; }
 
     .hero-signature {
       display: flex;
@@ -181,37 +181,66 @@ gtag('config', 'G-P83L56LY28');
 
     .hero-split {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 3rem;
+      grid-template-columns: 1fr 1.05fr;
+      gap: clamp(2rem, 5vw, 3.5rem);
       align-items: center;
       text-align: left;
-      max-width: 880px;
+      max-width: 1180px;
       margin: 0 auto;
     }
-    .hero-image {
-      position: relative;
-    }
-    .hero-image img {
-      display: block;
-      width: 100%;
-      max-width: 420px;
-      border-radius: 8px;
-      box-shadow: 0 16px 50px rgba(27, 42, 74, 0.18);
-      object-fit: cover;
-      aspect-ratio: 4 / 5;
-      margin-left: auto;
-    }
-    .hero-image::before {
-      content: '';
-      position: absolute;
-      top: 24px;
-      left: 24px;
-      right: 24px;
-      bottom: 24px;
-      border: 1px solid rgba(184, 151, 90, 0.25);
-      border-radius: 6px;
-      pointer-events: none;
-    }
+
+    /* Hero micro-points */
+    .hero-points { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin: 1.5rem 0 2rem; }
+    .hero-points li { position: relative; padding-left: 1.6rem; font-size: 0.92rem; color: var(--charcoal); opacity: 0.85; line-height: 1.5; }
+    .hero-points li::before { content: "✓"; position: absolute; left: 0; top: 0.05rem; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: rgba(184,151,90,0.15); color: var(--gold); font-size: 0.62rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+    /* Hero CTAs */
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 0.5rem; }
+    .hero-btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.95rem 1.9rem; border-radius: 3px; font-family: var(--font-body); font-size: 0.92rem; font-weight: 600; text-decoration: none; letter-spacing: 0.01em; transition: opacity 0.2s, background 0.2s, color 0.2s; }
+    .hero-btn-primary { background: var(--navy); color: var(--cream); }
+    .hero-btn-primary:hover { opacity: 0.88; }
+    .hero-btn-secondary { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
+    .hero-btn-secondary:hover { background: var(--navy); color: var(--cream); }
+
+    /* Hero mockup (device frame, built in CSS — no external screenshot asset) */
+    .hero-mockup { position: relative; }
+    .mockup-frame { background: var(--white); border-radius: 12px; box-shadow: 0 30px 70px -20px rgba(27,42,74,0.30), 0 0 0 1px rgba(184,151,90,0.15); overflow: hidden; }
+    .mockup-bar { display: flex; align-items: center; gap: 0.4rem; padding: 0.7rem 0.9rem; background: var(--warm); }
+    .mockup-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(27,42,74,0.18); }
+    .mockup-screen { background: var(--navy); padding: 1.4rem 1.4rem 1.6rem; }
+    .mockup-topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.9rem; }
+    .mockup-brand { font-size: 0.72rem; color: rgba(247,244,239,0.6); font-weight: 500; }
+    .mockup-brand strong { color: var(--gold); font-weight: 600; }
+    .mockup-progress { font-size: 0.72rem; color: rgba(247,244,239,0.45); }
+    .mockup-card { background: rgba(247,244,239,0.04); border: 1px solid rgba(184,151,90,0.2); border-radius: 8px; padding: 1.25rem 1.4rem 1.5rem; }
+    .mockup-kicker { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+    .mockup-timer { font-size: 0.72rem; font-style: italic; color: rgba(247,244,239,0.45); margin-bottom: 0.9rem; }
+    .mockup-expr { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 1.7rem); color: var(--cream); margin-bottom: 1.1rem; }
+    .mockup-btn { display: block; width: 100%; text-align: center; padding: 0.7rem; border-radius: 4px; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.55rem; border: none; font-family: var(--font-body); cursor: default; }
+    .mockup-btn-gold { background: var(--gold); color: var(--navy); }
+    .mockup-btn-outline { background: rgba(247,244,239,0.06); color: var(--cream); border: 1px solid rgba(247,244,239,0.2); }
+    .mockup-btn-reveal { background: rgba(247,244,239,0.06); color: var(--gold); border: 1px solid rgba(184,151,90,0.35); margin-bottom: 0; }
+    .mockup-dots { display: flex; justify-content: center; gap: 0.35rem; margin: 0.9rem 0; }
+    .mockup-dots span { width: 5px; height: 5px; border-radius: 50%; background: rgba(247,244,239,0.25); display: block; }
+    .mockup-dots span.on { background: var(--gold); }
+    .mockup-foot { display: flex; align-items: center; justify-content: space-between; font-size: 0.72rem; color: rgba(247,244,239,0.5); }
+    .mockup-foot .next { color: var(--gold); font-weight: 600; }
+
+    /* HOW IT WORKS */
+    .how-it-works { max-width: 1080px; margin: 1rem auto 0; padding: 3rem var(--gutter) 3.5rem; scroll-margin-top: calc(6rem + 44px); }
+    .hiw-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 0.75rem; }
+    .hiw-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3.2vw, 2.1rem); font-weight: 400; color: var(--navy); text-align: center; margin-bottom: 2.25rem; letter-spacing: -0.01em; }
+    .hiw-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    .hiw-card { background: var(--white); border: 1px solid var(--sand); border-radius: 8px; padding: 1.75rem 1.5rem; text-align: center; }
+    .hiw-icon { width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--warm); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.2rem; }
+    .hiw-card h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+    .hiw-card p { font-size: 0.85rem; color: var(--charcoal); opacity: 0.75; line-height: 1.55; margin: 0; }
+    @media (max-width: 768px) { .hiw-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .hiw-grid { grid-template-columns: 1fr; } }
+
+    /* MEET CAROLINE (relocated credential strip) */
+    .meet-caroline { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) 3rem; text-align: center; }
+    .meet-caroline .hero-signature { margin-top: 0; }
 
     .lifestyle {
       max-width: 880px;
@@ -302,9 +331,11 @@ gtag('config', 'G-P83L56LY28');
     }
 
     @media (max-width: 768px) {
-      .hero-split { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
-      .hero-image img { margin: 0 auto; max-width: 320px; }
-      .hero-image::before { display: none; }
+      .hero-split { grid-template-columns: 1fr; gap: 1.75rem; text-align: center; }
+      .hero-mockup { order: -1; }
+      .mockup-frame { max-width: 380px; margin: 0 auto; }
+      .hero-points { text-align: left; max-width: 340px; margin-left: auto; margin-right: auto; }
+      .hero-ctas { justify-content: center; }
       .lifestyle-grid { grid-template-columns: 1fr; }
       .lifestyle-card { aspect-ratio: 3 / 4; }
     }
@@ -395,9 +426,6 @@ gtag('config', 'G-P83L56LY28');
     .nav-brand-text { display: flex; flex-direction: column; line-height: 1.05; }
     .nav-brand-mark { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 0.72rem; color: var(--gold); letter-spacing: 0.04em; opacity: 0.9; margin-top: 0.15rem; }
 
-    /* Hero stamp (above H1) */
-    .hero-mark { font-family: var(--font-display); font-style: italic; color: var(--gold); font-size: 0.95rem; letter-spacing: 0.04em; text-align: left; margin: 0 0 0.75rem; opacity: 0.9; }
-
     /* Waitlist mark */
     .waitlist-mark { font-family: var(--font-display); font-style: italic; color: var(--gold); font-size: 0.88rem; margin-top: 0.85rem; opacity: 0.9; letter-spacing: 0.03em; }
 
@@ -421,7 +449,6 @@ gtag('config', 'G-P83L56LY28');
     .bio-text strong { color: var(--navy); }
 
     @media (max-width: 768px) {
-      .hero-mark { text-align: center; }
       .lifestyle-manifesto { font-size: 1.05rem; }
     }
   
@@ -464,38 +491,92 @@ gtag('config', 'G-P83L56LY28');
   <div class="hero">
   <div class="hero-split">
     <div class="hero-content">
-      <p class="hero-mark">Bouche-à-oreille</p>
-      <p class="hero-eyebrow">I Can Speak French · Pre-launch</p>
-      <h1 class="hero-title">Speak <em>natural</em> French.<br>Not textbook French.</h1>
-      <p class="hero-sub">Monthly audio training for English speakers — 25 authentic French expressions per month, trained with the Echo Bounce method until they come out naturally.</p>
-      <div class="hero-signature">
-        <img src="/images/caroline-cousin.webp" alt="Caroline Cousin — native French teacher, founder of SnapEnglish" width="130" height="130" />
-        <p class="hero-signature-text"><strong>Caroline Cousin</strong> · native French teacher · <span class="accent">25 years experience</span></p>
+      <p class="hero-eyebrow">Practise on your own</p>
+      <h1 class="hero-title">Speak real French.<br>Not just study it.</h1>
+      <p class="hero-sub">Daily French speaking practice with Caroline's voice. Listen, repeat, record yourself, compare, and reveal the meaning only after you've tried.</p>
+      <ul class="hero-points">
+        <li>25 authentic French expressions every month</li>
+        <li>Native French audio by Caroline</li>
+        <li>Record yourself and listen back</li>
+        <li>English meaning revealed last</li>
+      </ul>
+      <div class="hero-ctas">
+        <a class="hero-btn hero-btn-primary" href="#pricing">Start practising</a>
+        <a class="hero-btn hero-btn-secondary" href="#how-it-works">See how it works</a>
       </div>
-      <div class="hero-intro-audios">
-        <p class="hero-intro-label">Hear Caroline</p>
-        <div class="hero-audio-row">
-          <div class="hero-audio-item">
-            <span class="audio-flag">🇫🇷 En français</span>
-            <audio controls preload="none" style="height:2rem;width:150px;"><source src="/audio/caroline-intro-fr.mp3" type="audio/mpeg" /></audio>
+    </div>
+    <div class="hero-mockup">
+      <div class="mockup-frame">
+        <div class="mockup-bar">
+          <span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span>
+        </div>
+        <div class="mockup-screen">
+          <div class="mockup-topline">
+            <span class="mockup-brand">Bouche-à-oreille · <strong>Month 01</strong></span>
+            <span class="mockup-progress">1/25</span>
           </div>
-          <div class="hero-audio-item">
-            <span class="audio-flag">🇬🇧 In English</span>
-            <audio controls preload="none" style="height:2rem;width:150px;"><source src="/audio/caroline-intro-en.mp3" type="audio/mpeg" /></audio>
+          <div class="mockup-card">
+            <p class="mockup-kicker">Bonjour ritual</p>
+            <p class="mockup-timer">First 5 seconds.</p>
+            <p class="mockup-expr">« Bonjour&nbsp;! »</p>
+            <button class="mockup-btn mockup-btn-gold" type="button" tabindex="-1" aria-hidden="true">🔊 Listen again</button>
+            <button class="mockup-btn mockup-btn-outline" type="button" tabindex="-1" aria-hidden="true">🎙 Record yourself</button>
+            <button class="mockup-btn mockup-btn-reveal" type="button" tabindex="-1" aria-hidden="true">🇬🇧 Hello!</button>
+            <div class="mockup-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span></div>
+            <div class="mockup-foot" aria-hidden="true"><span>← Previous</span><span class="next">Next →</span></div>
           </div>
         </div>
       </div>
     </div>
-    <div class="hero-image">
-      <picture>
-        <source srcset="/images/lifestyle/lifestyle-paris-balcon.webp" type="image/webp" />
-        <img src="/images/lifestyle/lifestyle-paris-balcon.jpg" alt="Balcon parisien, petit-déjeuner avec croissant, café, journal, vue sur les toits" loading="eager" width="1000" height="1333" />
-      </picture>
-    </div>
+  </div>
   </div>
 
-  <div class="hero-divider"></div>
-  </div>
+  <section class="how-it-works" id="how-it-works" aria-label="How it works">
+    <p class="hiw-eyebrow">How it works</p>
+    <h2 class="hiw-title">Four steps. Every expression, every month.</h2>
+    <div class="hiw-grid">
+      <div class="hiw-card">
+        <div class="hiw-icon" aria-hidden="true">🎧</div>
+        <h3>Listen</h3>
+        <p>Hear the French expression in Caroline's natural voice.</p>
+      </div>
+      <div class="hiw-card">
+        <div class="hiw-icon" aria-hidden="true">🗣️</div>
+        <h3>Repeat</h3>
+        <p>Say it out loud before reading the translation.</p>
+      </div>
+      <div class="hiw-card">
+        <div class="hiw-icon" aria-hidden="true">🎙️</div>
+        <h3>Record</h3>
+        <p>Record yourself and listen back.</p>
+      </div>
+      <div class="hiw-card">
+        <div class="hiw-icon" aria-hidden="true">🇬🇧</div>
+        <h3>Reveal</h3>
+        <p>Discover the English meaning only after your mouth has tried.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="meet-caroline" aria-label="Meet Caroline">
+    <div class="hero-signature">
+      <img src="/images/caroline-cousin.webp" alt="Caroline Cousin — native French teacher, founder of SnapEnglish" width="130" height="130" />
+      <p class="hero-signature-text"><strong>Caroline Cousin</strong> · native French teacher · <span class="accent">25 years experience</span></p>
+    </div>
+    <div class="hero-intro-audios">
+      <p class="hero-intro-label">Hear Caroline</p>
+      <div class="hero-audio-row">
+        <div class="hero-audio-item">
+          <span class="audio-flag">🇫🇷 En français</span>
+          <audio controls preload="none" style="height:2rem;width:150px;"><source src="/audio/caroline-intro-fr.mp3" type="audio/mpeg" /></audio>
+        </div>
+        <div class="hero-audio-item">
+          <span class="audio-flag">🇬🇧 In English</span>
+          <audio controls preload="none" style="height:2rem;width:150px;"><source src="/audio/caroline-intro-en.mp3" type="audio/mpeg" /></audio>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="lifestyle" aria-label="Tous les visages du français">
     <p class="lifestyle-eyebrow">L'art de vivre</p>
@@ -555,7 +636,7 @@ gtag('config', 'G-P83L56LY28');
     </div>
   </section>
 
-  <div class="section" style="background:var(--white);border-radius:6px;padding:2.5rem;margin:3rem auto 2rem;max-width:600px;text-align:center;">
+  <div class="section" id="pricing" style="background:var(--white);border-radius:6px;padding:2.5rem;margin:3rem auto 2rem;max-width:600px;text-align:center;scroll-margin-top:calc(6rem + 44px);">
     <p class="section-label">Month 01 is ready</p>
     <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:400;color:var(--navy);line-height:1.25;margin:0 0 1rem;">Bonjour, baguette, voisins</h2>
     <p style="font-size:0.9rem;color:var(--charcoal);opacity:0.7;margin-bottom:1.5rem;line-height:1.7;">25 expressions recorded by Caroline — listen to a free preview, discover the Echo Bounce method, and get Month 01 in full.</p>
