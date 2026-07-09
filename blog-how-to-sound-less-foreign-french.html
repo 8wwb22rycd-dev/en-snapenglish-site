@@ -101,23 +101,45 @@ gtag('config', 'G-P83L56LY28');
       --max: 800px; --gutter: clamp(1.5rem, 5vw, 4rem);
     }
     html, body { overflow-x: hidden; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
     body { background: var(--cream); color: var(--charcoal); font-family: var(--font-body); font-size: 1rem; line-height: 1.8; -webkit-font-smoothing: antialiased; }
 
-    nav#nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.1rem var(--gutter); display: flex; align-items: center; justify-content: space-between; background: rgba(247,244,239,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(180,160,120,0.12); transition: box-shadow 0.3s; }
-    nav.scrolled { box-shadow: 0 2px 24px rgba(27,42,74,0.08); }
-    .nav-brand { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--navy); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; }
-    .nav-brand-text { display: flex; flex-direction: column; line-height: 1.05; }
-    .nav-brand-mark { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 0.72rem; color: var(--gold); letter-spacing: 0.04em; opacity: 0.9; margin-top: 0.15rem; }
-    .nav-lang { font-size: 0.75rem; color: var(--charcoal); opacity: 0.5; }
-    .nav-lang a { color: var(--gold); text-decoration: none; opacity: 1; }
-    .nav-cta { background: var(--navy); color: var(--cream); padding: 0.5rem 1.1rem; border-radius: 2px; font-size: 0.8rem; font-weight: 500; text-decoration: none; transition: opacity 0.2s; }
-    .nav-cta:hover { opacity: 0.85; }
-    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
-    .nav-blog { font-size: 0.82rem; font-weight: 500; color: var(--navy); text-decoration: none; opacity: 0.65; transition: opacity 0.2s; }
-    .nav-blog:hover { opacity: 1; }
+    /* ===== Global Navigation ===== */
+    .gnav {
+      --gnav-ink: #2B2620; --gnav-gold: #A6792F;
+      --gnav-cream: rgba(250, 247, 240, 0.92); --gnav-line: rgba(43, 38, 32, 0.10);
+      position: sticky; top: 0; z-index: 200;
+      background: var(--gnav-cream); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gnav-line);
+    }
+    .gnav-inner { max-width: 1180px; margin: 0 auto; padding: 1.05rem clamp(1.25rem, 5vw, 3rem); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .gnav-brand { font-family: 'Playfair Display', Georgia, serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.01em; color: var(--gnav-ink); text-decoration: none; white-space: nowrap; }
+    .gnav-brand-fr { color: var(--gnav-gold); font-weight: 500; font-style: italic; margin-left: 0.3em; }
+    .gnav-menu { display: flex; align-items: center; gap: clamp(1.5rem, 3vw, 2.75rem); }
+    .gnav-link { position: relative; font-family: var(--font-body); font-size: 0.86rem; font-weight: 500; letter-spacing: 0.01em; color: var(--gnav-ink); text-decoration: none; opacity: 0.68; padding: 0.3rem 0.05rem; transition: opacity 0.25s ease, color 0.25s ease; }
+    .gnav-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: -0.2rem; height: 1px; background: var(--gnav-gold); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+    .gnav-link:hover { opacity: 1; }
+    .gnav-link:hover::after { transform: scaleX(1); }
+    .gnav-link.active { opacity: 1; color: var(--gnav-gold); font-weight: 600; }
+    .gnav-link.active::after { transform: scaleX(1); }
+    .gnav-toggle { display: none; position: relative; width: 26px; height: 20px; background: none; border: none; cursor: pointer; padding: 0; }
+    .gnav-toggle-bar { position: absolute; left: 0; right: 0; height: 1.5px; background: var(--gnav-ink); transition: transform 0.3s ease, opacity 0.2s ease, top 0.3s ease; }
+    .gnav-toggle-bar:nth-child(1) { top: 0; }
+    .gnav-toggle-bar:nth-child(2) { top: 9px; }
+    .gnav-toggle-bar:nth-child(3) { top: 18px; }
+    .gnav-toggle[aria-expanded="true"] .gnav-toggle-bar:nth-child(1) { top: 9px; transform: rotate(45deg); }
+    .gnav-toggle[aria-expanded="true"] .gnav-toggle-bar:nth-child(2) { opacity: 0; }
+    .gnav-toggle[aria-expanded="true"] .gnav-toggle-bar:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+    @media (max-width: 760px) {
+      .gnav-toggle { display: block; }
+      .gnav-menu { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: 0; background: var(--gnav-cream); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gnav-line); max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.35s ease, opacity 0.25s ease; }
+      .gnav-menu.is-open { max-height: 20rem; opacity: 1; }
+      .gnav-link { width: 100%; padding: 0.9rem clamp(1.25rem, 5vw, 3rem); opacity: 0.8; }
+      .gnav-link::after { display: none; }
+      .gnav-link.active { background: rgba(166,121,47,0.08); }
+    }
 
-    .article-wrap { max-width: var(--max); margin: 0 auto; padding: 7rem var(--gutter) 5rem; }
+    .article-wrap { max-width: var(--max); margin: 0 auto; padding: 3rem var(--gutter) 5rem; }
     .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2.5rem; }
     .breadcrumb a { color: var(--gold); text-decoration: none; opacity: 0.75; }
     .breadcrumb a:hover { opacity: 1; }
@@ -193,27 +215,44 @@ gtag('config', 'G-P83L56LY28');
       aspect-ratio: 4 / 5;
       object-fit: cover;
     }
-        @media (max-width: 600px) { .article-wrap { padding-top: 5.5rem; } }
-  
-    @media (max-width: 768px) {
-      .nav-lang { display: none; }
-      .nav-right { gap: 0.7rem; }
-      .nav-cta { padding: 0.4rem 0.7rem; font-size: 0.72rem; }
-    }
   </style>
 </head>
 <body>
-<nav id="nav" role="navigation" aria-label="Main navigation">
-  <a href="/" class="nav-brand">
-    <svg width="24" height="24" viewBox="0 0 30 30" fill="none"><path d="M25 15C25 9.5 20.5 5 15 5C9.5 5 5 9.5 5 15C5 20.5 9.5 25 15 25C18.8 25 22.1 22.9 24 19.8" stroke="#1B2A4A" stroke-width="3.2" stroke-linecap="round" fill="none"/><path d="M25 15C25 9.5 20.5 5 15 5C9.5 5 5 9.5 5 15C5 20.5 9.5 25 15 25C18.8 25 22.1 22.9 24 19.8" stroke="#B8975A" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.7"/></svg>
-    <span class="nav-brand-text">I Can Speak French<span class="nav-brand-mark">Bouche-à-Oreille · Live French.</span></span>
-  </a>
-  <div class="nav-right">
-    <span class="nav-lang">🇫🇷 French speaker? <a href="https://snapenglish.fr">snapenglish.fr →</a></span>
-    <a href="/blog" class="nav-blog">Blog</a>
-    <a href="https://caroquest78.gumroad.com/l/bouche-a-oreille-mois-01" class="nav-cta">Subscribe</a>
+<header class="gnav" id="gnav">
+  <div class="gnav-inner">
+    <a href="/" class="gnav-brand">Caroline Cousin<span class="gnav-brand-fr">French</span></a>
+    <button type="button" class="gnav-toggle" id="gnavToggle" aria-expanded="false" aria-controls="gnavMenu" aria-label="Open menu">
+      <span class="gnav-toggle-bar"></span>
+      <span class="gnav-toggle-bar"></span>
+      <span class="gnav-toggle-bar"></span>
+    </button>
+    <nav class="gnav-menu" id="gnavMenu" aria-label="Main navigation">
+      <a href="/" class="gnav-link">Learn with Me</a>
+      <a href="/bouche-a-oreille" class="gnav-link">Practice on Your Own</a>
+      <a href="/le-salon" class="gnav-link">Shop</a>
+      <a href="/blog" class="gnav-link active" aria-current="page">Blog</a>
+    </nav>
   </div>
-</nav>
+</header>
+<script>
+(function () {
+  var toggle = document.getElementById('gnavToggle');
+  var menu = document.getElementById('gnavMenu');
+  if (!toggle || !menu) return;
+  function closeMenu() { toggle.setAttribute('aria-expanded', 'false'); menu.classList.remove('is-open'); }
+  function openMenu() { toggle.setAttribute('aria-expanded', 'true'); menu.classList.add('is-open'); }
+  toggle.addEventListener('click', function () {
+    (toggle.getAttribute('aria-expanded') === 'true') ? closeMenu() : openMenu();
+  });
+  menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { closeMenu(); toggle.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (toggle.getAttribute('aria-expanded') === 'true' && !menu.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+  });
+})();
+</script>
 
 <main>
   <article class="article-wrap">
@@ -365,8 +404,6 @@ gtag('config', 'G-P83L56LY28');
 </footer>
 
 <script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
     const isOpen = item.classList.contains('open');

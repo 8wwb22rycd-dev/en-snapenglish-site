@@ -13,6 +13,9 @@ gtag('config', 'G-P83L56LY28');
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>I Can Speak French — Bouche-à-oreille</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #1B2A4A;
@@ -23,6 +26,42 @@ gtag('config', 'G-P83L56LY28');
     --white: #FDFCFA;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-padding-top: 4.5rem; }
+
+  /* ===== Global Navigation ===== */
+  .gnav {
+    --gnav-ink: #2B2620; --gnav-gold: #A6792F;
+    --gnav-cream: rgba(250, 247, 240, 0.92); --gnav-line: rgba(43, 38, 32, 0.10);
+    position: sticky; top: 0; z-index: 200;
+    background: var(--gnav-cream); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--gnav-line);
+  }
+  .gnav-inner { max-width: 1180px; margin: 0 auto; padding: 1.05rem clamp(1.25rem, 5vw, 3rem); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .gnav-brand { font-family: 'Playfair Display', Georgia, serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.01em; color: var(--gnav-ink); text-decoration: none; white-space: nowrap; }
+  .gnav-brand-fr { color: var(--gnav-gold); font-weight: 500; font-style: italic; margin-left: 0.3em; }
+  .gnav-menu { display: flex; align-items: center; gap: clamp(1.5rem, 3vw, 2.75rem); }
+  .gnav-link { position: relative; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.86rem; font-weight: 500; letter-spacing: 0.01em; color: var(--gnav-ink); text-decoration: none; opacity: 0.68; padding: 0.3rem 0.05rem; transition: opacity 0.25s ease, color 0.25s ease; }
+  .gnav-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: -0.2rem; height: 1px; background: var(--gnav-gold); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+  .gnav-link:hover { opacity: 1; }
+  .gnav-link:hover::after { transform: scaleX(1); }
+  .gnav-link.active { opacity: 1; color: var(--gnav-gold); font-weight: 600; }
+  .gnav-link.active::after { transform: scaleX(1); }
+  .gnav-toggle { display: none; position: relative; width: 26px; height: 20px; background: none; border: none; cursor: pointer; padding: 0; }
+  .gnav-toggle-bar { position: absolute; left: 0; right: 0; height: 1.5px; background: var(--gnav-ink); transition: transform 0.3s ease, opacity 0.2s ease, top 0.3s ease; }
+  .gnav-toggle-bar:nth-child(1) { top: 0; }
+  .gnav-toggle-bar:nth-child(2) { top: 9px; }
+  .gnav-toggle-bar:nth-child(3) { top: 18px; }
+  .gnav-toggle[aria-expanded="true"] .gnav-toggle-bar:nth-child(1) { top: 9px; transform: rotate(45deg); }
+  .gnav-toggle[aria-expanded="true"] .gnav-toggle-bar:nth-child(2) { opacity: 0; }
+  .gnav-toggle[aria-expanded="true"] .gnav-toggle-bar:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+  @media (max-width: 760px) {
+    .gnav-toggle { display: block; }
+    .gnav-menu { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: 0; background: var(--gnav-cream); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gnav-line); max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.35s ease, opacity 0.25s ease; }
+    .gnav-menu.is-open { max-height: 20rem; opacity: 1; }
+    .gnav-link { width: 100%; padding: 0.9rem clamp(1.25rem, 5vw, 3rem); opacity: 0.8; }
+    .gnav-link::after { display: none; }
+    .gnav-link.active { background: rgba(166,121,47,0.08); }
+  }
   body {
     font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
     background: var(--cream);
@@ -32,20 +71,20 @@ gtag('config', 'G-P83L56LY28');
   .container { max-width: 800px; margin: 0 auto; padding: 1.25rem; }
 
   /* Header */
-  header {
+  .page-header {
     background: var(--navy);
     color: var(--cream);
     padding: 2.5rem 1.25rem;
     text-align: center;
   }
-  header h1 {
+  .page-header h1 {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(2rem, 5vw, 3rem);
     color: var(--gold);
     margin-bottom: 0.5rem;
   }
-  header p { opacity: 0.8; font-size: 1rem; }
-  header .sub {
+  .page-header p { opacity: 0.8; font-size: 1rem; }
+  .page-header .sub {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 0.9rem;
@@ -63,7 +102,7 @@ gtag('config', 'G-P83L56LY28');
     background: var(--white);
     border-bottom: 2px solid var(--sand);
     position: sticky;
-    top: 0;
+    top: 4.5rem;
     z-index: 10;
   }
   .month-btn {
@@ -198,11 +237,47 @@ gtag('config', 'G-P83L56LY28');
 </head>
 <body>
 
-<header>
+<header class="gnav" id="gnav">
+  <div class="gnav-inner">
+    <a href="/" class="gnav-brand">Caroline Cousin<span class="gnav-brand-fr">French</span></a>
+    <button type="button" class="gnav-toggle" id="gnavToggle" aria-expanded="false" aria-controls="gnavMenu" aria-label="Open menu">
+      <span class="gnav-toggle-bar"></span>
+      <span class="gnav-toggle-bar"></span>
+      <span class="gnav-toggle-bar"></span>
+    </button>
+    <nav class="gnav-menu" id="gnavMenu" aria-label="Main navigation">
+      <a href="/" class="gnav-link">Learn with Me</a>
+      <a href="/bouche-a-oreille" class="gnav-link active" aria-current="page">Practice on Your Own</a>
+      <a href="/le-salon" class="gnav-link">Shop</a>
+      <a href="/blog" class="gnav-link">Blog</a>
+    </nav>
+  </div>
+</header>
+<script>
+(function () {
+  var toggle = document.getElementById('gnavToggle');
+  var menu = document.getElementById('gnavMenu');
+  if (!toggle || !menu) return;
+  function closeMenu() { toggle.setAttribute('aria-expanded', 'false'); menu.classList.remove('is-open'); }
+  function openMenu() { toggle.setAttribute('aria-expanded', 'true'); menu.classList.add('is-open'); }
+  toggle.addEventListener('click', function () {
+    (toggle.getAttribute('aria-expanded') === 'true') ? closeMenu() : openMenu();
+  });
+  menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { closeMenu(); toggle.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (toggle.getAttribute('aria-expanded') === 'true' && !menu.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+  });
+})();
+</script>
+
+<div class="page-header">
   <h1>I Can Speak French</h1>
   <p>Bouche-à-oreille — monthly audio training</p>
   <div class="sub">Echo Bounce method · Listen · Record · Compare</div>
-</header>
+</div>
 
 <nav class="month-nav" id="monthNav"></nav>
 
